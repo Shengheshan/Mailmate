@@ -1,0 +1,5542 @@
+[
+  {
+    "test_id": 1,
+    "subject": "COMP9321 Assignment 2 Submission",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "tomorrow at 6 PM",
+      "normalized": "2026-10-13T18:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "COMP9321 assignment through Moodle"
+    },
+    "slices": [
+      "course",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 2,
+    "subject": "COMP9417 Assignment 3 Submission",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "22 October",
+      "normalized": "2026-10-22",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "COMP9417 assignment through Moodle"
+    },
+    "slices": [
+      "course",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 3,
+    "subject": "COMP9444 Assignment 4 Submission",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "tomorrow at 6 PM",
+      "normalized": "2026-10-20T18:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "COMP9444 assignment through Moodle"
+    },
+    "slices": [
+      "course",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 4,
+    "subject": "COMP9312 Assignment 5 Submission",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "31 October",
+      "normalized": "2026-10-31",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "COMP9312 assignment through Moodle"
+    },
+    "slices": [
+      "course",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 5,
+    "subject": "COMP9024 Assignment 6 Submission",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "tomorrow at 6 PM",
+      "normalized": "2026-10-13T18:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "COMP9024 assignment through Moodle"
+    },
+    "slices": [
+      "course",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 6,
+    "subject": "COMP9331 Assignment 7 Submission",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "26 October",
+      "normalized": "2026-10-26",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "COMP9331 assignment through Moodle"
+    },
+    "slices": [
+      "course",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 7,
+    "subject": "COMP9517 Assignment 8 Submission",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "tomorrow at 6 PM",
+      "normalized": "2026-10-20T18:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "COMP9517 assignment through Moodle"
+    },
+    "slices": [
+      "course",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 8,
+    "subject": "COMP9414 Assignment 9 Submission",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "4 November",
+      "normalized": "2026-11-04",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "COMP9414 assignment through Moodle"
+    },
+    "slices": [
+      "course",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 9,
+    "subject": "COMP9311 Assignment 10 Submission",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "tomorrow at 6 PM",
+      "normalized": "2026-10-13T18:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "COMP9311 assignment through Moodle"
+    },
+    "slices": [
+      "course",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 10,
+    "subject": "COMP9044 Assignment 11 Submission",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "30 October",
+      "normalized": "2026-10-30",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "COMP9044 assignment through Moodle"
+    },
+    "slices": [
+      "course",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 11,
+    "subject": "COMP9321 Tutorial Preparation 1",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "tomorrow at 10 AM",
+      "normalized": "2026-10-13T10:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": {
+      "event": "COMP9321 tutorial",
+      "raw_text": "tomorrow at 10 AM",
+      "normalized": "2026-10-13T10:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "complete",
+      "target": "tutorial preparation exercise set 1"
+    },
+    "slices": [
+      "course",
+      "deadline",
+      "deadline_and_event",
+      "expected_event",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 12,
+    "subject": "COMP9417 Tutorial Preparation 2",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "tomorrow at 11 AM",
+      "normalized": "2026-10-14T11:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": {
+      "event": "COMP9417 tutorial",
+      "raw_text": "tomorrow at 11 AM",
+      "normalized": "2026-10-14T11:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "complete",
+      "target": "tutorial preparation exercise set 2"
+    },
+    "slices": [
+      "course",
+      "deadline",
+      "deadline_and_event",
+      "expected_event",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 13,
+    "subject": "COMP9444 Tutorial Preparation 3",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "tomorrow at 12 PM",
+      "normalized": "2026-10-20T12:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": {
+      "event": "COMP9444 tutorial",
+      "raw_text": "tomorrow at 12 PM",
+      "normalized": "2026-10-20T12:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "complete",
+      "target": "tutorial preparation exercise set 3"
+    },
+    "slices": [
+      "course",
+      "deadline",
+      "deadline_and_event",
+      "expected_event",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 14,
+    "subject": "COMP9312 Tutorial Preparation 4",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "tomorrow at 1 PM",
+      "normalized": "2026-10-21T13:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": {
+      "event": "COMP9312 tutorial",
+      "raw_text": "tomorrow at 1 PM",
+      "normalized": "2026-10-21T13:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "complete",
+      "target": "tutorial preparation exercise set 4"
+    },
+    "slices": [
+      "course",
+      "deadline",
+      "deadline_and_event",
+      "expected_event",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 15,
+    "subject": "COMP9024 Tutorial Preparation 5",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "tomorrow at 2 PM",
+      "normalized": "2026-10-13T14:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": {
+      "event": "COMP9024 tutorial",
+      "raw_text": "tomorrow at 2 PM",
+      "normalized": "2026-10-13T14:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "complete",
+      "target": "tutorial preparation exercise set 5"
+    },
+    "slices": [
+      "course",
+      "deadline",
+      "deadline_and_event",
+      "expected_event",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 16,
+    "subject": "COMP9331 Tutorial Preparation 6",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "tomorrow at 10 AM",
+      "normalized": "2026-10-14T10:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": {
+      "event": "COMP9331 tutorial",
+      "raw_text": "tomorrow at 10 AM",
+      "normalized": "2026-10-14T10:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "complete",
+      "target": "tutorial preparation exercise set 6"
+    },
+    "slices": [
+      "course",
+      "deadline",
+      "deadline_and_event",
+      "expected_event",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 17,
+    "subject": "COMP9517 Tutorial Preparation 7",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "tomorrow at 11 AM",
+      "normalized": "2026-10-20T11:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": {
+      "event": "COMP9517 tutorial",
+      "raw_text": "tomorrow at 11 AM",
+      "normalized": "2026-10-20T11:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "complete",
+      "target": "tutorial preparation exercise set 7"
+    },
+    "slices": [
+      "course",
+      "deadline",
+      "deadline_and_event",
+      "expected_event",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 18,
+    "subject": "COMP9414 Tutorial Preparation 8",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "tomorrow at 12 PM",
+      "normalized": "2026-10-21T12:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": {
+      "event": "COMP9414 tutorial",
+      "raw_text": "tomorrow at 12 PM",
+      "normalized": "2026-10-21T12:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "complete",
+      "target": "tutorial preparation exercise set 8"
+    },
+    "slices": [
+      "course",
+      "deadline",
+      "deadline_and_event",
+      "expected_event",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 19,
+    "subject": "COMP9311 Tutorial Preparation 9",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "tomorrow at 1 PM",
+      "normalized": "2026-10-13T13:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": {
+      "event": "COMP9311 tutorial",
+      "raw_text": "tomorrow at 1 PM",
+      "normalized": "2026-10-13T13:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "complete",
+      "target": "tutorial preparation exercise set 9"
+    },
+    "slices": [
+      "course",
+      "deadline",
+      "deadline_and_event",
+      "expected_event",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 20,
+    "subject": "COMP9044 Tutorial Preparation 10",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "tomorrow at 2 PM",
+      "normalized": "2026-10-14T14:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": {
+      "event": "COMP9044 tutorial",
+      "raw_text": "tomorrow at 2 PM",
+      "normalized": "2026-10-14T14:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "complete",
+      "target": "tutorial preparation exercise set 10"
+    },
+    "slices": [
+      "course",
+      "deadline",
+      "deadline_and_event",
+      "expected_event",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 21,
+    "subject": "Optional Lecture: Multimodal Retrieval",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course",
+        "research"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "guest lecture on multimodal retrieval",
+      "raw_text": "next Tuesday",
+      "normalized": "2026-10-13",
+      "precision": "date"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "ambiguous_category",
+      "expected_event",
+      "no_action",
+      "optional_event"
+    ]
+  },
+  {
+    "test_id": 22,
+    "subject": "Optional Lecture: Agent Planning",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course",
+        "research"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "guest lecture on agent planning",
+      "raw_text": "this Thursday at 4 PM",
+      "normalized": "2026-10-15T16:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "ambiguous_category",
+      "expected_event",
+      "no_action",
+      "optional_event"
+    ]
+  },
+  {
+    "test_id": 23,
+    "subject": "Optional Lecture: Vision-Language Models",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course",
+        "research"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "guest lecture on vision-language models",
+      "raw_text": "Monday at 1 PM",
+      "normalized": "2026-10-26T13:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "ambiguous_category",
+      "expected_event",
+      "no_action",
+      "optional_event"
+    ]
+  },
+  {
+    "test_id": 24,
+    "subject": "Optional Lecture: Robust Rag",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course",
+        "research"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "guest lecture on robust RAG",
+      "raw_text": "next Tuesday",
+      "normalized": "2026-10-27",
+      "precision": "date"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "ambiguous_category",
+      "expected_event",
+      "no_action",
+      "optional_event"
+    ]
+  },
+  {
+    "test_id": 25,
+    "subject": "Optional Lecture: Graph Learning",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course",
+        "research"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "guest lecture on graph learning",
+      "raw_text": "this Thursday at 4 PM",
+      "normalized": "2026-10-15T16:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "ambiguous_category",
+      "expected_event",
+      "no_action",
+      "optional_event"
+    ]
+  },
+  {
+    "test_id": 26,
+    "subject": "Optional Lecture: Evaluation",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course",
+        "research"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "guest lecture on evaluation",
+      "raw_text": "Monday at 1 PM",
+      "normalized": "2026-10-19T13:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "ambiguous_category",
+      "expected_event",
+      "no_action",
+      "optional_event"
+    ]
+  },
+  {
+    "test_id": 27,
+    "subject": "Optional Lecture: Reinforcement Learning",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course",
+        "research"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "guest lecture on reinforcement learning",
+      "raw_text": "next Tuesday",
+      "normalized": "2026-10-20",
+      "precision": "date"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "ambiguous_category",
+      "expected_event",
+      "no_action",
+      "optional_event"
+    ]
+  },
+  {
+    "test_id": 28,
+    "subject": "Optional Lecture: Privacy",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course",
+        "research"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "guest lecture on privacy",
+      "raw_text": "this Thursday at 4 PM",
+      "normalized": "2026-10-22T16:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "ambiguous_category",
+      "expected_event",
+      "no_action",
+      "optional_event"
+    ]
+  },
+  {
+    "test_id": 29,
+    "subject": "Optional Lecture: Embeddings",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course",
+        "research"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "guest lecture on embeddings",
+      "raw_text": "Monday at 1 PM",
+      "normalized": "2026-10-19T13:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "ambiguous_category",
+      "expected_event",
+      "no_action",
+      "optional_event"
+    ]
+  },
+  {
+    "test_id": 30,
+    "subject": "Optional Lecture: Reasoning",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course",
+        "research"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "guest lecture on reasoning",
+      "raw_text": "next Tuesday",
+      "normalized": "2026-10-20",
+      "precision": "date"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "ambiguous_category",
+      "expected_event",
+      "no_action",
+      "optional_event"
+    ]
+  },
+  {
+    "test_id": 31,
+    "subject": "COMP9321 Final Exam Timetable Available",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course",
+        "administration"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "check",
+      "target": "exam date, time and room in the student portal"
+    },
+    "slices": [
+      "ambiguous_category",
+      "course",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 32,
+    "subject": "COMP9417 Final Exam Timetable Available",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course",
+        "administration"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "check",
+      "target": "exam date, time and room in the student portal"
+    },
+    "slices": [
+      "ambiguous_category",
+      "course",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 33,
+    "subject": "COMP9444 Final Exam Timetable Available",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course",
+        "administration"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "check",
+      "target": "exam date, time and room in the student portal"
+    },
+    "slices": [
+      "ambiguous_category",
+      "course",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 34,
+    "subject": "COMP9312 Final Exam Timetable Available",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course",
+        "administration"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "check",
+      "target": "exam date, time and room in the student portal"
+    },
+    "slices": [
+      "ambiguous_category",
+      "course",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 35,
+    "subject": "COMP9024 Final Exam Timetable Available",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course",
+        "administration"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "check",
+      "target": "exam date, time and room in the student portal"
+    },
+    "slices": [
+      "ambiguous_category",
+      "course",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 36,
+    "subject": "COMP9331 Final Exam Timetable Available",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course",
+        "administration"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "check",
+      "target": "exam date, time and room in the student portal"
+    },
+    "slices": [
+      "ambiguous_category",
+      "course",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 37,
+    "subject": "COMP9517 Final Exam Timetable Available",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course",
+        "administration"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "check",
+      "target": "exam date, time and room in the student portal"
+    },
+    "slices": [
+      "ambiguous_category",
+      "course",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 38,
+    "subject": "COMP9414 Final Exam Timetable Available",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course",
+        "administration"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "check",
+      "target": "exam date, time and room in the student portal"
+    },
+    "slices": [
+      "ambiguous_category",
+      "course",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 39,
+    "subject": "COMP9311 Final Exam Timetable Available",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course",
+        "administration"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "check",
+      "target": "exam date, time and room in the student portal"
+    },
+    "slices": [
+      "ambiguous_category",
+      "course",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 40,
+    "subject": "COMP9044 Final Exam Timetable Available",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course",
+        "administration"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "check",
+      "target": "exam date, time and room in the student portal"
+    },
+    "slices": [
+      "ambiguous_category",
+      "course",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 41,
+    "subject": "Nebula AI Interview Invitation",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "online interview",
+      "raw_text": "27 October at 10 AM",
+      "normalized": "2026-10-27T10:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "reply_confirm",
+      "target": "interview attendance"
+    },
+    "slices": [
+      "career",
+      "expected_event",
+      "high_risk",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 42,
+    "subject": "Aster Labs Interview Invitation",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "online interview",
+      "raw_text": "28 October at 11 AM",
+      "normalized": "2026-10-28T11:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "reply_confirm",
+      "target": "interview attendance"
+    },
+    "slices": [
+      "career",
+      "expected_event",
+      "high_risk",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 43,
+    "subject": "Harbour Robotics Interview Invitation",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "online interview",
+      "raw_text": "29 October at 12 PM",
+      "normalized": "2026-10-29T12:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "reply_confirm",
+      "target": "interview attendance"
+    },
+    "slices": [
+      "career",
+      "expected_event",
+      "high_risk",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 44,
+    "subject": "PixelForge Interview Invitation",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "online interview",
+      "raw_text": "30 October at 10 AM",
+      "normalized": "2026-10-30T10:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "reply_confirm",
+      "target": "interview attendance"
+    },
+    "slices": [
+      "career",
+      "expected_event",
+      "high_risk",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 45,
+    "subject": "Lumen Systems Interview Invitation",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "online interview",
+      "raw_text": "27 October at 11 AM",
+      "normalized": "2026-10-27T11:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "reply_confirm",
+      "target": "interview attendance"
+    },
+    "slices": [
+      "career",
+      "expected_event",
+      "high_risk",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 46,
+    "subject": "OrbitML Interview Invitation",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "online interview",
+      "raw_text": "28 October at 12 PM",
+      "normalized": "2026-10-28T12:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "reply_confirm",
+      "target": "interview attendance"
+    },
+    "slices": [
+      "career",
+      "expected_event",
+      "high_risk",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 47,
+    "subject": "VectorWorks Interview Invitation",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "online interview",
+      "raw_text": "29 October at 10 AM",
+      "normalized": "2026-10-29T10:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "reply_confirm",
+      "target": "interview attendance"
+    },
+    "slices": [
+      "career",
+      "expected_event",
+      "high_risk",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 48,
+    "subject": "Cedar AI Interview Invitation",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "online interview",
+      "raw_text": "30 October at 11 AM",
+      "normalized": "2026-10-30T11:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "reply_confirm",
+      "target": "interview attendance"
+    },
+    "slices": [
+      "career",
+      "expected_event",
+      "high_risk",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 49,
+    "subject": "BluePeak Interview Invitation",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "online interview",
+      "raw_text": "27 October at 12 PM",
+      "normalized": "2026-10-27T12:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "reply_confirm",
+      "target": "interview attendance"
+    },
+    "slices": [
+      "career",
+      "expected_event",
+      "high_risk",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 50,
+    "subject": "Kite Analytics Interview Invitation",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "online interview",
+      "raw_text": "28 October at 10 AM",
+      "normalized": "2026-10-28T10:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "reply_confirm",
+      "target": "interview attendance"
+    },
+    "slices": [
+      "career",
+      "expected_event",
+      "high_risk",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 51,
+    "subject": "Nebula AI Application Status Update",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "application outcome",
+      "raw_text": "by the end of next week",
+      "normalized": "2026-10-25",
+      "precision": "date"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "career",
+      "expected_event",
+      "no_action",
+      "relative_time"
+    ]
+  },
+  {
+    "test_id": 52,
+    "subject": "Aster Labs Application Status Update",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "application outcome",
+      "raw_text": "within three business days",
+      "normalized": "2026-10-16",
+      "precision": "date"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "career",
+      "expected_event",
+      "no_action",
+      "relative_time"
+    ]
+  },
+  {
+    "test_id": 53,
+    "subject": "Harbour Robotics Application Status Update",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "application outcome",
+      "raw_text": "by the end of next week",
+      "normalized": "2026-11-01",
+      "precision": "date"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "career",
+      "expected_event",
+      "no_action",
+      "relative_time"
+    ]
+  },
+  {
+    "test_id": 54,
+    "subject": "PixelForge Application Status Update",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "application outcome",
+      "raw_text": "within three business days",
+      "normalized": "2026-10-23",
+      "precision": "date"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "career",
+      "expected_event",
+      "no_action",
+      "relative_time"
+    ]
+  },
+  {
+    "test_id": 55,
+    "subject": "Lumen Systems Application Status Update",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "application outcome",
+      "raw_text": "by the end of next week",
+      "normalized": "2026-10-25",
+      "precision": "date"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "career",
+      "expected_event",
+      "no_action",
+      "relative_time"
+    ]
+  },
+  {
+    "test_id": 56,
+    "subject": "OrbitML Application Status Update",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "application outcome",
+      "raw_text": "within three business days",
+      "normalized": "2026-10-16",
+      "precision": "date"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "career",
+      "expected_event",
+      "no_action",
+      "relative_time"
+    ]
+  },
+  {
+    "test_id": 57,
+    "subject": "VectorWorks Application Status Update",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "application outcome",
+      "raw_text": "by the end of next week",
+      "normalized": "2026-11-01",
+      "precision": "date"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "career",
+      "expected_event",
+      "no_action",
+      "relative_time"
+    ]
+  },
+  {
+    "test_id": 58,
+    "subject": "Cedar AI Application Status Update",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "application outcome",
+      "raw_text": "within three business days",
+      "normalized": "2026-10-23",
+      "precision": "date"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "career",
+      "expected_event",
+      "no_action",
+      "relative_time"
+    ]
+  },
+  {
+    "test_id": 59,
+    "subject": "BluePeak Application Status Update",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "application outcome",
+      "raw_text": "by the end of next week",
+      "normalized": "2026-10-25",
+      "precision": "date"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "career",
+      "expected_event",
+      "no_action",
+      "relative_time"
+    ]
+  },
+  {
+    "test_id": 60,
+    "subject": "Kite Analytics Application Status Update",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "application outcome",
+      "raw_text": "within three business days",
+      "normalized": "2026-10-16",
+      "precision": "date"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "career",
+      "expected_event",
+      "no_action",
+      "relative_time"
+    ]
+  },
+  {
+    "test_id": 61,
+    "subject": "Nebula AI Request for Updated CV",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": {
+      "raw_text": "before our meeting on Thursday",
+      "normalized": "2026-10-15",
+      "precision": "date"
+    },
+    "expected_event": {
+      "event": "recruitment meeting",
+      "raw_text": "Thursday",
+      "normalized": "2026-10-15",
+      "precision": "date"
+    },
+    "action": {
+      "type": "send",
+      "target": "latest CV in PDF format"
+    },
+    "slices": [
+      "career",
+      "deadline",
+      "deadline_and_event",
+      "expected_event",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 62,
+    "subject": "Aster Labs Request for Updated CV",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": {
+      "raw_text": "before our meeting on Thursday",
+      "normalized": "2026-10-15",
+      "precision": "date"
+    },
+    "expected_event": {
+      "event": "recruitment meeting",
+      "raw_text": "Thursday",
+      "normalized": "2026-10-15",
+      "precision": "date"
+    },
+    "action": {
+      "type": "send",
+      "target": "latest CV in PDF format"
+    },
+    "slices": [
+      "career",
+      "deadline",
+      "deadline_and_event",
+      "expected_event",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 63,
+    "subject": "Harbour Robotics Request for Updated CV",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": {
+      "raw_text": "before our meeting on Thursday",
+      "normalized": "2026-10-22",
+      "precision": "date"
+    },
+    "expected_event": {
+      "event": "recruitment meeting",
+      "raw_text": "Thursday",
+      "normalized": "2026-10-22",
+      "precision": "date"
+    },
+    "action": {
+      "type": "send",
+      "target": "latest CV in PDF format"
+    },
+    "slices": [
+      "career",
+      "deadline",
+      "deadline_and_event",
+      "expected_event",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 64,
+    "subject": "PixelForge Request for Updated CV",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": {
+      "raw_text": "before our meeting on Thursday",
+      "normalized": "2026-10-22",
+      "precision": "date"
+    },
+    "expected_event": {
+      "event": "recruitment meeting",
+      "raw_text": "Thursday",
+      "normalized": "2026-10-22",
+      "precision": "date"
+    },
+    "action": {
+      "type": "send",
+      "target": "latest CV in PDF format"
+    },
+    "slices": [
+      "career",
+      "deadline",
+      "deadline_and_event",
+      "expected_event",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 65,
+    "subject": "Lumen Systems Request for Updated CV",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": {
+      "raw_text": "before our meeting on Thursday",
+      "normalized": "2026-10-15",
+      "precision": "date"
+    },
+    "expected_event": {
+      "event": "recruitment meeting",
+      "raw_text": "Thursday",
+      "normalized": "2026-10-15",
+      "precision": "date"
+    },
+    "action": {
+      "type": "send",
+      "target": "latest CV in PDF format"
+    },
+    "slices": [
+      "career",
+      "deadline",
+      "deadline_and_event",
+      "expected_event",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 66,
+    "subject": "OrbitML Request for Updated CV",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": {
+      "raw_text": "before our meeting on Thursday",
+      "normalized": "2026-10-15",
+      "precision": "date"
+    },
+    "expected_event": {
+      "event": "recruitment meeting",
+      "raw_text": "Thursday",
+      "normalized": "2026-10-15",
+      "precision": "date"
+    },
+    "action": {
+      "type": "send",
+      "target": "latest CV in PDF format"
+    },
+    "slices": [
+      "career",
+      "deadline",
+      "deadline_and_event",
+      "expected_event",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 67,
+    "subject": "VectorWorks Request for Updated CV",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": {
+      "raw_text": "before our meeting on Thursday",
+      "normalized": "2026-10-22",
+      "precision": "date"
+    },
+    "expected_event": {
+      "event": "recruitment meeting",
+      "raw_text": "Thursday",
+      "normalized": "2026-10-22",
+      "precision": "date"
+    },
+    "action": {
+      "type": "send",
+      "target": "latest CV in PDF format"
+    },
+    "slices": [
+      "career",
+      "deadline",
+      "deadline_and_event",
+      "expected_event",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 68,
+    "subject": "Cedar AI Request for Updated CV",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": {
+      "raw_text": "before our meeting on Thursday",
+      "normalized": "2026-10-22",
+      "precision": "date"
+    },
+    "expected_event": {
+      "event": "recruitment meeting",
+      "raw_text": "Thursday",
+      "normalized": "2026-10-22",
+      "precision": "date"
+    },
+    "action": {
+      "type": "send",
+      "target": "latest CV in PDF format"
+    },
+    "slices": [
+      "career",
+      "deadline",
+      "deadline_and_event",
+      "expected_event",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 69,
+    "subject": "BluePeak Request for Updated CV",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": {
+      "raw_text": "before our meeting on Thursday",
+      "normalized": "2026-10-15",
+      "precision": "date"
+    },
+    "expected_event": {
+      "event": "recruitment meeting",
+      "raw_text": "Thursday",
+      "normalized": "2026-10-15",
+      "precision": "date"
+    },
+    "action": {
+      "type": "send",
+      "target": "latest CV in PDF format"
+    },
+    "slices": [
+      "career",
+      "deadline",
+      "deadline_and_event",
+      "expected_event",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 70,
+    "subject": "Kite Analytics Request for Updated CV",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": {
+      "raw_text": "before our meeting on Thursday",
+      "normalized": "2026-10-15",
+      "precision": "date"
+    },
+    "expected_event": {
+      "event": "recruitment meeting",
+      "raw_text": "Thursday",
+      "normalized": "2026-10-15",
+      "precision": "date"
+    },
+    "action": {
+      "type": "send",
+      "target": "latest CV in PDF format"
+    },
+    "slices": [
+      "career",
+      "deadline",
+      "deadline_and_event",
+      "expected_event",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 71,
+    "subject": "Research Meeting Rescheduled: Multimodal Retrieval",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "research meeting",
+      "raw_text": "Wednesday at 2 PM",
+      "normalized": "2026-10-14T14:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "conditional_reply",
+      "expected_event",
+      "no_action",
+      "research"
+    ]
+  },
+  {
+    "test_id": 72,
+    "subject": "Research Meeting Rescheduled: Agent Planning",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "research meeting",
+      "raw_text": "Wednesday at 2 PM",
+      "normalized": "2026-10-14T14:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "conditional_reply",
+      "expected_event",
+      "no_action",
+      "research"
+    ]
+  },
+  {
+    "test_id": 73,
+    "subject": "Research Meeting Rescheduled: Vision-Language Models",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "research meeting",
+      "raw_text": "Wednesday at 2 PM",
+      "normalized": "2026-10-21T14:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "conditional_reply",
+      "expected_event",
+      "no_action",
+      "research"
+    ]
+  },
+  {
+    "test_id": 74,
+    "subject": "Research Meeting Rescheduled: Robust Rag",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "research meeting",
+      "raw_text": "Wednesday at 2 PM",
+      "normalized": "2026-10-21T14:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "conditional_reply",
+      "expected_event",
+      "no_action",
+      "research"
+    ]
+  },
+  {
+    "test_id": 75,
+    "subject": "Research Meeting Rescheduled: Graph Learning",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "research meeting",
+      "raw_text": "Wednesday at 2 PM",
+      "normalized": "2026-10-14T14:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "conditional_reply",
+      "expected_event",
+      "no_action",
+      "research"
+    ]
+  },
+  {
+    "test_id": 76,
+    "subject": "Research Meeting Rescheduled: Evaluation",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "research meeting",
+      "raw_text": "Wednesday at 2 PM",
+      "normalized": "2026-10-14T14:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "conditional_reply",
+      "expected_event",
+      "no_action",
+      "research"
+    ]
+  },
+  {
+    "test_id": 77,
+    "subject": "Research Meeting Rescheduled: Reinforcement Learning",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "research meeting",
+      "raw_text": "Wednesday at 2 PM",
+      "normalized": "2026-10-21T14:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "conditional_reply",
+      "expected_event",
+      "no_action",
+      "research"
+    ]
+  },
+  {
+    "test_id": 78,
+    "subject": "Research Meeting Rescheduled: Privacy",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "research meeting",
+      "raw_text": "Wednesday at 2 PM",
+      "normalized": "2026-10-21T14:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "conditional_reply",
+      "expected_event",
+      "no_action",
+      "research"
+    ]
+  },
+  {
+    "test_id": 79,
+    "subject": "Research Meeting Rescheduled: Embeddings",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "research meeting",
+      "raw_text": "Wednesday at 2 PM",
+      "normalized": "2026-10-14T14:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "conditional_reply",
+      "expected_event",
+      "no_action",
+      "research"
+    ]
+  },
+  {
+    "test_id": 80,
+    "subject": "Research Meeting Rescheduled: Reasoning",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "research meeting",
+      "raw_text": "Wednesday at 2 PM",
+      "normalized": "2026-10-14T14:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "conditional_reply",
+      "expected_event",
+      "no_action",
+      "research"
+    ]
+  },
+  {
+    "test_id": 81,
+    "subject": "Research Assistant Opportunity: Multimodal Retrieval",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career",
+        "research"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "reply_interest",
+      "target": "research assistant role in multimodal retrieval"
+    },
+    "slices": [
+      "ambiguous_category",
+      "career",
+      "requires_action",
+      "requires_reply",
+      "research"
+    ]
+  },
+  {
+    "test_id": 82,
+    "subject": "Research Assistant Opportunity: Agent Planning",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career",
+        "research"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "reply_interest",
+      "target": "research assistant role in agent planning"
+    },
+    "slices": [
+      "ambiguous_category",
+      "career",
+      "requires_action",
+      "requires_reply",
+      "research"
+    ]
+  },
+  {
+    "test_id": 83,
+    "subject": "Research Assistant Opportunity: Vision-Language Models",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career",
+        "research"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "reply_interest",
+      "target": "research assistant role in vision-language models"
+    },
+    "slices": [
+      "ambiguous_category",
+      "career",
+      "requires_action",
+      "requires_reply",
+      "research"
+    ]
+  },
+  {
+    "test_id": 84,
+    "subject": "Research Assistant Opportunity: Robust Rag",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career",
+        "research"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "reply_interest",
+      "target": "research assistant role in robust RAG"
+    },
+    "slices": [
+      "ambiguous_category",
+      "career",
+      "requires_action",
+      "requires_reply",
+      "research"
+    ]
+  },
+  {
+    "test_id": 85,
+    "subject": "Research Assistant Opportunity: Graph Learning",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career",
+        "research"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "reply_interest",
+      "target": "research assistant role in graph learning"
+    },
+    "slices": [
+      "ambiguous_category",
+      "career",
+      "requires_action",
+      "requires_reply",
+      "research"
+    ]
+  },
+  {
+    "test_id": 86,
+    "subject": "Research Assistant Opportunity: Evaluation",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career",
+        "research"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "reply_interest",
+      "target": "research assistant role in evaluation"
+    },
+    "slices": [
+      "ambiguous_category",
+      "career",
+      "requires_action",
+      "requires_reply",
+      "research"
+    ]
+  },
+  {
+    "test_id": 87,
+    "subject": "Research Assistant Opportunity: Reinforcement Learning",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career",
+        "research"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "reply_interest",
+      "target": "research assistant role in reinforcement learning"
+    },
+    "slices": [
+      "ambiguous_category",
+      "career",
+      "requires_action",
+      "requires_reply",
+      "research"
+    ]
+  },
+  {
+    "test_id": 88,
+    "subject": "Research Assistant Opportunity: Privacy",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career",
+        "research"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "reply_interest",
+      "target": "research assistant role in privacy"
+    },
+    "slices": [
+      "ambiguous_category",
+      "career",
+      "requires_action",
+      "requires_reply",
+      "research"
+    ]
+  },
+  {
+    "test_id": 89,
+    "subject": "Research Assistant Opportunity: Embeddings",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career",
+        "research"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "reply_interest",
+      "target": "research assistant role in embeddings"
+    },
+    "slices": [
+      "ambiguous_category",
+      "career",
+      "requires_action",
+      "requires_reply",
+      "research"
+    ]
+  },
+  {
+    "test_id": 90,
+    "subject": "Research Assistant Opportunity: Reasoning",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career",
+        "research"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "reply_interest",
+      "target": "research assistant role in reasoning"
+    },
+    "slices": [
+      "ambiguous_category",
+      "career",
+      "requires_action",
+      "requires_reply",
+      "research"
+    ]
+  },
+  {
+    "test_id": 91,
+    "subject": "Ethics Revision Required: Multimodal Retrieval",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research",
+        "administration"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "by Friday",
+      "normalized": "2026-10-16",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "revise",
+      "target": "ethics submission section 3"
+    },
+    "slices": [
+      "ambiguous_category",
+      "deadline",
+      "high_risk",
+      "requires_action",
+      "research"
+    ]
+  },
+  {
+    "test_id": 92,
+    "subject": "Ethics Revision Required: Agent Planning",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research",
+        "administration"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "by next Monday",
+      "normalized": "2026-10-19",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "revise",
+      "target": "ethics submission section 4"
+    },
+    "slices": [
+      "ambiguous_category",
+      "deadline",
+      "high_risk",
+      "requires_action",
+      "research"
+    ]
+  },
+  {
+    "test_id": 93,
+    "subject": "Ethics Revision Required: Vision-Language Models",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research",
+        "administration"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "by Friday",
+      "normalized": "2026-10-23",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "revise",
+      "target": "ethics submission section 5"
+    },
+    "slices": [
+      "ambiguous_category",
+      "deadline",
+      "high_risk",
+      "requires_action",
+      "research"
+    ]
+  },
+  {
+    "test_id": 94,
+    "subject": "Ethics Revision Required: Robust Rag",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research",
+        "administration"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "by next Monday",
+      "normalized": "2026-10-26",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "revise",
+      "target": "ethics submission section 6"
+    },
+    "slices": [
+      "ambiguous_category",
+      "deadline",
+      "high_risk",
+      "requires_action",
+      "research"
+    ]
+  },
+  {
+    "test_id": 95,
+    "subject": "Ethics Revision Required: Graph Learning",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research",
+        "administration"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "by Friday",
+      "normalized": "2026-10-16",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "revise",
+      "target": "ethics submission section 3"
+    },
+    "slices": [
+      "ambiguous_category",
+      "deadline",
+      "high_risk",
+      "requires_action",
+      "research"
+    ]
+  },
+  {
+    "test_id": 96,
+    "subject": "Ethics Revision Required: Evaluation",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research",
+        "administration"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "by next Monday",
+      "normalized": "2026-10-19",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "revise",
+      "target": "ethics submission section 4"
+    },
+    "slices": [
+      "ambiguous_category",
+      "deadline",
+      "high_risk",
+      "requires_action",
+      "research"
+    ]
+  },
+  {
+    "test_id": 97,
+    "subject": "Ethics Revision Required: Reinforcement Learning",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research",
+        "administration"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "by Friday",
+      "normalized": "2026-10-23",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "revise",
+      "target": "ethics submission section 5"
+    },
+    "slices": [
+      "ambiguous_category",
+      "deadline",
+      "high_risk",
+      "requires_action",
+      "research"
+    ]
+  },
+  {
+    "test_id": 98,
+    "subject": "Ethics Revision Required: Privacy",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research",
+        "administration"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "by next Monday",
+      "normalized": "2026-10-26",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "revise",
+      "target": "ethics submission section 6"
+    },
+    "slices": [
+      "ambiguous_category",
+      "deadline",
+      "high_risk",
+      "requires_action",
+      "research"
+    ]
+  },
+  {
+    "test_id": 99,
+    "subject": "Ethics Revision Required: Embeddings",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research",
+        "administration"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "by Friday",
+      "normalized": "2026-10-16",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "revise",
+      "target": "ethics submission section 3"
+    },
+    "slices": [
+      "ambiguous_category",
+      "deadline",
+      "high_risk",
+      "requires_action",
+      "research"
+    ]
+  },
+  {
+    "test_id": 100,
+    "subject": "Ethics Revision Required: Reasoning",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research",
+        "administration"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "by next Monday",
+      "normalized": "2026-10-19",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "revise",
+      "target": "ethics submission section 4"
+    },
+    "slices": [
+      "ambiguous_category",
+      "deadline",
+      "high_risk",
+      "requires_action",
+      "research"
+    ]
+  },
+  {
+    "test_id": 101,
+    "subject": "Project Atlas Meeting Request 1",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "project meeting",
+      "raw_text": "this Friday afternoon",
+      "normalized": "2026-10-16",
+      "precision": "date",
+      "time_hint": "afternoon"
+    },
+    "action": {
+      "type": "reply_availability",
+      "target": "suitable meeting time"
+    },
+    "slices": [
+      "expected_event",
+      "project",
+      "relative_time",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 102,
+    "subject": "Project Atlas Meeting Request 2",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "project meeting",
+      "raw_text": "this Friday afternoon",
+      "normalized": "2026-10-16",
+      "precision": "date",
+      "time_hint": "afternoon"
+    },
+    "action": {
+      "type": "reply_availability",
+      "target": "suitable meeting time"
+    },
+    "slices": [
+      "expected_event",
+      "project",
+      "relative_time",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 103,
+    "subject": "Project Atlas Meeting Request 3",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "project meeting",
+      "raw_text": "this Friday afternoon",
+      "normalized": "2026-10-23",
+      "precision": "date",
+      "time_hint": "afternoon"
+    },
+    "action": {
+      "type": "reply_availability",
+      "target": "suitable meeting time"
+    },
+    "slices": [
+      "expected_event",
+      "project",
+      "relative_time",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 104,
+    "subject": "Project Atlas Meeting Request 4",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "project meeting",
+      "raw_text": "this Friday afternoon",
+      "normalized": "2026-10-23",
+      "precision": "date",
+      "time_hint": "afternoon"
+    },
+    "action": {
+      "type": "reply_availability",
+      "target": "suitable meeting time"
+    },
+    "slices": [
+      "expected_event",
+      "project",
+      "relative_time",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 105,
+    "subject": "Project Atlas Meeting Request 5",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "project meeting",
+      "raw_text": "this Friday afternoon",
+      "normalized": "2026-10-16",
+      "precision": "date",
+      "time_hint": "afternoon"
+    },
+    "action": {
+      "type": "reply_availability",
+      "target": "suitable meeting time"
+    },
+    "slices": [
+      "expected_event",
+      "project",
+      "relative_time",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 106,
+    "subject": "Project Atlas Meeting Request 6",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "project meeting",
+      "raw_text": "this Friday afternoon",
+      "normalized": "2026-10-16",
+      "precision": "date",
+      "time_hint": "afternoon"
+    },
+    "action": {
+      "type": "reply_availability",
+      "target": "suitable meeting time"
+    },
+    "slices": [
+      "expected_event",
+      "project",
+      "relative_time",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 107,
+    "subject": "Project Atlas Meeting Request 7",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "project meeting",
+      "raw_text": "this Friday afternoon",
+      "normalized": "2026-10-23",
+      "precision": "date",
+      "time_hint": "afternoon"
+    },
+    "action": {
+      "type": "reply_availability",
+      "target": "suitable meeting time"
+    },
+    "slices": [
+      "expected_event",
+      "project",
+      "relative_time",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 108,
+    "subject": "Project Atlas Meeting Request 8",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "project meeting",
+      "raw_text": "this Friday afternoon",
+      "normalized": "2026-10-23",
+      "precision": "date",
+      "time_hint": "afternoon"
+    },
+    "action": {
+      "type": "reply_availability",
+      "target": "suitable meeting time"
+    },
+    "slices": [
+      "expected_event",
+      "project",
+      "relative_time",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 109,
+    "subject": "Project Atlas Meeting Request 9",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "project meeting",
+      "raw_text": "this Friday afternoon",
+      "normalized": "2026-10-16",
+      "precision": "date",
+      "time_hint": "afternoon"
+    },
+    "action": {
+      "type": "reply_availability",
+      "target": "suitable meeting time"
+    },
+    "slices": [
+      "expected_event",
+      "project",
+      "relative_time",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 110,
+    "subject": "Project Atlas Meeting Request 10",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "project meeting",
+      "raw_text": "this Friday afternoon",
+      "normalized": "2026-10-16",
+      "precision": "date",
+      "time_hint": "afternoon"
+    },
+    "action": {
+      "type": "reply_availability",
+      "target": "suitable meeting time"
+    },
+    "slices": [
+      "expected_event",
+      "project",
+      "relative_time",
+      "requires_action",
+      "requires_reply"
+    ]
+  },
+  {
+    "test_id": 111,
+    "subject": "Project Atlas Milestone 2 Due",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "this Sunday at 11:59 PM",
+      "normalized": "2026-10-18T23:59:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "Project Atlas milestone 2"
+    },
+    "slices": [
+      "deadline",
+      "high_risk",
+      "project",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 112,
+    "subject": "Project Atlas Milestone 3 Due",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "this Sunday at 11:59 PM",
+      "normalized": "2026-10-18T23:59:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "Project Atlas milestone 3"
+    },
+    "slices": [
+      "deadline",
+      "high_risk",
+      "project",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 113,
+    "subject": "Project Atlas Milestone 4 Due",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "this Sunday at 11:59 PM",
+      "normalized": "2026-10-25T23:59:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "Project Atlas milestone 4"
+    },
+    "slices": [
+      "deadline",
+      "high_risk",
+      "project",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 114,
+    "subject": "Project Atlas Milestone 5 Due",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "this Sunday at 11:59 PM",
+      "normalized": "2026-10-25T23:59:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "Project Atlas milestone 5"
+    },
+    "slices": [
+      "deadline",
+      "high_risk",
+      "project",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 115,
+    "subject": "Project Atlas Milestone 6 Due",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "this Sunday at 11:59 PM",
+      "normalized": "2026-10-18T23:59:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "Project Atlas milestone 6"
+    },
+    "slices": [
+      "deadline",
+      "high_risk",
+      "project",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 116,
+    "subject": "Project Atlas Milestone 7 Due",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "this Sunday at 11:59 PM",
+      "normalized": "2026-10-18T23:59:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "Project Atlas milestone 7"
+    },
+    "slices": [
+      "deadline",
+      "high_risk",
+      "project",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 117,
+    "subject": "Project Atlas Milestone 8 Due",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "this Sunday at 11:59 PM",
+      "normalized": "2026-10-25T23:59:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "Project Atlas milestone 8"
+    },
+    "slices": [
+      "deadline",
+      "high_risk",
+      "project",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 118,
+    "subject": "Project Atlas Milestone 9 Due",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "this Sunday at 11:59 PM",
+      "normalized": "2026-10-25T23:59:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "Project Atlas milestone 9"
+    },
+    "slices": [
+      "deadline",
+      "high_risk",
+      "project",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 119,
+    "subject": "Project Atlas Milestone 10 Due",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "this Sunday at 11:59 PM",
+      "normalized": "2026-10-18T23:59:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "Project Atlas milestone 10"
+    },
+    "slices": [
+      "deadline",
+      "high_risk",
+      "project",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 120,
+    "subject": "Project Atlas Milestone 11 Due",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "this Sunday at 11:59 PM",
+      "normalized": "2026-10-18T23:59:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "Project Atlas milestone 11"
+    },
+    "slices": [
+      "deadline",
+      "high_risk",
+      "project",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 121,
+    "subject": "Confirm Enrolment Details - Cohort 1",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "before 5 PM this Thursday",
+      "normalized": "2026-10-15T17:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "confirm",
+      "target": "enrolment details"
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 122,
+    "subject": "Confirm Enrolment Details - Cohort 2",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "before 5 PM this Thursday",
+      "normalized": "2026-10-15T17:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "confirm",
+      "target": "enrolment details"
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 123,
+    "subject": "Confirm Enrolment Details - Cohort 3",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "before 5 PM this Thursday",
+      "normalized": "2026-10-22T17:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "confirm",
+      "target": "enrolment details"
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 124,
+    "subject": "Confirm Enrolment Details - Cohort 4",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "before 5 PM this Thursday",
+      "normalized": "2026-10-22T17:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "confirm",
+      "target": "enrolment details"
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 125,
+    "subject": "Confirm Enrolment Details - Cohort 5",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "before 5 PM this Thursday",
+      "normalized": "2026-10-15T17:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "confirm",
+      "target": "enrolment details"
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 126,
+    "subject": "Confirm Enrolment Details - Cohort 6",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "before 5 PM this Thursday",
+      "normalized": "2026-10-15T17:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "confirm",
+      "target": "enrolment details"
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 127,
+    "subject": "Confirm Enrolment Details - Cohort 7",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "before 5 PM this Thursday",
+      "normalized": "2026-10-22T17:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "confirm",
+      "target": "enrolment details"
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 128,
+    "subject": "Confirm Enrolment Details - Cohort 8",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "before 5 PM this Thursday",
+      "normalized": "2026-10-22T17:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "confirm",
+      "target": "enrolment details"
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 129,
+    "subject": "Confirm Enrolment Details - Cohort 9",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "before 5 PM this Thursday",
+      "normalized": "2026-10-15T17:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "confirm",
+      "target": "enrolment details"
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 130,
+    "subject": "Confirm Enrolment Details - Cohort 10",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "before 5 PM this Thursday",
+      "normalized": "2026-10-15T17:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "confirm",
+      "target": "enrolment details"
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 131,
+    "subject": "Compute Cluster Maintenance Window 1",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "compute cluster maintenance",
+      "raw_text": "between 1 AM and 3 AM this Sunday",
+      "normalized": "2026-10-18T01:00:00/2026-10-18T03:00:00",
+      "precision": "datetime_range"
+    },
+    "action": {
+      "type": "save",
+      "target": "work before maintenance"
+    },
+    "slices": [
+      "administration",
+      "expected_event",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 132,
+    "subject": "Compute Cluster Maintenance Window 2",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "compute cluster maintenance",
+      "raw_text": "between 1 AM and 3 AM this Sunday",
+      "normalized": "2026-10-18T01:00:00/2026-10-18T03:00:00",
+      "precision": "datetime_range"
+    },
+    "action": {
+      "type": "save",
+      "target": "work before maintenance"
+    },
+    "slices": [
+      "administration",
+      "expected_event",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 133,
+    "subject": "Compute Cluster Maintenance Window 3",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "compute cluster maintenance",
+      "raw_text": "between 1 AM and 3 AM this Sunday",
+      "normalized": "2026-10-25T01:00:00/2026-10-25T03:00:00",
+      "precision": "datetime_range"
+    },
+    "action": {
+      "type": "save",
+      "target": "work before maintenance"
+    },
+    "slices": [
+      "administration",
+      "expected_event",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 134,
+    "subject": "Compute Cluster Maintenance Window 4",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "compute cluster maintenance",
+      "raw_text": "between 1 AM and 3 AM this Sunday",
+      "normalized": "2026-10-25T01:00:00/2026-10-25T03:00:00",
+      "precision": "datetime_range"
+    },
+    "action": {
+      "type": "save",
+      "target": "work before maintenance"
+    },
+    "slices": [
+      "administration",
+      "expected_event",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 135,
+    "subject": "Compute Cluster Maintenance Window 5",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "compute cluster maintenance",
+      "raw_text": "between 1 AM and 3 AM this Sunday",
+      "normalized": "2026-10-18T01:00:00/2026-10-18T03:00:00",
+      "precision": "datetime_range"
+    },
+    "action": {
+      "type": "save",
+      "target": "work before maintenance"
+    },
+    "slices": [
+      "administration",
+      "expected_event",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 136,
+    "subject": "Compute Cluster Maintenance Window 6",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "compute cluster maintenance",
+      "raw_text": "between 1 AM and 3 AM this Sunday",
+      "normalized": "2026-10-18T01:00:00/2026-10-18T03:00:00",
+      "precision": "datetime_range"
+    },
+    "action": {
+      "type": "save",
+      "target": "work before maintenance"
+    },
+    "slices": [
+      "administration",
+      "expected_event",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 137,
+    "subject": "Compute Cluster Maintenance Window 7",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "compute cluster maintenance",
+      "raw_text": "between 1 AM and 3 AM this Sunday",
+      "normalized": "2026-10-25T01:00:00/2026-10-25T03:00:00",
+      "precision": "datetime_range"
+    },
+    "action": {
+      "type": "save",
+      "target": "work before maintenance"
+    },
+    "slices": [
+      "administration",
+      "expected_event",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 138,
+    "subject": "Compute Cluster Maintenance Window 8",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "compute cluster maintenance",
+      "raw_text": "between 1 AM and 3 AM this Sunday",
+      "normalized": "2026-10-25T01:00:00/2026-10-25T03:00:00",
+      "precision": "datetime_range"
+    },
+    "action": {
+      "type": "save",
+      "target": "work before maintenance"
+    },
+    "slices": [
+      "administration",
+      "expected_event",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 139,
+    "subject": "Compute Cluster Maintenance Window 9",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "compute cluster maintenance",
+      "raw_text": "between 1 AM and 3 AM this Sunday",
+      "normalized": "2026-10-18T01:00:00/2026-10-18T03:00:00",
+      "precision": "datetime_range"
+    },
+    "action": {
+      "type": "save",
+      "target": "work before maintenance"
+    },
+    "slices": [
+      "administration",
+      "expected_event",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 140,
+    "subject": "Compute Cluster Maintenance Window 10",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "compute cluster maintenance",
+      "raw_text": "between 1 AM and 3 AM this Sunday",
+      "normalized": "2026-10-18T01:00:00/2026-10-18T03:00:00",
+      "precision": "datetime_range"
+    },
+    "action": {
+      "type": "save",
+      "target": "work before maintenance"
+    },
+    "slices": [
+      "administration",
+      "expected_event",
+      "relative_time",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 141,
+    "subject": "Lab Access Approved: Multimodal Retrieval",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "research"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "lab access activation",
+      "raw_text": "tomorrow morning",
+      "normalized": "2026-10-13",
+      "precision": "date",
+      "time_hint": "morning"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "expected_event",
+      "no_action",
+      "relative_time",
+      "research"
+    ]
+  },
+  {
+    "test_id": 142,
+    "subject": "Lab Access Approved: Agent Planning",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "research"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "lab access activation",
+      "raw_text": "tomorrow morning",
+      "normalized": "2026-10-14",
+      "precision": "date",
+      "time_hint": "morning"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "expected_event",
+      "no_action",
+      "relative_time",
+      "research"
+    ]
+  },
+  {
+    "test_id": 143,
+    "subject": "Lab Access Approved: Vision-Language Models",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "research"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "lab access activation",
+      "raw_text": "tomorrow morning",
+      "normalized": "2026-10-20",
+      "precision": "date",
+      "time_hint": "morning"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "expected_event",
+      "no_action",
+      "relative_time",
+      "research"
+    ]
+  },
+  {
+    "test_id": 144,
+    "subject": "Lab Access Approved: Robust Rag",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "research"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "lab access activation",
+      "raw_text": "tomorrow morning",
+      "normalized": "2026-10-21",
+      "precision": "date",
+      "time_hint": "morning"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "expected_event",
+      "no_action",
+      "relative_time",
+      "research"
+    ]
+  },
+  {
+    "test_id": 145,
+    "subject": "Lab Access Approved: Graph Learning",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "research"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "lab access activation",
+      "raw_text": "tomorrow morning",
+      "normalized": "2026-10-13",
+      "precision": "date",
+      "time_hint": "morning"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "expected_event",
+      "no_action",
+      "relative_time",
+      "research"
+    ]
+  },
+  {
+    "test_id": 146,
+    "subject": "Lab Access Approved: Evaluation",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "research"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "lab access activation",
+      "raw_text": "tomorrow morning",
+      "normalized": "2026-10-14",
+      "precision": "date",
+      "time_hint": "morning"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "expected_event",
+      "no_action",
+      "relative_time",
+      "research"
+    ]
+  },
+  {
+    "test_id": 147,
+    "subject": "Lab Access Approved: Reinforcement Learning",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "research"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "lab access activation",
+      "raw_text": "tomorrow morning",
+      "normalized": "2026-10-20",
+      "precision": "date",
+      "time_hint": "morning"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "expected_event",
+      "no_action",
+      "relative_time",
+      "research"
+    ]
+  },
+  {
+    "test_id": 148,
+    "subject": "Lab Access Approved: Privacy",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "research"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "lab access activation",
+      "raw_text": "tomorrow morning",
+      "normalized": "2026-10-21",
+      "precision": "date",
+      "time_hint": "morning"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "expected_event",
+      "no_action",
+      "relative_time",
+      "research"
+    ]
+  },
+  {
+    "test_id": 149,
+    "subject": "Lab Access Approved: Embeddings",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "research"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "lab access activation",
+      "raw_text": "tomorrow morning",
+      "normalized": "2026-10-13",
+      "precision": "date",
+      "time_hint": "morning"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "expected_event",
+      "no_action",
+      "relative_time",
+      "research"
+    ]
+  },
+  {
+    "test_id": 150,
+    "subject": "Lab Access Approved: Reasoning",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "research"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "lab access activation",
+      "raw_text": "tomorrow morning",
+      "normalized": "2026-10-14",
+      "precision": "date",
+      "time_hint": "morning"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "expected_event",
+      "no_action",
+      "relative_time",
+      "research"
+    ]
+  },
+  {
+    "test_id": 151,
+    "subject": "Global Futures Scholarship Application Reminder",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "2 November",
+      "normalized": "2026-11-02",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "Global Futures Scholarship supporting documents"
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "career",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 152,
+    "subject": "Engineering Merit Scholarship Application Reminder",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "3 November",
+      "normalized": "2026-11-03",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "Engineering Merit Scholarship supporting documents"
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "career",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 153,
+    "subject": "International Student Scholarship Application Reminder",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "4 November",
+      "normalized": "2026-11-04",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "International Student Scholarship supporting documents"
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "career",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 154,
+    "subject": "Innovation Scholarship Application Reminder",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "5 November",
+      "normalized": "2026-11-05",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "Innovation Scholarship supporting documents"
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "career",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 155,
+    "subject": "Research Pathway Scholarship Application Reminder",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "6 November",
+      "normalized": "2026-11-06",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "Research Pathway Scholarship supporting documents"
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "career",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 156,
+    "subject": "STEM Excellence Scholarship Application Reminder",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "7 November",
+      "normalized": "2026-11-07",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "STEM Excellence Scholarship supporting documents"
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "career",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 157,
+    "subject": "Alumni Scholarship Application Reminder",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "8 November",
+      "normalized": "2026-11-08",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "Alumni Scholarship supporting documents"
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "career",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 158,
+    "subject": "Future Leaders Scholarship Application Reminder",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "9 November",
+      "normalized": "2026-11-09",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "Future Leaders Scholarship supporting documents"
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "career",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 159,
+    "subject": "AI Talent Scholarship Application Reminder",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "10 November",
+      "normalized": "2026-11-10",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "AI Talent Scholarship supporting documents"
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "career",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 160,
+    "subject": "Student Support Scholarship Application Reminder",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "11 November",
+      "normalized": "2026-11-11",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "Student Support Scholarship supporting documents"
+    },
+    "slices": [
+      "administration",
+      "ambiguous_category",
+      "career",
+      "deadline",
+      "high_risk",
+      "requires_action"
+    ]
+  },
+  {
+    "test_id": 161,
+    "subject": "Student Newsletter October",
+    "category": {
+      "preferred": "other",
+      "acceptable": [
+        "other",
+        "administration"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "hard_negative",
+      "no_action",
+      "optional_content"
+    ]
+  },
+  {
+    "test_id": 162,
+    "subject": "Library New Books Digest",
+    "category": {
+      "preferred": "other",
+      "acceptable": [
+        "other",
+        "administration"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "hard_negative",
+      "no_action",
+      "optional_content"
+    ]
+  },
+  {
+    "test_id": 163,
+    "subject": "Campus Photography Competition",
+    "category": {
+      "preferred": "other",
+      "acceptable": [
+        "other",
+        "administration"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "hard_negative",
+      "no_action",
+      "optional_content"
+    ]
+  },
+  {
+    "test_id": 164,
+    "subject": "Wellbeing Week Highlights",
+    "category": {
+      "preferred": "other",
+      "acceptable": [
+        "other",
+        "administration"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "hard_negative",
+      "no_action",
+      "optional_content"
+    ]
+  },
+  {
+    "test_id": 165,
+    "subject": "Alumni Stories",
+    "category": {
+      "preferred": "other",
+      "acceptable": [
+        "other",
+        "administration"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "hard_negative",
+      "no_action",
+      "optional_content"
+    ]
+  },
+  {
+    "test_id": 166,
+    "subject": "Student Club Roundup",
+    "category": {
+      "preferred": "other",
+      "acceptable": [
+        "other",
+        "administration"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "hard_negative",
+      "no_action",
+      "optional_content"
+    ]
+  },
+  {
+    "test_id": 167,
+    "subject": "Cafeteria Menu Update",
+    "category": {
+      "preferred": "other",
+      "acceptable": [
+        "other",
+        "administration"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "hard_negative",
+      "no_action",
+      "optional_content"
+    ]
+  },
+  {
+    "test_id": 168,
+    "subject": "Volunteering Opportunities Digest",
+    "category": {
+      "preferred": "other",
+      "acceptable": [
+        "other",
+        "administration"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "hard_negative",
+      "no_action",
+      "optional_content"
+    ]
+  },
+  {
+    "test_id": 169,
+    "subject": "Sports Centre Newsletter",
+    "category": {
+      "preferred": "other",
+      "acceptable": [
+        "other",
+        "administration"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "hard_negative",
+      "no_action",
+      "optional_content"
+    ]
+  },
+  {
+    "test_id": 170,
+    "subject": "Weekly Campus Bulletin",
+    "category": {
+      "preferred": "other",
+      "acceptable": [
+        "other",
+        "administration"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "hard_negative",
+      "no_action",
+      "optional_content"
+    ]
+  },
+  {
+    "test_id": 171,
+    "subject": "Interview Link Follow-up",
+    "category": {
+      "preferred": "other",
+      "acceptable": [
+        "other",
+        "career",
+        "research",
+        "project",
+        "administration"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "interview meeting link delivery",
+      "raw_text": "one day before the interview",
+      "normalized": null,
+      "precision": null,
+      "depends_on_context": true
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "context_dependent",
+      "expected_event",
+      "no_action"
+    ]
+  },
+  {
+    "test_id": 172,
+    "subject": "Panel Outcome Timing",
+    "category": {
+      "preferred": "other",
+      "acceptable": [
+        "other",
+        "career",
+        "research",
+        "project",
+        "administration"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "panel outcome",
+      "raw_text": "two days after the panel",
+      "normalized": null,
+      "precision": null,
+      "depends_on_context": true
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "context_dependent",
+      "expected_event",
+      "no_action"
+    ]
+  },
+  {
+    "test_id": 173,
+    "subject": "Workshop Materials Timing",
+    "category": {
+      "preferred": "other",
+      "acceptable": [
+        "other",
+        "career",
+        "research",
+        "project",
+        "administration"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "workshop reading pack release",
+      "raw_text": "three days before the workshop",
+      "normalized": null,
+      "precision": null,
+      "depends_on_context": true
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "context_dependent",
+      "expected_event",
+      "no_action"
+    ]
+  },
+  {
+    "test_id": 174,
+    "subject": "Supervisor Follow-up",
+    "category": {
+      "preferred": "other",
+      "acceptable": [
+        "other",
+        "career",
+        "research",
+        "project",
+        "administration"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "supervisor comments",
+      "raw_text": "one day after our next supervision meeting",
+      "normalized": null,
+      "precision": null,
+      "depends_on_context": true
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "context_dependent",
+      "expected_event",
+      "no_action"
+    ]
+  },
+  {
+    "test_id": 175,
+    "subject": "Assessment Feedback Timing",
+    "category": {
+      "preferred": "other",
+      "acceptable": [
+        "other",
+        "career",
+        "research",
+        "project",
+        "administration"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "assessment feedback publication",
+      "raw_text": "two business days after marking is completed",
+      "normalized": null,
+      "precision": null,
+      "depends_on_context": true
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "context_dependent",
+      "expected_event",
+      "no_action"
+    ]
+  },
+  {
+    "test_id": 176,
+    "subject": "Offer Letter Timing",
+    "category": {
+      "preferred": "other",
+      "acceptable": [
+        "other",
+        "career",
+        "research",
+        "project",
+        "administration"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "formal offer letter",
+      "raw_text": "one day after final approval",
+      "normalized": null,
+      "precision": null,
+      "depends_on_context": true
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "context_dependent",
+      "expected_event",
+      "no_action"
+    ]
+  },
+  {
+    "test_id": 177,
+    "subject": "Lab Induction Reminder",
+    "category": {
+      "preferred": "other",
+      "acceptable": [
+        "other",
+        "career",
+        "research",
+        "project",
+        "administration"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "lab induction reminder",
+      "raw_text": "the day before your booked session",
+      "normalized": null,
+      "precision": null,
+      "depends_on_context": true
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "context_dependent",
+      "expected_event",
+      "no_action"
+    ]
+  },
+  {
+    "test_id": 178,
+    "subject": "Reference Check Update",
+    "category": {
+      "preferred": "other",
+      "acceptable": [
+        "other",
+        "career",
+        "research",
+        "project",
+        "administration"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "reference check update",
+      "raw_text": "after both referees have responded",
+      "normalized": null,
+      "precision": null,
+      "depends_on_context": true
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "context_dependent",
+      "expected_event",
+      "no_action"
+    ]
+  },
+  {
+    "test_id": 179,
+    "subject": "Project Review Notes",
+    "category": {
+      "preferred": "other",
+      "acceptable": [
+        "other",
+        "career",
+        "research",
+        "project",
+        "administration"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "project review notes",
+      "raw_text": "after the review meeting",
+      "normalized": null,
+      "precision": null,
+      "depends_on_context": true
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "context_dependent",
+      "expected_event",
+      "no_action"
+    ]
+  },
+  {
+    "test_id": 180,
+    "subject": "Travel Grant Result",
+    "category": {
+      "preferred": "other",
+      "acceptable": [
+        "other",
+        "career",
+        "research",
+        "project",
+        "administration"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "travel grant decision",
+      "raw_text": "three days after the committee meeting",
+      "normalized": null,
+      "precision": null,
+      "depends_on_context": true
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "slices": [
+      "context_dependent",
+      "expected_event",
+      "no_action"
+    ]
+  }
+]

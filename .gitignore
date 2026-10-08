@@ -1,0 +1,69 @@
+# =========================
+# Secrets / Environment
+# =========================
+.env
+.env.*
+!.env.example
+
+# Microsoft / OAuth tokens
+msal_token_cache.json
+*token_cache*.json
+*.token
+
+# =========================
+# Python
+# =========================
+.venv/
+venv/
+env/
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# =========================
+# IDE / Editor
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# OS
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# Logs / Temp
+# =========================
+*.log
+*.tmp
+*.temp
+
+# =========================
+# Archives
+# =========================
+*.zip
+*.rar
+*.7z
+
+# =========================
+# Private / real email data
+# =========================
+emails.json
+
+# Old local experiment outputs
+ai_results.json
+evaluation_report.json
+evaluation_report_v2.json
+evaluation_report_v3.json
+
+# =========================
+# Optional local files
+# =========================
+*.bak

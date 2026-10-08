@@ -1,0 +1,44 @@
+{
+  "name": "Mailmate Offline Held-out Benchmark v1",
+  "version": "1.0",
+  "created_for": "RC1 frozen pipeline evaluation",
+  "timezone": "Australia/Sydney",
+  "sample_count": 180,
+  "design": {
+    "dev_set_separation": "Held out from the 30-email development set; do not tune prompt/pipeline on this benchmark before final scoring.",
+    "category_policy": "Gold categories use preferred + acceptable to tolerate taxonomy ambiguity.",
+    "context_policy": "Context-dependent events keep raw_text but normalized=null and depends_on_context=true.",
+    "risk_policy": "Action/reply/deadline misses are weighted more heavily than false-positive reminders."
+  },
+  "supports": {
+    "requires_action_true": 120,
+    "requires_action_false": 60,
+    "requires_reply_true": 40,
+    "requires_reply_false": 140,
+    "user_deadline_present": 70,
+    "expected_event_present": 100,
+    "deadline_and_event": 20,
+    "context_dependent_event": 10
+  },
+  "slice_counts": {
+    "administration": 40,
+    "ambiguous_category": 70,
+    "career": 50,
+    "conditional_reply": 10,
+    "context_dependent": 10,
+    "course": 30,
+    "deadline": 70,
+    "deadline_and_event": 20,
+    "expected_event": 100,
+    "hard_negative": 10,
+    "high_risk": 60,
+    "no_action": 60,
+    "optional_content": 10,
+    "optional_event": 10,
+    "project": 20,
+    "relative_time": 60,
+    "requires_action": 120,
+    "requires_reply": 40,
+    "research": 40
+  }
+}

@@ -1,0 +1,724 @@
+[
+  {
+    "test_id": 1,
+    "subject": "连接到 Microsoft 帐户的新应用",
+    "category": {
+      "preferred": "other",
+      "acceptable": [
+        "other"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "none",
+      "target": null
+    },
+    "evaluation": {
+      "include": false,
+      "reason": "real system-noise sample; keep for later OOD evaluation"
+    }
+  },
+  {
+    "test_id": 2,
+    "subject": "Application Still Under Review",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "application outcome",
+      "raw_text": "by the end of next week",
+      "normalized": "2026-10-11",
+      "precision": "date"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    }
+  },
+  {
+    "test_id": 3,
+    "subject": "Interview Confirmation",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "interview meeting link delivery",
+      "raw_text": "one day before the interview",
+      "normalized": null,
+      "precision": null,
+      "depends_on_context": true
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    }
+  },
+  {
+    "test_id": 4,
+    "subject": "Interview Invitation",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "online interview",
+      "raw_text": "14 October at 10 AM",
+      "normalized": "2026-10-14T10:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "reply_confirm",
+      "target": "interview attendance"
+    }
+  },
+  {
+    "test_id": 5,
+    "subject": "Application Received",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "none",
+      "target": null
+    }
+  },
+  {
+    "test_id": 6,
+    "subject": "Submit Peer Review",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "tomorrow at 6 PM",
+      "normalized": "2026-09-30T18:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "peer review through Moodle"
+    }
+  },
+  {
+    "test_id": 7,
+    "subject": "Research Assistant Opportunity",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career",
+        "research"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "reply_interest",
+      "target": "research assistant opportunity"
+    }
+  },
+  {
+    "test_id": 8,
+    "subject": "Tutorial Room Change",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "tutorial in Room K17-204",
+      "raw_text": "tomorrow",
+      "normalized": "2026-09-30",
+      "precision": "date"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    }
+  },
+  {
+    "test_id": 9,
+    "subject": "Ethics Form Requires Revision",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "by Friday",
+      "normalized": "2026-10-02",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "revise",
+      "target": "ethics application section 4 and resubmit"
+    }
+  },
+  {
+    "test_id": 10,
+    "subject": "Project Milestone Due",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "this Sunday at 11:59 PM",
+      "normalized": "2026-10-04T23:59:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "project Milestone 2 with updated GitHub repository"
+    }
+  },
+  {
+    "test_id": 11,
+    "subject": "Exam Timetable Released",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "check",
+      "target": "final examination date and location"
+    }
+  },
+  {
+    "test_id": 12,
+    "subject": "Office Hours Cancelled",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course",
+        "administration"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "none",
+      "target": null
+    }
+  },
+  {
+    "test_id": 13,
+    "subject": "Request for Updated CV",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": {
+      "raw_text": "before our meeting on Thursday",
+      "normalized": "2026-10-01",
+      "precision": "date"
+    },
+    "expected_event": {
+      "event": "meeting",
+      "raw_text": "Thursday",
+      "normalized": "2026-10-01",
+      "precision": "date"
+    },
+    "action": {
+      "type": "send",
+      "target": "latest CV in PDF format"
+    }
+  },
+  {
+    "test_id": 14,
+    "subject": "Server Maintenance Notice",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "faculty computing server maintenance",
+      "raw_text": "between 1 AM and 3 AM this Sunday",
+      "normalized": "2026-10-04T01:00:00/2026-10-04T03:00:00",
+      "precision": "datetime_range"
+    },
+    "action": {
+      "type": "save",
+      "target": "work before server maintenance"
+    }
+  },
+  {
+    "test_id": 15,
+    "subject": "Internship Information Session",
+    "category": {
+      "preferred": "career",
+      "acceptable": [
+        "career"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "internship information session",
+      "raw_text": "Monday at 1 PM",
+      "normalized": "2026-10-05T13:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "register",
+      "target": "internship information session"
+    }
+  },
+  {
+    "test_id": 16,
+    "subject": "Course Survey",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "none",
+      "target": null
+    }
+  },
+  {
+    "test_id": 17,
+    "subject": "Report Feedback Available",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "review",
+      "target": "report feedback"
+    }
+  },
+  {
+    "test_id": 18,
+    "subject": "Research Seminar Invitation",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "research seminar on retrieval-augmented generation",
+      "raw_text": "this Thursday at 4 PM",
+      "normalized": "2026-10-01T16:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    }
+  },
+  {
+    "test_id": 19,
+    "subject": "Group Project Update",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "before our meeting tomorrow",
+      "normalized": "2026-09-30",
+      "precision": "date"
+    },
+    "expected_event": {
+      "event": "group project meeting",
+      "raw_text": "tomorrow",
+      "normalized": "2026-09-30",
+      "precision": "date"
+    },
+    "action": {
+      "type": "review",
+      "target": "data preprocessing section"
+    }
+  },
+  {
+    "test_id": 20,
+    "subject": "Assignment Extension Approved",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "19 October at 11:59 PM",
+      "normalized": "2026-10-19T23:59:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "assignment"
+    }
+  },
+  {
+    "test_id": 21,
+    "subject": "Presentation Schedule",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "group presentation",
+      "raw_text": "22 October at 3:30 PM",
+      "normalized": "2026-10-22T15:30:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "attend",
+      "target": "group presentation"
+    }
+  },
+  {
+    "test_id": 22,
+    "subject": "Dataset Access Request Update",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research",
+        "administration"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "dataset access request update",
+      "raw_text": "within three business days",
+      "normalized": "2026-10-02",
+      "precision": "date"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    }
+  },
+  {
+    "test_id": 23,
+    "subject": "Guest Lecture Next Week",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "guest lecture on large language model evaluation",
+      "raw_text": "next Tuesday",
+      "normalized": "2026-10-06",
+      "precision": "date"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    }
+  },
+  {
+    "test_id": 24,
+    "subject": "Action Required: Confirm Enrolment",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "course"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "before 5 PM this Thursday",
+      "normalized": "2026-10-01T17:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "confirm",
+      "target": "enrolment details"
+    }
+  },
+  {
+    "test_id": 25,
+    "subject": "Meeting Request: AI Project",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "AI project meeting",
+      "raw_text": "this Friday afternoon",
+      "normalized": "2026-10-02",
+      "precision": "date",
+      "time_hint": "afternoon"
+    },
+    "action": {
+      "type": "reply_availability",
+      "target": "suitable meeting time"
+    }
+  },
+  {
+    "test_id": 26,
+    "subject": "Quiz Results Available",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": null,
+    "action": {
+      "type": "none",
+      "target": null
+    }
+  },
+  {
+    "test_id": 27,
+    "subject": "Scholarship Application Reminder",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "career"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "20 October",
+      "normalized": "2026-10-20",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "submit",
+      "target": "scholarship application supporting documents"
+    }
+  },
+  {
+    "test_id": 28,
+    "subject": "Lab Access Approved",
+    "category": {
+      "preferred": "administration",
+      "acceptable": [
+        "administration",
+        "research"
+      ]
+    },
+    "importance": "low",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "AI laboratory access activation",
+      "raw_text": "tomorrow morning",
+      "normalized": "2026-09-30",
+      "precision": "date",
+      "time_hint": "morning"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    }
+  },
+  {
+    "test_id": 29,
+    "subject": "Project Proposal Feedback",
+    "category": {
+      "preferred": "project",
+      "acceptable": [
+        "project"
+      ]
+    },
+    "importance": "high",
+    "requires_action": true,
+    "requires_reply": true,
+    "user_deadline": {
+      "raw_text": "by next Monday",
+      "normalized": "2026-10-05",
+      "precision": "date"
+    },
+    "expected_event": null,
+    "action": {
+      "type": "revise",
+      "target": "project proposal evaluation section and send updated proposal"
+    }
+  },
+  {
+    "test_id": 30,
+    "subject": "Research Meeting Rescheduled",
+    "category": {
+      "preferred": "research",
+      "acceptable": [
+        "research"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": false,
+    "requires_reply": false,
+    "user_deadline": null,
+    "expected_event": {
+      "event": "research meeting",
+      "raw_text": "Wednesday at 2 PM",
+      "normalized": "2026-09-30T14:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "none",
+      "target": null
+    }
+  },
+  {
+    "test_id": 31,
+    "subject": "Tutorial Tomorrow",
+    "category": {
+      "preferred": "course",
+      "acceptable": [
+        "course"
+      ]
+    },
+    "importance": "medium",
+    "requires_action": true,
+    "requires_reply": false,
+    "user_deadline": {
+      "raw_text": "tomorrow at 11 AM",
+      "normalized": "2026-09-30T11:00:00",
+      "precision": "datetime"
+    },
+    "expected_event": {
+      "event": "tutorial",
+      "raw_text": "tomorrow at 11 AM",
+      "normalized": "2026-09-30T11:00:00",
+      "precision": "datetime"
+    },
+    "action": {
+      "type": "complete",
+      "target": "tutorial preparation exercises"
+    }
+  }
+]

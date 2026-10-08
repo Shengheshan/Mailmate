@@ -1,0 +1,1866 @@
+{
+  "matched_samples": 174,
+  "unmatched_ai_subjects": [],
+  "missing_gold_subjects": [
+    "Global Futures Scholarship Application Reminder",
+    "Engineering Merit Scholarship Application Reminder",
+    "Innovation Scholarship Application Reminder",
+    "STEM Excellence Scholarship Application Reminder",
+    "Future Leaders Scholarship Application Reminder",
+    "AI Talent Scholarship Application Reminder"
+  ],
+  "critical_task_detection": {
+    "action": {
+      "tp": 114,
+      "fp": 3,
+      "tn": 57,
+      "fn": 0,
+      "recall": 1.0,
+      "precision": 0.9743589743589743,
+      "fn_rate": 0.0,
+      "fp_rate": 0.05
+    },
+    "reply": {
+      "tp": 30,
+      "fp": 3,
+      "tn": 131,
+      "fn": 10,
+      "recall": 0.75,
+      "precision": 0.9090909090909091,
+      "fn_rate": 0.25,
+      "fp_rate": 0.022388059701492536
+    }
+  },
+  "deadline": {
+    "detection": {
+      "tp": 61,
+      "fp": 5,
+      "tn": 105,
+      "fn": 3,
+      "recall": 0.953125,
+      "precision": 0.9242424242424242,
+      "fn_rate": 0.046875,
+      "fp_rate": 0.045454545454545456
+    },
+    "date_accuracy_when_detected": 1.0,
+    "precision_accuracy_when_detected": 0.8360655737704918,
+    "exact_normalized_accuracy_when_detected": 0.8360655737704918
+  },
+  "semantic_understanding": {
+    "category_strict_accuracy": 0.8563218390804598,
+    "category_tolerant_accuracy": 0.9827586206896551,
+    "importance_exact_accuracy": 0.8620689655172413,
+    "importance_soft_score": 0.9310344827586207,
+    "action_type_end_to_end_accuracy": 0.9122807017543859
+  },
+  "expected_event": {
+    "detection": {
+      "tp": 94,
+      "fp": 1,
+      "tn": 73,
+      "fn": 6,
+      "recall": 0.94,
+      "precision": 0.9894736842105263,
+      "fn_rate": 0.06,
+      "fp_rate": 0.013513513513513514
+    },
+    "date_accuracy_when_detected": 0.9047619047619048,
+    "precision_accuracy_when_detected": 0.8095238095238095,
+    "exact_normalized_accuracy_when_detected": 0.7857142857142857,
+    "context_required_safe_rate": 1.0,
+    "context_required_total": 10
+  },
+  "risk_weighted_score": 0.9417764083315355,
+  "risk_weighted_score_definition": {
+    "action_safety": "0.80*recall + 0.20*precision",
+    "reply_safety": "0.75*recall + 0.25*precision",
+    "deadline_safety": "0.80*recall + 0.20*precision",
+    "overall_weights": {
+      "action_safety": 0.25,
+      "reply_safety": 0.15,
+      "deadline_detection_safety": 0.2,
+      "deadline_date_accuracy": 0.15,
+      "action_type_end_to_end": 0.1,
+      "category_tolerant": 0.05,
+      "importance_soft_score": 0.05,
+      "event_detection_f1": 0.05
+    }
+  },
+  "details": [
+    {
+      "subject": "COMP9321 Assignment 2 Submission",
+      "issues": [],
+      "ai_target": "comp9321 assignment 2",
+      "gold_target": "comp9321 assignment through moodle"
+    },
+    {
+      "subject": "COMP9417 Assignment 3 Submission",
+      "issues": [],
+      "ai_target": "comp9417 assignment 3",
+      "gold_target": "comp9417 assignment through moodle"
+    },
+    {
+      "subject": "COMP9444 Assignment 4 Submission",
+      "issues": [],
+      "ai_target": "comp9444 assignment 4",
+      "gold_target": "comp9444 assignment through moodle"
+    },
+    {
+      "subject": "COMP9312 Assignment 5 Submission",
+      "issues": [],
+      "ai_target": "comp9312 assignment 5",
+      "gold_target": "comp9312 assignment through moodle"
+    },
+    {
+      "subject": "COMP9024 Assignment 6 Submission",
+      "issues": [],
+      "ai_target": "comp9024 assignment 6",
+      "gold_target": "comp9024 assignment through moodle"
+    },
+    {
+      "subject": "COMP9331 Assignment 7 Submission",
+      "issues": [],
+      "ai_target": "comp9331 assignment 7",
+      "gold_target": "comp9331 assignment through moodle"
+    },
+    {
+      "subject": "COMP9517 Assignment 8 Submission",
+      "issues": [],
+      "ai_target": "comp9517 assignment 8",
+      "gold_target": "comp9517 assignment through moodle"
+    },
+    {
+      "subject": "COMP9414 Assignment 9 Submission",
+      "issues": [],
+      "ai_target": "comp9414 assignment 9",
+      "gold_target": "comp9414 assignment through moodle"
+    },
+    {
+      "subject": "COMP9311 Assignment 10 Submission",
+      "issues": [],
+      "ai_target": "comp9311 assignment 10",
+      "gold_target": "comp9311 assignment through moodle"
+    },
+    {
+      "subject": "COMP9044 Assignment 11 Submission",
+      "issues": [],
+      "ai_target": "comp9044 assignment 11 submission",
+      "gold_target": "comp9044 assignment through moodle"
+    },
+    {
+      "subject": "COMP9321 Tutorial Preparation 1",
+      "issues": [
+        {
+          "field": "user_deadline_quality",
+          "ai_normalized": "2026-10-13",
+          "gold_normalized": "2026-10-13T10:00:00",
+          "date_match": true,
+          "ai_precision": "date",
+          "gold_precision": "datetime",
+          "precision_match": false
+        },
+        {
+          "field": "expected_event_quality",
+          "ai_normalized": "2026-10-13",
+          "gold_normalized": "2026-10-13T10:00:00",
+          "date_match": true,
+          "ai_precision": "date",
+          "gold_precision": "datetime",
+          "precision_match": false
+        }
+      ],
+      "ai_target": "exercise set 1",
+      "gold_target": "tutorial preparation exercise set 1"
+    },
+    {
+      "subject": "COMP9417 Tutorial Preparation 2",
+      "issues": [
+        {
+          "field": "importance",
+          "ai": "high",
+          "gold": "medium",
+          "partial_score": 0.5
+        },
+        {
+          "field": "user_deadline_quality",
+          "ai_normalized": "2026-10-14",
+          "gold_normalized": "2026-10-14T11:00:00",
+          "date_match": true,
+          "ai_precision": "date",
+          "gold_precision": "datetime",
+          "precision_match": false
+        },
+        {
+          "field": "expected_event_quality",
+          "ai_normalized": "2026-10-14",
+          "gold_normalized": "2026-10-14T11:00:00",
+          "date_match": true,
+          "ai_precision": "date",
+          "gold_precision": "datetime",
+          "precision_match": false
+        }
+      ],
+      "ai_target": "exercise set 2",
+      "gold_target": "tutorial preparation exercise set 2"
+    },
+    {
+      "subject": "COMP9444 Tutorial Preparation 3",
+      "issues": [
+        {
+          "field": "importance",
+          "ai": "high",
+          "gold": "medium",
+          "partial_score": 0.5
+        },
+        {
+          "field": "user_deadline_quality",
+          "ai_normalized": "2026-10-20",
+          "gold_normalized": "2026-10-20T12:00:00",
+          "date_match": true,
+          "ai_precision": "date",
+          "gold_precision": "datetime",
+          "precision_match": false
+        },
+        {
+          "field": "expected_event_quality",
+          "ai_normalized": "2026-10-20",
+          "gold_normalized": "2026-10-20T12:00:00",
+          "date_match": true,
+          "ai_precision": "date",
+          "gold_precision": "datetime",
+          "precision_match": false
+        }
+      ],
+      "ai_target": "exercise set 3",
+      "gold_target": "tutorial preparation exercise set 3"
+    },
+    {
+      "subject": "COMP9312 Tutorial Preparation 4",
+      "issues": [
+        {
+          "field": "importance",
+          "ai": "high",
+          "gold": "medium",
+          "partial_score": 0.5
+        },
+        {
+          "field": "user_deadline_quality",
+          "ai_normalized": "2026-10-21",
+          "gold_normalized": "2026-10-21T13:00:00",
+          "date_match": true,
+          "ai_precision": "date",
+          "gold_precision": "datetime",
+          "precision_match": false
+        },
+        {
+          "field": "expected_event_quality",
+          "ai_normalized": "2026-10-21",
+          "gold_normalized": "2026-10-21T13:00:00",
+          "date_match": true,
+          "ai_precision": "date",
+          "gold_precision": "datetime",
+          "precision_match": false
+        }
+      ],
+      "ai_target": "exercise set 4",
+      "gold_target": "tutorial preparation exercise set 4"
+    },
+    {
+      "subject": "COMP9024 Tutorial Preparation 5",
+      "issues": [
+        {
+          "field": "user_deadline_quality",
+          "ai_normalized": "2026-10-13",
+          "gold_normalized": "2026-10-13T14:00:00",
+          "date_match": true,
+          "ai_precision": "date",
+          "gold_precision": "datetime",
+          "precision_match": false
+        },
+        {
+          "field": "expected_event_quality",
+          "ai_normalized": "2026-10-13",
+          "gold_normalized": "2026-10-13T14:00:00",
+          "date_match": true,
+          "ai_precision": "date",
+          "gold_precision": "datetime",
+          "precision_match": false
+        }
+      ],
+      "ai_target": "exercise set 5",
+      "gold_target": "tutorial preparation exercise set 5"
+    },
+    {
+      "subject": "COMP9331 Tutorial Preparation 6",
+      "issues": [
+        {
+          "field": "importance",
+          "ai": "high",
+          "gold": "medium",
+          "partial_score": 0.5
+        },
+        {
+          "field": "user_deadline_quality",
+          "ai_normalized": "2026-10-14",
+          "gold_normalized": "2026-10-14T10:00:00",
+          "date_match": true,
+          "ai_precision": "date",
+          "gold_precision": "datetime",
+          "precision_match": false
+        },
+        {
+          "field": "expected_event_quality",
+          "ai_normalized": "2026-10-14",
+          "gold_normalized": "2026-10-14T10:00:00",
+          "date_match": true,
+          "ai_precision": "date",
+          "gold_precision": "datetime",
+          "precision_match": false
+        }
+      ],
+      "ai_target": "exercise set 6",
+      "gold_target": "tutorial preparation exercise set 6"
+    },
+    {
+      "subject": "COMP9517 Tutorial Preparation 7",
+      "issues": [
+        {
+          "field": "importance",
+          "ai": "high",
+          "gold": "medium",
+          "partial_score": 0.5
+        },
+        {
+          "field": "user_deadline_quality",
+          "ai_normalized": "2026-10-20",
+          "gold_normalized": "2026-10-20T11:00:00",
+          "date_match": true,
+          "ai_precision": "date",
+          "gold_precision": "datetime",
+          "precision_match": false
+        },
+        {
+          "field": "expected_event_quality",
+          "ai_normalized": "2026-10-20",
+          "gold_normalized": "2026-10-20T11:00:00",
+          "date_match": true,
+          "ai_precision": "date",
+          "gold_precision": "datetime",
+          "precision_match": false
+        }
+      ],
+      "ai_target": "exercise set 7",
+      "gold_target": "tutorial preparation exercise set 7"
+    },
+    {
+      "subject": "COMP9414 Tutorial Preparation 8",
+      "issues": [
+        {
+          "field": "importance",
+          "ai": "high",
+          "gold": "medium",
+          "partial_score": 0.5
+        },
+        {
+          "field": "user_deadline_quality",
+          "ai_normalized": "2026-10-21",
+          "gold_normalized": "2026-10-21T12:00:00",
+          "date_match": true,
+          "ai_precision": "date",
+          "gold_precision": "datetime",
+          "precision_match": false
+        },
+        {
+          "field": "expected_event_quality",
+          "ai_normalized": "2026-10-21",
+          "gold_normalized": "2026-10-21T12:00:00",
+          "date_match": true,
+          "ai_precision": "date",
+          "gold_precision": "datetime",
+          "precision_match": false
+        }
+      ],
+      "ai_target": "exercise set 8",
+      "gold_target": "tutorial preparation exercise set 8"
+    },
+    {
+      "subject": "COMP9311 Tutorial Preparation 9",
+      "issues": [
+        {
+          "field": "importance",
+          "ai": "high",
+          "gold": "medium",
+          "partial_score": 0.5
+        },
+        {
+          "field": "user_deadline_quality",
+          "ai_normalized": "2026-10-13",
+          "gold_normalized": "2026-10-13T13:00:00",
+          "date_match": true,
+          "ai_precision": "date",
+          "gold_precision": "datetime",
+          "precision_match": false
+        },
+        {
+          "field": "expected_event_quality",
+          "ai_normalized": "2026-10-13",
+          "gold_normalized": "2026-10-13T13:00:00",
+          "date_match": true,
+          "ai_precision": "date",
+          "gold_precision": "datetime",
+          "precision_match": false
+        }
+      ],
+      "ai_target": "exercise set 9",
+      "gold_target": "tutorial preparation exercise set 9"
+    },
+    {
+      "subject": "COMP9044 Tutorial Preparation 10",
+      "issues": [
+        {
+          "field": "importance",
+          "ai": "high",
+          "gold": "medium",
+          "partial_score": 0.5
+        },
+        {
+          "field": "user_deadline_quality",
+          "ai_normalized": "2026-10-14",
+          "gold_normalized": "2026-10-14T14:00:00",
+          "date_match": true,
+          "ai_precision": "date",
+          "gold_precision": "datetime",
+          "precision_match": false
+        },
+        {
+          "field": "expected_event_quality",
+          "ai_normalized": "2026-10-14",
+          "gold_normalized": "2026-10-14T14:00:00",
+          "date_match": true,
+          "ai_precision": "date",
+          "gold_precision": "datetime",
+          "precision_match": false
+        }
+      ],
+      "ai_target": "exercise set 10",
+      "gold_target": "tutorial preparation exercise set 10"
+    },
+    {
+      "subject": "Optional Lecture: Multimodal Retrieval",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Optional Lecture: Agent Planning",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Optional Lecture: Vision-Language Models",
+      "issues": [
+        {
+          "field": "expected_event_quality",
+          "ai_normalized": "2026-10-19T13:00:00",
+          "gold_normalized": "2026-10-26T13:00:00",
+          "date_match": false,
+          "ai_precision": "datetime",
+          "gold_precision": "datetime",
+          "precision_match": true
+        }
+      ],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Optional Lecture: Robust Rag",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Optional Lecture: Graph Learning",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Optional Lecture: Evaluation",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Optional Lecture: Reinforcement Learning",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Optional Lecture: Privacy",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Optional Lecture: Embeddings",
+      "issues": [
+        {
+          "field": "expected_event_quality",
+          "ai_normalized": "2026-10-12T13:00:00",
+          "gold_normalized": "2026-10-19T13:00:00",
+          "date_match": false,
+          "ai_precision": "datetime",
+          "gold_precision": "datetime",
+          "precision_match": true
+        }
+      ],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Optional Lecture: Reasoning",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "COMP9321 Final Exam Timetable Available",
+      "issues": [
+        {
+          "field": "action_type",
+          "ai": "read",
+          "gold": "check",
+          "ai_requires_action": true
+        }
+      ],
+      "ai_target": "student portal",
+      "gold_target": "exam date, time and room in the student portal"
+    },
+    {
+      "subject": "COMP9417 Final Exam Timetable Available",
+      "issues": [
+        {
+          "field": "action_type",
+          "ai": "read",
+          "gold": "check",
+          "ai_requires_action": true
+        }
+      ],
+      "ai_target": "student portal",
+      "gold_target": "exam date, time and room in the student portal"
+    },
+    {
+      "subject": "COMP9444 Final Exam Timetable Available",
+      "issues": [
+        {
+          "field": "action_type",
+          "ai": "read",
+          "gold": "check",
+          "ai_requires_action": true
+        }
+      ],
+      "ai_target": "student portal",
+      "gold_target": "exam date, time and room in the student portal"
+    },
+    {
+      "subject": "COMP9312 Final Exam Timetable Available",
+      "issues": [],
+      "ai_target": "student portal",
+      "gold_target": "exam date, time and room in the student portal"
+    },
+    {
+      "subject": "COMP9024 Final Exam Timetable Available",
+      "issues": [
+        {
+          "field": "action_type",
+          "ai": "read",
+          "gold": "check",
+          "ai_requires_action": true
+        }
+      ],
+      "ai_target": "student portal",
+      "gold_target": "exam date, time and room in the student portal"
+    },
+    {
+      "subject": "COMP9331 Final Exam Timetable Available",
+      "issues": [
+        {
+          "field": "action_type",
+          "ai": "read",
+          "gold": "check",
+          "ai_requires_action": true
+        }
+      ],
+      "ai_target": "student portal",
+      "gold_target": "exam date, time and room in the student portal"
+    },
+    {
+      "subject": "COMP9517 Final Exam Timetable Available",
+      "issues": [],
+      "ai_target": "student portal",
+      "gold_target": "exam date, time and room in the student portal"
+    },
+    {
+      "subject": "COMP9414 Final Exam Timetable Available",
+      "issues": [
+        {
+          "field": "action_type",
+          "ai": "read",
+          "gold": "check",
+          "ai_requires_action": true
+        }
+      ],
+      "ai_target": "student portal",
+      "gold_target": "exam date, time and room in the student portal"
+    },
+    {
+      "subject": "COMP9311 Final Exam Timetable Available",
+      "issues": [
+        {
+          "field": "action_type",
+          "ai": "read",
+          "gold": "check",
+          "ai_requires_action": true
+        }
+      ],
+      "ai_target": "student portal",
+      "gold_target": "exam date, time and room in the student portal"
+    },
+    {
+      "subject": "COMP9044 Final Exam Timetable Available",
+      "issues": [
+        {
+          "field": "action_type",
+          "ai": "read",
+          "gold": "check",
+          "ai_requires_action": true
+        }
+      ],
+      "ai_target": "student portal",
+      "gold_target": "exam date, time and room in the student portal"
+    },
+    {
+      "subject": "Nebula AI Interview Invitation",
+      "issues": [],
+      "ai_target": "nebula ai interview invitation",
+      "gold_target": "interview attendance"
+    },
+    {
+      "subject": "Aster Labs Interview Invitation",
+      "issues": [],
+      "ai_target": "aster labs interview invitation",
+      "gold_target": "interview attendance"
+    },
+    {
+      "subject": "Harbour Robotics Interview Invitation",
+      "issues": [],
+      "ai_target": "harbour robotics interview invitation",
+      "gold_target": "interview attendance"
+    },
+    {
+      "subject": "PixelForge Interview Invitation",
+      "issues": [],
+      "ai_target": "pixelforge interview invitation",
+      "gold_target": "interview attendance"
+    },
+    {
+      "subject": "Lumen Systems Interview Invitation",
+      "issues": [],
+      "ai_target": "lumen systems interview invitation",
+      "gold_target": "interview attendance"
+    },
+    {
+      "subject": "OrbitML Interview Invitation",
+      "issues": [],
+      "ai_target": "orbitml interview invitation",
+      "gold_target": "interview attendance"
+    },
+    {
+      "subject": "VectorWorks Interview Invitation",
+      "issues": [
+        {
+          "field": "user_deadline_detection",
+          "ai_has_deadline": true,
+          "gold_has_deadline": false,
+          "severity": "minor"
+        }
+      ],
+      "ai_target": null,
+      "gold_target": "interview attendance"
+    },
+    {
+      "subject": "Cedar AI Interview Invitation",
+      "issues": [],
+      "ai_target": "cedar ai interview invitation",
+      "gold_target": "interview attendance"
+    },
+    {
+      "subject": "BluePeak Interview Invitation",
+      "issues": [],
+      "ai_target": "bluepeak interview invitation",
+      "gold_target": "interview attendance"
+    },
+    {
+      "subject": "Kite Analytics Interview Invitation",
+      "issues": [],
+      "ai_target": "confirm attendance for interview on 28 october at 10 am",
+      "gold_target": "interview attendance"
+    },
+    {
+      "subject": "Nebula AI Application Status Update",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Aster Labs Application Status Update",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Harbour Robotics Application Status Update",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "PixelForge Application Status Update",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Lumen Systems Application Status Update",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "OrbitML Application Status Update",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "VectorWorks Application Status Update",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Cedar AI Application Status Update",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "BluePeak Application Status Update",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Kite Analytics Application Status Update",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Nebula AI Request for Updated CV",
+      "issues": [
+        {
+          "field": "requires_reply",
+          "ai": false,
+          "gold": true,
+          "severity": "high"
+        },
+        {
+          "field": "expected_event_detection",
+          "ai_has_event": false,
+          "gold_has_event": true,
+          "severity": "medium"
+        }
+      ],
+      "ai_target": "latest cv as a pdf",
+      "gold_target": "latest cv in pdf format"
+    },
+    {
+      "subject": "Aster Labs Request for Updated CV",
+      "issues": [
+        {
+          "field": "requires_reply",
+          "ai": false,
+          "gold": true,
+          "severity": "high"
+        },
+        {
+          "field": "expected_event_detection",
+          "ai_has_event": false,
+          "gold_has_event": true,
+          "severity": "medium"
+        }
+      ],
+      "ai_target": "latest cv as a pdf",
+      "gold_target": "latest cv in pdf format"
+    },
+    {
+      "subject": "Harbour Robotics Request for Updated CV",
+      "issues": [
+        {
+          "field": "requires_reply",
+          "ai": false,
+          "gold": true,
+          "severity": "high"
+        },
+        {
+          "field": "expected_event_detection",
+          "ai_has_event": false,
+          "gold_has_event": true,
+          "severity": "medium"
+        }
+      ],
+      "ai_target": "latest cv as a pdf",
+      "gold_target": "latest cv in pdf format"
+    },
+    {
+      "subject": "PixelForge Request for Updated CV",
+      "issues": [
+        {
+          "field": "requires_reply",
+          "ai": false,
+          "gold": true,
+          "severity": "high"
+        },
+        {
+          "field": "user_deadline_detection",
+          "ai_has_deadline": false,
+          "gold_has_deadline": true,
+          "severity": "critical"
+        }
+      ],
+      "ai_target": "latest cv as a pdf",
+      "gold_target": "latest cv in pdf format"
+    },
+    {
+      "subject": "Lumen Systems Request for Updated CV",
+      "issues": [
+        {
+          "field": "requires_reply",
+          "ai": false,
+          "gold": true,
+          "severity": "high"
+        },
+        {
+          "field": "user_deadline_detection",
+          "ai_has_deadline": false,
+          "gold_has_deadline": true,
+          "severity": "critical"
+        }
+      ],
+      "ai_target": "latest cv as a pdf",
+      "gold_target": "latest cv in pdf format"
+    },
+    {
+      "subject": "OrbitML Request for Updated CV",
+      "issues": [
+        {
+          "field": "requires_reply",
+          "ai": false,
+          "gold": true,
+          "severity": "high"
+        },
+        {
+          "field": "expected_event_detection",
+          "ai_has_event": false,
+          "gold_has_event": true,
+          "severity": "medium"
+        }
+      ],
+      "ai_target": "latest cv as a pdf",
+      "gold_target": "latest cv in pdf format"
+    },
+    {
+      "subject": "VectorWorks Request for Updated CV",
+      "issues": [
+        {
+          "field": "requires_reply",
+          "ai": false,
+          "gold": true,
+          "severity": "high"
+        },
+        {
+          "field": "expected_event_detection",
+          "ai_has_event": false,
+          "gold_has_event": true,
+          "severity": "medium"
+        }
+      ],
+      "ai_target": "latest cv as a pdf",
+      "gold_target": "latest cv in pdf format"
+    },
+    {
+      "subject": "Cedar AI Request for Updated CV",
+      "issues": [
+        {
+          "field": "requires_reply",
+          "ai": false,
+          "gold": true,
+          "severity": "high"
+        }
+      ],
+      "ai_target": "latest cv as a pdf",
+      "gold_target": "latest cv in pdf format"
+    },
+    {
+      "subject": "BluePeak Request for Updated CV",
+      "issues": [
+        {
+          "field": "requires_reply",
+          "ai": false,
+          "gold": true,
+          "severity": "high"
+        },
+        {
+          "field": "user_deadline_detection",
+          "ai_has_deadline": false,
+          "gold_has_deadline": true,
+          "severity": "critical"
+        }
+      ],
+      "ai_target": "latest cv as a pdf",
+      "gold_target": "latest cv in pdf format"
+    },
+    {
+      "subject": "Kite Analytics Request for Updated CV",
+      "issues": [
+        {
+          "field": "requires_reply",
+          "ai": false,
+          "gold": true,
+          "severity": "high"
+        },
+        {
+          "field": "expected_event_detection",
+          "ai_has_event": false,
+          "gold_has_event": true,
+          "severity": "medium"
+        }
+      ],
+      "ai_target": "latest cv as a pdf",
+      "gold_target": "latest cv in pdf format"
+    },
+    {
+      "subject": "Research Meeting Rescheduled: Multimodal Retrieval",
+      "issues": [
+        {
+          "field": "requires_action",
+          "ai": true,
+          "gold": false,
+          "severity": "minor"
+        },
+        {
+          "field": "requires_reply",
+          "ai": true,
+          "gold": false,
+          "severity": "minor"
+        }
+      ],
+      "ai_target": "new time does not work for you",
+      "gold_target": null
+    },
+    {
+      "subject": "Research Meeting Rescheduled: Agent Planning",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Research Meeting Rescheduled: Vision-Language Models",
+      "issues": [
+        {
+          "field": "requires_action",
+          "ai": true,
+          "gold": false,
+          "severity": "minor"
+        },
+        {
+          "field": "requires_reply",
+          "ai": true,
+          "gold": false,
+          "severity": "minor"
+        }
+      ],
+      "ai_target": "new time does not work for you",
+      "gold_target": null
+    },
+    {
+      "subject": "Research Meeting Rescheduled: Robust Rag",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Research Meeting Rescheduled: Graph Learning",
+      "issues": [
+        {
+          "field": "requires_action",
+          "ai": true,
+          "gold": false,
+          "severity": "minor"
+        },
+        {
+          "field": "requires_reply",
+          "ai": true,
+          "gold": false,
+          "severity": "minor"
+        }
+      ],
+      "ai_target": "new time does not work for you",
+      "gold_target": null
+    },
+    {
+      "subject": "Research Meeting Rescheduled: Evaluation",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Research Meeting Rescheduled: Reinforcement Learning",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Research Meeting Rescheduled: Privacy",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Research Meeting Rescheduled: Embeddings",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Research Meeting Rescheduled: Reasoning",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Research Assistant Opportunity: Multimodal Retrieval",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": "research assistant role in multimodal retrieval"
+    },
+    {
+      "subject": "Research Assistant Opportunity: Agent Planning",
+      "issues": [
+        {
+          "field": "action_type",
+          "ai": "reply_confirm",
+          "gold": "reply_interest",
+          "ai_requires_action": true
+        }
+      ],
+      "ai_target": null,
+      "gold_target": "research assistant role in agent planning"
+    },
+    {
+      "subject": "Research Assistant Opportunity: Vision-Language Models",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": "research assistant role in vision-language models"
+    },
+    {
+      "subject": "Research Assistant Opportunity: Robust Rag",
+      "issues": [
+        {
+          "field": "action_type",
+          "ai": "reply_confirm",
+          "gold": "reply_interest",
+          "ai_requires_action": true
+        }
+      ],
+      "ai_target": "research assistant opportunity: robust rag",
+      "gold_target": "research assistant role in robust rag"
+    },
+    {
+      "subject": "Research Assistant Opportunity: Graph Learning",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": "research assistant role in graph learning"
+    },
+    {
+      "subject": "Research Assistant Opportunity: Evaluation",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": "research assistant role in evaluation"
+    },
+    {
+      "subject": "Research Assistant Opportunity: Reinforcement Learning",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": "research assistant role in reinforcement learning"
+    },
+    {
+      "subject": "Research Assistant Opportunity: Privacy",
+      "issues": [
+        {
+          "field": "expected_event_detection",
+          "ai_has_event": true,
+          "gold_has_event": false,
+          "severity": "low"
+        }
+      ],
+      "ai_target": "research assistant opportunity: privacy",
+      "gold_target": "research assistant role in privacy"
+    },
+    {
+      "subject": "Research Assistant Opportunity: Embeddings",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": "research assistant role in embeddings"
+    },
+    {
+      "subject": "Research Assistant Opportunity: Reasoning",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": "research assistant role in reasoning"
+    },
+    {
+      "subject": "Ethics Revision Required: Multimodal Retrieval",
+      "issues": [],
+      "ai_target": "section 3",
+      "gold_target": "ethics submission section 3"
+    },
+    {
+      "subject": "Ethics Revision Required: Agent Planning",
+      "issues": [],
+      "ai_target": "section 4",
+      "gold_target": "ethics submission section 4"
+    },
+    {
+      "subject": "Ethics Revision Required: Vision-Language Models",
+      "issues": [],
+      "ai_target": "section 5",
+      "gold_target": "ethics submission section 5"
+    },
+    {
+      "subject": "Ethics Revision Required: Robust Rag",
+      "issues": [],
+      "ai_target": "section 6",
+      "gold_target": "ethics submission section 6"
+    },
+    {
+      "subject": "Ethics Revision Required: Graph Learning",
+      "issues": [],
+      "ai_target": "section 3 of the ethics submission for the graph learning study",
+      "gold_target": "ethics submission section 3"
+    },
+    {
+      "subject": "Ethics Revision Required: Evaluation",
+      "issues": [],
+      "ai_target": "section 4",
+      "gold_target": "ethics submission section 4"
+    },
+    {
+      "subject": "Ethics Revision Required: Reinforcement Learning",
+      "issues": [],
+      "ai_target": "section 5",
+      "gold_target": "ethics submission section 5"
+    },
+    {
+      "subject": "Ethics Revision Required: Privacy",
+      "issues": [],
+      "ai_target": "section 6",
+      "gold_target": "ethics submission section 6"
+    },
+    {
+      "subject": "Ethics Revision Required: Embeddings",
+      "issues": [],
+      "ai_target": "section 3",
+      "gold_target": "ethics submission section 3"
+    },
+    {
+      "subject": "Ethics Revision Required: Reasoning",
+      "issues": [],
+      "ai_target": "section 4",
+      "gold_target": "ethics submission section 4"
+    },
+    {
+      "subject": "Project Atlas Meeting Request 1",
+      "issues": [],
+      "ai_target": "suitable time",
+      "gold_target": "suitable meeting time"
+    },
+    {
+      "subject": "Project Atlas Meeting Request 2",
+      "issues": [],
+      "ai_target": "suitable time",
+      "gold_target": "suitable meeting time"
+    },
+    {
+      "subject": "Project Atlas Meeting Request 3",
+      "issues": [],
+      "ai_target": "suitable time",
+      "gold_target": "suitable meeting time"
+    },
+    {
+      "subject": "Project Atlas Meeting Request 4",
+      "issues": [],
+      "ai_target": "suitable time",
+      "gold_target": "suitable meeting time"
+    },
+    {
+      "subject": "Project Atlas Meeting Request 5",
+      "issues": [],
+      "ai_target": "suitable time",
+      "gold_target": "suitable meeting time"
+    },
+    {
+      "subject": "Project Atlas Meeting Request 6",
+      "issues": [],
+      "ai_target": "suitable time",
+      "gold_target": "suitable meeting time"
+    },
+    {
+      "subject": "Project Atlas Meeting Request 7",
+      "issues": [],
+      "ai_target": "suitable time",
+      "gold_target": "suitable meeting time"
+    },
+    {
+      "subject": "Project Atlas Meeting Request 8",
+      "issues": [
+        {
+          "field": "importance",
+          "ai": "high",
+          "gold": "medium",
+          "partial_score": 0.5
+        }
+      ],
+      "ai_target": "suitable time",
+      "gold_target": "suitable meeting time"
+    },
+    {
+      "subject": "Project Atlas Meeting Request 9",
+      "issues": [],
+      "ai_target": "suitable time",
+      "gold_target": "suitable meeting time"
+    },
+    {
+      "subject": "Project Atlas Meeting Request 10",
+      "issues": [],
+      "ai_target": "suitable time",
+      "gold_target": "suitable meeting time"
+    },
+    {
+      "subject": "Project Atlas Milestone 2 Due",
+      "issues": [],
+      "ai_target": "report and final code",
+      "gold_target": "project atlas milestone 2"
+    },
+    {
+      "subject": "Project Atlas Milestone 3 Due",
+      "issues": [],
+      "ai_target": "report and final code",
+      "gold_target": "project atlas milestone 3"
+    },
+    {
+      "subject": "Project Atlas Milestone 4 Due",
+      "issues": [],
+      "ai_target": "report and final code",
+      "gold_target": "project atlas milestone 4"
+    },
+    {
+      "subject": "Project Atlas Milestone 5 Due",
+      "issues": [],
+      "ai_target": "report and final code",
+      "gold_target": "project atlas milestone 5"
+    },
+    {
+      "subject": "Project Atlas Milestone 6 Due",
+      "issues": [],
+      "ai_target": "report and final code",
+      "gold_target": "project atlas milestone 6"
+    },
+    {
+      "subject": "Project Atlas Milestone 7 Due",
+      "issues": [],
+      "ai_target": "report and final code",
+      "gold_target": "project atlas milestone 7"
+    },
+    {
+      "subject": "Project Atlas Milestone 8 Due",
+      "issues": [],
+      "ai_target": "report and final code",
+      "gold_target": "project atlas milestone 8"
+    },
+    {
+      "subject": "Project Atlas Milestone 9 Due",
+      "issues": [],
+      "ai_target": "report and final code",
+      "gold_target": "project atlas milestone 9"
+    },
+    {
+      "subject": "Project Atlas Milestone 10 Due",
+      "issues": [],
+      "ai_target": "report and final code",
+      "gold_target": "project atlas milestone 10"
+    },
+    {
+      "subject": "Project Atlas Milestone 11 Due",
+      "issues": [],
+      "ai_target": "report and final code",
+      "gold_target": "project atlas milestone 11"
+    },
+    {
+      "subject": "Confirm Enrolment Details - Cohort 1",
+      "issues": [],
+      "ai_target": "enrolment details",
+      "gold_target": "enrolment details"
+    },
+    {
+      "subject": "Confirm Enrolment Details - Cohort 2",
+      "issues": [],
+      "ai_target": "enrolment details",
+      "gold_target": "enrolment details"
+    },
+    {
+      "subject": "Confirm Enrolment Details - Cohort 3",
+      "issues": [],
+      "ai_target": "enrolment details",
+      "gold_target": "enrolment details"
+    },
+    {
+      "subject": "Confirm Enrolment Details - Cohort 4",
+      "issues": [],
+      "ai_target": "enrolment details",
+      "gold_target": "enrolment details"
+    },
+    {
+      "subject": "Confirm Enrolment Details - Cohort 5",
+      "issues": [],
+      "ai_target": "enrolment details",
+      "gold_target": "enrolment details"
+    },
+    {
+      "subject": "Confirm Enrolment Details - Cohort 6",
+      "issues": [],
+      "ai_target": "enrolment details",
+      "gold_target": "enrolment details"
+    },
+    {
+      "subject": "Confirm Enrolment Details - Cohort 7",
+      "issues": [],
+      "ai_target": "enrolment details",
+      "gold_target": "enrolment details"
+    },
+    {
+      "subject": "Confirm Enrolment Details - Cohort 8",
+      "issues": [],
+      "ai_target": "enrolment details",
+      "gold_target": "enrolment details"
+    },
+    {
+      "subject": "Confirm Enrolment Details - Cohort 9",
+      "issues": [],
+      "ai_target": "enrolment details",
+      "gold_target": "enrolment details"
+    },
+    {
+      "subject": "Confirm Enrolment Details - Cohort 10",
+      "issues": [],
+      "ai_target": "enrolment details",
+      "gold_target": "enrolment details"
+    },
+    {
+      "subject": "Compute Cluster Maintenance Window 1",
+      "issues": [
+        {
+          "field": "expected_event_quality",
+          "ai_normalized": "2026-10-18",
+          "gold_normalized": "2026-10-18T01:00:00/2026-10-18T03:00:00",
+          "date_match": false,
+          "ai_precision": "date",
+          "gold_precision": "datetime_range",
+          "precision_match": false
+        }
+      ],
+      "ai_target": "work",
+      "gold_target": "work before maintenance"
+    },
+    {
+      "subject": "Compute Cluster Maintenance Window 2",
+      "issues": [
+        {
+          "field": "importance",
+          "ai": "high",
+          "gold": "medium",
+          "partial_score": 0.5
+        },
+        {
+          "field": "user_deadline_detection",
+          "ai_has_deadline": true,
+          "gold_has_deadline": false,
+          "severity": "minor"
+        }
+      ],
+      "ai_target": "work",
+      "gold_target": "work before maintenance"
+    },
+    {
+      "subject": "Compute Cluster Maintenance Window 3",
+      "issues": [
+        {
+          "field": "importance",
+          "ai": "high",
+          "gold": "medium",
+          "partial_score": 0.5
+        },
+        {
+          "field": "expected_event_quality",
+          "ai_normalized": "2026-10-25",
+          "gold_normalized": "2026-10-25T01:00:00/2026-10-25T03:00:00",
+          "date_match": false,
+          "ai_precision": "date",
+          "gold_precision": "datetime_range",
+          "precision_match": false
+        }
+      ],
+      "ai_target": "work",
+      "gold_target": "work before maintenance"
+    },
+    {
+      "subject": "Compute Cluster Maintenance Window 4",
+      "issues": [
+        {
+          "field": "expected_event_quality",
+          "ai_normalized": "2026-10-25",
+          "gold_normalized": "2026-10-25T01:00:00/2026-10-25T03:00:00",
+          "date_match": false,
+          "ai_precision": "date",
+          "gold_precision": "datetime_range",
+          "precision_match": false
+        }
+      ],
+      "ai_target": "work",
+      "gold_target": "work before maintenance"
+    },
+    {
+      "subject": "Compute Cluster Maintenance Window 5",
+      "issues": [
+        {
+          "field": "importance",
+          "ai": "high",
+          "gold": "medium",
+          "partial_score": 0.5
+        },
+        {
+          "field": "expected_event_quality",
+          "ai_normalized": "2026-10-18",
+          "gold_normalized": "2026-10-18T01:00:00/2026-10-18T03:00:00",
+          "date_match": false,
+          "ai_precision": "date",
+          "gold_precision": "datetime_range",
+          "precision_match": false
+        }
+      ],
+      "ai_target": "work",
+      "gold_target": "work before maintenance"
+    },
+    {
+      "subject": "Compute Cluster Maintenance Window 6",
+      "issues": [
+        {
+          "field": "importance",
+          "ai": "high",
+          "gold": "medium",
+          "partial_score": 0.5
+        },
+        {
+          "field": "expected_event_quality",
+          "ai_normalized": "2026-10-18",
+          "gold_normalized": "2026-10-18T01:00:00/2026-10-18T03:00:00",
+          "date_match": false,
+          "ai_precision": "date",
+          "gold_precision": "datetime_range",
+          "precision_match": false
+        }
+      ],
+      "ai_target": "work",
+      "gold_target": "work before maintenance"
+    },
+    {
+      "subject": "Compute Cluster Maintenance Window 7",
+      "issues": [
+        {
+          "field": "importance",
+          "ai": "high",
+          "gold": "medium",
+          "partial_score": 0.5
+        },
+        {
+          "field": "user_deadline_detection",
+          "ai_has_deadline": true,
+          "gold_has_deadline": false,
+          "severity": "minor"
+        }
+      ],
+      "ai_target": null,
+      "gold_target": "work before maintenance"
+    },
+    {
+      "subject": "Compute Cluster Maintenance Window 8",
+      "issues": [
+        {
+          "field": "importance",
+          "ai": "high",
+          "gold": "medium",
+          "partial_score": 0.5
+        },
+        {
+          "field": "expected_event_quality",
+          "ai_normalized": "2026-10-25",
+          "gold_normalized": "2026-10-25T01:00:00/2026-10-25T03:00:00",
+          "date_match": false,
+          "ai_precision": "date",
+          "gold_precision": "datetime_range",
+          "precision_match": false
+        }
+      ],
+      "ai_target": "work",
+      "gold_target": "work before maintenance"
+    },
+    {
+      "subject": "Compute Cluster Maintenance Window 9",
+      "issues": [
+        {
+          "field": "importance",
+          "ai": "high",
+          "gold": "medium",
+          "partial_score": 0.5
+        },
+        {
+          "field": "user_deadline_detection",
+          "ai_has_deadline": true,
+          "gold_has_deadline": false,
+          "severity": "minor"
+        }
+      ],
+      "ai_target": "work",
+      "gold_target": "work before maintenance"
+    },
+    {
+      "subject": "Compute Cluster Maintenance Window 10",
+      "issues": [
+        {
+          "field": "importance",
+          "ai": "high",
+          "gold": "medium",
+          "partial_score": 0.5
+        },
+        {
+          "field": "user_deadline_detection",
+          "ai_has_deadline": true,
+          "gold_has_deadline": false,
+          "severity": "minor"
+        }
+      ],
+      "ai_target": null,
+      "gold_target": "work before maintenance"
+    },
+    {
+      "subject": "Lab Access Approved: Multimodal Retrieval",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Lab Access Approved: Agent Planning",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Lab Access Approved: Vision-Language Models",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Lab Access Approved: Robust Rag",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Lab Access Approved: Graph Learning",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Lab Access Approved: Evaluation",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Lab Access Approved: Reinforcement Learning",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Lab Access Approved: Privacy",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Lab Access Approved: Embeddings",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Lab Access Approved: Reasoning",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "International Student Scholarship Application Reminder",
+      "issues": [],
+      "ai_target": "transcript and supporting statement through the scholarship portal",
+      "gold_target": "international student scholarship supporting documents"
+    },
+    {
+      "subject": "Research Pathway Scholarship Application Reminder",
+      "issues": [
+        {
+          "field": "category",
+          "ai": "research",
+          "preferred": "administration",
+          "acceptable": [
+            "administration",
+            "career"
+          ]
+        }
+      ],
+      "ai_target": "scholarship portal",
+      "gold_target": "research pathway scholarship supporting documents"
+    },
+    {
+      "subject": "Alumni Scholarship Application Reminder",
+      "issues": [],
+      "ai_target": "transcript and supporting statement through the scholarship portal",
+      "gold_target": "alumni scholarship supporting documents"
+    },
+    {
+      "subject": "Student Support Scholarship Application Reminder",
+      "issues": [],
+      "ai_target": "transcript and supporting statement through the scholarship portal",
+      "gold_target": "student support scholarship supporting documents"
+    },
+    {
+      "subject": "Student Newsletter October",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Library New Books Digest",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Campus Photography Competition",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Wellbeing Week Highlights",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Alumni Stories",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Student Club Roundup",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Cafeteria Menu Update",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Volunteering Opportunities Digest",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Sports Centre Newsletter",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Weekly Campus Bulletin",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Interview Link Follow-up",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Panel Outcome Timing",
+      "issues": [
+        {
+          "field": "importance",
+          "ai": "low",
+          "gold": "medium",
+          "partial_score": 0.5
+        }
+      ],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Workshop Materials Timing",
+      "issues": [
+        {
+          "field": "category",
+          "ai": "course",
+          "preferred": "other",
+          "acceptable": [
+            "administration",
+            "career",
+            "other",
+            "project",
+            "research"
+          ]
+        },
+        {
+          "field": "importance",
+          "ai": "low",
+          "gold": "medium",
+          "partial_score": 0.5
+        }
+      ],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Supervisor Follow-up",
+      "issues": [
+        {
+          "field": "importance",
+          "ai": "low",
+          "gold": "medium",
+          "partial_score": 0.5
+        }
+      ],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Assessment Feedback Timing",
+      "issues": [
+        {
+          "field": "category",
+          "ai": "course",
+          "preferred": "other",
+          "acceptable": [
+            "administration",
+            "career",
+            "other",
+            "project",
+            "research"
+          ]
+        },
+        {
+          "field": "importance",
+          "ai": "low",
+          "gold": "medium",
+          "partial_score": 0.5
+        }
+      ],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Offer Letter Timing",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Lab Induction Reminder",
+      "issues": [
+        {
+          "field": "importance",
+          "ai": "low",
+          "gold": "medium",
+          "partial_score": 0.5
+        }
+      ],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Reference Check Update",
+      "issues": [
+        {
+          "field": "importance",
+          "ai": "low",
+          "gold": "medium",
+          "partial_score": 0.5
+        }
+      ],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Project Review Notes",
+      "issues": [
+        {
+          "field": "importance",
+          "ai": "low",
+          "gold": "medium",
+          "partial_score": 0.5
+        }
+      ],
+      "ai_target": null,
+      "gold_target": null
+    },
+    {
+      "subject": "Travel Grant Result",
+      "issues": [],
+      "ai_target": null,
+      "gold_target": null
+    }
+  ]
+}

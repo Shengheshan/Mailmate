@@ -1,0 +1,1262 @@
+[
+  {
+    "message_id": "offline-v1-0001",
+    "subject": "COMP9321 Assignment 2 Submission",
+    "sender": "comp9321@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "COMP9321 Assignment 2 is now available. Please submit your work through Moodle tomorrow at 6 PM. Late penalties apply."
+  },
+  {
+    "message_id": "offline-v1-0002",
+    "subject": "COMP9417 Assignment 3 Submission",
+    "sender": "comp9417@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "The next COMP9417 assignment has been released. Submission closes on 22 October. Please upload the final PDF through Moodle before the deadline."
+  },
+  {
+    "message_id": "offline-v1-0003",
+    "subject": "COMP9444 Assignment 4 Submission",
+    "sender": "comp9444@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "COMP9444 Assignment 4 is now available. Please submit your work through Moodle tomorrow at 6 PM. Late penalties apply."
+  },
+  {
+    "message_id": "offline-v1-0004",
+    "subject": "COMP9312 Assignment 5 Submission",
+    "sender": "comp9312@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "The next COMP9312 assignment has been released. Submission closes on 31 October. Please upload the final PDF through Moodle before the deadline."
+  },
+  {
+    "message_id": "offline-v1-0005",
+    "subject": "COMP9024 Assignment 6 Submission",
+    "sender": "comp9024@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "COMP9024 Assignment 6 is now available. Please submit your work through Moodle tomorrow at 6 PM. Late penalties apply."
+  },
+  {
+    "message_id": "offline-v1-0006",
+    "subject": "COMP9331 Assignment 7 Submission",
+    "sender": "comp9331@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "The next COMP9331 assignment has been released. Submission closes on 26 October. Please upload the final PDF through Moodle before the deadline."
+  },
+  {
+    "message_id": "offline-v1-0007",
+    "subject": "COMP9517 Assignment 8 Submission",
+    "sender": "comp9517@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "COMP9517 Assignment 8 is now available. Please submit your work through Moodle tomorrow at 6 PM. Late penalties apply."
+  },
+  {
+    "message_id": "offline-v1-0008",
+    "subject": "COMP9414 Assignment 9 Submission",
+    "sender": "comp9414@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "The next COMP9414 assignment has been released. Submission closes on 4 November. Please upload the final PDF through Moodle before the deadline."
+  },
+  {
+    "message_id": "offline-v1-0009",
+    "subject": "COMP9311 Assignment 10 Submission",
+    "sender": "comp9311@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "COMP9311 Assignment 10 is now available. Please submit your work through Moodle tomorrow at 6 PM. Late penalties apply."
+  },
+  {
+    "message_id": "offline-v1-0010",
+    "subject": "COMP9044 Assignment 11 Submission",
+    "sender": "comp9044@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "The next COMP9044 assignment has been released. Submission closes on 30 October. Please upload the final PDF through Moodle before the deadline."
+  },
+  {
+    "message_id": "offline-v1-0011",
+    "subject": "COMP9321 Tutorial Preparation 1",
+    "sender": "tutor1@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Your COMP9321 tutorial will run tomorrow at 10 AM. Please complete preparation exercise set 1 before attending."
+  },
+  {
+    "message_id": "offline-v1-0012",
+    "subject": "COMP9417 Tutorial Preparation 2",
+    "sender": "tutor2@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Your COMP9417 tutorial will run tomorrow at 11 AM. Please complete preparation exercise set 2 before attending."
+  },
+  {
+    "message_id": "offline-v1-0013",
+    "subject": "COMP9444 Tutorial Preparation 3",
+    "sender": "tutor3@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "Your COMP9444 tutorial will run tomorrow at 12 PM. Please complete preparation exercise set 3 before attending."
+  },
+  {
+    "message_id": "offline-v1-0014",
+    "subject": "COMP9312 Tutorial Preparation 4",
+    "sender": "tutor4@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "Your COMP9312 tutorial will run tomorrow at 1 PM. Please complete preparation exercise set 4 before attending."
+  },
+  {
+    "message_id": "offline-v1-0015",
+    "subject": "COMP9024 Tutorial Preparation 5",
+    "sender": "tutor5@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Your COMP9024 tutorial will run tomorrow at 2 PM. Please complete preparation exercise set 5 before attending."
+  },
+  {
+    "message_id": "offline-v1-0016",
+    "subject": "COMP9331 Tutorial Preparation 6",
+    "sender": "tutor6@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Your COMP9331 tutorial will run tomorrow at 10 AM. Please complete preparation exercise set 6 before attending."
+  },
+  {
+    "message_id": "offline-v1-0017",
+    "subject": "COMP9517 Tutorial Preparation 7",
+    "sender": "tutor7@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "Your COMP9517 tutorial will run tomorrow at 11 AM. Please complete preparation exercise set 7 before attending."
+  },
+  {
+    "message_id": "offline-v1-0018",
+    "subject": "COMP9414 Tutorial Preparation 8",
+    "sender": "tutor8@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "Your COMP9414 tutorial will run tomorrow at 12 PM. Please complete preparation exercise set 8 before attending."
+  },
+  {
+    "message_id": "offline-v1-0019",
+    "subject": "COMP9311 Tutorial Preparation 9",
+    "sender": "tutor9@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Your COMP9311 tutorial will run tomorrow at 1 PM. Please complete preparation exercise set 9 before attending."
+  },
+  {
+    "message_id": "offline-v1-0020",
+    "subject": "COMP9044 Tutorial Preparation 10",
+    "sender": "tutor10@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Your COMP9044 tutorial will run tomorrow at 2 PM. Please complete preparation exercise set 10 before attending."
+  },
+  {
+    "message_id": "offline-v1-0021",
+    "subject": "Optional Lecture: Multimodal Retrieval",
+    "sender": "events1@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "You are invited to an optional guest lecture on multimodal retrieval next Tuesday. Attendance is optional and no registration is required."
+  },
+  {
+    "message_id": "offline-v1-0022",
+    "subject": "Optional Lecture: Agent Planning",
+    "sender": "events2@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "You are invited to an optional guest lecture on agent planning this Thursday at 4 PM. Attendance is optional and no registration is required."
+  },
+  {
+    "message_id": "offline-v1-0023",
+    "subject": "Optional Lecture: Vision-Language Models",
+    "sender": "events3@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "You are invited to an optional guest lecture on vision-language models Monday at 1 PM. Attendance is optional and no registration is required."
+  },
+  {
+    "message_id": "offline-v1-0024",
+    "subject": "Optional Lecture: Robust Rag",
+    "sender": "events4@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "You are invited to an optional guest lecture on robust RAG next Tuesday. Attendance is optional and no registration is required."
+  },
+  {
+    "message_id": "offline-v1-0025",
+    "subject": "Optional Lecture: Graph Learning",
+    "sender": "events5@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "You are invited to an optional guest lecture on graph learning this Thursday at 4 PM. Attendance is optional and no registration is required."
+  },
+  {
+    "message_id": "offline-v1-0026",
+    "subject": "Optional Lecture: Evaluation",
+    "sender": "events6@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "You are invited to an optional guest lecture on evaluation Monday at 1 PM. Attendance is optional and no registration is required."
+  },
+  {
+    "message_id": "offline-v1-0027",
+    "subject": "Optional Lecture: Reinforcement Learning",
+    "sender": "events7@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "You are invited to an optional guest lecture on reinforcement learning next Tuesday. Attendance is optional and no registration is required."
+  },
+  {
+    "message_id": "offline-v1-0028",
+    "subject": "Optional Lecture: Privacy",
+    "sender": "events8@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "You are invited to an optional guest lecture on privacy this Thursday at 4 PM. Attendance is optional and no registration is required."
+  },
+  {
+    "message_id": "offline-v1-0029",
+    "subject": "Optional Lecture: Embeddings",
+    "sender": "events9@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "You are invited to an optional guest lecture on embeddings Monday at 1 PM. Attendance is optional and no registration is required."
+  },
+  {
+    "message_id": "offline-v1-0030",
+    "subject": "Optional Lecture: Reasoning",
+    "sender": "events10@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "You are invited to an optional guest lecture on reasoning next Tuesday. Attendance is optional and no registration is required."
+  },
+  {
+    "message_id": "offline-v1-0031",
+    "subject": "COMP9321 Final Exam Timetable Available",
+    "sender": "exams@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "The final examination timetable for COMP9321 has been published. Please check the student portal for your exam date, time and room."
+  },
+  {
+    "message_id": "offline-v1-0032",
+    "subject": "COMP9417 Final Exam Timetable Available",
+    "sender": "exams@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "The final examination timetable for COMP9417 has been published. Please check the student portal for your exam date, time and room."
+  },
+  {
+    "message_id": "offline-v1-0033",
+    "subject": "COMP9444 Final Exam Timetable Available",
+    "sender": "exams@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "The final examination timetable for COMP9444 has been published. Please check the student portal for your exam date, time and room."
+  },
+  {
+    "message_id": "offline-v1-0034",
+    "subject": "COMP9312 Final Exam Timetable Available",
+    "sender": "exams@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "The final examination timetable for COMP9312 has been published. Please check the student portal for your exam date, time and room."
+  },
+  {
+    "message_id": "offline-v1-0035",
+    "subject": "COMP9024 Final Exam Timetable Available",
+    "sender": "exams@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "The final examination timetable for COMP9024 has been published. Please check the student portal for your exam date, time and room."
+  },
+  {
+    "message_id": "offline-v1-0036",
+    "subject": "COMP9331 Final Exam Timetable Available",
+    "sender": "exams@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "The final examination timetable for COMP9331 has been published. Please check the student portal for your exam date, time and room."
+  },
+  {
+    "message_id": "offline-v1-0037",
+    "subject": "COMP9517 Final Exam Timetable Available",
+    "sender": "exams@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "The final examination timetable for COMP9517 has been published. Please check the student portal for your exam date, time and room."
+  },
+  {
+    "message_id": "offline-v1-0038",
+    "subject": "COMP9414 Final Exam Timetable Available",
+    "sender": "exams@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "The final examination timetable for COMP9414 has been published. Please check the student portal for your exam date, time and room."
+  },
+  {
+    "message_id": "offline-v1-0039",
+    "subject": "COMP9311 Final Exam Timetable Available",
+    "sender": "exams@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "The final examination timetable for COMP9311 has been published. Please check the student portal for your exam date, time and room."
+  },
+  {
+    "message_id": "offline-v1-0040",
+    "subject": "COMP9044 Final Exam Timetable Available",
+    "sender": "exams@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "The final examination timetable for COMP9044 has been published. Please check the student portal for your exam date, time and room."
+  },
+  {
+    "message_id": "offline-v1-0041",
+    "subject": "Nebula AI Interview Invitation",
+    "sender": "recruiting@nebulaai.example",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "We would like to invite you to an online interview with Nebula AI on 27 October at 10 AM. Please reply to confirm your attendance."
+  },
+  {
+    "message_id": "offline-v1-0042",
+    "subject": "Aster Labs Interview Invitation",
+    "sender": "recruiting@asterlabs.example",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "We would like to invite you to an online interview with Aster Labs on 28 October at 11 AM. Please reply to confirm your attendance."
+  },
+  {
+    "message_id": "offline-v1-0043",
+    "subject": "Harbour Robotics Interview Invitation",
+    "sender": "recruiting@harbourrobotics.example",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "We would like to invite you to an online interview with Harbour Robotics on 29 October at 12 PM. Please reply to confirm your attendance."
+  },
+  {
+    "message_id": "offline-v1-0044",
+    "subject": "PixelForge Interview Invitation",
+    "sender": "recruiting@pixelforge.example",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "We would like to invite you to an online interview with PixelForge on 30 October at 10 AM. Please reply to confirm your attendance."
+  },
+  {
+    "message_id": "offline-v1-0045",
+    "subject": "Lumen Systems Interview Invitation",
+    "sender": "recruiting@lumensystems.example",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "We would like to invite you to an online interview with Lumen Systems on 27 October at 11 AM. Please reply to confirm your attendance."
+  },
+  {
+    "message_id": "offline-v1-0046",
+    "subject": "OrbitML Interview Invitation",
+    "sender": "recruiting@orbitml.example",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "We would like to invite you to an online interview with OrbitML on 28 October at 12 PM. Please reply to confirm your attendance."
+  },
+  {
+    "message_id": "offline-v1-0047",
+    "subject": "VectorWorks Interview Invitation",
+    "sender": "recruiting@vectorworks.example",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "We would like to invite you to an online interview with VectorWorks on 29 October at 10 AM. Please reply to confirm your attendance."
+  },
+  {
+    "message_id": "offline-v1-0048",
+    "subject": "Cedar AI Interview Invitation",
+    "sender": "recruiting@cedarai.example",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "We would like to invite you to an online interview with Cedar AI on 30 October at 11 AM. Please reply to confirm your attendance."
+  },
+  {
+    "message_id": "offline-v1-0049",
+    "subject": "BluePeak Interview Invitation",
+    "sender": "recruiting@bluepeak.example",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "We would like to invite you to an online interview with BluePeak on 27 October at 12 PM. Please reply to confirm your attendance."
+  },
+  {
+    "message_id": "offline-v1-0050",
+    "subject": "Kite Analytics Interview Invitation",
+    "sender": "recruiting@kiteanalytics.example",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "We would like to invite you to an online interview with Kite Analytics on 28 October at 10 AM. Please reply to confirm your attendance."
+  },
+  {
+    "message_id": "offline-v1-0051",
+    "subject": "Nebula AI Application Status Update",
+    "sender": "recruiting@nebulaai.example",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Your application to Nebula AI is still under review. We expect to provide an outcome by the end of next week. No action is required from you at this stage."
+  },
+  {
+    "message_id": "offline-v1-0052",
+    "subject": "Aster Labs Application Status Update",
+    "sender": "recruiting@asterlabs.example",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Your application to Aster Labs is still under review. We expect to provide an outcome within three business days. No action is required from you at this stage."
+  },
+  {
+    "message_id": "offline-v1-0053",
+    "subject": "Harbour Robotics Application Status Update",
+    "sender": "recruiting@harbourrobotics.example",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "Your application to Harbour Robotics is still under review. We expect to provide an outcome by the end of next week. No action is required from you at this stage."
+  },
+  {
+    "message_id": "offline-v1-0054",
+    "subject": "PixelForge Application Status Update",
+    "sender": "recruiting@pixelforge.example",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "Your application to PixelForge is still under review. We expect to provide an outcome within three business days. No action is required from you at this stage."
+  },
+  {
+    "message_id": "offline-v1-0055",
+    "subject": "Lumen Systems Application Status Update",
+    "sender": "recruiting@lumensystems.example",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Your application to Lumen Systems is still under review. We expect to provide an outcome by the end of next week. No action is required from you at this stage."
+  },
+  {
+    "message_id": "offline-v1-0056",
+    "subject": "OrbitML Application Status Update",
+    "sender": "recruiting@orbitml.example",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Your application to OrbitML is still under review. We expect to provide an outcome within three business days. No action is required from you at this stage."
+  },
+  {
+    "message_id": "offline-v1-0057",
+    "subject": "VectorWorks Application Status Update",
+    "sender": "recruiting@vectorworks.example",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "Your application to VectorWorks is still under review. We expect to provide an outcome by the end of next week. No action is required from you at this stage."
+  },
+  {
+    "message_id": "offline-v1-0058",
+    "subject": "Cedar AI Application Status Update",
+    "sender": "recruiting@cedarai.example",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "Your application to Cedar AI is still under review. We expect to provide an outcome within three business days. No action is required from you at this stage."
+  },
+  {
+    "message_id": "offline-v1-0059",
+    "subject": "BluePeak Application Status Update",
+    "sender": "recruiting@bluepeak.example",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Your application to BluePeak is still under review. We expect to provide an outcome by the end of next week. No action is required from you at this stage."
+  },
+  {
+    "message_id": "offline-v1-0060",
+    "subject": "Kite Analytics Application Status Update",
+    "sender": "recruiting@kiteanalytics.example",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Your application to Kite Analytics is still under review. We expect to provide an outcome within three business days. No action is required from you at this stage."
+  },
+  {
+    "message_id": "offline-v1-0061",
+    "subject": "Nebula AI Request for Updated CV",
+    "sender": "hiring@nebulaai.example",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Before our meeting on Thursday, please email me your latest CV as a PDF. We will use the meeting to discuss the Nebula AI internship role."
+  },
+  {
+    "message_id": "offline-v1-0062",
+    "subject": "Aster Labs Request for Updated CV",
+    "sender": "hiring@asterlabs.example",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Before our meeting on Thursday, please email me your latest CV as a PDF. We will use the meeting to discuss the Aster Labs internship role."
+  },
+  {
+    "message_id": "offline-v1-0063",
+    "subject": "Harbour Robotics Request for Updated CV",
+    "sender": "hiring@harbourrobotics.example",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "Before our meeting on Thursday, please email me your latest CV as a PDF. We will use the meeting to discuss the Harbour Robotics internship role."
+  },
+  {
+    "message_id": "offline-v1-0064",
+    "subject": "PixelForge Request for Updated CV",
+    "sender": "hiring@pixelforge.example",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "Before our meeting on Thursday, please email me your latest CV as a PDF. We will use the meeting to discuss the PixelForge internship role."
+  },
+  {
+    "message_id": "offline-v1-0065",
+    "subject": "Lumen Systems Request for Updated CV",
+    "sender": "hiring@lumensystems.example",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Before our meeting on Thursday, please email me your latest CV as a PDF. We will use the meeting to discuss the Lumen Systems internship role."
+  },
+  {
+    "message_id": "offline-v1-0066",
+    "subject": "OrbitML Request for Updated CV",
+    "sender": "hiring@orbitml.example",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Before our meeting on Thursday, please email me your latest CV as a PDF. We will use the meeting to discuss the OrbitML internship role."
+  },
+  {
+    "message_id": "offline-v1-0067",
+    "subject": "VectorWorks Request for Updated CV",
+    "sender": "hiring@vectorworks.example",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "Before our meeting on Thursday, please email me your latest CV as a PDF. We will use the meeting to discuss the VectorWorks internship role."
+  },
+  {
+    "message_id": "offline-v1-0068",
+    "subject": "Cedar AI Request for Updated CV",
+    "sender": "hiring@cedarai.example",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "Before our meeting on Thursday, please email me your latest CV as a PDF. We will use the meeting to discuss the Cedar AI internship role."
+  },
+  {
+    "message_id": "offline-v1-0069",
+    "subject": "BluePeak Request for Updated CV",
+    "sender": "hiring@bluepeak.example",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Before our meeting on Thursday, please email me your latest CV as a PDF. We will use the meeting to discuss the BluePeak internship role."
+  },
+  {
+    "message_id": "offline-v1-0070",
+    "subject": "Kite Analytics Request for Updated CV",
+    "sender": "hiring@kiteanalytics.example",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Before our meeting on Thursday, please email me your latest CV as a PDF. We will use the meeting to discuss the Kite Analytics internship role."
+  },
+  {
+    "message_id": "offline-v1-0071",
+    "subject": "Research Meeting Rescheduled: Multimodal Retrieval",
+    "sender": "supervisor1@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Our research meeting on multimodal retrieval has been moved to Wednesday at 2 PM. Please let me know only if the new time does not work for you."
+  },
+  {
+    "message_id": "offline-v1-0072",
+    "subject": "Research Meeting Rescheduled: Agent Planning",
+    "sender": "supervisor2@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Our research meeting on agent planning has been moved to Wednesday at 2 PM. Please let me know only if the new time does not work for you."
+  },
+  {
+    "message_id": "offline-v1-0073",
+    "subject": "Research Meeting Rescheduled: Vision-Language Models",
+    "sender": "supervisor3@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "Our research meeting on vision-language models has been moved to Wednesday at 2 PM. Please let me know only if the new time does not work for you."
+  },
+  {
+    "message_id": "offline-v1-0074",
+    "subject": "Research Meeting Rescheduled: Robust Rag",
+    "sender": "supervisor4@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "Our research meeting on robust RAG has been moved to Wednesday at 2 PM. Please let me know only if the new time does not work for you."
+  },
+  {
+    "message_id": "offline-v1-0075",
+    "subject": "Research Meeting Rescheduled: Graph Learning",
+    "sender": "supervisor5@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Our research meeting on graph learning has been moved to Wednesday at 2 PM. Please let me know only if the new time does not work for you."
+  },
+  {
+    "message_id": "offline-v1-0076",
+    "subject": "Research Meeting Rescheduled: Evaluation",
+    "sender": "supervisor6@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Our research meeting on evaluation has been moved to Wednesday at 2 PM. Please let me know only if the new time does not work for you."
+  },
+  {
+    "message_id": "offline-v1-0077",
+    "subject": "Research Meeting Rescheduled: Reinforcement Learning",
+    "sender": "supervisor7@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "Our research meeting on reinforcement learning has been moved to Wednesday at 2 PM. Please let me know only if the new time does not work for you."
+  },
+  {
+    "message_id": "offline-v1-0078",
+    "subject": "Research Meeting Rescheduled: Privacy",
+    "sender": "supervisor8@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "Our research meeting on privacy has been moved to Wednesday at 2 PM. Please let me know only if the new time does not work for you."
+  },
+  {
+    "message_id": "offline-v1-0079",
+    "subject": "Research Meeting Rescheduled: Embeddings",
+    "sender": "supervisor9@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Our research meeting on embeddings has been moved to Wednesday at 2 PM. Please let me know only if the new time does not work for you."
+  },
+  {
+    "message_id": "offline-v1-0080",
+    "subject": "Research Meeting Rescheduled: Reasoning",
+    "sender": "supervisor10@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Our research meeting on reasoning has been moved to Wednesday at 2 PM. Please let me know only if the new time does not work for you."
+  },
+  {
+    "message_id": "offline-v1-0081",
+    "subject": "Research Assistant Opportunity: Multimodal Retrieval",
+    "sender": "lab1@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "We are recruiting a part-time research assistant for a project on multimodal retrieval. If you are interested, please reply and let me know."
+  },
+  {
+    "message_id": "offline-v1-0082",
+    "subject": "Research Assistant Opportunity: Agent Planning",
+    "sender": "lab2@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "We are recruiting a part-time research assistant for a project on agent planning. If you are interested, please reply and let me know."
+  },
+  {
+    "message_id": "offline-v1-0083",
+    "subject": "Research Assistant Opportunity: Vision-Language Models",
+    "sender": "lab3@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "We are recruiting a part-time research assistant for a project on vision-language models. If you are interested, please reply and let me know."
+  },
+  {
+    "message_id": "offline-v1-0084",
+    "subject": "Research Assistant Opportunity: Robust Rag",
+    "sender": "lab4@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "We are recruiting a part-time research assistant for a project on robust RAG. If you are interested, please reply and let me know."
+  },
+  {
+    "message_id": "offline-v1-0085",
+    "subject": "Research Assistant Opportunity: Graph Learning",
+    "sender": "lab5@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "We are recruiting a part-time research assistant for a project on graph learning. If you are interested, please reply and let me know."
+  },
+  {
+    "message_id": "offline-v1-0086",
+    "subject": "Research Assistant Opportunity: Evaluation",
+    "sender": "lab6@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "We are recruiting a part-time research assistant for a project on evaluation. If you are interested, please reply and let me know."
+  },
+  {
+    "message_id": "offline-v1-0087",
+    "subject": "Research Assistant Opportunity: Reinforcement Learning",
+    "sender": "lab7@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "We are recruiting a part-time research assistant for a project on reinforcement learning. If you are interested, please reply and let me know."
+  },
+  {
+    "message_id": "offline-v1-0088",
+    "subject": "Research Assistant Opportunity: Privacy",
+    "sender": "lab8@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "We are recruiting a part-time research assistant for a project on privacy. If you are interested, please reply and let me know."
+  },
+  {
+    "message_id": "offline-v1-0089",
+    "subject": "Research Assistant Opportunity: Embeddings",
+    "sender": "lab9@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "We are recruiting a part-time research assistant for a project on embeddings. If you are interested, please reply and let me know."
+  },
+  {
+    "message_id": "offline-v1-0090",
+    "subject": "Research Assistant Opportunity: Reasoning",
+    "sender": "lab10@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "We are recruiting a part-time research assistant for a project on reasoning. If you are interested, please reply and let me know."
+  },
+  {
+    "message_id": "offline-v1-0091",
+    "subject": "Ethics Revision Required: Multimodal Retrieval",
+    "sender": "ethics@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Your ethics submission for the multimodal retrieval study requires revision. Please revise section 3 and resubmit by Friday."
+  },
+  {
+    "message_id": "offline-v1-0092",
+    "subject": "Ethics Revision Required: Agent Planning",
+    "sender": "ethics@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Your ethics submission for the agent planning study requires revision. Please revise section 4 and resubmit by next Monday."
+  },
+  {
+    "message_id": "offline-v1-0093",
+    "subject": "Ethics Revision Required: Vision-Language Models",
+    "sender": "ethics@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "Your ethics submission for the vision-language models study requires revision. Please revise section 5 and resubmit by Friday."
+  },
+  {
+    "message_id": "offline-v1-0094",
+    "subject": "Ethics Revision Required: Robust Rag",
+    "sender": "ethics@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "Your ethics submission for the robust RAG study requires revision. Please revise section 6 and resubmit by next Monday."
+  },
+  {
+    "message_id": "offline-v1-0095",
+    "subject": "Ethics Revision Required: Graph Learning",
+    "sender": "ethics@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Your ethics submission for the graph learning study requires revision. Please revise section 3 and resubmit by Friday."
+  },
+  {
+    "message_id": "offline-v1-0096",
+    "subject": "Ethics Revision Required: Evaluation",
+    "sender": "ethics@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Your ethics submission for the evaluation study requires revision. Please revise section 4 and resubmit by next Monday."
+  },
+  {
+    "message_id": "offline-v1-0097",
+    "subject": "Ethics Revision Required: Reinforcement Learning",
+    "sender": "ethics@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "Your ethics submission for the reinforcement learning study requires revision. Please revise section 5 and resubmit by Friday."
+  },
+  {
+    "message_id": "offline-v1-0098",
+    "subject": "Ethics Revision Required: Privacy",
+    "sender": "ethics@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "Your ethics submission for the privacy study requires revision. Please revise section 6 and resubmit by next Monday."
+  },
+  {
+    "message_id": "offline-v1-0099",
+    "subject": "Ethics Revision Required: Embeddings",
+    "sender": "ethics@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Your ethics submission for the embeddings study requires revision. Please revise section 3 and resubmit by Friday."
+  },
+  {
+    "message_id": "offline-v1-0100",
+    "subject": "Ethics Revision Required: Reasoning",
+    "sender": "ethics@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Your ethics submission for the reasoning study requires revision. Please revise section 4 and resubmit by next Monday."
+  },
+  {
+    "message_id": "offline-v1-0101",
+    "subject": "Project Atlas Meeting Request 1",
+    "sender": "pm1@project-atlas.example",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Could we meet this Friday afternoon to review milestone 1? Please reply with a suitable time."
+  },
+  {
+    "message_id": "offline-v1-0102",
+    "subject": "Project Atlas Meeting Request 2",
+    "sender": "pm2@project-atlas.example",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Could we meet this Friday afternoon to review milestone 2? Please reply with a suitable time."
+  },
+  {
+    "message_id": "offline-v1-0103",
+    "subject": "Project Atlas Meeting Request 3",
+    "sender": "pm3@project-atlas.example",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "Could we meet this Friday afternoon to review milestone 3? Please reply with a suitable time."
+  },
+  {
+    "message_id": "offline-v1-0104",
+    "subject": "Project Atlas Meeting Request 4",
+    "sender": "pm4@project-atlas.example",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "Could we meet this Friday afternoon to review milestone 4? Please reply with a suitable time."
+  },
+  {
+    "message_id": "offline-v1-0105",
+    "subject": "Project Atlas Meeting Request 5",
+    "sender": "pm5@project-atlas.example",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Could we meet this Friday afternoon to review milestone 5? Please reply with a suitable time."
+  },
+  {
+    "message_id": "offline-v1-0106",
+    "subject": "Project Atlas Meeting Request 6",
+    "sender": "pm6@project-atlas.example",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Could we meet this Friday afternoon to review milestone 6? Please reply with a suitable time."
+  },
+  {
+    "message_id": "offline-v1-0107",
+    "subject": "Project Atlas Meeting Request 7",
+    "sender": "pm7@project-atlas.example",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "Could we meet this Friday afternoon to review milestone 7? Please reply with a suitable time."
+  },
+  {
+    "message_id": "offline-v1-0108",
+    "subject": "Project Atlas Meeting Request 8",
+    "sender": "pm8@project-atlas.example",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "Could we meet this Friday afternoon to review milestone 8? Please reply with a suitable time."
+  },
+  {
+    "message_id": "offline-v1-0109",
+    "subject": "Project Atlas Meeting Request 9",
+    "sender": "pm9@project-atlas.example",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Could we meet this Friday afternoon to review milestone 9? Please reply with a suitable time."
+  },
+  {
+    "message_id": "offline-v1-0110",
+    "subject": "Project Atlas Meeting Request 10",
+    "sender": "pm10@project-atlas.example",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Could we meet this Friday afternoon to review milestone 10? Please reply with a suitable time."
+  },
+  {
+    "message_id": "offline-v1-0111",
+    "subject": "Project Atlas Milestone 2 Due",
+    "sender": "project-atlas@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Milestone 2 for Project Atlas is due this Sunday at 11:59 PM. Please submit the report and push the final code before submission."
+  },
+  {
+    "message_id": "offline-v1-0112",
+    "subject": "Project Atlas Milestone 3 Due",
+    "sender": "project-atlas@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Milestone 3 for Project Atlas is due this Sunday at 11:59 PM. Please submit the report and push the final code before submission."
+  },
+  {
+    "message_id": "offline-v1-0113",
+    "subject": "Project Atlas Milestone 4 Due",
+    "sender": "project-atlas@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "Milestone 4 for Project Atlas is due this Sunday at 11:59 PM. Please submit the report and push the final code before submission."
+  },
+  {
+    "message_id": "offline-v1-0114",
+    "subject": "Project Atlas Milestone 5 Due",
+    "sender": "project-atlas@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "Milestone 5 for Project Atlas is due this Sunday at 11:59 PM. Please submit the report and push the final code before submission."
+  },
+  {
+    "message_id": "offline-v1-0115",
+    "subject": "Project Atlas Milestone 6 Due",
+    "sender": "project-atlas@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Milestone 6 for Project Atlas is due this Sunday at 11:59 PM. Please submit the report and push the final code before submission."
+  },
+  {
+    "message_id": "offline-v1-0116",
+    "subject": "Project Atlas Milestone 7 Due",
+    "sender": "project-atlas@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Milestone 7 for Project Atlas is due this Sunday at 11:59 PM. Please submit the report and push the final code before submission."
+  },
+  {
+    "message_id": "offline-v1-0117",
+    "subject": "Project Atlas Milestone 8 Due",
+    "sender": "project-atlas@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "Milestone 8 for Project Atlas is due this Sunday at 11:59 PM. Please submit the report and push the final code before submission."
+  },
+  {
+    "message_id": "offline-v1-0118",
+    "subject": "Project Atlas Milestone 9 Due",
+    "sender": "project-atlas@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "Milestone 9 for Project Atlas is due this Sunday at 11:59 PM. Please submit the report and push the final code before submission."
+  },
+  {
+    "message_id": "offline-v1-0119",
+    "subject": "Project Atlas Milestone 10 Due",
+    "sender": "project-atlas@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Milestone 10 for Project Atlas is due this Sunday at 11:59 PM. Please submit the report and push the final code before submission."
+  },
+  {
+    "message_id": "offline-v1-0120",
+    "subject": "Project Atlas Milestone 11 Due",
+    "sender": "project-atlas@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Milestone 11 for Project Atlas is due this Sunday at 11:59 PM. Please submit the report and push the final code before submission."
+  },
+  {
+    "message_id": "offline-v1-0121",
+    "subject": "Confirm Enrolment Details - Cohort 1",
+    "sender": "enrolment@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Action required: please confirm your enrolment details before 5 PM this Thursday through the student portal. No email reply is required."
+  },
+  {
+    "message_id": "offline-v1-0122",
+    "subject": "Confirm Enrolment Details - Cohort 2",
+    "sender": "enrolment@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Action required: please confirm your enrolment details before 5 PM this Thursday through the student portal. No email reply is required."
+  },
+  {
+    "message_id": "offline-v1-0123",
+    "subject": "Confirm Enrolment Details - Cohort 3",
+    "sender": "enrolment@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "Action required: please confirm your enrolment details before 5 PM this Thursday through the student portal. No email reply is required."
+  },
+  {
+    "message_id": "offline-v1-0124",
+    "subject": "Confirm Enrolment Details - Cohort 4",
+    "sender": "enrolment@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "Action required: please confirm your enrolment details before 5 PM this Thursday through the student portal. No email reply is required."
+  },
+  {
+    "message_id": "offline-v1-0125",
+    "subject": "Confirm Enrolment Details - Cohort 5",
+    "sender": "enrolment@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Action required: please confirm your enrolment details before 5 PM this Thursday through the student portal. No email reply is required."
+  },
+  {
+    "message_id": "offline-v1-0126",
+    "subject": "Confirm Enrolment Details - Cohort 6",
+    "sender": "enrolment@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Action required: please confirm your enrolment details before 5 PM this Thursday through the student portal. No email reply is required."
+  },
+  {
+    "message_id": "offline-v1-0127",
+    "subject": "Confirm Enrolment Details - Cohort 7",
+    "sender": "enrolment@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "Action required: please confirm your enrolment details before 5 PM this Thursday through the student portal. No email reply is required."
+  },
+  {
+    "message_id": "offline-v1-0128",
+    "subject": "Confirm Enrolment Details - Cohort 8",
+    "sender": "enrolment@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "Action required: please confirm your enrolment details before 5 PM this Thursday through the student portal. No email reply is required."
+  },
+  {
+    "message_id": "offline-v1-0129",
+    "subject": "Confirm Enrolment Details - Cohort 9",
+    "sender": "enrolment@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Action required: please confirm your enrolment details before 5 PM this Thursday through the student portal. No email reply is required."
+  },
+  {
+    "message_id": "offline-v1-0130",
+    "subject": "Confirm Enrolment Details - Cohort 10",
+    "sender": "enrolment@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Action required: please confirm your enrolment details before 5 PM this Thursday through the student portal. No email reply is required."
+  },
+  {
+    "message_id": "offline-v1-0131",
+    "subject": "Compute Cluster Maintenance Window 1",
+    "sender": "it-services@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "The faculty compute cluster will be unavailable between 1 AM and 3 AM this Sunday for maintenance. Please save your work beforehand."
+  },
+  {
+    "message_id": "offline-v1-0132",
+    "subject": "Compute Cluster Maintenance Window 2",
+    "sender": "it-services@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "The faculty compute cluster will be unavailable between 1 AM and 3 AM this Sunday for maintenance. Please save your work beforehand."
+  },
+  {
+    "message_id": "offline-v1-0133",
+    "subject": "Compute Cluster Maintenance Window 3",
+    "sender": "it-services@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "The faculty compute cluster will be unavailable between 1 AM and 3 AM this Sunday for maintenance. Please save your work beforehand."
+  },
+  {
+    "message_id": "offline-v1-0134",
+    "subject": "Compute Cluster Maintenance Window 4",
+    "sender": "it-services@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "The faculty compute cluster will be unavailable between 1 AM and 3 AM this Sunday for maintenance. Please save your work beforehand."
+  },
+  {
+    "message_id": "offline-v1-0135",
+    "subject": "Compute Cluster Maintenance Window 5",
+    "sender": "it-services@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "The faculty compute cluster will be unavailable between 1 AM and 3 AM this Sunday for maintenance. Please save your work beforehand."
+  },
+  {
+    "message_id": "offline-v1-0136",
+    "subject": "Compute Cluster Maintenance Window 6",
+    "sender": "it-services@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "The faculty compute cluster will be unavailable between 1 AM and 3 AM this Sunday for maintenance. Please save your work beforehand."
+  },
+  {
+    "message_id": "offline-v1-0137",
+    "subject": "Compute Cluster Maintenance Window 7",
+    "sender": "it-services@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "The faculty compute cluster will be unavailable between 1 AM and 3 AM this Sunday for maintenance. Please save your work beforehand."
+  },
+  {
+    "message_id": "offline-v1-0138",
+    "subject": "Compute Cluster Maintenance Window 8",
+    "sender": "it-services@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "The faculty compute cluster will be unavailable between 1 AM and 3 AM this Sunday for maintenance. Please save your work beforehand."
+  },
+  {
+    "message_id": "offline-v1-0139",
+    "subject": "Compute Cluster Maintenance Window 9",
+    "sender": "it-services@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "The faculty compute cluster will be unavailable between 1 AM and 3 AM this Sunday for maintenance. Please save your work beforehand."
+  },
+  {
+    "message_id": "offline-v1-0140",
+    "subject": "Compute Cluster Maintenance Window 10",
+    "sender": "it-services@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "The faculty compute cluster will be unavailable between 1 AM and 3 AM this Sunday for maintenance. Please save your work beforehand."
+  },
+  {
+    "message_id": "offline-v1-0141",
+    "subject": "Lab Access Approved: Multimodal Retrieval",
+    "sender": "facilities@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Your access request for the multimodal retrieval lab has been approved. Access will become active tomorrow morning. No further action is required."
+  },
+  {
+    "message_id": "offline-v1-0142",
+    "subject": "Lab Access Approved: Agent Planning",
+    "sender": "facilities@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Your access request for the agent planning lab has been approved. Access will become active tomorrow morning. No further action is required."
+  },
+  {
+    "message_id": "offline-v1-0143",
+    "subject": "Lab Access Approved: Vision-Language Models",
+    "sender": "facilities@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "Your access request for the vision-language models lab has been approved. Access will become active tomorrow morning. No further action is required."
+  },
+  {
+    "message_id": "offline-v1-0144",
+    "subject": "Lab Access Approved: Robust Rag",
+    "sender": "facilities@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "Your access request for the robust RAG lab has been approved. Access will become active tomorrow morning. No further action is required."
+  },
+  {
+    "message_id": "offline-v1-0145",
+    "subject": "Lab Access Approved: Graph Learning",
+    "sender": "facilities@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Your access request for the graph learning lab has been approved. Access will become active tomorrow morning. No further action is required."
+  },
+  {
+    "message_id": "offline-v1-0146",
+    "subject": "Lab Access Approved: Evaluation",
+    "sender": "facilities@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Your access request for the evaluation lab has been approved. Access will become active tomorrow morning. No further action is required."
+  },
+  {
+    "message_id": "offline-v1-0147",
+    "subject": "Lab Access Approved: Reinforcement Learning",
+    "sender": "facilities@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "Your access request for the reinforcement learning lab has been approved. Access will become active tomorrow morning. No further action is required."
+  },
+  {
+    "message_id": "offline-v1-0148",
+    "subject": "Lab Access Approved: Privacy",
+    "sender": "facilities@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "Your access request for the privacy lab has been approved. Access will become active tomorrow morning. No further action is required."
+  },
+  {
+    "message_id": "offline-v1-0149",
+    "subject": "Lab Access Approved: Embeddings",
+    "sender": "facilities@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Your access request for the embeddings lab has been approved. Access will become active tomorrow morning. No further action is required."
+  },
+  {
+    "message_id": "offline-v1-0150",
+    "subject": "Lab Access Approved: Reasoning",
+    "sender": "facilities@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Your access request for the reasoning lab has been approved. Access will become active tomorrow morning. No further action is required."
+  },
+  {
+    "message_id": "offline-v1-0151",
+    "subject": "Global Futures Scholarship Application Reminder",
+    "sender": "scholarships@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Applications for the Global Futures Scholarship close on 2 November. Please upload your transcript and supporting statement through the scholarship portal."
+  },
+  {
+    "message_id": "offline-v1-0152",
+    "subject": "Engineering Merit Scholarship Application Reminder",
+    "sender": "scholarships@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Applications for the Engineering Merit Scholarship close on 3 November. Please upload your transcript and supporting statement through the scholarship portal."
+  },
+  {
+    "message_id": "offline-v1-0153",
+    "subject": "International Student Scholarship Application Reminder",
+    "sender": "scholarships@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "Applications for the International Student Scholarship close on 4 November. Please upload your transcript and supporting statement through the scholarship portal."
+  },
+  {
+    "message_id": "offline-v1-0154",
+    "subject": "Innovation Scholarship Application Reminder",
+    "sender": "scholarships@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "Applications for the Innovation Scholarship close on 5 November. Please upload your transcript and supporting statement through the scholarship portal."
+  },
+  {
+    "message_id": "offline-v1-0155",
+    "subject": "Research Pathway Scholarship Application Reminder",
+    "sender": "scholarships@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Applications for the Research Pathway Scholarship close on 6 November. Please upload your transcript and supporting statement through the scholarship portal."
+  },
+  {
+    "message_id": "offline-v1-0156",
+    "subject": "STEM Excellence Scholarship Application Reminder",
+    "sender": "scholarships@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Applications for the STEM Excellence Scholarship close on 7 November. Please upload your transcript and supporting statement through the scholarship portal."
+  },
+  {
+    "message_id": "offline-v1-0157",
+    "subject": "Alumni Scholarship Application Reminder",
+    "sender": "scholarships@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "Applications for the Alumni Scholarship close on 8 November. Please upload your transcript and supporting statement through the scholarship portal."
+  },
+  {
+    "message_id": "offline-v1-0158",
+    "subject": "Future Leaders Scholarship Application Reminder",
+    "sender": "scholarships@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "Applications for the Future Leaders Scholarship close on 9 November. Please upload your transcript and supporting statement through the scholarship portal."
+  },
+  {
+    "message_id": "offline-v1-0159",
+    "subject": "AI Talent Scholarship Application Reminder",
+    "sender": "scholarships@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Applications for the AI Talent Scholarship close on 10 November. Please upload your transcript and supporting statement through the scholarship portal."
+  },
+  {
+    "message_id": "offline-v1-0160",
+    "subject": "Student Support Scholarship Application Reminder",
+    "sender": "scholarships@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Applications for the Student Support Scholarship close on 11 November. Please upload your transcript and supporting statement through the scholarship portal."
+  },
+  {
+    "message_id": "offline-v1-0161",
+    "subject": "Student Newsletter October",
+    "sender": "newsletter@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Here is this week's campus update with optional events, stories and service information. No response or action is required."
+  },
+  {
+    "message_id": "offline-v1-0162",
+    "subject": "Library New Books Digest",
+    "sender": "newsletter@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Here is this week's campus update with optional events, stories and service information. No response or action is required."
+  },
+  {
+    "message_id": "offline-v1-0163",
+    "subject": "Campus Photography Competition",
+    "sender": "newsletter@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "Here is this week's campus update with optional events, stories and service information. No response or action is required."
+  },
+  {
+    "message_id": "offline-v1-0164",
+    "subject": "Wellbeing Week Highlights",
+    "sender": "newsletter@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "Here is this week's campus update with optional events, stories and service information. No response or action is required."
+  },
+  {
+    "message_id": "offline-v1-0165",
+    "subject": "Alumni Stories",
+    "sender": "newsletter@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Here is this week's campus update with optional events, stories and service information. No response or action is required."
+  },
+  {
+    "message_id": "offline-v1-0166",
+    "subject": "Student Club Roundup",
+    "sender": "newsletter@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Here is this week's campus update with optional events, stories and service information. No response or action is required."
+  },
+  {
+    "message_id": "offline-v1-0167",
+    "subject": "Cafeteria Menu Update",
+    "sender": "newsletter@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "Here is this week's campus update with optional events, stories and service information. No response or action is required."
+  },
+  {
+    "message_id": "offline-v1-0168",
+    "subject": "Volunteering Opportunities Digest",
+    "sender": "newsletter@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "Here is this week's campus update with optional events, stories and service information. No response or action is required."
+  },
+  {
+    "message_id": "offline-v1-0169",
+    "subject": "Sports Centre Newsletter",
+    "sender": "newsletter@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Here is this week's campus update with optional events, stories and service information. No response or action is required."
+  },
+  {
+    "message_id": "offline-v1-0170",
+    "subject": "Weekly Campus Bulletin",
+    "sender": "newsletter@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "Here is this week's campus update with optional events, stories and service information. No response or action is required."
+  },
+  {
+    "message_id": "offline-v1-0171",
+    "subject": "Interview Link Follow-up",
+    "sender": "updates@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "The meeting link will be sent one day before the interview. No action is required from you right now."
+  },
+  {
+    "message_id": "offline-v1-0172",
+    "subject": "Panel Outcome Timing",
+    "sender": "updates@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "We will email the outcome two days after the panel. No action is required from you right now."
+  },
+  {
+    "message_id": "offline-v1-0173",
+    "subject": "Workshop Materials Timing",
+    "sender": "updates@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "The reading pack will be released three days before the workshop. No action is required from you right now."
+  },
+  {
+    "message_id": "offline-v1-0174",
+    "subject": "Supervisor Follow-up",
+    "sender": "updates@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "I will send comments one day after our next supervision meeting. No action is required from you right now."
+  },
+  {
+    "message_id": "offline-v1-0175",
+    "subject": "Assessment Feedback Timing",
+    "sender": "updates@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Feedback will be published two business days after marking is completed. No action is required from you right now."
+  },
+  {
+    "message_id": "offline-v1-0176",
+    "subject": "Offer Letter Timing",
+    "sender": "updates@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "The formal offer letter will be issued one day after final approval. No action is required from you right now."
+  },
+  {
+    "message_id": "offline-v1-0177",
+    "subject": "Lab Induction Reminder",
+    "sender": "updates@unsw.edu.au",
+    "received_at": "2026-10-18T21:40:00Z",
+    "body_text": "The induction reminder will be sent the day before your booked session. No action is required from you right now."
+  },
+  {
+    "message_id": "offline-v1-0178",
+    "subject": "Reference Check Update",
+    "sender": "updates@unsw.edu.au",
+    "received_at": "2026-10-20T05:05:00Z",
+    "body_text": "We will contact you after both referees have responded. No action is required from you right now."
+  },
+  {
+    "message_id": "offline-v1-0179",
+    "subject": "Project Review Notes",
+    "sender": "updates@unsw.edu.au",
+    "received_at": "2026-10-11T22:15:00Z",
+    "body_text": "Meeting notes will be shared after the review meeting. No action is required from you right now."
+  },
+  {
+    "message_id": "offline-v1-0180",
+    "subject": "Travel Grant Result",
+    "sender": "updates@unsw.edu.au",
+    "received_at": "2026-10-13T03:20:00Z",
+    "body_text": "The decision will be released three days after the committee meeting. No action is required from you right now."
+  }
+]

@@ -1,0 +1,3730 @@
+[
+  {
+    "message_id": "offline-v1-0001",
+    "subject": "COMP9321 Assignment 2 Submission",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "tomorrow at 6 PM",
+        "normalized": "2026-10-13T18:00:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "COMP9321 Assignment 2"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0002",
+    "subject": "COMP9417 Assignment 3 Submission",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "22 October",
+        "normalized": "2026-10-22",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "COMP9417 Assignment 3"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0003",
+    "subject": "COMP9444 Assignment 4 Submission",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "tomorrow at 6 PM",
+        "normalized": "2026-10-20T18:00:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "COMP9444 Assignment 4"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0004",
+    "subject": "COMP9312 Assignment 5 Submission",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "31 October",
+        "normalized": "2026-10-31",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "COMP9312 Assignment 5"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0005",
+    "subject": "COMP9024 Assignment 6 Submission",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "tomorrow at 6 PM",
+        "normalized": "2026-10-13T18:00:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "COMP9024 Assignment 6"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0006",
+    "subject": "COMP9331 Assignment 7 Submission",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "26 October",
+        "normalized": "2026-10-26",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "COMP9331 Assignment 7"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0007",
+    "subject": "COMP9517 Assignment 8 Submission",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "tomorrow at 6 PM",
+        "normalized": "2026-10-20T18:00:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "COMP9517 Assignment 8"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0008",
+    "subject": "COMP9414 Assignment 9 Submission",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "4 November",
+        "normalized": "2026-11-04",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "COMP9414 Assignment 9"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0009",
+    "subject": "COMP9311 Assignment 10 Submission",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "tomorrow at 6 PM",
+        "normalized": "2026-10-13T18:00:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "COMP9311 Assignment 10"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0010",
+    "subject": "COMP9044 Assignment 11 Submission",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "30 October",
+        "normalized": "2026-10-30",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "COMP9044 Assignment 11 Submission"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0011",
+    "subject": "COMP9321 Tutorial Preparation 1",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "tomorrow",
+        "normalized": "2026-10-13",
+        "precision": "date"
+      },
+      "expected_event": {
+        "raw_text": "tomorrow",
+        "normalized": "2026-10-13",
+        "precision": "date",
+        "event": "tutorial"
+      },
+      "action": {
+        "type": "complete",
+        "target": "exercise set 1"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0012",
+    "subject": "COMP9417 Tutorial Preparation 2",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "tomorrow",
+        "normalized": "2026-10-14",
+        "precision": "date"
+      },
+      "expected_event": {
+        "raw_text": "tomorrow",
+        "normalized": "2026-10-14",
+        "precision": "date",
+        "event": "tutorial"
+      },
+      "action": {
+        "type": "complete",
+        "target": "exercise set 2"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0013",
+    "subject": "COMP9444 Tutorial Preparation 3",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "tomorrow",
+        "normalized": "2026-10-20",
+        "precision": "date"
+      },
+      "expected_event": {
+        "raw_text": "tomorrow",
+        "normalized": "2026-10-20",
+        "precision": "date",
+        "event": "tutorial"
+      },
+      "action": {
+        "type": "complete",
+        "target": "exercise set 3"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0014",
+    "subject": "COMP9312 Tutorial Preparation 4",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "tomorrow",
+        "normalized": "2026-10-21",
+        "precision": "date"
+      },
+      "expected_event": {
+        "raw_text": "tomorrow",
+        "normalized": "2026-10-21",
+        "precision": "date",
+        "event": "tutorial"
+      },
+      "action": {
+        "type": "complete",
+        "target": "exercise set 4"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0015",
+    "subject": "COMP9024 Tutorial Preparation 5",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "tomorrow",
+        "normalized": "2026-10-13",
+        "precision": "date"
+      },
+      "expected_event": {
+        "raw_text": "tomorrow",
+        "normalized": "2026-10-13",
+        "precision": "date",
+        "event": "tutorial"
+      },
+      "action": {
+        "type": "complete",
+        "target": "exercise set 5"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0016",
+    "subject": "COMP9331 Tutorial Preparation 6",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "tomorrow",
+        "normalized": "2026-10-14",
+        "precision": "date"
+      },
+      "expected_event": {
+        "raw_text": "tomorrow",
+        "normalized": "2026-10-14",
+        "precision": "date",
+        "event": "tutorial"
+      },
+      "action": {
+        "type": "complete",
+        "target": "exercise set 6"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0017",
+    "subject": "COMP9517 Tutorial Preparation 7",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "tomorrow",
+        "normalized": "2026-10-20",
+        "precision": "date"
+      },
+      "expected_event": {
+        "raw_text": "tomorrow",
+        "normalized": "2026-10-20",
+        "precision": "date",
+        "event": "tutorial"
+      },
+      "action": {
+        "type": "complete",
+        "target": "exercise set 7"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0018",
+    "subject": "COMP9414 Tutorial Preparation 8",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "tomorrow",
+        "normalized": "2026-10-21",
+        "precision": "date"
+      },
+      "expected_event": {
+        "raw_text": "tomorrow",
+        "normalized": "2026-10-21",
+        "precision": "date",
+        "event": "tutorial"
+      },
+      "action": {
+        "type": "complete",
+        "target": "exercise set 8"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0019",
+    "subject": "COMP9311 Tutorial Preparation 9",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "tomorrow",
+        "normalized": "2026-10-13",
+        "precision": "date"
+      },
+      "expected_event": {
+        "raw_text": "tomorrow",
+        "normalized": "2026-10-13",
+        "precision": "date",
+        "event": "tutorial"
+      },
+      "action": {
+        "type": "complete",
+        "target": "exercise set 9"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0020",
+    "subject": "COMP9044 Tutorial Preparation 10",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "tomorrow",
+        "normalized": "2026-10-14",
+        "precision": "date"
+      },
+      "expected_event": {
+        "raw_text": "tomorrow",
+        "normalized": "2026-10-14",
+        "precision": "date",
+        "event": "tutorial"
+      },
+      "action": {
+        "type": "complete",
+        "target": "exercise set 10"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0021",
+    "subject": "Optional Lecture: Multimodal Retrieval",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "next Tuesday",
+        "normalized": "2026-10-13",
+        "precision": "date",
+        "event": "lecture"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0022",
+    "subject": "Optional Lecture: Agent Planning",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "this Thursday at 4 PM",
+        "normalized": "2026-10-15T16:00:00",
+        "precision": "datetime",
+        "event": "lecture"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0023",
+    "subject": "Optional Lecture: Vision-Language Models",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "Monday at 1 PM",
+        "normalized": "2026-10-19T13:00:00",
+        "precision": "datetime",
+        "event": "lecture"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0024",
+    "subject": "Optional Lecture: Robust Rag",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "next Tuesday",
+        "normalized": "2026-10-27",
+        "precision": "date",
+        "event": "lecture"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0025",
+    "subject": "Optional Lecture: Graph Learning",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "this Thursday at 4 PM",
+        "normalized": "2026-10-15T16:00:00",
+        "precision": "datetime",
+        "event": "lecture"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0026",
+    "subject": "Optional Lecture: Evaluation",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "Monday at 1 PM",
+        "normalized": "2026-10-19T13:00:00",
+        "precision": "datetime",
+        "event": "lecture"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0027",
+    "subject": "Optional Lecture: Reinforcement Learning",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "next Tuesday",
+        "normalized": "2026-10-20",
+        "precision": "date",
+        "event": "lecture"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0028",
+    "subject": "Optional Lecture: Privacy",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "this Thursday at 4 PM",
+        "normalized": "2026-10-22T16:00:00",
+        "precision": "datetime",
+        "event": "lecture"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0029",
+    "subject": "Optional Lecture: Embeddings",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "Monday at 1 PM",
+        "normalized": "2026-10-12T13:00:00",
+        "precision": "datetime",
+        "event": "lecture"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0030",
+    "subject": "Optional Lecture: Reasoning",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "next Tuesday",
+        "normalized": "2026-10-20",
+        "precision": "date",
+        "event": "guest lecture"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0031",
+    "subject": "COMP9321 Final Exam Timetable Available",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "read",
+        "target": "student portal"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0032",
+    "subject": "COMP9417 Final Exam Timetable Available",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "read",
+        "target": "student portal"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0033",
+    "subject": "COMP9444 Final Exam Timetable Available",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "read",
+        "target": "student portal"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0034",
+    "subject": "COMP9312 Final Exam Timetable Available",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "check",
+        "target": "student portal"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0035",
+    "subject": "COMP9024 Final Exam Timetable Available",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "read",
+        "target": "student portal"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0036",
+    "subject": "COMP9331 Final Exam Timetable Available",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "read",
+        "target": "student portal"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0037",
+    "subject": "COMP9517 Final Exam Timetable Available",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "check",
+        "target": "student portal"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0038",
+    "subject": "COMP9414 Final Exam Timetable Available",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "read",
+        "target": "student portal"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0039",
+    "subject": "COMP9311 Final Exam Timetable Available",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "read",
+        "target": "student portal"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0040",
+    "subject": "COMP9044 Final Exam Timetable Available",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "read",
+        "target": "student portal"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0041",
+    "subject": "Nebula AI Interview Invitation",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "27 October at 10 AM",
+        "normalized": "2026-10-27T10:00:00",
+        "precision": "datetime",
+        "event": "interview"
+      },
+      "action": {
+        "type": "reply_confirm",
+        "target": "Nebula AI Interview Invitation"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0042",
+    "subject": "Aster Labs Interview Invitation",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "28 October at 11 AM",
+        "normalized": "2026-10-28T11:00:00",
+        "precision": "datetime",
+        "event": "interview"
+      },
+      "action": {
+        "type": "reply_confirm",
+        "target": "Aster Labs Interview Invitation"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0043",
+    "subject": "Harbour Robotics Interview Invitation",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "29 October at 12 PM",
+        "normalized": "2026-10-29T12:00:00",
+        "precision": "datetime",
+        "event": "interview"
+      },
+      "action": {
+        "type": "reply_confirm",
+        "target": "Harbour Robotics Interview Invitation"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0044",
+    "subject": "PixelForge Interview Invitation",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "30 October at 10 AM",
+        "normalized": "2026-10-30T10:00:00",
+        "precision": "datetime",
+        "event": "interview"
+      },
+      "action": {
+        "type": "reply_confirm",
+        "target": "PixelForge Interview Invitation"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0045",
+    "subject": "Lumen Systems Interview Invitation",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "27 October at 11 AM",
+        "normalized": "2026-10-27T11:00:00",
+        "precision": "datetime",
+        "event": "interview"
+      },
+      "action": {
+        "type": "reply_confirm",
+        "target": "Lumen Systems Interview Invitation"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0046",
+    "subject": "OrbitML Interview Invitation",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "28 October at 12 PM",
+        "normalized": "2026-10-28T12:00:00",
+        "precision": "datetime",
+        "event": "interview"
+      },
+      "action": {
+        "type": "reply_confirm",
+        "target": "OrbitML Interview Invitation"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0047",
+    "subject": "VectorWorks Interview Invitation",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": {
+        "raw_text": "29 October at 10 AM",
+        "normalized": "2026-10-29T10:00:00",
+        "precision": "datetime"
+      },
+      "expected_event": {
+        "raw_text": "29 October at 10 AM",
+        "normalized": "2026-10-29T10:00:00",
+        "precision": "datetime",
+        "event": "interview"
+      },
+      "action": {
+        "type": "reply_confirm",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0048",
+    "subject": "Cedar AI Interview Invitation",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "30 October at 11 AM",
+        "normalized": "2026-10-30T11:00:00",
+        "precision": "datetime",
+        "event": "interview"
+      },
+      "action": {
+        "type": "reply_confirm",
+        "target": "Cedar AI Interview Invitation"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0049",
+    "subject": "BluePeak Interview Invitation",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "27 October at 12 PM",
+        "normalized": "2026-10-27T12:00:00",
+        "precision": "datetime",
+        "event": "interview"
+      },
+      "action": {
+        "type": "reply_confirm",
+        "target": "BluePeak Interview Invitation"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0050",
+    "subject": "Kite Analytics Interview Invitation",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "28 October at 10 AM",
+        "normalized": "2026-10-28T10:00:00",
+        "precision": "datetime",
+        "event": "interview"
+      },
+      "action": {
+        "type": "reply_confirm",
+        "target": "confirm attendance for interview on 28 October at 10 AM"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0051",
+    "subject": "Nebula AI Application Status Update",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "medium",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "by the end of next week",
+        "normalized": "2026-10-25",
+        "precision": "date",
+        "event": "application outcome"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0052",
+    "subject": "Aster Labs Application Status Update",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "medium",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "within three business days",
+        "normalized": "2026-10-16",
+        "precision": "date",
+        "event": "application outcome"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0053",
+    "subject": "Harbour Robotics Application Status Update",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "medium",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "by the end of next week",
+        "normalized": "2026-11-01",
+        "precision": "date",
+        "event": "application outcome"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0054",
+    "subject": "PixelForge Application Status Update",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "medium",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "within three business days",
+        "normalized": "2026-10-23",
+        "precision": "date",
+        "event": "application outcome"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0055",
+    "subject": "Lumen Systems Application Status Update",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "medium",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "by the end of next week",
+        "normalized": "2026-10-25",
+        "precision": "date",
+        "event": "application outcome"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0056",
+    "subject": "OrbitML Application Status Update",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "medium",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "within three business days",
+        "normalized": "2026-10-16",
+        "precision": "date",
+        "event": "application outcome"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0057",
+    "subject": "VectorWorks Application Status Update",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "medium",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "by the end of next week",
+        "normalized": "2026-11-01",
+        "precision": "date",
+        "event": "application outcome"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0058",
+    "subject": "Cedar AI Application Status Update",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "medium",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "within three business days",
+        "normalized": "2026-10-23",
+        "precision": "date",
+        "event": "application outcome"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0059",
+    "subject": "BluePeak Application Status Update",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "medium",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "by the end of next week",
+        "normalized": "2026-10-25",
+        "precision": "date",
+        "event": "application outcome"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0060",
+    "subject": "Kite Analytics Application Status Update",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "medium",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "within three business days",
+        "normalized": "2026-10-16",
+        "precision": "date",
+        "event": "application outcome"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0061",
+    "subject": "Nebula AI Request for Updated CV",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "Thursday",
+        "normalized": "2026-10-15",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "send",
+        "target": "latest CV as a PDF"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0062",
+    "subject": "Aster Labs Request for Updated CV",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "Thursday",
+        "normalized": "2026-10-15",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "send",
+        "target": "latest CV as a PDF"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0063",
+    "subject": "Harbour Robotics Request for Updated CV",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "Thursday",
+        "normalized": "2026-10-22",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "send",
+        "target": "latest CV as a PDF"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0064",
+    "subject": "PixelForge Request for Updated CV",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "Thursday",
+        "normalized": "2026-10-22",
+        "precision": "date",
+        "event": "meeting"
+      },
+      "action": {
+        "type": "send",
+        "target": "latest CV as a PDF"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0065",
+    "subject": "Lumen Systems Request for Updated CV",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "Thursday",
+        "normalized": "2026-10-15",
+        "precision": "date",
+        "event": "meeting"
+      },
+      "action": {
+        "type": "send",
+        "target": "latest CV as a PDF"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0066",
+    "subject": "OrbitML Request for Updated CV",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "Thursday",
+        "normalized": "2026-10-15",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "send",
+        "target": "latest CV as a PDF"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0067",
+    "subject": "VectorWorks Request for Updated CV",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "Thursday",
+        "normalized": "2026-10-22",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "send",
+        "target": "latest CV as a PDF"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0068",
+    "subject": "Cedar AI Request for Updated CV",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "Thursday",
+        "normalized": "2026-10-22",
+        "precision": "date"
+      },
+      "expected_event": {
+        "raw_text": "Thursday",
+        "normalized": "2026-10-22",
+        "precision": "date",
+        "event": "interview"
+      },
+      "action": {
+        "type": "send",
+        "target": "latest CV as a PDF"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0069",
+    "subject": "BluePeak Request for Updated CV",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "Thursday",
+        "normalized": "2026-10-15",
+        "precision": "date",
+        "event": "meeting"
+      },
+      "action": {
+        "type": "send",
+        "target": "latest CV as a PDF"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0070",
+    "subject": "Kite Analytics Request for Updated CV",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "Thursday",
+        "normalized": "2026-10-15",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "send",
+        "target": "latest CV as a PDF"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0071",
+    "subject": "Research Meeting Rescheduled: Multimodal Retrieval",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "Wednesday at 2 PM",
+        "normalized": "2026-10-14T14:00:00",
+        "precision": "datetime",
+        "event": "meeting"
+      },
+      "action": {
+        "type": "reply_availability",
+        "target": "new time does not work for you"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0072",
+    "subject": "Research Meeting Rescheduled: Agent Planning",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "medium",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "Wednesday at 2 PM",
+        "normalized": "2026-10-14T14:00:00",
+        "precision": "datetime",
+        "event": "meeting"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0073",
+    "subject": "Research Meeting Rescheduled: Vision-Language Models",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "Wednesday at 2 PM",
+        "normalized": "2026-10-21T14:00:00",
+        "precision": "datetime",
+        "event": "meeting"
+      },
+      "action": {
+        "type": "reply_availability",
+        "target": "new time does not work for you"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0074",
+    "subject": "Research Meeting Rescheduled: Robust Rag",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "medium",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "Wednesday at 2 PM",
+        "normalized": "2026-10-21T14:00:00",
+        "precision": "datetime",
+        "event": "meeting"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0075",
+    "subject": "Research Meeting Rescheduled: Graph Learning",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "Wednesday at 2 PM",
+        "normalized": "2026-10-14T14:00:00",
+        "precision": "datetime",
+        "event": "meeting"
+      },
+      "action": {
+        "type": "reply_availability",
+        "target": "new time does not work for you"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0076",
+    "subject": "Research Meeting Rescheduled: Evaluation",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "medium",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "Wednesday at 2 PM",
+        "normalized": "2026-10-14T14:00:00",
+        "precision": "datetime",
+        "event": "meeting"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0077",
+    "subject": "Research Meeting Rescheduled: Reinforcement Learning",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "medium",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "Wednesday at 2 PM",
+        "normalized": "2026-10-21T14:00:00",
+        "precision": "datetime",
+        "event": "meeting"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0078",
+    "subject": "Research Meeting Rescheduled: Privacy",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "medium",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "Wednesday at 2 PM",
+        "normalized": "2026-10-21T14:00:00",
+        "precision": "datetime",
+        "event": "meeting"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0079",
+    "subject": "Research Meeting Rescheduled: Embeddings",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "medium",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "Wednesday at 2 PM",
+        "normalized": "2026-10-14T14:00:00",
+        "precision": "datetime",
+        "event": "meeting"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0080",
+    "subject": "Research Meeting Rescheduled: Reasoning",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "medium",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "Wednesday at 2 PM",
+        "normalized": "2026-10-14T14:00:00",
+        "precision": "datetime",
+        "event": "meeting"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0081",
+    "subject": "Research Assistant Opportunity: Multimodal Retrieval",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "reply_interest",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0082",
+    "subject": "Research Assistant Opportunity: Agent Planning",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "reply_confirm",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0083",
+    "subject": "Research Assistant Opportunity: Vision-Language Models",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "reply_interest",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0084",
+    "subject": "Research Assistant Opportunity: Robust Rag",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "reply_confirm",
+        "target": "Research Assistant Opportunity: Robust Rag"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0085",
+    "subject": "Research Assistant Opportunity: Graph Learning",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "reply_interest",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0086",
+    "subject": "Research Assistant Opportunity: Evaluation",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "reply_interest",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0087",
+    "subject": "Research Assistant Opportunity: Reinforcement Learning",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "reply_interest",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0088",
+    "subject": "Research Assistant Opportunity: Privacy",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "null",
+        "normalized": null,
+        "precision": null,
+        "unresolved": true,
+        "event": "interview"
+      },
+      "action": {
+        "type": "reply_interest",
+        "target": "Research Assistant Opportunity: Privacy"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0089",
+    "subject": "Research Assistant Opportunity: Embeddings",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "reply_interest",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0090",
+    "subject": "Research Assistant Opportunity: Reasoning",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "reply_interest",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0091",
+    "subject": "Ethics Revision Required: Multimodal Retrieval",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "Friday",
+        "normalized": "2026-10-16",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "revise",
+        "target": "section 3"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0092",
+    "subject": "Ethics Revision Required: Agent Planning",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "next Monday",
+        "normalized": "2026-10-19",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "revise",
+        "target": "section 4"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0093",
+    "subject": "Ethics Revision Required: Vision-Language Models",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "Friday",
+        "normalized": "2026-10-23",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "revise",
+        "target": "section 5"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0094",
+    "subject": "Ethics Revision Required: Robust Rag",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "next Monday",
+        "normalized": "2026-10-26",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "revise",
+        "target": "section 6"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0095",
+    "subject": "Ethics Revision Required: Graph Learning",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "Friday",
+        "normalized": "2026-10-16",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "revise",
+        "target": "section 3 of the ethics submission for the graph learning study"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0096",
+    "subject": "Ethics Revision Required: Evaluation",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "next Monday",
+        "normalized": "2026-10-19",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "revise",
+        "target": "section 4"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0097",
+    "subject": "Ethics Revision Required: Reinforcement Learning",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "Friday",
+        "normalized": "2026-10-23",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "revise",
+        "target": "section 5"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0098",
+    "subject": "Ethics Revision Required: Privacy",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "next Monday",
+        "normalized": "2026-10-26",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "revise",
+        "target": "section 6"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0099",
+    "subject": "Ethics Revision Required: Embeddings",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "Friday",
+        "normalized": "2026-10-16",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "revise",
+        "target": "section 3"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0100",
+    "subject": "Ethics Revision Required: Reasoning",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "next Monday",
+        "normalized": "2026-10-19",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "revise",
+        "target": "section 4"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0101",
+    "subject": "Project Atlas Meeting Request 1",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "project",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "this Friday afternoon",
+        "normalized": "2026-10-16",
+        "precision": "date",
+        "time_hint": "afternoon",
+        "event": "meeting"
+      },
+      "action": {
+        "type": "reply_availability",
+        "target": "suitable time"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0102",
+    "subject": "Project Atlas Meeting Request 2",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "project",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "this Friday afternoon",
+        "normalized": "2026-10-16",
+        "precision": "date",
+        "time_hint": "afternoon",
+        "event": "meeting"
+      },
+      "action": {
+        "type": "reply_availability",
+        "target": "suitable time"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0103",
+    "subject": "Project Atlas Meeting Request 3",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "project",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "this Friday afternoon",
+        "normalized": "2026-10-23",
+        "precision": "date",
+        "time_hint": "afternoon",
+        "event": "meeting"
+      },
+      "action": {
+        "type": "reply_availability",
+        "target": "suitable time"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0104",
+    "subject": "Project Atlas Meeting Request 4",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "project",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "this Friday afternoon",
+        "normalized": "2026-10-23",
+        "precision": "date",
+        "time_hint": "afternoon",
+        "event": "meeting"
+      },
+      "action": {
+        "type": "reply_availability",
+        "target": "suitable time"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0105",
+    "subject": "Project Atlas Meeting Request 5",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "project",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "this Friday afternoon",
+        "normalized": "2026-10-16",
+        "precision": "date",
+        "time_hint": "afternoon",
+        "event": "meeting"
+      },
+      "action": {
+        "type": "reply_availability",
+        "target": "suitable time"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0106",
+    "subject": "Project Atlas Meeting Request 6",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "project",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "this Friday afternoon",
+        "normalized": "2026-10-16",
+        "precision": "date",
+        "time_hint": "afternoon",
+        "event": "meeting"
+      },
+      "action": {
+        "type": "reply_availability",
+        "target": "suitable time"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0107",
+    "subject": "Project Atlas Meeting Request 7",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "project",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "this Friday afternoon",
+        "normalized": "2026-10-23",
+        "precision": "date",
+        "time_hint": "afternoon",
+        "event": "meeting"
+      },
+      "action": {
+        "type": "reply_availability",
+        "target": "suitable time"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0108",
+    "subject": "Project Atlas Meeting Request 8",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "project",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "this Friday afternoon",
+        "normalized": "2026-10-23",
+        "precision": "date",
+        "time_hint": "afternoon",
+        "event": "meeting"
+      },
+      "action": {
+        "type": "reply_availability",
+        "target": "suitable time"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0109",
+    "subject": "Project Atlas Meeting Request 9",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "project",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "this Friday afternoon",
+        "normalized": "2026-10-16",
+        "precision": "date",
+        "time_hint": "afternoon",
+        "event": "meeting"
+      },
+      "action": {
+        "type": "reply_availability",
+        "target": "suitable time"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0110",
+    "subject": "Project Atlas Meeting Request 10",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "project",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": true,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "this Friday afternoon",
+        "normalized": "2026-10-16",
+        "precision": "date",
+        "time_hint": "afternoon",
+        "event": "meeting"
+      },
+      "action": {
+        "type": "reply_availability",
+        "target": "suitable time"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0111",
+    "subject": "Project Atlas Milestone 2 Due",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "project",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "this Sunday at 11:59 PM",
+        "normalized": "2026-10-18T23:59:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "report and final code"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0112",
+    "subject": "Project Atlas Milestone 3 Due",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "project",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "this Sunday at 11:59 PM",
+        "normalized": "2026-10-18T23:59:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "report and final code"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0113",
+    "subject": "Project Atlas Milestone 4 Due",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "project",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "this Sunday at 11:59 PM",
+        "normalized": "2026-10-25T23:59:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "report and final code"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0114",
+    "subject": "Project Atlas Milestone 5 Due",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "project",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "this Sunday at 11:59 PM",
+        "normalized": "2026-10-25T23:59:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "report and final code"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0115",
+    "subject": "Project Atlas Milestone 6 Due",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "project",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "this Sunday at 11:59 PM",
+        "normalized": "2026-10-18T23:59:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "report and final code"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0116",
+    "subject": "Project Atlas Milestone 7 Due",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "project",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "this Sunday at 11:59 PM",
+        "normalized": "2026-10-18T23:59:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "report and final code"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0117",
+    "subject": "Project Atlas Milestone 8 Due",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "project",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "this Sunday at 11:59 PM",
+        "normalized": "2026-10-25T23:59:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "report and final code"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0118",
+    "subject": "Project Atlas Milestone 9 Due",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "project",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "this Sunday at 11:59 PM",
+        "normalized": "2026-10-25T23:59:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "report and final code"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0119",
+    "subject": "Project Atlas Milestone 10 Due",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "project",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "this Sunday at 11:59 PM",
+        "normalized": "2026-10-18T23:59:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "report and final code"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0120",
+    "subject": "Project Atlas Milestone 11 Due",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "project",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "this Sunday at 11:59 PM",
+        "normalized": "2026-10-18T23:59:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "report and final code"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0121",
+    "subject": "Confirm Enrolment Details - Cohort 1",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "5 PM this Thursday",
+        "normalized": "2026-10-15T17:00:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "confirm",
+        "target": "enrolment details"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0122",
+    "subject": "Confirm Enrolment Details - Cohort 2",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "5 PM this Thursday",
+        "normalized": "2026-10-15T17:00:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "confirm",
+        "target": "enrolment details"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0123",
+    "subject": "Confirm Enrolment Details - Cohort 3",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "5 PM this Thursday",
+        "normalized": "2026-10-22T17:00:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "confirm",
+        "target": "enrolment details"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0124",
+    "subject": "Confirm Enrolment Details - Cohort 4",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "5 PM this Thursday",
+        "normalized": "2026-10-22T17:00:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "confirm",
+        "target": "enrolment details"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0125",
+    "subject": "Confirm Enrolment Details - Cohort 5",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "5 PM this Thursday",
+        "normalized": "2026-10-15T17:00:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "confirm",
+        "target": "enrolment details"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0126",
+    "subject": "Confirm Enrolment Details - Cohort 6",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "5 PM this Thursday",
+        "normalized": "2026-10-15T17:00:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "confirm",
+        "target": "enrolment details"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0127",
+    "subject": "Confirm Enrolment Details - Cohort 7",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "5 PM this Thursday",
+        "normalized": "2026-10-22T17:00:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "confirm",
+        "target": "enrolment details"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0128",
+    "subject": "Confirm Enrolment Details - Cohort 8",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "5 PM this Thursday",
+        "normalized": "2026-10-22T17:00:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "confirm",
+        "target": "enrolment details"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0129",
+    "subject": "Confirm Enrolment Details - Cohort 9",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "5 PM this Thursday",
+        "normalized": "2026-10-15T17:00:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "confirm",
+        "target": "enrolment details"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0130",
+    "subject": "Confirm Enrolment Details - Cohort 10",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "5 PM this Thursday",
+        "normalized": "2026-10-15T17:00:00",
+        "precision": "datetime"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "confirm",
+        "target": "enrolment details"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0131",
+    "subject": "Compute Cluster Maintenance Window 1",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "this Sunday",
+        "normalized": "2026-10-18",
+        "precision": "date",
+        "event": "system maintenance"
+      },
+      "action": {
+        "type": "save",
+        "target": "work"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0132",
+    "subject": "Compute Cluster Maintenance Window 2",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "this Sunday",
+        "normalized": "2026-10-18",
+        "precision": "date"
+      },
+      "expected_event": {
+        "raw_text": "between 1 AM and 3 AM this Sunday",
+        "normalized": "2026-10-18T01:00:00/2026-10-18T03:00:00",
+        "precision": "datetime_range",
+        "event": "system maintenance"
+      },
+      "action": {
+        "type": "save",
+        "target": "work"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0133",
+    "subject": "Compute Cluster Maintenance Window 3",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "this Sunday",
+        "normalized": "2026-10-25",
+        "precision": "date",
+        "event": "system maintenance"
+      },
+      "action": {
+        "type": "save",
+        "target": "work"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0134",
+    "subject": "Compute Cluster Maintenance Window 4",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "medium",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "this Sunday",
+        "normalized": "2026-10-25",
+        "precision": "date",
+        "event": "system maintenance"
+      },
+      "action": {
+        "type": "save",
+        "target": "work"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0135",
+    "subject": "Compute Cluster Maintenance Window 5",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "this Sunday",
+        "normalized": "2026-10-18",
+        "precision": "date",
+        "event": "system maintenance"
+      },
+      "action": {
+        "type": "save",
+        "target": "work"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0136",
+    "subject": "Compute Cluster Maintenance Window 6",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "this Sunday",
+        "normalized": "2026-10-18",
+        "precision": "date",
+        "event": "system maintenance"
+      },
+      "action": {
+        "type": "save",
+        "target": "work"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0137",
+    "subject": "Compute Cluster Maintenance Window 7",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "this Sunday",
+        "normalized": "2026-10-25",
+        "precision": "date"
+      },
+      "expected_event": {
+        "raw_text": "between 1 AM and 3 AM this Sunday",
+        "normalized": "2026-10-25T01:00:00/2026-10-25T03:00:00",
+        "precision": "datetime_range",
+        "event": "system maintenance"
+      },
+      "action": {
+        "type": "save",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0138",
+    "subject": "Compute Cluster Maintenance Window 8",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "this Sunday",
+        "normalized": "2026-10-25",
+        "precision": "date",
+        "event": "system maintenance"
+      },
+      "action": {
+        "type": "save",
+        "target": "work"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0139",
+    "subject": "Compute Cluster Maintenance Window 9",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "this Sunday",
+        "normalized": "2026-10-18",
+        "precision": "date"
+      },
+      "expected_event": {
+        "raw_text": "between 1 AM and 3 AM this Sunday",
+        "normalized": "2026-10-18T01:00:00/2026-10-18T03:00:00",
+        "precision": "datetime_range",
+        "event": "system maintenance"
+      },
+      "action": {
+        "type": "save",
+        "target": "work"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0140",
+    "subject": "Compute Cluster Maintenance Window 10",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "this Sunday",
+        "normalized": "2026-10-18",
+        "precision": "date"
+      },
+      "expected_event": {
+        "raw_text": "between 1 AM and 3 AM this Sunday",
+        "normalized": "2026-10-18T01:00:00/2026-10-18T03:00:00",
+        "precision": "datetime_range",
+        "event": "system maintenance"
+      },
+      "action": {
+        "type": "save",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0141",
+    "subject": "Lab Access Approved: Multimodal Retrieval",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "tomorrow morning",
+        "normalized": "2026-10-13",
+        "precision": "date",
+        "time_hint": "morning",
+        "event": "lab access activation"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0142",
+    "subject": "Lab Access Approved: Agent Planning",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "tomorrow morning",
+        "normalized": "2026-10-14",
+        "precision": "date",
+        "time_hint": "morning",
+        "event": "lab access activation"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0143",
+    "subject": "Lab Access Approved: Vision-Language Models",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "tomorrow morning",
+        "normalized": "2026-10-20",
+        "precision": "date",
+        "time_hint": "morning",
+        "event": "lab access activation"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0144",
+    "subject": "Lab Access Approved: Robust Rag",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "tomorrow morning",
+        "normalized": "2026-10-21",
+        "precision": "date",
+        "time_hint": "morning",
+        "event": "lab access activation"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0145",
+    "subject": "Lab Access Approved: Graph Learning",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "tomorrow morning",
+        "normalized": "2026-10-13",
+        "precision": "date",
+        "time_hint": "morning",
+        "event": "lab access activation"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0146",
+    "subject": "Lab Access Approved: Evaluation",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "tomorrow morning",
+        "normalized": "2026-10-14",
+        "precision": "date",
+        "time_hint": "morning",
+        "event": "lab access activation"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0147",
+    "subject": "Lab Access Approved: Reinforcement Learning",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "tomorrow morning",
+        "normalized": "2026-10-20",
+        "precision": "date",
+        "time_hint": "morning",
+        "event": "lab access activation"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0148",
+    "subject": "Lab Access Approved: Privacy",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "tomorrow morning",
+        "normalized": "2026-10-21",
+        "precision": "date",
+        "time_hint": "morning",
+        "event": "lab access activation"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0149",
+    "subject": "Lab Access Approved: Embeddings",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "tomorrow morning",
+        "normalized": "2026-10-13",
+        "precision": "date",
+        "time_hint": "morning",
+        "event": "lab access activation"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0150",
+    "subject": "Lab Access Approved: Reasoning",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "tomorrow morning",
+        "normalized": "2026-10-14",
+        "precision": "date",
+        "time_hint": "morning",
+        "event": "lab access activation"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0153",
+    "subject": "International Student Scholarship Application Reminder",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "4 November",
+        "normalized": "2026-11-04",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "transcript and supporting statement through the scholarship portal"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0155",
+    "subject": "Research Pathway Scholarship Application Reminder",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "6 November",
+        "normalized": "2026-11-06",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "scholarship portal"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0157",
+    "subject": "Alumni Scholarship Application Reminder",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "8 November",
+        "normalized": "2026-11-08",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "transcript and supporting statement through the scholarship portal"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0160",
+    "subject": "Student Support Scholarship Application Reminder",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "high",
+      "requires_action": true,
+      "requires_reply": false,
+      "user_deadline": {
+        "raw_text": "11 November",
+        "normalized": "2026-11-11",
+        "precision": "date"
+      },
+      "expected_event": null,
+      "action": {
+        "type": "submit",
+        "target": "transcript and supporting statement through the scholarship portal"
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0161",
+    "subject": "Student Newsletter October",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0162",
+    "subject": "Library New Books Digest",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0163",
+    "subject": "Campus Photography Competition",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "other",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0164",
+    "subject": "Wellbeing Week Highlights",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "other",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0165",
+    "subject": "Alumni Stories",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "other",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0166",
+    "subject": "Student Club Roundup",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "other",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0167",
+    "subject": "Cafeteria Menu Update",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0168",
+    "subject": "Volunteering Opportunities Digest",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "other",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0169",
+    "subject": "Sports Centre Newsletter",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "other",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0170",
+    "subject": "Weekly Campus Bulletin",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": null,
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0171",
+    "subject": "Interview Link Follow-up",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "medium",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "the interview",
+        "normalized": null,
+        "precision": null,
+        "unresolved": true,
+        "event": "interview"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0172",
+    "subject": "Panel Outcome Timing",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "two days after the panel",
+        "normalized": null,
+        "precision": null,
+        "unresolved": true,
+        "event": "application outcome"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0173",
+    "subject": "Workshop Materials Timing",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "the workshop",
+        "normalized": null,
+        "precision": null,
+        "unresolved": true,
+        "event": "workshop"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0174",
+    "subject": "Supervisor Follow-up",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "research",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "our next supervision meeting",
+        "normalized": null,
+        "precision": null,
+        "unresolved": true,
+        "event": "supervision meeting"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0175",
+    "subject": "Assessment Feedback Timing",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "course",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "two business days after marking is completed",
+        "normalized": null,
+        "precision": null,
+        "unresolved": true,
+        "event": "feedback publication"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0176",
+    "subject": "Offer Letter Timing",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "medium",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "one day after final approval",
+        "normalized": null,
+        "precision": null,
+        "unresolved": true,
+        "event": "offer letter issuance"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0177",
+    "subject": "Lab Induction Reminder",
+    "received_at": "2026-10-18T21:40:00Z",
+    "analysis": {
+      "category": "administration",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "your booked session",
+        "normalized": null,
+        "precision": null,
+        "unresolved": true,
+        "event": "lab induction session"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0178",
+    "subject": "Reference Check Update",
+    "received_at": "2026-10-20T05:05:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "after both referees have responded",
+        "normalized": null,
+        "precision": null,
+        "unresolved": true,
+        "event": "reference check completion"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0179",
+    "subject": "Project Review Notes",
+    "received_at": "2026-10-11T22:15:00Z",
+    "analysis": {
+      "category": "project",
+      "importance": "low",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "after the review meeting",
+        "normalized": null,
+        "precision": null,
+        "unresolved": true,
+        "event": "review meeting"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  },
+  {
+    "message_id": "offline-v1-0180",
+    "subject": "Travel Grant Result",
+    "received_at": "2026-10-13T03:20:00Z",
+    "analysis": {
+      "category": "career",
+      "importance": "medium",
+      "requires_action": false,
+      "requires_reply": false,
+      "user_deadline": null,
+      "expected_event": {
+        "raw_text": "three days after the committee meeting",
+        "normalized": null,
+        "precision": null,
+        "unresolved": true,
+        "event": "travel grant decision release"
+      },
+      "action": {
+        "type": "none",
+        "target": null
+      }
+    }
+  }
+]
