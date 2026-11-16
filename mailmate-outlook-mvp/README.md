@@ -1,40 +1,43 @@
-# Mailmate Outlook MVP
+# Mailmate 邮件助手
 
-This is an installable Chromium extension MVP for Outlook Web. It reads **only the email already open in Outlook's reading pane**, after the user clicks the Mailmate button, then asks Groq for a structured single-email analysis.
+Mailmate 是一个可在 Chrome 和 Microsoft Edge 中加载的 Outlook 网页扩展。用户在已正常登录的 Outlook 邮件文件夹中点击一次“开始分析”，扩展便会自动检查该文件夹近两周的邮件，提取邮件正文并生成可操作的摘要卡片。
 
-## Load it in Edge
+## 产品演示
 
-1. Unzip this package into a folder.
-2. Open `edge://extensions` and enable **Developer mode**.
-3. Choose **Load unpacked** and select the folder that contains `manifest.json`.
-4. If Outlook was already open, refresh that tab. Sign in normally and open a test email.
-5. Click the floating **Mailmate** button at the bottom right.
-6. Choose Chinese or English, paste a Groq API key into the password field, check the consent box, and click **Read and analyze this email**.
+- **一键批量分析：** 自动遍历当前文件夹近两周的邮件，不要求用户逐封点击，也不设固定的前 50 封上限。
+- **重点信息整理：** 逐封提取重要性、分类、内容摘要、行动、是否需要回复以及截止日期。
+- **便于跟进：** 在 Outlook 页面右下角展示结果；按重要性排序，同级按截止日期排序，并可勾选行动完成状态。
+- **中英文支持：** 可选择简体中文或英文；切换后摘要和行动内容按所选语言生成。
+- **增量复用：** 可在浏览器本地保存结构化结果。再次分析时，已缓存邮件会直接显示，不会重新打开或重复调用模型。
 
-The API key is not stored. It is sent in the authorization header for this request and the input is cleared when the request finishes. Email content is sent to Groq only after the user checks the consent box and clicks the analysis button. Link addresses are excluded by default; a separate checkbox is required to include them.
+## 在 Chrome 或 Edge 中加载
 
-## MVP scope
+1. 打开 [Mailmate 邮件助手独立分支](https://github.com/Shengheshan/Mailmate/tree/mailmate-outlook-mvp/mailmate-outlook-mvp)，选择 **Code → Download ZIP**，解压下载文件。
+2. 在 Chrome 地址栏打开 `chrome://extensions`，或在 Edge 中打开 `edge://extensions`。
+3. 打开“开发者模式”，选择“加载已解压的扩展”。
+4. 在解压目录中选择 `mailmate-outlook-mvp` 文件夹。该文件夹内应能直接看到 `manifest.json`、`content.js` 和 `background.js`。
+5. 在浏览器中正常登录学校 Outlook，进入要分析的邮件文件夹并刷新页面。页面右下角会出现 Mailmate 按钮。
 
-- Reads visible DOM content from one email that the user has already opened.
-- Shows category, importance, a short summary, and action/reply flags.
-- Supports Simplified Chinese and English; the default follows the browser language.
-- Does not call Microsoft Graph, read cookies/tokens, click messages, scroll the inbox, or change message state.
-- Does not store email text, predictions, API keys, or cache results.
+## 使用流程
 
-The extension does not open messages itself. Outlook may change read state when a user opens an email depending on Outlook settings. If preserving unread status is important, first set Outlook **Mark as read** to **Don't automatically mark as read** and verify that setting with a test email.
+1. 在 Outlook 邮件设置中选择“不要自动标记为已读”，并确认设置已保存；邮件列表保持最新邮件优先排序。
+2. 点击 Outlook 页面右下角的 Mailmate，选择显示语言并输入自己的 Groq API Key。
+3. 确认邮件分析授权和 Outlook 未读保护设置，然后点击“开始分析近两周邮件”。
+4. Mailmate 自动滚动邮件列表，逐封读取未缓存的邮件并显示进度。完成后可在右下角查看摘要、展开本次读取的邮件正文和标记行动完成。
 
-This version handles one open email only. It does not yet scan the first 50 messages, aggregate multiple emails, cache incremental sync results, read attachments, or run a Mailmate backend.
+## 数据与隐私
 
-## Data and deployment notes
+- 扩展仅在用户点击开始并确认授权后工作，范围限于当前 Outlook 文件夹中日期可识别的近两周邮件项；请保持最新邮件优先排序，以便扩展判断时间范围。
+- 用户通过学校提供的正常登录状态访问 Outlook。扩展不调用 Microsoft Graph，不读取密码、Cookie、访问令牌或 MFA 信息。
+- 邮件正文会发送到 Groq 的美国区域进行模型分析。邮件中的链接地址默认不发送；用户可自行选择是否附带。
+- Groq API Key 仅保存在当前标签页内存中，关闭页面后需要重新输入。
+- 本地缓存只保存邮件标识、结构化分析结果和行动完成状态，不保存正文或 API Key。下次命中缓存时直接复用摘要，不会再次打开邮件或调用模型；用户可以在面板中清除缓存，或关闭缓存选项。
+- 扩展不会主动修改已读状态。分析时 Outlook 会在页面内逐封打开邮件，因此必须先关闭 Outlook 的自动标记已读设置；若学校策略或 Outlook 行为仍会改变状态，应立即停止使用并检查邮件状态。
 
-- The request sends the current email subject, sender, visible body text, and optionally link addresses to Groq's API in the United States.
-- Keep the Groq account on the intended plan and review its data-retention settings before using personal or school email.
-- The selected Qwen model is marked Preview by Groq. This MVP is for a controlled demonstration, not a production deployment.
-- Do not publish a build that asks end users for a shared developer API key. A public product needs a Mailmate backend to hold provider credentials, enforce per-user limits, validate/normalize results, cache by message ID/content hash, and delete data on the product's retention schedule.
-- Test on a non-sensitive email first. Outlook DOM selectors can change; if the extension cannot identify the body, it reports that instead of crawling other content.
+## 当前验证范围与限制
 
-## Files
-
-- `manifest.json` — Manifest V3 extension settings and Outlook host matching.
-- `content.js` — user-triggered floating panel and visible email DOM extraction.
-- `background.js` — one-request Groq client and minimal schema checks.
+- 仅扫描用户当前打开的 Outlook 文件夹，不会自动遍历其他文件夹或整个邮箱。若 Outlook 将多封邮件合并显示为会话，结果按列表中的会话项处理。
+- 只分析近两周内且能识别接收日期的邮件；无法识别日期或正文的邮件会跳过并在完成统计中体现。
+- 读取 Outlook 网页当前可见的邮件正文，不处理附件。网页结构变化可能影响邮件列表或正文识别。
+- Groq 免费额度和速率限制可能让批量任务暂停；已完成的结构化结果会保留在本地，之后可以重新开始。
+- 当前版本由用户提供自己的 Groq API Key，适合受控演示和验证。面向更多用户正式提供服务前，应由 Mailmate 服务端管理模型调用、密钥、授权和数据保留策略。
