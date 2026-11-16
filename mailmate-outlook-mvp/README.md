@@ -16,18 +16,18 @@ The API key is not stored. It is sent in the authorization header for this reque
 ## MVP scope
 
 - Reads visible DOM content from one email that the user has already opened.
-- Shows category, importance, a short summary, action/reply flags, and source wording for any detected deadline or event.
+- Shows category, importance, a short summary, and action/reply flags.
 - Supports Simplified Chinese and English; the default follows the browser language.
 - Does not call Microsoft Graph, read cookies/tokens, click messages, scroll the inbox, or change message state.
 - Does not store email text, predictions, API keys, or cache results.
 
 The extension does not open messages itself. Outlook may change read state when a user opens an email depending on Outlook settings. If preserving unread status is important, first set Outlook **Mark as read** to **Don't automatically mark as read** and verify that setting with a test email.
 
-This version handles one open email only. It does not yet scan the first 50 messages, aggregate multiple emails, cache incremental sync results, normalize dates, read attachments, or run a Mailmate backend. The deadline field is therefore the source wording from the email, not a normalized calendar date.
+This version handles one open email only. It does not yet scan the first 50 messages, aggregate multiple emails, cache incremental sync results, read attachments, or run a Mailmate backend.
 
 ## Data and deployment notes
 
-- The request sends the current email subject, sender, received time when detected, visible body text, browser timezone, and optionally link addresses to Groq's API in the United States.
+- The request sends the current email subject, sender, visible body text, and optionally link addresses to Groq's API in the United States.
 - Keep the Groq account on the intended plan and review its data-retention settings before using personal or school email.
 - The selected Qwen model is marked Preview by Groq. This MVP is for a controlled demonstration, not a production deployment.
 - Do not publish a build that asks end users for a shared developer API key. A public product needs a Mailmate backend to hold provider credentials, enforce per-user limits, validate/normalize results, cache by message ID/content hash, and delete data on the product's retention schedule.
