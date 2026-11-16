@@ -44,6 +44,7 @@
       links: "同时把正文中的链接地址发送给模型（默认关闭；链接可能含个人专属信息）",
       cache: "将结构化结果和完成状态保存在本浏览器，用于下次跳过已分析邮件（不保存邮件正文或 API Key）",
       start: "开始分析近两周邮件",
+      resume: "继续分析近两周邮件",
       stop: "停止",
       clear: "清除本地缓存",
       needKey: "请输入有效的 Groq API Key。",
@@ -83,7 +84,7 @@
       unresolvedDeadline: "待确认",
       noMatches: "没有匹配的邮件",
       searchHint: "试试其他关键词或筛选条件。",
-      settings: "设置",
+      backContinue: "← 返回继续分析",
       previewEmail: "原文细节预览",
       previewDeadline: "截止日期原文片段",
       originalEmail: "原文邮件",
@@ -125,6 +126,7 @@
       links: "Also send visible link addresses to the model (off by default; links can be personal)",
       cache: "Save structured results and completion flags in this browser to skip analyzed emails next time (no email body or API key is saved)",
       start: "Analyze emails from the last two weeks",
+      resume: "Continue analysis",
       stop: "Stop",
       clear: "Clear local cache",
       needKey: "Enter a valid Groq API key.",
@@ -164,7 +166,7 @@
       unresolvedDeadline: "Needs review",
       noMatches: "No matching emails",
       searchHint: "Try another search term or filter.",
-      settings: "Settings",
+      backContinue: "← Back to continue analysis",
       previewEmail: "Original email preview",
       previewDeadline: "Deadline source excerpt",
       originalEmail: "Original email",
@@ -247,7 +249,8 @@
     ".language-control{display:flex;align-items:center;gap:6px;margin:0;color:#7b8697;font-size:10px;white-space:nowrap}",
     ".language-control select{width:auto;padding:6px 8px;font-size:11px}",
     ".window-actions{display:flex;gap:4px;flex-shrink:0}",
-    ".window-actions button,.settings-open{border:0;border-radius:7px;padding:6px 9px;color:#647187;background:#f2f4f8;font:600 11px system-ui,sans-serif;cursor:pointer}",
+    ".window-actions button{border:0;border-radius:7px;padding:6px 9px;color:#647187;background:#f2f4f8;font:600 11px system-ui,sans-serif;cursor:pointer}",
+    ".settings-open{border:1px solid #d4dfff;border-radius:8px;padding:8px 12px;color:#3154bd;background:#eaf0ff;font:750 11px system-ui,sans-serif;white-space:nowrap;cursor:pointer;box-shadow:0 1px 2px #324a9a12}.settings-open:hover{background:#dfe8ff}",
     ".content{min-height:0;display:flex;flex:1;flex-direction:column;padding:0 16px 12px}",
     ".setup-view{overflow:auto;padding-top:12px}.setup-view[hidden]{display:none}",
     ".results-view{min-height:0;display:flex;flex:1;flex-direction:column}.results-view[hidden]{display:none}",
@@ -355,6 +358,7 @@
   let stopRequested = false;
   let persistentCache = {};
   let currentRecords = new Map();
+  let hasScanned = false;
   let currentFilter = "all";
   let hoverTimer = 0;
   let activePreviewTrigger = null;
@@ -384,7 +388,7 @@
     $(".unread-text").textContent = t.unread;
     $(".links-text").textContent = t.links;
     $(".cache-text").textContent = t.cache;
-    startButton.textContent = t.start;
+    startButton.textContent = hasScanned ? t.resume : t.start;
     stopButton.textContent = t.stop;
     clearButton.textContent = t.clear;
     $(".unread-note").textContent = t.unreadNote;
@@ -392,7 +396,7 @@
     const headings = root.querySelectorAll(".results-table thead th");
     t.columns.forEach((label, index) => { headings[index].textContent = label; });
     $(".sort-note").textContent = t.sort;
-    $(".settings-open").textContent = t.settings;
+    $(".settings-open").textContent = t.backContinue;
     $(".empty-state strong").textContent = t.noMatches;
     $(".empty-state span").textContent = t.searchHint;
     $(".modal-close").setAttribute("aria-label", language === "zh" ? "关闭" : "Close");
@@ -1236,6 +1240,7 @@
     if (!allRows.length) return setStatus(t.noRows, "error");
 
     setBusy(true);
+    hasScanned = true;
     stopRequested = false;
     showSettingsView();
     panel.classList.remove("is-minimized");
@@ -1422,7 +1427,10 @@
   launcher.addEventListener("click", () => { panel.hidden = !panel.hidden; });
   $(".close").addEventListener("click", () => { panel.hidden = true; });
   $(".minimize").addEventListener("click", () => { panel.classList.toggle("is-minimized"); });
-  $(".settings-open").addEventListener("click", showSettingsView);
+  $(".settings-open").addEventListener("click", () => {
+    showSettingsView();
+    startButton.focus();
+  });
   filterButtons.forEach((button) => button.addEventListener("click", () => {
     currentFilter = button.dataset.filter;
     renderRecords();
