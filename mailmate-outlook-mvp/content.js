@@ -67,6 +67,30 @@
         " 封，跳过 " + skipped + " 封，失败 " + failed + " 封。",
       progress: (n, total, subject) => "已处理 " + n + " 封" + (total ? "；当前已发现 " + total + " 封" : "") + "：" + subject,
       resultCount: (n) => "汇总卡片：" + n + " 封",
+      caption: "近两周邮件 · 重要事项",
+      actionCount: "条需行动",
+      deadlineCount: "封有截止日期",
+      search: "搜索摘要、行动或分类",
+      all: "全部",
+      pending: "未完成",
+      completed: "已完成",
+      sort: "重要性优先 · 截止日期升序",
+      columns: ["重要性", "分类", "邮件内容（汇总）", "截止日期（标准化）", "截止日期（原文）", "需要行动", "是否完成"],
+      importanceLabels: { high: "高", medium: "中", low: "低" },
+      categoryLabels: { administration: "行政通知", career: "职业发展", course: "课程", other: "其他", project: "项目", research: "研究" },
+      actionTypes: { none: "无", submit: "提交", reply_confirm: "回复确认", reply_availability: "回复并说明时间", reply_interest: "回复表达意向", send: "发送", review: "复核", revise: "修改", check: "查看", read: "阅读", download: "下载", register: "报名", attend: "参加", complete: "完成", confirm: "确认", save: "保存" },
+      noDeadline: "—",
+      unresolvedDeadline: "待确认",
+      noMatches: "没有匹配的邮件",
+      searchHint: "试试其他关键词或筛选条件。",
+      settings: "设置",
+      previewEmail: "原文细节预览",
+      previewDeadline: "截止日期原文片段",
+      originalEmail: "原文邮件",
+      emailUnavailable: "这封邮件的正文未保存在本地缓存中。",
+      bilingualMissing: "缺少此语言的摘要，请重新分析这封邮件。",
+      originalOnly: "邮件原文保持原语言显示。",
+      completionCount: (done, total) => "已完成 " + done + " / " + total,
       summary: "邮件内容摘要",
       action: "需要行动",
       deadline: "截止日期（标准化）",
@@ -124,6 +148,30 @@
         " newly analyzed, " + skipped + " skipped, " + failed + " failed.",
       progress: (n, total, subject) => "Processed " + n + (total ? " (found " + total + ")" : "") + ": " + subject,
       resultCount: (n) => "Summary cards: " + n,
+      caption: "Last two weeks · Key items",
+      actionCount: "action items",
+      deadlineCount: "emails with deadlines",
+      search: "Search summaries, actions, or categories",
+      all: "All",
+      pending: "Open",
+      completed: "Done",
+      sort: "Importance first · Earliest deadline next",
+      columns: ["Importance", "Category", "Email summary", "Deadline (normalized)", "Deadline (original)", "Action", "Done"],
+      importanceLabels: { high: "High", medium: "Medium", low: "Low" },
+      categoryLabels: { administration: "Administration", career: "Career", course: "Course", other: "Other", project: "Project", research: "Research" },
+      actionTypes: { none: "None", submit: "Submit", reply_confirm: "Confirm by reply", reply_availability: "Reply with availability", reply_interest: "Reply with interest", send: "Send", review: "Review", revise: "Revise", check: "Check", read: "Read", download: "Download", register: "Register", attend: "Attend", complete: "Complete", confirm: "Confirm", save: "Save" },
+      noDeadline: "—",
+      unresolvedDeadline: "Needs review",
+      noMatches: "No matching emails",
+      searchHint: "Try another search term or filter.",
+      settings: "Settings",
+      previewEmail: "Original email preview",
+      previewDeadline: "Deadline source excerpt",
+      originalEmail: "Original email",
+      emailUnavailable: "This email body was not saved in the local cache.",
+      bilingualMissing: "This language's summary is unavailable. Reanalyze this email.",
+      originalOnly: "The original email remains in its source language.",
+      completionCount: (done, total) => "Completed " + done + " / " + total,
       summary: "Email summary",
       action: "Action needed",
       deadline: "Normalized deadline",
@@ -185,7 +233,55 @@
     "details{margin-top:8px;border-top:1px solid #e3e8f0;padding-top:7px}",
     "summary{cursor:pointer;color:#36517f;font-size:11px;font-weight:600}",
     "pre{max-height:170px;overflow:auto;margin:7px 0 0;padding:8px;border-radius:6px;background:#f7f9fc;white-space:pre-wrap;overflow-wrap:anywhere;font:11px/1.45 system-ui,sans-serif}",
-    ".foot{margin:8px 0 0;color:#6b7788;font-size:10px}"
+    ".foot{margin:8px 0 0;color:#6b7788;font-size:10px}",
+    ".panel{display:flex;flex-direction:column;height:auto;min-height:0;overflow:hidden}",
+    ".panel.show-results{right:22px;bottom:18px;width:min(1190px,calc(100vw - 32px));height:min(700px,calc(100vh - 36px));max-height:none}",
+    ".panel.is-minimized{height:68px;min-height:68px}.panel.is-minimized .content{display:none}",
+    ".panel .card-header{min-height:76px;display:flex;gap:14px;padding:12px 16px}",
+    ".brand-lockup{display:flex;align-items:center;gap:10px;min-width:190px}",
+    ".brand-icon{width:36px;height:36px;display:grid;place-items:center;border-radius:11px;color:#fff;background:linear-gradient(145deg,#7387ff,#4f68ed 64%,#4157da);font-weight:800}",
+    ".brand-name{font-size:15px;font-weight:800;color:#202b3c}.brand-caption{margin-top:3px;color:#8993a3;font-size:10px}",
+    ".header-summary{display:none;flex-wrap:wrap;align-items:center;gap:7px;margin-left:auto}.panel.show-results .header-summary{display:flex}",
+    ".summary-stat{padding:6px 8px;border:1px solid #edf0f5;border-radius:8px;color:#738094;background:#fff;font-size:10px;white-space:nowrap}",
+    ".summary-stat strong{color:#344154;font-size:11px}",
+    ".language-control{display:flex;align-items:center;gap:6px;margin:0;color:#7b8697;font-size:10px;white-space:nowrap}",
+    ".language-control select{width:auto;padding:6px 8px;font-size:11px}",
+    ".window-actions{display:flex;gap:4px;flex-shrink:0}",
+    ".window-actions button,.settings-open{border:0;border-radius:7px;padding:6px 9px;color:#647187;background:#f2f4f8;font:600 11px system-ui,sans-serif;cursor:pointer}",
+    ".content{min-height:0;display:flex;flex:1;flex-direction:column;padding:0 16px 12px}",
+    ".setup-view{overflow:auto;padding-top:12px}.setup-view[hidden]{display:none}",
+    ".results-view{min-height:0;display:flex;flex:1;flex-direction:column}.results-view[hidden]{display:none}",
+    ".result-status{min-height:20px;margin:5px 0;color:#647187;font-size:11px}.result-status.error{color:#a32828}.result-status.ok{color:#116149}",
+    ".toolbar{min-height:52px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}",
+    ".search-box{width:min(280px,32%);height:33px;display:flex;align-items:center;gap:7px;padding:0 9px;border:1px solid #e7eaf0;border-radius:8px;background:#fcfcfe}",
+    ".search-box input{width:100%;border:0;outline:0;color:#344154;background:transparent;font-size:11px}",
+    ".filter-group{display:flex;gap:2px;padding:3px;border:1px solid #edf0f4;border-radius:8px;background:#f7f8fb}",
+    ".filter-button{height:27px;padding:0 9px;border:0;border-radius:6px;color:#7d8797;background:transparent;font-size:10px;white-space:nowrap;cursor:pointer}",
+    ".filter-button.active{color:#3e52c9;background:#fff;box-shadow:0 1px 3px #27385d16;font-weight:600}",
+    ".filter-button span{margin-left:3px;color:#9aa3b2}",
+    ".sort-note{margin-left:auto;color:#8a94a4;font-size:10px;white-space:nowrap}",
+    ".table-frame{min-height:0;flex:1;overflow:auto;border:1px solid #ebedf2;border-radius:9px;scrollbar-color:#d6dae4 transparent;scrollbar-width:thin}",
+    ".results-table{width:100%;min-width:1100px;border-collapse:separate;border-spacing:0;table-layout:fixed;text-align:left}",
+    ".results-table .col-importance{width:86px}.results-table .col-category{width:94px}.results-table .col-summary{width:250px}.results-table .col-normalized{width:177px}.results-table .col-raw{width:220px}.results-table .col-action{width:230px}.results-table .col-completed{width:88px}",
+    ".results-table thead{position:sticky;z-index:2;top:0}",
+    ".results-table th{height:40px;padding:0 10px;border-bottom:1px solid #e9ecf2;color:#8791a0;background:#f8f9fc;font-size:10px;font-weight:600;white-space:nowrap}",
+    ".results-table td{height:57px;padding:8px 10px;border-bottom:1px solid #f0f2f6;color:#485568;background:#fff;font-size:11px;vertical-align:middle}",
+    ".results-table tbody tr:hover td{background:#fafbff}.results-table tbody tr.is-completed td{color:#9ba4b2;background:#fbfcfd}.results-table tbody tr.is-completed .summary-text{text-decoration:line-through}",
+    ".importance-pill{display:inline-flex;align-items:center;padding:4px 7px;border-radius:6px;font-size:10px;font-weight:600;white-space:nowrap}.importance-high{color:#c75757;background:#fff0ef}.importance-medium{color:#b27a27;background:#fff6e7}.importance-low{color:#708095;background:#f1f3f7}",
+    ".category-label{color:#59677b;font-size:10px;white-space:nowrap}",
+    ".summary-cell{overflow:hidden}.summary-trigger,.deadline-trigger{display:block;width:100%;padding:0;overflow:hidden;border:0;text-align:left;background:transparent;cursor:pointer}",
+    ".summary-text{display:-webkit-box;overflow:hidden;color:#273449;font-size:11px;font-weight:600;line-height:1.5;-webkit-box-orient:vertical;-webkit-line-clamp:2}.summary-trigger:hover .summary-text,.deadline-trigger:hover .raw-date{color:#465de0;text-decoration:underline;text-underline-offset:2px}",
+    ".summary-subject{display:block;overflow:hidden;margin-top:3px;color:#a2aab6;font-size:9px;text-overflow:ellipsis;white-space:nowrap}",
+    ".summary-warning{display:inline-block;margin-top:3px;color:#9a6a18;font-size:9px}",
+    ".deadline-date{color:#354259;font-size:10px;white-space:nowrap}.deadline-date.empty{color:#b0b7c3}.deadline-date.unresolved{color:#bc842d}",
+    ".raw-date{display:-webkit-box;overflow:hidden;color:#8490a0;font-size:10px;line-height:1.5;-webkit-box-orient:vertical;-webkit-line-clamp:2}",
+    ".action-text{display:-webkit-box;overflow:hidden;color:#59677a;font-size:10px;line-height:1.5;-webkit-box-orient:vertical;-webkit-line-clamp:2}.action-required{color:#33445d}.no-action{color:#a2aab6}",
+    ".checkbox-cell{text-align:center}.completion-checkbox{width:16px;height:16px;margin:0;accent-color:#5d71e8;cursor:pointer;vertical-align:middle}",
+    ".empty-state{min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;color:#99a2b0;font-size:11px}.empty-state[hidden]{display:none}.empty-state strong{color:#536074;font-size:13px}",
+    ".results-footer{min-height:33px;display:flex;align-items:center;justify-content:space-between;gap:12px;color:#929cab;font-size:9px}",
+    ".source-preview{position:fixed;z-index:30;width:min(390px,calc(100vw - 24px));max-height:min(390px,calc(100vh - 24px));overflow:auto;padding:14px;border:1px solid #e4e8f0;border-radius:12px;color:#354154;background:#fff;box-shadow:0 16px 46px #25345430;font:11px/1.6 system-ui,sans-serif}.source-preview[hidden]{display:none}.preview-title{color:#253248;font-size:12px;font-weight:700}.preview-meta,.preview-note{margin-top:4px;color:#8d97a6;font-size:9px}.preview-body{max-height:190px;overflow:auto;margin-top:9px;padding:10px;border:1px solid #e9ecf2;border-radius:7px;background:#fcfcfd;white-space:pre-wrap;overflow-wrap:anywhere}.preview-body mark{background:#fff0bd;color:#725016}",
+    ".modal-layer{position:fixed;z-index:40;inset:0;display:grid;place-items:center;padding:24px;background:#15213b66}.modal-layer[hidden]{display:none}.message-modal{width:min(780px,calc(100vw - 32px));max-height:min(80vh,760px);display:flex;flex-direction:column;overflow:hidden;border:1px solid #e5e8f0;border-radius:14px;background:#fff;box-shadow:0 24px 70px #111b33a0}.modal-header{display:flex;justify-content:space-between;gap:12px;padding:16px 18px;border-bottom:1px solid #edf0f5}.modal-title{font-size:14px;font-weight:700}.modal-meta{margin-top:4px;color:#8490a0;font-size:10px}.modal-body{overflow:auto;padding:18px;color:#354154;font-size:12px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}.modal-close{border:0;background:transparent;font-size:22px;cursor:pointer}.modal-footer{padding:10px 18px;border-top:1px solid #edf0f5;color:#929cab;font-size:10px}",
+    "@media(max-width:720px){.panel.show-results{right:8px;bottom:8px;width:calc(100vw - 16px);height:calc(100vh - 16px)}.panel .card-header{gap:7px;padding:10px}.brand-lockup{min-width:0}.header-summary{display:none}.language-control span{display:none}.content{padding:0 9px 8px}.toolbar{gap:6px}.sort-note{display:none}.search-box{width:100%;max-width:none}.results-table{min-width:1060px}}"
   ].join("\n");
 
   const host = document.createElement("div");
@@ -198,9 +294,14 @@
   root.innerHTML = [
     '<button class="launcher" type="button"></button>',
     '<section class="panel" hidden>',
-    ' <header><h1></h1><button class="close" type="button" aria-label="Close">×</button></header>',
+    ' <header class="card-header">',
+    '  <div class="brand-lockup"><div class="brand-icon">M</div><div><div class="brand-name"></div><div class="brand-caption"></div></div></div>',
+    '  <div class="header-summary"></div>',
+    '  <label class="language-control"><span class="language-label"></span><select class="language"><option value="zh"></option><option value="en"></option></select></label>',
+    '  <div class="window-actions"><button class="minimize" type="button" aria-label="Minimize">−</button><button class="close" type="button" aria-label="Close">×</button></div>',
+    ' </header>',
     ' <div class="content">',
-    '  <label class="language-label"></label><select class="language"><option value="zh"></option><option value="en"></option></select>',
+    '  <section class="setup-view">',
     '  <p class="hint intro"></p>',
     '  <label class="key-label"></label><input class="api-key" type="password" autocomplete="off" spellcheck="false">',
     '  <label class="check"><input class="consent" type="checkbox"><span class="consent-text"></span></label>',
@@ -208,8 +309,21 @@
     '  <label class="check"><input class="send-links" type="checkbox"><span class="links-text"></span></label>',
     '  <label class="check"><input class="cache-enabled" type="checkbox" checked><span class="cache-text"></span></label>',
     '  <div class="buttons"><button class="primary start" type="button"></button><button class="secondary stop" type="button" disabled></button><button class="secondary clear" type="button"></button></div>',
-    '  <p class="status" aria-live="polite"></p><p class="stats"></p><div class="results"></div>',
+    '  <p class="status" aria-live="polite"></p>',
     '  <p class="foot unread-note"></p>',
+    '  </section>',
+    '  <section class="results-view" hidden>',
+    '   <p class="result-status" aria-live="polite"></p>',
+    '   <div class="toolbar">',
+    '    <label class="search-box"><span aria-hidden="true">⌕</span><input class="search-input" type="search" autocomplete="off"></label>',
+    '    <div class="filter-group" role="group"><button class="filter-button active" data-filter="all" type="button"></button><button class="filter-button" data-filter="pending" type="button"></button><button class="filter-button" data-filter="completed" type="button"></button></div>',
+    '    <span class="sort-note"></span><button class="settings-open" type="button"></button>',
+    '   </div>',
+    '   <div class="table-frame"><table class="results-table"><colgroup><col class="col-importance"><col class="col-category"><col class="col-summary"><col class="col-normalized"><col class="col-raw"><col class="col-action"><col class="col-completed"></colgroup><thead><tr><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody class="result-rows"></tbody></table><div class="empty-state" hidden><strong></strong><span></span></div></div>',
+    '   <footer class="results-footer"><span class="result-footer-left"></span><span class="result-footer-right"></span></footer>',
+    '  </section>',
+    '  <div class="source-preview" role="tooltip" hidden></div>',
+    '  <div class="modal-layer" hidden><section class="message-modal" role="dialog" aria-modal="true"><header class="modal-header"><div><div class="modal-title"></div><div class="modal-meta"></div></div><button class="modal-close" type="button" aria-label="Close">×</button></header><div class="modal-body"></div><footer class="modal-footer"></footer></section></div>',
     ' </div>',
     '</section>'
   ].join("");
@@ -219,6 +333,14 @@
   const launcher = $(".launcher");
   const panel = $(".panel");
   const languageSelect = $(".language");
+  const setupView = $(".setup-view");
+  const resultsView = $(".results-view");
+  const resultRows = $(".result-rows");
+  const searchInput = $(".search-input");
+  const emptyState = $(".empty-state");
+  const headerSummary = $(".header-summary");
+  const resultStatusNode = $(".result-status");
+  const filterButtons = [...root.querySelectorAll(".filter-button")];
   const keyInput = $(".api-key");
   const consentInput = $(".consent");
   const unreadInput = $(".unread-confirm");
@@ -228,13 +350,14 @@
   const stopButton = $(".stop");
   const clearButton = $(".clear");
   const statusNode = $(".status");
-  const statsNode = $(".stats");
-  const resultsNode = $(".results");
   let language = (navigator.language || "en").toLowerCase().startsWith("zh") ? "zh" : "en";
   let running = false;
   let stopRequested = false;
   let persistentCache = {};
   let currentRecords = new Map();
+  let currentFilter = "all";
+  let hoverTimer = 0;
+  let activePreviewTrigger = null;
   let lastRequestAt = 0;
   let tokenWindow = [];
 
@@ -248,7 +371,8 @@
   function setLanguage(next) {
     language = next === "zh" ? "zh" : "en";
     const t = strings[language];
-    $("header h1").textContent = t.brand;
+    $(".brand-name").textContent = "Mailmate";
+    $(".brand-caption").textContent = t.caption;
     launcher.textContent = t.open;
     $(".language-label").textContent = t.language;
     languageSelect.options[0].textContent = t.chinese;
@@ -264,12 +388,36 @@
     stopButton.textContent = t.stop;
     clearButton.textContent = t.clear;
     $(".unread-note").textContent = t.unreadNote;
-    if (currentRecords.size) renderRecords();
+    searchInput.placeholder = t.search;
+    const headings = root.querySelectorAll(".results-table thead th");
+    t.columns.forEach((label, index) => { headings[index].textContent = label; });
+    $(".sort-note").textContent = t.sort;
+    $(".settings-open").textContent = t.settings;
+    $(".empty-state strong").textContent = t.noMatches;
+    $(".empty-state span").textContent = t.searchHint;
+    $(".modal-close").setAttribute("aria-label", language === "zh" ? "关闭" : "Close");
+    renderRecords();
+  }
+
+  function showSettingsView() {
+    setupView.hidden = false;
+    resultsView.hidden = true;
+    panel.classList.remove("show-results");
+  }
+
+  function showResultsView() {
+    setupView.hidden = true;
+    resultsView.hidden = false;
+    panel.classList.add("show-results");
   }
 
   function setStatus(message, kind) {
     statusNode.textContent = message || "";
     statusNode.className = "status" + (kind ? " " + kind : "");
+    if (resultStatusNode) {
+      resultStatusNode.textContent = message || "";
+      resultStatusNode.className = "result-status" + (kind ? " " + kind : "");
+    }
   }
 
   function clean(value) {
@@ -739,14 +887,188 @@
 
   function reuseCachedRecord(cacheKey) {
     const stored = persistentCache[cacheKey];
-    if (!stored) return false;
+    if (!stored || typeof stored.analysis?.email_summary_en !== "string" || typeof stored.analysis?.email_summary_zh !== "string") return false;
     const cached = { ...stored, cache_key: cacheKey, body_text: "" };
     currentRecords.set(cacheKey, cached);
     renderRecords();
     return true;
   }
 
+  function localizedSummary(analysis) {
+    const value = language === "zh" ? analysis.email_summary_zh : analysis.email_summary_en;
+    return typeof value === "string" && value.trim() ? value : strings[language].bilingualMissing;
+  }
+
+  function localizedTarget(action) {
+    return language === "zh"
+      ? (action.target_zh || "")
+      : (action.target_en || "");
+  }
+
+  function localizedEvent(event) {
+    return language === "zh"
+      ? (event?.event_zh || "")
+      : (event?.event_en || "");
+  }
+
+  function actionText(analysis) {
+    const t = strings[language];
+    if (!analysis.requires_action) return t.noAction;
+    const type = analysis.action?.type || "none";
+    const verb = t.actionTypes[type] || type;
+    const target = localizedTarget(analysis.action || {});
+    return [verb, target].filter(Boolean).join(language === "zh" ? "：" : ": ");
+  }
+
+  function normalizedDeadlineText(deadline) {
+    const t = strings[language];
+    if (!deadline) return { text: t.noDeadline, kind: "empty" };
+    if (!deadline.normalized) return { text: t.unresolvedDeadline, kind: "unresolved" };
+    return { text: String(deadline.normalized).replace("T", " ").replace(/:00$/, ""), kind: "" };
+  }
+
+  function updateSummaryHeader(ordered) {
+    const t = strings[language];
+    const actions = ordered.filter((record) => record.analysis?.requires_action).length;
+    const deadlines = ordered.filter((record) => Boolean(record.normalized_deadline?.raw_text)).length;
+    headerSummary.replaceChildren();
+    for (const [count, label, type] of [[actions, t.actionCount, "action"], [deadlines, t.deadlineCount, "deadline"]]) {
+      const stat = makeText("span", "summary-stat " + type, "");
+      stat.append(makeText("strong", "", count), document.createTextNode(" " + label));
+      headerSummary.append(stat);
+    }
+  }
+
+  function bindSourcePreview(trigger, record, kind) {
+    const scheduleHide = () => {
+      window.clearTimeout(hoverTimer);
+      hoverTimer = window.setTimeout(() => { $(".source-preview").hidden = true; }, 170);
+    };
+    trigger.addEventListener("pointerenter", () => {
+      window.clearTimeout(hoverTimer);
+      hoverTimer = window.setTimeout(() => showSourcePreview(trigger, record, kind), 260);
+    });
+    trigger.addEventListener("pointerleave", scheduleHide);
+    trigger.addEventListener("focus", () => showSourcePreview(trigger, record, kind));
+    trigger.addEventListener("blur", scheduleHide);
+    if (kind === "deadline") {
+      trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        const preview = $(".source-preview");
+        if (!preview.hidden && activePreviewTrigger === trigger) preview.hidden = true;
+        else showSourcePreview(trigger, record, kind);
+      });
+    }
+  }
+
+  function showSourcePreview(trigger, record, kind) {
+    const preview = $(".source-preview");
+    const t = strings[language];
+    const deadline = record.normalized_deadline || {};
+    preview.replaceChildren();
+    const title = kind === "deadline" ? (deadline.raw_text || localizedSummary(record.analysis || {})) : (record.subject || localizedSummary(record.analysis || {}));
+    preview.append(makeText("div", "preview-title", kind === "deadline" ? t.previewDeadline : t.previewEmail));
+    preview.append(makeText("div", "modal-meta", title));
+    preview.append(makeText("div", "preview-meta", [record.sender, record.received_at].filter(Boolean).join(" · ")));
+    const bodyText = String(record.body_text || "");
+    const body = makeText("div", "preview-body", "");
+    if (!bodyText) {
+      body.textContent = t.emailUnavailable;
+    } else if (kind === "deadline" && deadline.raw_text) {
+      const index = bodyText.toLocaleLowerCase().indexOf(String(deadline.raw_text).toLocaleLowerCase());
+      const start = index < 0 ? 0 : Math.max(0, index - 180);
+      const excerpt = bodyText.slice(start, index < 0 ? 520 : Math.min(bodyText.length, index + deadline.raw_text.length + 260));
+      const matchIndex = index < 0 ? -1 : index - start;
+      if (matchIndex >= 0) {
+        body.append(document.createTextNode(excerpt.slice(0, matchIndex)));
+        const mark = makeText("mark", "", deadline.raw_text);
+        body.append(mark, document.createTextNode(excerpt.slice(matchIndex + deadline.raw_text.length)));
+      } else body.textContent = excerpt;
+    } else body.textContent = bodyText.slice(0, 520) + (bodyText.length > 520 ? "…" : "");
+    preview.append(body, makeText("div", "preview-note", t.originalOnly));
+    const rect = trigger.getBoundingClientRect();
+    preview.hidden = false;
+    activePreviewTrigger = trigger;
+    const width = Math.min(390, window.innerWidth - 24);
+    const height = Math.min(preview.scrollHeight, window.innerHeight - 24);
+    const left = Math.max(12, Math.min(rect.left, window.innerWidth - width - 12));
+    let top = rect.bottom + 8;
+    if (top + height > window.innerHeight - 12) top = rect.top - height - 8;
+    preview.style.left = left + "px";
+    preview.style.top = Math.max(12, top) + "px";
+  }
+
+  function openSourceModal(record) {
+    const modal = $(".modal-layer");
+    const deadline = record.normalized_deadline;
+    $(".modal-title").textContent = record.subject || localizedSummary(record.analysis || {});
+    $(".message-modal .modal-meta").textContent = [record.sender, record.received_at].filter(Boolean).join(" · ");
+    $(".modal-body").textContent = record.body_text || strings[language].emailUnavailable;
+    $(".modal-footer").textContent = [strings[language].originalOnly, deadline?.raw_text].filter(Boolean).join(" · ");
+    $(".source-preview").hidden = true;
+    modal.hidden = false;
+    $(".modal-close").focus();
+  }
+
+  function makeTableRow(record) {
+    const t = strings[language];
+    const analysis = record.analysis || {};
+    const importance = ["high", "medium", "low"].includes(analysis.importance) ? analysis.importance : "low";
+    const row = document.createElement("tr");
+    row.classList.toggle("is-completed", Boolean(record.completed));
+
+    const importanceCell = document.createElement("td");
+    importanceCell.append(makeText("span", "importance-pill importance-" + importance, t.importanceLabels[importance]));
+    const categoryCell = document.createElement("td");
+    categoryCell.append(makeText("span", "category-label", t.categoryLabels[analysis.category] || analysis.category || t.categoryLabels.other));
+
+    const summaryCell = makeText("td", "summary-cell", "");
+    const summaryButton = makeText("button", "summary-trigger", "");
+    summaryButton.type = "button";
+    summaryButton.setAttribute("aria-label", (language === "zh" ? "查看邮件原文：" : "View original email: ") + localizedSummary(analysis));
+    summaryButton.append(makeText("span", "summary-text", localizedSummary(analysis) || record.subject));
+    summaryButton.append(makeText("span", "summary-subject", record.subject || ""));
+    if (record.truncated_for_provider) summaryButton.append(makeText("span", "summary-warning", t.bodyTrimmed));
+    summaryButton.addEventListener("click", () => openSourceModal(record));
+    bindSourcePreview(summaryButton, record, "email");
+    summaryCell.append(summaryButton);
+
+    const normalized = normalizedDeadlineText(record.normalized_deadline);
+    const normalizedCell = makeText("td", "deadline-date " + normalized.kind, normalized.text);
+    const rawCell = document.createElement("td");
+    if (record.normalized_deadline?.raw_text) {
+      const rawButton = makeText("button", "deadline-trigger", "");
+      rawButton.type = "button";
+      rawButton.setAttribute("aria-label", (language === "zh" ? "查看截止日期原文：" : "Preview deadline source: ") + record.normalized_deadline.raw_text);
+      rawButton.append(makeText("span", "raw-date", record.normalized_deadline.raw_text));
+      bindSourcePreview(rawButton, record, "deadline");
+      rawCell.append(rawButton);
+    } else rawCell.append(makeText("span", "raw-date", t.noDeadline));
+
+    const action = makeText("span", "action-text " + (analysis.requires_action ? "action-required" : "no-action"), actionText(analysis));
+    action.title = action.textContent;
+    const actionCell = document.createElement("td");
+    actionCell.append(action);
+
+    const completedCell = makeText("td", "checkbox-cell", "");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.className = "completion-checkbox";
+    checkbox.checked = Boolean(record.completed);
+    checkbox.setAttribute("aria-label", (language === "zh" ? "标记完成：" : "Mark complete: ") + localizedSummary(analysis));
+    checkbox.addEventListener("change", async () => {
+      record.completed = checkbox.checked;
+      await saveRecord(record);
+      renderRecords();
+    });
+    completedCell.append(checkbox);
+
+    row.append(importanceCell, categoryCell, summaryCell, normalizedCell, rawCell, actionCell, completedCell);
+    return row;
+  }
+
   function renderRecords() {
+    const t = strings[language];
     const importanceRank = { high: 0, medium: 1, low: 2 };
     const ordered = [...currentRecords.values()].sort((a, b) => {
       const ia = importanceRank[a.analysis?.importance] ?? 9;
@@ -758,55 +1080,28 @@
       if (Boolean(da) !== Boolean(db)) return da ? -1 : 1;
       return (b.received_epoch || 0) - (a.received_epoch || 0);
     });
-    resultsNode.replaceChildren();
-    statsNode.textContent = strings[language].resultCount(ordered.length);
-    for (const record of ordered) {
-      const t = strings[language];
+    const query = searchInput.value.trim().toLocaleLowerCase();
+    const filtered = ordered.filter((record) => {
+      if (currentFilter === "pending" && record.completed) return false;
+      if (currentFilter === "completed" && !record.completed) return false;
+      if (!query) return true;
       const analysis = record.analysis || {};
-      const card = makeText("article", "card", "");
-      card.append(makeText("div", "title", record.subject || "(no subject)"));
-      card.append(makeText("div", "meta", [record.sender, record.received_at].filter(Boolean).join(" · ")));
-      card.append(makeText("span", "badge " + (analysis.importance || ""), t.importance + ": " + (analysis.importance || "—")));
-      card.append(makeText("span", "badge", t.category + ": " + (analysis.category || "—")));
-      if (record.truncated_for_provider) card.append(makeText("div", "card-warning", t.bodyTrimmed));
-      const add = (label, value) => {
-        if (value === null || value === undefined || value === "") return;
-        const field = makeText("div", "field", "");
-        field.append(makeText("b", "", label), makeText("span", "", String(value)));
-        card.append(field);
-      };
-      add(t.summary, analysis.email_summary);
-      const actionValue = analysis.requires_action
-        ? ((analysis.action?.type || "") + (analysis.action?.target ? " — " + analysis.action.target : ""))
-        : t.noAction;
-      add(t.action, actionValue);
-      add(t.reply, analysis.requires_reply ? "Yes" : "No");
-      if (record.normalized_deadline) {
-        add(t.deadline, record.normalized_deadline.normalized || "—");
-        add(t.rawDeadline, record.normalized_deadline.raw_text || "");
-      }
-      if (analysis.expected_event) {
-        add(t.event, analysis.expected_event.event || "");
-        add(t.eventSource, analysis.expected_event.raw_text || "");
-      }
-      if (analysis.requires_action) {
-        const label = makeText("label", "completion", "");
-        const check = document.createElement("input");
-        check.type = "checkbox";
-        check.checked = Boolean(record.completed);
-        label.append(check, makeText("span", "", t.complete));
-        check.addEventListener("change", async () => {
-          record.completed = check.checked;
-          await saveRecord(record);
-        });
-        card.append(label);
-      }
-      const details = document.createElement("details");
-      details.append(makeText("summary", "", t.source));
-      details.append(makeText("pre", "", record.body_text || "(正文未保存在缓存中；本次读取只保留结构化结果。)"));
-      card.append(details);
-      resultsNode.append(card);
-    }
+      const searchable = [localizedSummary(analysis), actionText(analysis), localizedEvent(analysis.expected_event), analysis.category,
+        analysis.user_deadline?.raw_text, record.subject, record.sender].join(" ").toLocaleLowerCase();
+      return searchable.includes(query);
+    });
+    resultRows.replaceChildren(...filtered.map(makeTableRow));
+    emptyState.hidden = filtered.length > 0;
+    updateSummaryHeader(ordered);
+    const allButton = filterButtons.find((button) => button.dataset.filter === "all");
+    const pendingButton = filterButtons.find((button) => button.dataset.filter === "pending");
+    const completedButton = filterButtons.find((button) => button.dataset.filter === "completed");
+    allButton.replaceChildren(document.createTextNode(t.all + " "), makeText("span", "", ordered.length));
+    pendingButton.replaceChildren(document.createTextNode(t.pending + " "), makeText("span", "", ordered.filter((record) => !record.completed).length));
+    completedButton.replaceChildren(document.createTextNode(t.completed + " "), makeText("span", "", ordered.filter((record) => record.completed).length));
+    filterButtons.forEach((button) => button.classList.toggle("active", button.dataset.filter === currentFilter));
+    $(".result-footer-left").textContent = t.resultCount(ordered.length);
+    $(".result-footer-right").textContent = t.completionCount(ordered.filter((record) => record.completed).length, ordered.length);
   }
 
   function normalizeReceivedDate(email, rowDate) {
@@ -883,7 +1178,7 @@
       received_epoch: receivedDate ? receivedDate.getTime() : 0,
       analysis: response.analysis,
       normalized_deadline: normalizedDeadline,
-      completed: false,
+      completed: Boolean(persistentCache[cacheKey]?.completed),
       usage: response.usage || null,
       truncated_for_provider: truncatedForProvider,
       body_text: email.body_text
@@ -942,9 +1237,13 @@
 
     setBusy(true);
     stopRequested = false;
+    showSettingsView();
+    panel.classList.remove("is-minimized");
+    currentFilter = "all";
+    searchInput.value = "";
     currentRecords = new Map();
-    resultsNode.replaceChildren();
-    statsNode.textContent = "";
+    resultRows.replaceChildren();
+    renderRecords();
     setStatus(t.scanning);
     if (cacheInput.checked) await loadCache();
 
@@ -1107,6 +1406,7 @@
         if (originalRow) originalRow.click();
       }
       setBusy(false);
+      showResultsView();
       renderRecords();
       if (stopRequested) setStatus(t.stopped, "ok");
       else if (!stopForQuota && !stoppedOnError) {
@@ -1121,9 +1421,34 @@
 
   launcher.addEventListener("click", () => { panel.hidden = !panel.hidden; });
   $(".close").addEventListener("click", () => { panel.hidden = true; });
+  $(".minimize").addEventListener("click", () => { panel.classList.toggle("is-minimized"); });
+  $(".settings-open").addEventListener("click", showSettingsView);
+  filterButtons.forEach((button) => button.addEventListener("click", () => {
+    currentFilter = button.dataset.filter;
+    renderRecords();
+  }));
+  searchInput.addEventListener("input", renderRecords);
   languageSelect.addEventListener("change", () => {
     setLanguage(languageSelect.value);
     chrome.storage.local.set({ [LANGUAGE_KEY]: language }).catch(() => {});
+  });
+  $(".modal-close").addEventListener("click", () => { $(".modal-layer").hidden = true; });
+  $(".modal-layer").addEventListener("click", (event) => {
+    if (event.target === $(".modal-layer")) $(".modal-layer").hidden = true;
+  });
+  $(".source-preview").addEventListener("pointerenter", () => window.clearTimeout(hoverTimer));
+  $(".source-preview").addEventListener("pointerleave", () => {
+    window.clearTimeout(hoverTimer);
+    hoverTimer = window.setTimeout(() => { $(".source-preview").hidden = true; }, 160);
+  });
+  root.addEventListener("pointerdown", (event) => {
+    if (!event.target.closest(".source-preview, .summary-trigger, .deadline-trigger")) $(".source-preview").hidden = true;
+  });
+  root.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      $(".modal-layer").hidden = true;
+      $(".source-preview").hidden = true;
+    }
   });
   startButton.addEventListener("click", () => { runBatch(); });
   stopButton.addEventListener("click", () => { stopRequested = true; setStatus(strings[language].stopped); });
