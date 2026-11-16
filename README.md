@@ -1,157 +1,69 @@
 # Mailmate
 
-Mailmate 是一个面向学术与行政邮件场景的 AI 邮件助手。
+Mailmate 探索如何从邮件中提取重点、截止日期和待办事项。仓库当前包含两条相互独立的工作线：本地模型离线评测，以及使用 Groq API 的 Outlook 浏览器扩展 Demo。两者的数据来源、模型环境和评估方式分别说明如下。
 
-**[下载 Chrome / Edge 扩展](https://github.com/Shengheshan/Mailmate/raw/refs/heads/mailmate-outlook-mvp/mailmate-outlook-mvp/Mailmate-Outlook-Extension.zip)** · [扩展安装与使用说明](mailmate-outlook-mvp/README.md)
+**[下载 Chrome / Edge 浏览器扩展](https://github.com/Shengheshan/Mailmate/raw/refs/heads/mailmate-outlook-mvp/mailmate-outlook-mvp/Mailmate-Outlook-Extension.zip)** · [查看扩展使用说明](mailmate-outlook-mvp/README.md)
 
-它会把一封自然语言邮件转换成结构化信息，包括：
+## A. 本地模型与 180 封离线评测
 
-- 邮件类别与重要程度
-- 是否需要用户行动
-- 是否需要回复
-- 用户截止时间
-- 未来事件
-- 建议动作
-
-仓库包含两条验证路径：离线原型使用 **Qwen3.5-4B + Ollama** 和 Python 完成邮件抽取与校验；Chrome / Edge 扩展通过 Groq API 分析 Outlook 网页邮件，并在页面内展示批量结果。
-
-## 架构
+这条工作线使用本地 **Qwen3.5-4B + Ollama** 分析独立的离线测试邮件，并由 Python 完成日期归一化和一致性校验。180 封评测集和结果属于这套离线流程。
 
 ```text
-Outlook / Offline Email
+离线测试邮件 JSON
         ↓
-Qwen3.5-4B via Ollama
+Qwen3.5-4B（Ollama，本地运行）
         ↓
-结构化语义抽取
+逐封结构化 JSON
         ↓
-Consistency Validator + Time Normalizer
+Python 日期归一化与一致性校验
         ↓
-规范化逐封 JSON
-        ↓
-跨邮件摘要（`mailmate_summary.py`）
-        ↓
-交互式任务/提醒视图
-        ↓
-Offline Evaluation
+180 封离线评测指标
 ```
 
-核心设计：
+运行方式：
 
-```text
-LLM
-负责语义理解
-
-Python
-负责确定性的时间计算和一致性检查
+```bash
+ollama pull qwen3.5:4b
+pip install -r requirements.txt
+python mailmate_ai_offline.py
+python evaluate_results.py
 ```
 
-详细设计见：
+主要文件：
 
-- `ARCHITECTURE.md`
-- `FINAL_EVALUATION.md`
+- `mailmate_ai_offline.py`：调用本地 Ollama 分析邮件。
+- `time_normalizer.py`、`consistency_validator.py`：处理日期和结构校验。
+- `data/`、`results/`：离线测试输入、Gold label、预测结果和评测报告。
+- `ARCHITECTURE.md`、`FINAL_EVALUATION.md`：离线流程和 180 封评测说明。
+
+## B. Outlook 浏览器扩展 Demo
+
+这条工作线是独立的 Chrome / Edge 扩展，读取用户正常登录后 Outlook 网页中显示的邮件，并通过 **Groq 在线 API** 分析；不使用 Ollama，也不运行上面的 180 封离线评测。
+
+- 用户点击一次“开始分析”，扩展自动扫描当前 Outlook 文件夹近两周的邮件项。
+- 扫描完成或停止后，在页面右下角展示列表；按重要性和截止日期排序，支持搜索、状态筛选、完成勾选和原文预览。
+- 每封邮件同时生成中文和英文摘要及行动内容，可即时切换语言；缓存命中时跳过重复模型调用。
+- 扩展目录、安装步骤和隐私说明见 [`mailmate-outlook-mvp/README.md`](mailmate-outlook-mvp/README.md)。
+
+**下载：** [Chrome / Edge 扩展安装包](https://github.com/Shengheshan/Mailmate/raw/refs/heads/mailmate-outlook-mvp/mailmate-outlook-mvp/Mailmate-Outlook-Extension.zip)。解压后，在浏览器扩展管理页开启“开发者模式”，加载直接包含 `manifest.json` 的文件夹。
+
+此 Demo 使用 Groq API，当前由演示者输入自己的 API Key；共享 Key 不写进公开扩展包。邮件正文只在用户确认后发送给 Groq（美国），链接地址默认不发送。扩展使用前需关闭 Outlook 的自动标记已读设置。当前范围仅限日期可识别的近两周邮件项，不读取附件；面向用户免输入 API Key 提供服务还需要部署 Mailmate 后端。
+
+## 其他 Outlook 接入代码
+
+仓库还保留了较早的 Microsoft Graph API 接入试验（`mailmate_ai.py`、`outlook_test.py`）。它与浏览器扩展 Demo 分开维护；扩展通过 Outlook 网页读取可见内容，不调用 Graph API。
 
 ## 项目结构
 
 ```text
 Mailmate/
-├── README.md
-├── ARCHITECTURE.md
-├── FINAL_EVALUATION.md
-├── LICENSE
-├── requirements.txt
-├── .gitignore
-│
-├── mailmate_ai.py
-├── mailmate_ai_offline.py
-├── mailmate_summary.py
-├── outlook_test.py
-├── consistency_validator.py
-├── time_normalizer.py
-├── evaluate_results.py
-│
-├── data/
-│   ├── offline_test_emails_v1.json
-│   ├── offline_gold_v1.json
-│   └── benchmark_manifest_v1.json
-│
-└── results/
-    ├── ai_results_offline_v1.json
-    └── evaluation_report_offline_v1.json
+├── mailmate-outlook-mvp/       # Groq 驱动的 Chrome / Edge 扩展 Demo
+├── mailmate_ai_offline.py      # Ollama 本地离线邮件分析
+├── time_normalizer.py          # 离线流程日期归一化
+├── consistency_validator.py    # 离线流程 JSON 校验
+├── evaluate_results.py         # 离线评测
+├── data/                       # 离线测试邮件与标注
+├── results/                    # 离线预测与评测报告
+├── ARCHITECTURE.md             # 离线架构说明
+└── FINAL_EVALUATION.md         # 180 封离线评测报告
 ```
-
-## 运行方式
-
-### 1. 安装 Ollama 模型
-
-```bash
-ollama pull qwen3.5:4b
-```
-
-确认 Ollama 正常运行：
-
-```bash
-ollama list
-```
-
-### 2. 安装 Python 依赖
-
-推荐 Python 3.10+。
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3. 运行离线测试
-
-```bash
-python mailmate_ai_offline.py
-```
-
-运行结果会保存到：
-
-```text
-results/ai_results_offline_v1.json
-```
-
-### 4. 运行评测
-
-```bash
-python evaluate_results.py
-```
-
-评测结果会保存到：
-
-```text
-results/evaluation_report_offline_v1.json
-```
-
-## Outlook 接入
-
-项目同时支持通过 Microsoft Graph API 读取 Outlook 邮件。
-
-相关代码：
-
-```text
-outlook_test.py
-mailmate_ai.py
-```
-
-Microsoft Entra 的配置建议通过 `.env` 保存，不要将真实 Token、邮箱数据或 `.env` 上传到 GitHub。
-
-### 浏览器扩展
-
-**[下载 Mailmate 浏览器扩展](https://github.com/Shengheshan/Mailmate/raw/refs/heads/mailmate-outlook-mvp/mailmate-outlook-mvp/Mailmate-Outlook-Extension.zip)**。支持 Chrome 和 Microsoft Edge。
-
-用户正常登录 Outlook 并进入邮件文件夹后，点击 Mailmate 即可扫描当前文件夹近两周的邮件。扫描结束或停止后，右下角列表按重要性和截止日期排序，并支持双语切换、搜索、完成勾选及原文预览。
-
-扩展通过 Outlook 页面读取可见邮件正文，不调用 Microsoft Graph，也不读取密码、Cookie 或访问令牌。正文只在用户同意后发送给 Groq（美国）；当前版本由使用者输入自己的 API Key，公开包不会内置共享密钥。面向更多用户提供免输入服务前，需要部署由 Mailmate 管理模型密钥的后端。
-
-使用前需关闭 Outlook 的自动标记已读设置。当前仅扫描日期可识别的近两周邮件项，不读取附件；Outlook 页面结构变化可能影响读取。完整步骤、缓存行为和数据处理范围见 [扩展说明](mailmate-outlook-mvp/README.md)。
-
-## 当前状态
-
-Mailmate RC1 已完成 180 条独立离线测试。
-
-详细指标和失败分析见：
-
-`FINAL_EVALUATION.md`
