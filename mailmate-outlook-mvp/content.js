@@ -58,6 +58,9 @@
       unknownDate: "无法判断邮件列表日期，已跳过该邮件。",
       tooManyUnknown: "连续多封邮件无法识别日期，已停止，避免读取范围外邮件。",
       quota: "Groq 额度或速率限制已到；已保留本地缓存。稍后重新开始会跳过已分析邮件。",
+      payloadRetry: (n) => "请求超出大小限制，正在保留邮件开头和结尾并缩短至约 " + n + " 字符后重试…",
+      payloadTooLarge: "Groq 仍返回 413，请求体过大。这封邮件未完成分析；请减少随邮件发送的链接，或使用服务端分段处理。",
+      bodyTrimmed: "请求大小超限：发送给模型的正文省略了中间部分，仅保留开头和结尾。请打开原邮件核对摘要。",
       stopped: "已按要求停止。",
       finished: (scanned, reused, analyzed, skipped, failed) =>
         "完成：范围内 " + scanned + " 封，缓存复用 " + reused + " 封，新分析 " + analyzed +
@@ -112,6 +115,9 @@
       unknownDate: "Could not determine this email's list date; skipped.",
       tooManyUnknown: "Several email dates could not be read; stopped to avoid scanning outside the selected range.",
       quota: "Groq quota or rate limit reached. Local cache is saved; restarting later will skip analyzed emails.",
+      payloadRetry: (n) => "Request too large. Retrying with the beginning and end of the email, about " + n + " characters…",
+      payloadTooLarge: "Groq still returned 413 after shortening the message. This email was not analyzed; reduce included links or use server-side chunking.",
+      bodyTrimmed: "Request size limit: the model received the beginning and end of this email; the middle was omitted. Check the original email before relying on the summary.",
       stopped: "Stopped as requested.",
       finished: (scanned, reused, analyzed, skipped, failed) =>
         "Done: " + scanned + " in range, " + reused + " reused, " + analyzed +
@@ -167,6 +173,7 @@
     ".stats{margin:8px 0 0;color:#536176;font-size:12px}",
     ".results{display:grid;gap:9px;margin-top:11px}",
     ".card{padding:11px;border:1px solid #dce3ee;border-radius:10px;background:#fff}",
+    ".card-warning{padding:7px 9px;margin-top:7px;border-radius:7px;background:#fff4d9;color:#795500;font-size:11px;overflow-wrap:anywhere}",
     ".title{font-size:13px;font-weight:700;overflow-wrap:anywhere}",
     ".meta{margin-top:3px;color:#64738a;font-size:11px;overflow-wrap:anywhere}",
     ".badge{display:inline-block;margin:6px 5px 0 0;padding:3px 8px;border-radius:999px;background:#e8eef9;font-size:11px}",
@@ -641,6 +648,16 @@
     return Math.ceil(email.body_text.length / 3.8) + 900;
   }
 
+  function clipBodyForRetry(value, maxChars) {
+    const chars = Array.from(String(value || ""));
+    if (chars.length <= maxChars) return chars.join("");
+    const marker = language === "zh" ? "\n……中间内容因请求大小限制省略……\n" : "\n…middle omitted due to request size limit…\n";
+    const remaining = Math.max(0, maxChars - Array.from(marker).length);
+    const headLength = Math.ceil(remaining * 0.65);
+    const tailLength = remaining - headLength;
+    return chars.slice(0, headLength).join("") + marker + (tailLength ? chars.slice(-tailLength).join("") : "");
+  }
+
   async function waitForProviderCapacity(estimate) {
     while (!stopRequested) {
       const now = Date.now();
@@ -694,6 +711,7 @@
       analysis: record.analysis,
       normalized_deadline: record.normalized_deadline,
       completed: Boolean(record.completed),
+      truncated_for_provider: Boolean(record.truncated_for_provider),
       usage: record.usage || null
     };
   }
@@ -750,6 +768,7 @@
       card.append(makeText("div", "meta", [record.sender, record.received_at].filter(Boolean).join(" · ")));
       card.append(makeText("span", "badge " + (analysis.importance || ""), t.importance + ": " + (analysis.importance || "—")));
       card.append(makeText("span", "badge", t.category + ": " + (analysis.category || "—")));
+      if (record.truncated_for_provider) card.append(makeText("div", "card-warning", t.bodyTrimmed));
       const add = (label, value) => {
         if (value === null || value === undefined || value === "") return;
         const field = makeText("div", "field", "");
@@ -800,7 +819,6 @@
   }
 
   async function analyzeOne(email, descriptor, receivedDate, cacheKey, apiKey) {
-
     const payloadEmail = {
       message_id: email.message_id,
       subject: email.subject,
@@ -808,31 +826,47 @@
       received_at: email.received_at || (receivedDate ? receivedDate.toISOString() : null),
       timezone: email.timezone,
       body_text: email.body_text,
-      links: linksInput.checked ? email.links : email.links.map((link) => ({ label: link.label }))
+      links: linksInput.checked
+        ? email.links.slice(0, 5).map((link) => ({ label: link.label.slice(0, 180), url: link.url.slice(0, 512) }))
+        : email.links.slice(0, 20).map((link) => ({ label: link.label.slice(0, 180) }))
     };
-    const estimate = estimateTokens(payloadEmail);
-    await waitForProviderCapacity(estimate);
-    if (stopRequested) return { stopped: true };
-
-    let response = await chrome.runtime.sendMessage({
-      type: "MAILMATE_ANALYZE_CURRENT_EMAIL",
-      payload: { apiKey, language, email: payloadEmail }
-    });
-    lastRequestAt = Date.now();
-    if (!response?.ok && response.status === 429 && response.retryAfter && response.retryAfter <= 30) {
-      const waitSeconds = Number(response.retryAfter);
-      setStatus(strings[language].retrying(waitSeconds));
-      await new Promise((resolve) => setTimeout(resolve, waitSeconds * 1000));
+    let response = null;
+    let sizeRetries = 0;
+    let quotaRetried = false;
+    let truncatedForProvider = false;
+    while (true) {
+      const estimate = estimateTokens(payloadEmail);
+      await waitForProviderCapacity(estimate);
       if (stopRequested) return { stopped: true };
       response = await chrome.runtime.sendMessage({
         type: "MAILMATE_ANALYZE_CURRENT_EMAIL",
         payload: { apiKey, language, email: payloadEmail }
       });
       lastRequestAt = Date.now();
-    }
-    const actualTokens = Number(response?.usage?.total_tokens || estimate);
-    tokenWindow.push({ at: lastRequestAt, tokens: actualTokens });
-    if (!response?.ok) {
+
+      if (response?.ok) {
+        tokenWindow.push({ at: lastRequestAt, tokens: Number(response.usage?.total_tokens || estimate) });
+        break;
+      }
+
+      if (response?.status === 413 && sizeRetries < 4 && payloadEmail.body_text.length > 1200) {
+        const nextLimit = Math.max(1200, Math.floor(payloadEmail.body_text.length / 2));
+        payloadEmail.body_text = clipBodyForRetry(email.body_text, nextLimit);
+        truncatedForProvider = true;
+        sizeRetries++;
+        setStatus(strings[language].payloadRetry(payloadEmail.body_text.length));
+        continue;
+      }
+
+      if (response?.status === 429 && !quotaRetried && response.retryAfter && response.retryAfter <= 30) {
+        quotaRetried = true;
+        const waitSeconds = Number(response.retryAfter);
+        setStatus(strings[language].retrying(waitSeconds));
+        await new Promise((resolve) => setTimeout(resolve, waitSeconds * 1000));
+        if (stopRequested) return { stopped: true };
+        continue;
+      }
+
       const error = new Error(response?.error || "Analysis failed.");
       error.status = response?.status || 0;
       error.retryAfter = response?.retryAfter || null;
@@ -851,6 +885,7 @@
       normalized_deadline: normalizedDeadline,
       completed: false,
       usage: response.usage || null,
+      truncated_for_provider: truncatedForProvider,
       body_text: email.body_text
     };
     currentRecords.set(cacheKey, record);
@@ -1026,7 +1061,15 @@
             continue;
           }
 
-          const result = await analyzeOne(email, descriptor, actualDate, cacheKey, apiKey);
+          let result;
+          try {
+            result = await analyzeOne(email, descriptor, actualDate, cacheKey, apiKey);
+          } catch (error) {
+            if (error?.status !== 413) throw error;
+            failedCount++;
+            setStatus(t.payloadTooLarge, "error");
+            continue;
+          }
           if (result?.stopped || stopRequested) break;
           analyzedCount++;
           setStatus(t.progress(recentCount, recentCount, descriptor.subject), "ok");
@@ -1049,6 +1092,8 @@
       if (error?.status === 429) {
         stopForQuota = true;
         setStatus(t.quota, "error");
+      } else if (error?.status === 413) {
+        setStatus(t.payloadTooLarge, "error");
       } else if (error?.status === 401 || error?.status === 403) {
         setStatus(t.authError, "error");
       } else {
