@@ -2,6 +2,10 @@
 
 Mailmate 是一个可在 Chrome 和 Microsoft Edge 中加载的 Outlook 网页扩展。用户在已正常登录的 Outlook 邮件文件夹中点击一次“开始分析”，扩展便会自动检查该文件夹近两周的邮件，提取邮件正文并生成可操作的摘要卡片。
 
+## 下载扩展
+
+点击下载 [Chrome / Edge 扩展安装包](https://github.com/Shengheshan/Mailmate/raw/refs/heads/mailmate-outlook-mvp/mailmate-outlook-mvp/Mailmate-Outlook-Extension.zip)。解压后，在浏览器的“加载已解压的扩展”中选择解压出来、且直接包含 `manifest.json` 的文件夹。
+
 ## 产品演示
 
 - **一键批量分析：** 自动遍历当前文件夹近两周的邮件，不要求用户逐封点击，也不设固定的前 50 封上限。
@@ -12,7 +16,7 @@ Mailmate 是一个可在 Chrome 和 Microsoft Edge 中加载的 Outlook 网页�
 
 ## 在 Chrome 或 Edge 中加载
 
-1. 打开 [Mailmate 邮件助手独立分支](https://github.com/Shengheshan/Mailmate/tree/mailmate-outlook-mvp/mailmate-outlook-mvp)，选择 **Code → Download ZIP**，解压下载文件。
+1. 下载上方的扩展安装包并解压。也可以打开 [Mailmate 邮件助手独立分支](https://github.com/Shengheshan/Mailmate/tree/mailmate-outlook-mvp/mailmate-outlook-mvp)查看源文件。
 2. 在 Chrome 地址栏打开 `chrome://extensions`，或在 Edge 中打开 `edge://extensions`。
 3. 打开“开发者模式”，选择“加载已解压的扩展”。
 4. 在解压目录中选择 `mailmate-outlook-mvp` 文件夹。该文件夹内应能直接看到 `manifest.json`、`content.js` 和 `background.js`。
