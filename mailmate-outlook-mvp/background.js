@@ -79,7 +79,11 @@ async function analyzeEmail({ apiKey, language, email }) {
     });
     if (!response.ok) {
       // Avoid returning raw provider errors; they may echo request content.
-      throw new Error(`Groq returned HTTP ${response.status}. Check the key, model access, and account limits.`);
+      const retryAfter = Number(response.headers.get("retry-after")) || null;
+      throw Object.assign(
+        new Error(`Groq returned HTTP ${response.status}. Check the key, model access, and account limits.`),
+        { status: response.status, retryAfter }
+      );
     }
     const data = await response.json();
     const content = data?.choices?.[0]?.message?.content;
@@ -104,6 +108,11 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   if (message?.type !== "MAILMATE_ANALYZE_CURRENT_EMAIL") return false;
   analyzeEmail(message.payload)
     .then((result) => sendResponse({ ok: true, ...result }))
-    .catch((error) => sendResponse({ ok: false, error: error?.message || "Analysis failed." }));
+    .catch((error) => sendResponse({
+      ok: false,
+      error: error?.message || "Analysis failed.",
+      status: error?.status || 0,
+      retryAfter: error?.retryAfter || null
+    }));
   return true;
 });
