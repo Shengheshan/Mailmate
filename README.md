@@ -38,6 +38,10 @@ python evaluate_results.py
 
 ## B. Outlook 浏览器扩展 Demo
 
+### 获取 Groq API Key
+
+首次使用需要准备自己的 Groq API Key：登录 [Groq Console](https://console.groq.com/)，进入 [API Keys](https://console.groq.com/keys) 创建密钥，然后在 Outlook 页面打开 Mailmate 并粘贴到密钥输入框。密钥只用于当前页面发起模型请求，不会保存到扩展缓存；请像密码一样保管，不要发给他人或提交到 GitHub。Groq 模型与免费额度可能调整，当前账户的可用模型和限额请查看 [Groq 限额说明](https://console.groq.com/docs/rate-limits)。详细操作见扩展 README。
+
 这条工作线是独立的 Chrome / Edge 扩展，读取用户正常登录后 Outlook 网页中显示的邮件，并通过 **Groq 在线 API** 分析；不使用 Ollama，也不运行上面的 180 封离线评测。
 
 - 用户点击一次“开始分析”，扩展自动扫描当前 Outlook 文件夹近两周的邮件项。
@@ -47,7 +51,7 @@ python evaluate_results.py
 
 **下载：** [Chrome / Edge 扩展安装包](https://github.com/Shengheshan/Mailmate/raw/refs/heads/mailmate-outlook-mvp/mailmate-outlook-mvp/Mailmate-Outlook-Extension.zip)。解压后，在浏览器扩展管理页开启“开发者模式”，加载直接包含 `manifest.json` 的文件夹。
 
-此 Demo 使用 Groq API，当前由演示者输入自己的 API Key；共享 Key 不写进公开扩展包。邮件正文只在用户确认后发送给 Groq（美国），链接地址默认不发送。扩展使用前需关闭 Outlook 的自动标记已读设置。当前范围仅限日期可识别的近两周邮件项，不读取附件；面向用户免输入 API Key 提供服务还需要部署 Mailmate 后端。
+此 Demo 使用 Groq API，由每位使用者输入自己的 API Key；共享 Key 不写进公开扩展包。邮件正文只在用户确认后发送给 GroqCloud，在美国处理；链接地址默认不发送。Groq 默认不保留推理请求的客户输入和输出，但在系统可靠性或滥用监控需要时可能暂存相关日志最长 30 天；用户可在 Groq Console 的 Data Controls 查看或启用 Zero Data Retention（ZDR）。详见 [Groq 数据说明](https://console.groq.com/docs/your-data)。扩展使用前需关闭 Outlook 的自动标记已读设置。当前范围仅限日期可识别的近两周邮件项，不读取附件；面向用户免输入 API Key 提供服务还需要部署 Mailmate 后端。
 
 ## 其他 Outlook 接入代码
 

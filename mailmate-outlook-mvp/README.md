@@ -6,6 +6,17 @@ Mailmate 是适用于 Chrome 和 Microsoft Edge 的 Outlook 网页扩展。用�
 
 点击 [下载 Chrome / Edge 扩展安装包](https://github.com/Shengheshan/Mailmate/raw/refs/heads/mailmate-outlook-mvp/mailmate-outlook-mvp/Mailmate-Outlook-Extension.zip)。压缩包只包含扩展文件。解压后，选择直接包含 `manifest.json` 的文件夹加载。
 
+## 获取 Groq API Key
+
+插件使用你自己的 Groq API Key 调用模型，不需要把密钥发给 Mailmate 项目维护者：
+
+1. 打开 [Groq Console](https://console.groq.com/) 并登录或注册账号。
+2. 进入 [API Keys 页面](https://console.groq.com/keys)，创建一个专用于 Mailmate 的密钥。若页面要求选择 Project，请先选中要使用的项目。
+3. 创建后立即复制密钥，并妥善保管。密钥相当于密码；不要截图公开、发到群聊，也不要写入代码或提交到 GitHub。若怀疑泄露，请在 Console 删除并重新创建。
+4. 按下文安装扩展并打开 Outlook，在右下角 Mailmate 面板里粘贴密钥，再开始分析。
+
+Groq 的模型访问权限、免费额度和速率限制按账户及模型而异，可能调整；使用前请查看 [账户限额](https://console.groq.com/docs/rate-limits) 和 [Groq API Quickstart](https://console.groq.com/docs/quickstart)。本扩展不会替你创建或保存 API Key；密钥只在当前 Outlook 页面运行期间用于调用 Groq，页面关闭或刷新后需重新输入。
+
 ## 展示与交互
 
 - 扫描时显示当前进度，并可随时停止；完成或停止后，结果集中显示在同一张列表卡片中。
@@ -36,11 +47,17 @@ Mailmate 是适用于 Chrome 和 Microsoft Edge 的 Outlook 网页扩展。用�
 
 - 扩展仅在用户点击开始并确认授权后工作，范围限于当前 Outlook 文件夹中日期可识别的近两周邮件项。
 - 用户通过学校提供的正常登录状态访问 Outlook。扩展不调用 Microsoft Graph，不读取密码、Cookie、访问令牌或 MFA 信息。
-- 邮件正文会发送到 Groq 的美国区域进行分析。邮件中的链接地址默认不发送；用户可自行选择是否附带。
+- 邮件正文会发送到 GroqCloud，在美国处理。邮件中的链接地址默认不发送；用户可自行选择是否附带。Groq 默认不保留推理请求的客户输入和输出，但系统可靠性或滥用监控所需的临时日志可能保留最长 30 天；可在 Groq Console 的 Data Controls 查看或启用 Zero Data Retention（ZDR）。请阅读 [Groq 数据说明](https://console.groq.com/docs/your-data)。
 - Groq API Key 仅保存在当前标签页内存中，关闭页面后需要重新输入。
 - 不把共享 API Key 写进公开扩展包，因为下载者可以提取并使用密钥。若要免去用户输入，应由 Mailmate 后端保管密钥并转发请求。
 - 本地缓存只保存邮件标识、双语结构化结果和完成状态，不保存正文或 API Key。清除缓存可删除这些记录。
 - 扩展不会主动设置已读状态，但扫描时会通过 Outlook 页面逐封打开邮件；必须关闭 Outlook 自动标记已读设置。若 Outlook 行为仍改变了邮件状态，请停止使用并检查邮件。
+
+## 使用统计与任务完成率
+
+当前公开安装包没有向服务器发送使用统计，也没有全局用户计数。扫描次数和勾选的完成状态只保存在本机浏览器；Mailmate 项目目前无法据此统计所有用户的活跃度。
+
+这些指标可以实现，但需要部署 Mailmate 遥测后端，并在插件中加入明确的自愿加入选项。建议只发送随机安装标识、日期、分析任务计数，以及“识别到的行动总数 / 用户在插件中勾选完成的行动数”；不发送邮件正文、主题、发件人、邮件 ID、API Key 或具体任务文字。这样可以估算日活 / 周活与“用户在插件中标记完成的比例”。该比例表示插件内的勾选率，不代表用户现实中确实完成了任务。后端地址和部署方案确定前，不会启用或发送这些埋点。
 
 ## 当前范围
 
