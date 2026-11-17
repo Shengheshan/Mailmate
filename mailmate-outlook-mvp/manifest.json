@@ -4,7 +4,10 @@
   "version": "0.5.0",
   "description": "用户点击开始后，分析当前 Outlook 文件夹近两周邮件并展示摘要。",
   "permissions": ["storage"],
-  "host_permissions": ["https://api.groq.com/*"],
+  "host_permissions": [
+    "https://api.groq.com/*",
+    "https://mailmate-telemetry.mailmate-telemetry-261117.workers.dev/*"
+  ],
   "background": { "service_worker": "background.js" },
   "content_scripts": [
     {

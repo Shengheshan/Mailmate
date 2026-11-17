@@ -6,6 +6,7 @@
   const TELEMETRY_ENDPOINT = String(globalThis.MAILMATE_TELEMETRY_ENDPOINT || "");
   const MAX_BODY_CHARS = 16000;
   const MAX_CACHE_RECORDS = 500;
+  const MAX_CACHE_BYTES = 7 * 1024 * 1024;
   const TOKEN_BUDGET_PER_MINUTE = 7300;
   const MIN_REQUEST_GAP_MS = 2200;
   const ROW_SELECTORS = [
@@ -44,7 +45,7 @@
       consent: "我同意将近两周邮件的正文发送到 Groq（美国）进行分析。",
       unread: "我已在 Outlook 设置中选择“不要自动标记为已读”，并确认过设置有效。",
       links: "同时把正文中的链接地址发送给模型（默认关闭；链接可能含个人专属信息）",
-      cache: "将结构化结果和完成状态保存在本浏览器，用于下次跳过已分析邮件（不保存邮件正文或 API Key）",
+      cache: "将结构化结果、邮件正文和完成状态保存在本浏览器，供下次跳过已分析邮件并查看原文（不会发送到遥测服务；不保存 API Key）",
       telemetry: "分享给 Mailmate（Cloudflare）的使用统计与技术诊断（使用随机安装标识，含 Groq 错误码/消息、请求 ID、模型及 Token 用量；不含邮件正文、主题、发件人、API Key 或成功生成的摘要/行动）",
       telemetryNote: "默认开启。遥测记录随机安装标识、分析次数、缓存命中、行动项勾选数与技术错误。诊断日志保留 30 天，活跃统计最多保留 90 天；可随时取消勾选。",
       telemetryUnavailable: "遥测服务尚未配置；当前不会发送统计或日志。",
@@ -65,6 +66,24 @@
       etaSeconds: (seconds) => `${seconds} 秒`,
       etaMinutes: (minutes, seconds) => seconds ? `${minutes} 分 ${seconds} 秒` : `${minutes} 分钟`,
       countIncomplete: "统计结果可能不完整：只计入日期可识别的邮件。",
+      retryingItem: (attempt, max) => `当前邮件暂时无法处理，正在自动重试（${attempt}/${max}）…`,
+      apologyTitle: "抱歉，本次同步中断了",
+      apologyText: "请检查未处理邮件并调整设置后重试；开启本地缓存时，已完成项目会在重试时复用。",
+      apologyReason: "中断原因",
+      apologyRetry: "重新尝试",
+      apologySettings: "返回设置",
+      apologyIssues: (count) => `检查未处理邮件（${count}）`,
+      issuesButton: (count) => `查看跳过 / 失败邮件（${count}）`,
+      issuesTitle: "需要检查的邮件",
+      issueSkipped: "跳过",
+      issueFailed: "失败",
+      issueReason: "原因",
+      issueSubjectFallback: "无法识别主题",
+      issueInspectHint: "可根据主题在 Outlook 中查找并检查原邮件。",
+      missingRowsError: "重新扫描后仍未能在邮件列表中定位部分邮件。请确认仍在原文件夹且邮件列表保持最新优先，再重试。",
+      emailReadError: "多次重试后仍未能读取这封邮件的正文。",
+      cacheBodyError: "多次重试后仍未能恢复缓存邮件的原文。",
+      cacheWriteError: "邮件原文已读取，但无法写入本地缓存。请检查浏览器存储空间后重试。",
       start: "开始分析近两周邮件",
       resume: "继续分析近两周邮件",
       stop: "停止",
@@ -85,9 +104,9 @@
       payloadTooLarge: "Groq 仍返回 413，请求体过大。这封邮件未完成分析；请减少随邮件发送的链接，或使用服务端分段处理。",
       bodyTrimmed: "请求大小超限：发送给模型的正文省略了中间部分，仅保留开头和结尾。请打开原邮件核对摘要。",
       stopped: "已按要求停止。",
-      finished: (scanned, reused, analyzed, skipped, failed) =>
+      finished: (scanned, reused, analyzed, skipped, failed, incomplete) =>
         "完成：范围内 " + scanned + " 封，缓存复用 " + reused + " 封，新分析 " + analyzed +
-        " 封，跳过 " + skipped + " 封，失败 " + failed + " 封。",
+        " 封，跳过 " + skipped + " 封，失败 " + failed + " 封。" + (incomplete ? "部分列表日期无法识别，统计范围可能不完整。" : ""),
       progress: (n, total, subject) => "已处理 " + n + " 封" + (total ? "；当前已发现 " + total + " 封" : "") + "：" + subject,
       resultCount: (n) => "汇总卡片：" + n + " 封",
       caption: "近两周邮件 · 重要事项",
@@ -110,7 +129,7 @@
       previewEmail: "原文细节预览",
       previewDeadline: "截止日期原文片段",
       originalEmail: "原文邮件",
-      emailUnavailable: "这封邮件的正文未保存在本地缓存中。",
+      emailUnavailable: "原文暂时无法显示，请重新运行分析以尝试恢复。",
       bilingualMissing: "缺少此语言的摘要，请重新分析这封邮件。",
       originalOnly: "邮件原文保持原语言显示。",
       completionCount: (done, total) => "已完成 " + done + " / " + total,
@@ -146,7 +165,7 @@
       consent: "I agree to send the email bodies in this range to Groq (US) for analysis.",
       unread: "I set Outlook to “Don't automatically mark as read” and verified the setting.",
       links: "Also send visible link addresses to the model (off by default; links can be personal)",
-      cache: "Save structured results and completion flags in this browser to skip analyzed emails next time (no email body or API key is saved)",
+      cache: "Save structured results, email bodies, and completion flags in this browser so analyzed emails can be skipped and originals previewed later (not sent to telemetry; API keys are not saved)",
       telemetry: "Share usage metrics and technical diagnostics with Mailmate (Cloudflare), using a random installation ID (Groq error code/message, request ID, model and token usage; no email text, subject, sender, API key or successful summaries/actions)",
       telemetryNote: "Enabled by default. Telemetry includes a random installation ID, analysis counts, cache hits, task checkbox counts and technical errors. Diagnostic logs are kept for 30 days; activity snapshots for up to 90 days. Turn this off any time.",
       telemetryUnavailable: "Telemetry service is not configured; no metrics or logs are being sent.",
@@ -167,6 +186,24 @@
       etaSeconds: (seconds) => `${seconds} sec`,
       etaMinutes: (minutes, seconds) => seconds ? `${minutes} min ${seconds} sec` : `${minutes} min`,
       countIncomplete: "The count may be incomplete; only emails with readable list dates are included.",
+      retryingItem: (attempt, max) => `This email could not be processed yet. Retrying automatically (${attempt}/${max})…`,
+      apologyTitle: "Sorry, this sync was interrupted",
+      apologyText: "Review emails that need attention and adjust settings before trying again. Completed items are reused when local caching is enabled.",
+      apologyReason: "Reason",
+      apologyRetry: "Try again",
+      apologySettings: "Back to settings",
+      apologyIssues: (count) => `Review emails needing attention (${count})`,
+      issuesButton: (count) => `Skipped / failed emails (${count})`,
+      issuesTitle: "Emails needing attention",
+      issueSkipped: "Skipped",
+      issueFailed: "Failed",
+      issueReason: "Reason",
+      issueSubjectFallback: "Subject unavailable",
+      issueInspectHint: "Use the subject to find and inspect the original email in Outlook.",
+      missingRowsError: "Some emails were still missing from the list after rescanning. Make sure Outlook is still in the same folder and sorted newest first, then try again.",
+      emailReadError: "The email body could not be read after several retries.",
+      cacheBodyError: "The original email could not be restored from Outlook after several retries.",
+      cacheWriteError: "The email was read, but could not be saved to local cache. Check browser storage and retry.",
       start: "Analyze emails from the last two weeks",
       resume: "Continue analysis",
       stop: "Stop",
@@ -187,9 +224,9 @@
       payloadTooLarge: "Groq still returned 413 after shortening the message. This email was not analyzed; reduce included links or use server-side chunking.",
       bodyTrimmed: "Request size limit: the model received the beginning and end of this email; the middle was omitted. Check the original email before relying on the summary.",
       stopped: "Stopped as requested.",
-      finished: (scanned, reused, analyzed, skipped, failed) =>
+      finished: (scanned, reused, analyzed, skipped, failed, incomplete) =>
         "Done: " + scanned + " in range, " + reused + " reused, " + analyzed +
-        " newly analyzed, " + skipped + " skipped, " + failed + " failed.",
+        " newly analyzed, " + skipped + " skipped, " + failed + " failed." + (incomplete ? " Some list dates were unreadable, so the range may be incomplete." : ""),
       progress: (n, total, subject) => "Processed " + n + (total ? " (found " + total + ")" : "") + ": " + subject,
       resultCount: (n) => "Summary cards: " + n,
       caption: "Last two weeks · Key items",
@@ -212,7 +249,7 @@
       previewEmail: "Original email preview",
       previewDeadline: "Deadline source excerpt",
       originalEmail: "Original email",
-      emailUnavailable: "This email body was not saved in the local cache.",
+      emailUnavailable: "The original is temporarily unavailable. Run analysis again to try restoring it.",
       bilingualMissing: "This language's summary is unavailable. Reanalyze this email.",
       originalOnly: "The original email remains in its source language.",
       completionCount: (done, total) => "Completed " + done + " / " + total,
@@ -283,6 +320,7 @@
     ".processing-spinner{width:42px;height:42px;border:4px solid #e7ebf5;border-top-color:#566fe8;border-radius:50%;animation:mm-spin .85s linear infinite}",
     ".processing-title{margin-top:17px;color:#26344b;font-size:15px;font-weight:750}.processing-note{max-width:310px;margin:8px 0 20px;color:#7b8799;font-size:12px;line-height:1.6}",
     ".processing-progress{width:min(330px,94%);margin-top:24px}.processing-metrics{display:flex;justify-content:space-between;gap:10px;margin-bottom:9px;color:#536176;font-size:12px;text-align:left}.processing-count{overflow-wrap:anywhere}.processing-percent{flex:0 0 auto;color:#26344b;font-weight:750}.processing-track{width:100%;height:9px;overflow:hidden;border-radius:99px;background:#e8edf7}.processing-track span{display:block;width:34%;height:100%;border-radius:inherit;background:linear-gradient(90deg,#a7b6ff,#4665e7,#a7b6ff);animation:mm-progress 1.6s ease-in-out infinite}.processing-track:not(.is-indeterminate) span{width:0%;background:#566fe8;animation:none;transition:width .2s ease}.processing-current{min-height:18px;margin:9px 0 0;color:#566fe8;font-size:12px;font-weight:650;text-align:center}.processing-eta{min-height:18px;margin:5px 0 0;color:#7b8799;font-size:11px;line-height:1.5;text-align:center}",
+    ".error-view{min-height:330px;display:grid;place-items:center;padding:24px}.error-view[hidden]{display:none}.apology-card{width:min(520px,100%);padding:24px;border:1px solid #e5e9f1;border-radius:14px;background:#fff;box-shadow:0 10px 35px #23345010}.apology-mark{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;color:#a34437;background:#fff0ed;font-size:22px;font-weight:800}.apology-title{margin:14px 0 0;color:#26344b;font-size:18px}.apology-text{margin:8px 0 0;color:#68758a;font-size:12px}.apology-reason-label{margin:18px 0 5px;color:#8c98a9;font-size:10px;font-weight:700}.apology-reason{padding:10px 12px;border-radius:8px;background:#f7f8fb;color:#3e4a5d;font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}.apology-issues{margin-top:12px}.apology-actions{display:flex;gap:8px;margin-top:17px}.apology-actions button{flex:1}",
     ".processing-stop{margin-top:18px}",
     "@keyframes mm-spin{to{transform:rotate(360deg)}}@keyframes mm-progress{0%{transform:translateX(-115%)}100%{transform:translateX(310%)}}",
     ".panel{display:flex;flex-direction:column;height:auto;min-height:0;overflow:hidden}",
@@ -299,7 +337,7 @@
     ".language-control select{width:auto;padding:6px 8px;font-size:11px}",
     ".window-actions{display:flex;gap:4px;flex-shrink:0}",
     ".window-actions button{border:0;border-radius:7px;padding:6px 9px;color:#647187;background:#f2f4f8;font:600 11px system-ui,sans-serif;cursor:pointer}",
-    ".settings-open{border:1px solid #d4dfff;border-radius:8px;padding:8px 12px;color:#3154bd;background:#eaf0ff;font:750 11px system-ui,sans-serif;white-space:nowrap;cursor:pointer;box-shadow:0 1px 2px #324a9a12}.settings-open:hover{background:#dfe8ff}",
+    ".settings-open,.issues-open,.apology-issues{border:1px solid #d4dfff;border-radius:8px;padding:8px 12px;color:#3154bd;background:#eaf0ff;font:750 11px system-ui,sans-serif;white-space:nowrap;cursor:pointer;box-shadow:0 1px 2px #324a9a12}.settings-open:hover,.issues-open:hover,.apology-issues:hover{background:#dfe8ff}",
     ".content{min-height:0;display:flex;flex:1;flex-direction:column;padding:0 16px 12px}",
     ".setup-view{overflow:auto;padding-top:12px}.setup-view[hidden]{display:none}",
     ".results-view{min-height:0;display:flex;flex:1;flex-direction:column}.results-view[hidden]{display:none}",
@@ -331,7 +369,7 @@
     ".checkbox-cell{text-align:center}.completion-checkbox{width:16px;height:16px;margin:0;accent-color:#5d71e8;cursor:pointer;vertical-align:middle}",
     ".empty-state{min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;color:#99a2b0;font-size:11px}.empty-state[hidden]{display:none}.empty-state strong{color:#536074;font-size:13px}",
     ".results-footer{min-height:33px;display:flex;align-items:center;justify-content:space-between;gap:12px;color:#929cab;font-size:9px}",
-    ".source-preview{position:fixed;z-index:30;width:min(390px,calc(100vw - 24px));max-height:min(390px,calc(100vh - 24px));overflow:auto;padding:14px;border:1px solid #e4e8f0;border-radius:12px;color:#354154;background:#fff;box-shadow:0 16px 46px #25345430;font:11px/1.6 system-ui,sans-serif}.source-preview[hidden]{display:none}.preview-title{color:#253248;font-size:12px;font-weight:700}.preview-meta,.preview-note{margin-top:4px;color:#8d97a6;font-size:9px}.preview-body{max-height:190px;overflow:auto;margin-top:9px;padding:10px;border:1px solid #e9ecf2;border-radius:7px;background:#fcfcfd;white-space:pre-wrap;overflow-wrap:anywhere}.preview-body mark{background:#fff0bd;color:#725016}",
+    ".source-preview{position:fixed;z-index:30;width:min(430px,calc(100vw - 24px));max-height:min(520px,calc(100vh - 24px));overflow:auto;padding:14px;border:1px solid #e4e8f0;border-radius:12px;color:#354154;background:#fff;box-shadow:0 16px 46px #25345430;font:11px/1.6 system-ui,sans-serif}.source-preview[hidden]{display:none}.preview-title{color:#253248;font-size:12px;font-weight:700}.preview-meta,.preview-note{margin-top:4px;color:#8d97a6;font-size:9px}.preview-section-title{margin-top:11px;color:#59677d;font-size:10px;font-weight:750}.preview-summary{margin-top:5px;padding:9px;border-radius:7px;background:#f5f7fc;color:#26344b;font-size:11px;white-space:pre-wrap;overflow-wrap:anywhere}.preview-body{max-height:230px;overflow:auto;margin-top:5px;padding:10px;border:1px solid #e9ecf2;border-radius:7px;background:#fcfcfd;white-space:pre-wrap;overflow-wrap:anywhere}.preview-body mark{background:#fff0bd;color:#725016}.issue-list{display:grid;gap:9px}.issue-item{padding:10px;border:1px solid #e8ebf1;border-radius:8px;background:#fff}.issue-heading{display:flex;align-items:flex-start;gap:7px}.issue-kind{flex:0 0 auto;padding:2px 6px;border-radius:99px;background:#fff4db;color:#845d16;font-size:9px;font-weight:700}.issue-kind.failed{background:#ffefed;color:#a54033}.issue-subject{color:#2e3b50;font-size:11px;font-weight:700;overflow-wrap:anywhere}.issue-meta{margin:4px 0 0;color:#8c97a8;font-size:9px}.issue-reason{margin:6px 0 0;color:#566377;font-size:10px;overflow-wrap:anywhere}",
     ".modal-layer{position:fixed;z-index:40;inset:0;display:grid;place-items:center;padding:24px;background:#15213b66}.modal-layer[hidden]{display:none}.message-modal{width:min(780px,calc(100vw - 32px));max-height:min(80vh,760px);display:flex;flex-direction:column;overflow:hidden;border:1px solid #e5e8f0;border-radius:14px;background:#fff;box-shadow:0 24px 70px #111b33a0}.modal-header{display:flex;justify-content:space-between;gap:12px;padding:16px 18px;border-bottom:1px solid #edf0f5}.modal-title{font-size:14px;font-weight:700}.modal-meta{margin-top:4px;color:#8490a0;font-size:10px}.modal-body{overflow:auto;padding:18px;color:#354154;font-size:12px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}.modal-close{border:0;background:transparent;font-size:22px;cursor:pointer}.modal-footer{padding:10px 18px;border-top:1px solid #edf0f5;color:#929cab;font-size:10px}",
     "@media(max-width:720px){.panel.show-results{right:8px;bottom:8px;width:calc(100vw - 16px);height:calc(100vh - 16px)}.panel .card-header{gap:7px;padding:10px}.brand-lockup{min-width:0}.header-summary{display:none}.language-control span{display:none}.content{padding:0 9px 8px}.toolbar{gap:6px}.sort-note{display:none}.search-box{width:100%;max-width:none}.results-table{min-width:1060px}}"
   ].join("\n");
@@ -369,12 +407,13 @@
     '  </div>',
     '  <div class="processing-indicator" hidden aria-live="polite"><div class="processing-spinner" aria-hidden="true"></div><div class="processing-title"></div><p class="processing-note"></p><div class="processing-progress"><div class="processing-metrics"><span class="processing-count"></span><span class="processing-percent"></span></div><div class="processing-track is-indeterminate"><span></span></div><p class="processing-current"></p><p class="processing-eta"></p></div><button class="secondary processing-stop" type="button"></button></div>',
     '  </section>',
+    '  <section class="error-view" hidden><div class="apology-card"><div class="apology-mark" aria-hidden="true">!</div><h2 class="apology-title"></h2><p class="apology-text"></p><p class="apology-reason-label"></p><div class="apology-reason"></div><button class="apology-issues" type="button" hidden></button><div class="apology-actions"><button class="secondary apology-settings" type="button"></button><button class="primary apology-retry" type="button"></button></div></div></section>',
     '  <section class="results-view" hidden>',
     '   <p class="result-status" aria-live="polite"></p>',
     '   <div class="toolbar">',
     '    <label class="search-box"><span aria-hidden="true">⌕</span><input class="search-input" type="search" autocomplete="off"></label>',
     '    <div class="filter-group" role="group"><button class="filter-button active" data-filter="all" type="button"></button><button class="filter-button" data-filter="pending" type="button"></button><button class="filter-button" data-filter="completed" type="button"></button></div>',
-    '    <span class="sort-note"></span><button class="settings-open" type="button"></button>',
+    '    <button class="issues-open" type="button" hidden></button><span class="sort-note"></span><button class="settings-open" type="button"></button>',
     '   </div>',
     '   <div class="table-frame"><table class="results-table"><colgroup><col class="col-importance"><col class="col-category"><col class="col-summary"><col class="col-normalized"><col class="col-raw"><col class="col-action"><col class="col-completed"></colgroup><thead><tr><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody class="result-rows"></tbody></table><div class="empty-state" hidden><strong></strong><span></span></div></div>',
     '   <footer class="results-footer"><span class="result-footer-left"></span><span class="result-footer-right"></span></footer>',
@@ -391,6 +430,7 @@
   const panel = $(".panel");
   const languageSelect = $(".language");
   const setupView = $(".setup-view");
+  const errorView = $(".error-view");
   const resultsView = $(".results-view");
   const resultRows = $(".result-rows");
   const searchInput = $(".search-input");
@@ -427,6 +467,9 @@
   let lastRequestAt = 0;
   let tokenWindow = [];
   let currentProgress = null;
+  let batchIssues = [];
+  let terminalErrorMessage = "";
+  let preservePartialResults = false;
 
   function makeText(tag, className, value) {
     const element = document.createElement(tag);
@@ -467,6 +510,12 @@
     t.columns.forEach((label, index) => { headings[index].textContent = label; });
     $(".sort-note").textContent = t.sort;
     $(".settings-open").textContent = t.backContinue;
+    $(".apology-title").textContent = t.apologyTitle;
+    $(".apology-text").textContent = t.apologyText;
+    $(".apology-reason-label").textContent = t.apologyReason;
+    $(".apology-settings").textContent = t.apologySettings;
+    $(".apology-retry").textContent = t.apologyRetry;
+    updateIssueButtons();
     $(".empty-state strong").textContent = t.noMatches;
     $(".empty-state span").textContent = t.searchHint;
     $(".modal-close").setAttribute("aria-label", language === "zh" ? "关闭" : "Close");
@@ -476,13 +525,26 @@
   function showSettingsView() {
     setupView.hidden = false;
     resultsView.hidden = true;
+    errorView.hidden = true;
     panel.classList.remove("show-results");
   }
 
   function showResultsView() {
     setupView.hidden = true;
+    errorView.hidden = true;
     resultsView.hidden = false;
     panel.classList.add("show-results");
+  }
+
+  function showFailureView(message) {
+    setupView.hidden = true;
+    resultsView.hidden = true;
+    errorView.hidden = false;
+    panel.classList.remove("show-results");
+    terminalErrorMessage = message || strings[language].missingRowsError;
+    $(".apology-reason").textContent = terminalErrorMessage;
+    $(".apology-issues").textContent = strings[language].apologyIssues(batchIssues.length);
+    $(".apology-issues").hidden = batchIssues.length === 0;
   }
 
   function setStatus(message, kind) {
@@ -984,17 +1046,27 @@
       normalized_deadline: record.normalized_deadline,
       completed: Boolean(record.completed),
       truncated_for_provider: Boolean(record.truncated_for_provider),
+      body_text: String(record.body_text || ""),
       usage: record.usage || null
     };
   }
 
   async function saveRecord(record) {
-    if (!cacheInput.checked) return;
+    if (!cacheInput.checked) return false;
     persistentCache[record.cache_key] = storedRecord(record);
-    const entries = Object.entries(persistentCache).sort((a, b) => (b[1].received_epoch || 0) - (a[1].received_epoch || 0)).slice(0, MAX_CACHE_RECORDS);
+    const entries = Object.entries(persistentCache)
+      .sort((a, b) => a[0] === record.cache_key ? -1 : b[0] === record.cache_key ? 1 : (b[1].received_epoch || 0) - (a[1].received_epoch || 0))
+      .slice(0, MAX_CACHE_RECORDS);
+    while (entries.length && new TextEncoder().encode(JSON.stringify(Object.fromEntries(entries))).length > MAX_CACHE_BYTES) entries.pop();
     persistentCache = Object.fromEntries(entries);
-    try { await chrome.storage.local.set({ [CACHE_KEY]: persistentCache }); }
-    catch { setStatus(strings[language].cacheError, "error"); }
+    if (!Object.hasOwn(persistentCache, record.cache_key)) return false;
+    try {
+      await chrome.storage.local.set({ [CACHE_KEY]: persistentCache });
+      return true;
+    } catch {
+      setStatus(strings[language].cacheError, "error");
+      return false;
+    }
   }
 
   async function cacheKeyForRow(descriptor, receivedDate) {
@@ -1012,7 +1084,9 @@
   function reuseCachedRecord(cacheKey) {
     const stored = persistentCache[cacheKey];
     if (!stored || typeof stored.analysis?.email_summary_en !== "string" || typeof stored.analysis?.email_summary_zh !== "string") return false;
-    const cached = { ...stored, cache_key: cacheKey, body_text: "" };
+    const bodyText = String(stored.body_text || "").trim();
+    if (bodyText.length < 20) return false;
+    const cached = { ...stored, cache_key: cacheKey, body_text: bodyText };
     currentRecords.set(cacheKey, cached);
     renderRecords();
     return true;
@@ -1063,6 +1137,60 @@
     }
   }
 
+  function updateIssueButtons() {
+    const t = strings[language];
+    const openButton = $(".issues-open");
+    openButton.textContent = t.issuesButton(batchIssues.length);
+    openButton.hidden = batchIssues.length === 0;
+    const apologyButton = $(".apology-issues");
+    apologyButton.textContent = t.apologyIssues(batchIssues.length);
+    apologyButton.hidden = batchIssues.length === 0;
+  }
+
+  function addBatchIssue(kind, descriptor, reason, stage, email = null) {
+    const identity = descriptor?.stableId || descriptor?.key || descriptor?.subject || email?.subject || "unknown";
+    const issueId = `${kind}:${stage || "batch"}:${identity}`;
+    if (batchIssues.some((item) => item.id === issueId)) return;
+    batchIssues.push({
+      id: issueId,
+      kind,
+      subject: email?.subject || descriptor?.subject || strings[language].issueSubjectFallback,
+      sender: email?.sender || "",
+      received: email?.received_at || descriptor?.receivedRaw || (descriptor?.receivedDate ? formatLocalDate(descriptor.receivedDate) : ""),
+      reason: String(reason || "")
+    });
+    updateIssueButtons();
+  }
+
+  function showIssuesModal() {
+    const t = strings[language];
+    const modal = $(".modal-layer");
+    $(".modal-title").textContent = t.issuesTitle;
+    $(".message-modal .modal-meta").textContent = `${batchIssues.length}`;
+    const body = $(".modal-body");
+    const list = makeText("div", "issue-list", "");
+    for (const issue of batchIssues) {
+      const item = makeText("article", "issue-item", "");
+      const heading = makeText("div", "issue-heading", "");
+      heading.append(makeText("span", "issue-kind" + (issue.kind === "failed" ? " failed" : ""), issue.kind === "failed" ? t.issueFailed : t.issueSkipped));
+      heading.append(makeText("strong", "issue-subject", issue.subject));
+      item.append(heading);
+      const meta = [issue.sender, issue.received].filter(Boolean).join(" · ");
+      if (meta) item.append(makeText("p", "issue-meta", meta));
+      if (issue.reason) {
+        const reason = makeText("p", "issue-reason", "");
+        reason.append(makeText("b", "", `${t.issueReason}：`), document.createTextNode(issue.reason));
+        item.append(reason);
+      }
+      list.append(item);
+    }
+    body.replaceChildren(list);
+    $(".modal-footer").textContent = t.issueInspectHint;
+    $(".source-preview").hidden = true;
+    modal.hidden = false;
+    $(".modal-close").focus();
+  }
+
   function bindSourcePreview(trigger, record, kind) {
     const scheduleHide = () => {
       window.clearTimeout(hoverTimer);
@@ -1090,15 +1218,19 @@
     const t = strings[language];
     const deadline = record.normalized_deadline || {};
     preview.replaceChildren();
-    const title = kind === "deadline" ? (deadline.raw_text || localizedSummary(record.analysis || {})) : (record.subject || localizedSummary(record.analysis || {}));
     preview.append(makeText("div", "preview-title", kind === "deadline" ? t.previewDeadline : t.previewEmail));
-    preview.append(makeText("div", "modal-meta", title));
+    preview.append(makeText("div", "modal-meta", record.subject || localizedSummary(record.analysis || {})));
     preview.append(makeText("div", "preview-meta", [record.sender, record.received_at].filter(Boolean).join(" · ")));
     const bodyText = String(record.body_text || "");
     const body = makeText("div", "preview-body", "");
-    if (!bodyText) {
+    if (kind === "email") {
+      preview.append(makeText("div", "preview-section-title", t.summary));
+      preview.append(makeText("div", "preview-summary", localizedSummary(record.analysis || {}) || record.subject || ""));
+      preview.append(makeText("div", "preview-section-title", t.originalEmail));
+      body.textContent = bodyText || t.emailUnavailable;
+    } else if (!bodyText) {
       body.textContent = t.emailUnavailable;
-    } else if (kind === "deadline" && deadline.raw_text) {
+    } else if (deadline.raw_text) {
       const index = bodyText.toLocaleLowerCase().indexOf(String(deadline.raw_text).toLocaleLowerCase());
       const start = index < 0 ? 0 : Math.max(0, index - 180);
       const excerpt = bodyText.slice(start, index < 0 ? 520 : Math.min(bodyText.length, index + deadline.raw_text.length + 260));
@@ -1108,12 +1240,12 @@
         const mark = makeText("mark", "", deadline.raw_text);
         body.append(mark, document.createTextNode(excerpt.slice(matchIndex + deadline.raw_text.length)));
       } else body.textContent = excerpt;
-    } else body.textContent = bodyText.slice(0, 520) + (bodyText.length > 520 ? "…" : "");
+    } else body.textContent = bodyText;
     preview.append(body, makeText("div", "preview-note", t.originalOnly));
     const rect = trigger.getBoundingClientRect();
     preview.hidden = false;
     activePreviewTrigger = trigger;
-    const width = Math.min(390, window.innerWidth - 24);
+    const width = Math.min(430, window.innerWidth - 24);
     const height = Math.min(preview.scrollHeight, window.innerHeight - 24);
     const left = Math.max(12, Math.min(rect.left, window.innerWidth - width - 12));
     let top = rect.bottom + 8;
@@ -1227,6 +1359,7 @@
     filterButtons.forEach((button) => button.classList.toggle("active", button.dataset.filter === currentFilter));
     $(".result-footer-left").textContent = t.resultCount(ordered.length);
     $(".result-footer-right").textContent = t.completionCount(ordered.filter((record) => record.completed).length, ordered.length);
+    updateIssueButtons();
   }
 
   function normalizeReceivedDate(email, rowDate) {
@@ -1310,7 +1443,9 @@
     };
     currentRecords.set(cacheKey, record);
     renderRecords();
-    await saveRecord(record);
+    if (cacheInput.checked && !(await saveRecordWithRetries(record))) {
+      throw Object.assign(new Error(strings[language].cacheWriteError), { stage: "cache_write" });
+    }
     return { cached: false, record };
   }
 
@@ -1352,6 +1487,71 @@
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
+  function showRetryNotice(attempt, maxAttempts) {
+    $(".processing-current").textContent = strings[language].retryingItem(attempt, maxAttempts);
+  }
+
+  async function waitForRetry(milliseconds) {
+    const endAt = Date.now() + milliseconds;
+    while (!stopRequested && Date.now() < endAt) await delay(Math.min(500, endAt - Date.now()));
+  }
+
+  async function saveRecordWithRetries(record) {
+    const maxAttempts = 3;
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+      if (await saveRecord(record)) return true;
+      if (!cacheInput.checked || attempt >= maxAttempts) return false;
+      showRetryNotice(attempt + 1, maxAttempts);
+      await waitForRetry(attempt * 500);
+    }
+    return false;
+  }
+
+  async function readEmailWithRetries(descriptor, selector) {
+    const maxAttempts = 3;
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+      if (stopRequested) return { stopped: true };
+      const email = await readOpenedRow(descriptor, selector);
+      if (email?.body_text && email.body_text.length >= 20) return { email };
+      if (attempt < maxAttempts) {
+        showRetryNotice(attempt + 1, maxAttempts);
+        await waitForRetry(attempt * 800);
+      }
+    }
+    return { error: Object.assign(new Error(strings[language].emailReadError), { stage: "email_read" }) };
+  }
+
+  async function analyzeWithRetries(email, descriptor, receivedDate, cacheKey, apiKey) {
+    const maxAttempts = 3;
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+      if (stopRequested) return { stopped: true };
+      try {
+        return await analyzeOne(email, descriptor, receivedDate, cacheKey, apiKey);
+      } catch (error) {
+        const status = Number(error?.status || 0);
+        const retryable = status === 429 || status === 0 || status >= 500;
+        if (!retryable || attempt >= maxAttempts) throw error;
+        showRetryNotice(attempt + 1, maxAttempts);
+        const retryAfterMs = Number(error?.retryAfter) > 0 ? Number(error.retryAfter) * 1000 : 0;
+        const backoffMs = attempt === 1 ? 1500 : 4000;
+        await waitForRetry(Math.min(30000, Math.max(retryAfterMs, backoffMs)));
+      }
+    }
+    return { stopped: stopRequested };
+  }
+
+  function readableFailureReason(error) {
+    const t = strings[language];
+    if (error?.stage === "email_read") return t.emailReadError;
+    if (error?.stage === "cache_body") return t.cacheBodyError;
+    if (error?.stage === "cache_write") return t.cacheWriteError;
+    if (error?.stage === "email_row") return t.missingRowsError;
+    if (error?.status === 429) return t.quota;
+    if (error?.status === 401 || error?.status === 403) return t.authError;
+    if (error?.status === 413) return t.payloadTooLarge;
+    return t.errPrefix + (error?.message || String(error));
+  }
+
   function emitTelemetry(eventType, details = {}) {
     if (!TELEMETRY_ENDPOINT) return;
     try {
@@ -1385,6 +1585,8 @@
     setBusy(true);
     hasScanned = true;
     stopRequested = false;
+    batchIssues = [];
+    terminalErrorMessage = "";
     currentProgress = null;
     showSettingsView();
     panel.classList.remove("is-minimized");
@@ -1410,8 +1612,9 @@
     let failedCount = 0;
     let progressFailedCount = 0;
     let processedCount = 0;
-    let stopForQuota = false;
     let stoppedOnError = false;
+    let activeCandidate = null;
+    let completedNormally = false;
     let countIncomplete = false;
     const candidates = [];
     const candidateByKey = new Map();
@@ -1483,6 +1686,7 @@
 
           if (!messageDate) {
             skippedCount++;
+            addBatchIssue("skipped", descriptor, t.unknownDate, "received_date");
             unknownStreak++;
             countIncomplete = true;
             emitTelemetry("client_error", { failure_stage: "counting", failure_class: "received_date_unreadable", http_status: 0 });
@@ -1496,7 +1700,6 @@
           unknownStreak = 0;
           if (messageDate < cutoff) {
             oldStreak++;
-            skippedCount++;
             if (oldStreak >= 3) countDone = true;
           } else {
             oldStreak = 0;
@@ -1546,118 +1749,157 @@
         scrollToPosition(initialScrollContainer, 0);
         await delay(350);
         showAnalysisProgress();
+        async function processCandidate(candidate) {
+          const descriptor = candidate.descriptor;
+          activeCandidate = candidate;
+          showAnalysisProgress(candidate.position);
 
-        const processedKeys = new Set();
-        let analysisNoProgress = 0;
-        while (processedCount < candidates.length && !stopRequested) {
-          const visible = visibleRows(selector).map(describeRow);
-          const pendingVisible = visible
-            .filter((descriptor) => candidateByKey.has(descriptor.key) && !processedKeys.has(descriptor.key));
-
-          if (pendingVisible.length) {
-            analysisNoProgress = 0;
-            for (const visibleDescriptor of pendingVisible) {
-              if (stopRequested) break;
-              const candidate = candidateByKey.get(visibleDescriptor.key);
-              if (!candidate || processedKeys.has(candidate.key)) continue;
-              const descriptor = candidate.descriptor;
-              candidate.processed = true;
-              processedKeys.add(candidate.key);
-              showAnalysisProgress(candidate.position);
-
-              if (candidate.cacheHit && reuseCachedRecord(candidate.cacheKey)) {
-                reusedCount++;
-                processedCount++;
-                candidate.completed = true;
-                showAnalysisProgress();
-                continue;
-              }
-
-              let email = candidate.preloadedEmail;
-              if (!email) email = await readOpenedRow(descriptor, selector);
-              if (!email || !email.body_text || email.body_text.length < 20) {
-                failedCount++;
-                progressFailedCount++;
-                emitTelemetry("client_error", { failure_stage: "batch", failure_class: "email_body_unreadable", http_status: 0 });
-                processedCount++;
-                candidate.completed = true;
-                showAnalysisProgress();
-                continue;
-              }
-
-              const actualDate = bestRowDate(email, descriptor) || candidate.receivedDate;
-              if (!actualDate || actualDate < cutoff) {
-                skippedCount++;
-                processedCount++;
-                candidate.completed = true;
-                showAnalysisProgress();
-                continue;
-              }
-
-              const requestStartedAt = Date.now();
-              let result;
-              try {
-                result = await analyzeOne(email, descriptor, actualDate, candidate.cacheKey, apiKey);
-              } catch (error) {
-                if (error?.status !== 413) throw error;
-                failedCount++;
-                progressFailedCount++;
-                processedCount++;
-                candidate.completed = true;
-                setStatus(t.payloadTooLarge, "error");
-                showAnalysisProgress();
-                continue;
-              }
-              if (result?.stopped || stopRequested) {
-                candidate.processed = false;
-                processedKeys.delete(candidate.key);
-                break;
-              }
-              apiDurations.push(Math.max(1, Date.now() - requestStartedAt));
-              analyzedCount++;
-              processedCount++;
-              candidate.completed = true;
-              if (result.record) currentRecords.set(result.record.cache_key, result.record);
-              renderRecords();
-              showAnalysisProgress();
-            }
-            continue;
-          }
-
-          if (atScrollEnd(initialScrollContainer)) break;
-          const before = scrollPosition(initialScrollContainer);
-          scrollDown(initialScrollContainer);
-          await delay(450);
-          if (Math.abs(scrollPosition(initialScrollContainer) - before) < 3) {
-            analysisNoProgress++;
-            if (analysisNoProgress >= 3) break;
-          } else analysisNoProgress = 0;
-        }
-
-        if (!stopRequested && processedCount < candidates.length) {
-          for (const candidate of candidates) {
-            if (candidate.processed) continue;
+          const finishCandidate = () => {
             candidate.processed = true;
             candidate.completed = true;
             processedCount++;
-            failedCount++;
-            progressFailedCount++;
-            emitTelemetry("client_error", { failure_stage: "batch", failure_class: "email_row_not_found", http_status: 0 });
+            activeCandidate = null;
             showAnalysisProgress();
+          };
+
+          if (candidate.cacheHit) {
+            const stored = persistentCache[candidate.cacheKey];
+            const cachedBody = String(stored?.body_text || "").trim();
+            if (cachedBody.length >= 20 && reuseCachedRecord(candidate.cacheKey)) {
+              reusedCount++;
+              finishCandidate();
+              return true;
+            }
+
+            const recovered = await readEmailWithRetries(descriptor, selector);
+            if (recovered.stopped || stopRequested) return false;
+            if (recovered.error) {
+              throw Object.assign(recovered.error, { stage: "cache_body" });
+            }
+            const email = recovered.email;
+            const repaired = {
+              ...stored,
+              cache_key: candidate.cacheKey,
+              message_id: email.message_id || stored?.message_id || descriptor.stableId,
+              subject: email.subject || stored?.subject || descriptor.subject,
+              sender: email.sender || stored?.sender || "",
+              received_at: stored?.received_at || email.received_at || candidate.receivedDate.toISOString(),
+              received_epoch: stored?.received_epoch || candidate.receivedDate.getTime(),
+              body_text: email.body_text,
+              analysis: stored?.analysis,
+              normalized_deadline: stored?.normalized_deadline,
+              completed: Boolean(stored?.completed),
+              truncated_for_provider: Boolean(stored?.truncated_for_provider),
+              usage: stored?.usage || null
+            };
+            if (!(await saveRecordWithRetries(repaired))) {
+              throw Object.assign(new Error(t.cacheWriteError), { stage: "cache_write" });
+            }
+            currentRecords.set(candidate.cacheKey, repaired);
+            renderRecords();
+            reusedCount++;
+            finishCandidate();
+            return true;
+          }
+
+          const read = await readEmailWithRetries(descriptor, selector);
+          if (read.stopped || stopRequested) return false;
+          if (read.error) throw read.error;
+          const email = read.email;
+          const actualDate = bestRowDate(email, descriptor) || candidate.receivedDate;
+          if (!actualDate || actualDate < cutoff) {
+            skippedCount++;
+            addBatchIssue("skipped", descriptor, t.unknownDate, "message_date", email);
+            finishCandidate();
+            return true;
+          }
+
+          const requestStartedAt = Date.now();
+          const result = await analyzeWithRetries(email, descriptor, actualDate, candidate.cacheKey, apiKey);
+          if (result?.stopped || stopRequested) return false;
+          apiDurations.push(Math.max(1, Date.now() - requestStartedAt));
+          analyzedCount++;
+          if (result.record) currentRecords.set(result.record.cache_key, result.record);
+          renderRecords();
+          finishCandidate();
+          return true;
+        }
+
+        for (let scanPass = 1; scanPass <= 2 && !stopRequested && processedCount < candidates.length; scanPass++) {
+          scrollToPosition(initialScrollContainer, 0);
+          await delay(350);
+          const seenThisPass = new Set(candidates.filter((candidate) => candidate.completed).map((candidate) => candidate.key));
+          let analysisNoProgress = 0;
+
+          while (processedCount < candidates.length && !stopRequested) {
+            const visible = visibleRows(selector).map(describeRow);
+            const pendingVisible = visible.filter((descriptor) =>
+              candidateByKey.has(descriptor.key) && !seenThisPass.has(descriptor.key)
+            );
+
+            if (pendingVisible.length) {
+              analysisNoProgress = 0;
+              for (const visibleDescriptor of pendingVisible) {
+                if (stopRequested) break;
+                const candidate = candidateByKey.get(visibleDescriptor.key);
+                if (!candidate || seenThisPass.has(candidate.key)) continue;
+                seenThisPass.add(candidate.key);
+                const succeeded = await processCandidate(candidate);
+                if (!succeeded || stopRequested) break;
+              }
+              continue;
+            }
+
+            if (atScrollEnd(initialScrollContainer)) break;
+            const before = scrollPosition(initialScrollContainer);
+            scrollDown(initialScrollContainer);
+            await delay(450);
+            if (Math.abs(scrollPosition(initialScrollContainer) - before) < 3) {
+              analysisNoProgress++;
+              if (analysisNoProgress >= 3) break;
+            } else analysisNoProgress = 0;
+          }
+
+          if (processedCount >= candidates.length || stopRequested) break;
+          if (scanPass === 1) {
+            showRetryNotice(2, 2);
+            await waitForRetry(800);
           }
         }
+
+        if (!stopRequested && processedCount < candidates.length) {
+          const missing = candidates.filter((candidate) => !candidate.completed);
+          for (const candidate of missing) {
+            failedCount++;
+            progressFailedCount++;
+            addBatchIssue("failed", candidate.descriptor, t.missingRowsError, "email_row");
+            emitTelemetry("client_error", { failure_stage: "batch", failure_class: "email_row_not_found", http_status: 0 });
+          }
+          throw Object.assign(new Error(t.missingRowsError), { stage: "email_row" });
+        }
       }
+      completedNormally = !stopRequested && processedCount >= candidates.length;
     } catch (error) {
-      stoppedOnError = true;
-      if (error?.status === 429) {
-        stopForQuota = true;
-        setStatus(t.quota, "error");
-      } else if (error?.status === 413) {
-        setStatus(t.payloadTooLarge, "error");
-      } else if (error?.status === 401 || error?.status === 403) {
-        setStatus(t.authError, "error");
-      } else {
-        setStatus(t.errPrefix + (error?.message || String(error)), "error");
+      if (!stopRequested) {
+        stoppedOnError = true;
+        terminalErrorMessage = readableFailureReason(error);
+        if (activeCandidate) {
+          failedCount++;
+          progressFailedCount++;
+          addBatchIssue("failed", activeCandidate.descriptor, terminalErrorMessage, error?.stage || "analysis");
+          emitTelemetry("client_error", {
+            failure_stage: error?.stage || "analysis",
+            failure_class: error?.status === 429 ? "rate_limit" : "email_processing_error",
+            http_status: Number(error?.status || 0)
+          });
+        } else if (error?.stage !== "email_row") {
+          addBatchIssue("failed", null, terminalErrorMessage, error?.stage || "batch");
+          emitTelemetry("client_error", {
+            failure_stage: error?.stage || "batch",
+            failure_class: error?.status === 429 ? "rate_limit" : "batch_processing_error",
+            http_status: Number(error?.status || 0)
+          });
+        }
       }
     } finally {
       scrollToPosition(initialScrollContainer, originalPosition);
@@ -1667,20 +1909,21 @@
         if (originalRow) originalRow.click();
       }
       setBusy(false);
-      showResultsView();
-      renderRecords();
       const taskSnapshot = currentTaskSnapshot();
       emitTelemetry("analysis_finished", {
         scanned_count: recentCount, analyzed_count: analyzedCount, cache_hit_count: reusedCount,
         skipped_count: skippedCount, failed_count: failedCount, stopped: Boolean(stopRequested),
         ...taskSnapshot
       });
-      if (stoppedOnError && !stopForQuota) {
-        emitTelemetry("client_error", { failure_stage: "batch", failure_class: "batch_processing_error", http_status: 0 });
-      }
-      if (stopRequested) setStatus(t.stopped, "ok");
-      else if (!stopForQuota && !stoppedOnError) {
-        setStatus(t.finished(recentCount, reusedCount, analyzedCount, skippedCount, failedCount), "ok");
+      if (stoppedOnError) {
+        showFailureView(terminalErrorMessage);
+      } else if (stopRequested || completedNormally) {
+        showResultsView();
+        renderRecords();
+        if (stopRequested) setStatus(t.stopped, "ok");
+        else setStatus(t.finished(recentCount, reusedCount, analyzedCount, skippedCount, failedCount, countIncomplete), "ok");
+      } else {
+        showFailureView(t.missingRowsError);
       }
     }
   }
@@ -1696,6 +1939,10 @@
     showSettingsView();
     startButton.focus();
   });
+  $(".issues-open").addEventListener("click", showIssuesModal);
+  $(".apology-issues").addEventListener("click", showIssuesModal);
+  $(".apology-settings").addEventListener("click", () => { showSettingsView(); startButton.focus(); });
+  $(".apology-retry").addEventListener("click", () => { runBatch(); });
   filterButtons.forEach((button) => button.addEventListener("click", () => {
     currentFilter = button.dataset.filter;
     renderRecords();

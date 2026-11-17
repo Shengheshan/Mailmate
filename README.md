@@ -45,10 +45,10 @@ python evaluate_results.py
 这条工作线是独立的 Chrome / Edge 扩展，读取用户正常登录后 Outlook 网页中显示的邮件，并通过 **Groq 在线 API** 分析；不使用 Ollama，也不运行上面的 180 封离线评测。
 
 - 用户点击一次“开始分析”，扩展先快速统计当前 Outlook 文件夹近两周邮件数量，再逐封分析；统计阶段不打开邮件、不调用 AI，分析阶段显示处理序号、完成百分比和 AI 剩余时间估算。
-- 扫描完成或停止后，在页面右下角展示列表；按重要性和截止日期排序，支持搜索、状态筛选、完成勾选和原文预览。
+- 全部处理完成或用户主动停止后，在页面右下角展示列表；若读取或模型请求连续失败，会显示中断说明和原因，不会提前进入汇总页。
 - 每封邮件同时生成中文和英文摘要及行动内容，可即时切换语言；缓存命中时跳过重复模型调用。
 - 扩展目录、安装步骤和隐私说明见 [`mailmate-outlook-mvp/README.md`](mailmate-outlook-mvp/README.md)。
-- 去标识使用统计和 Groq 错误诊断通过可选的 Cloudflare Worker + D1 服务实现；当前服务 URL 尚未配置，因此公开扩展包不会发送遥测。后端部署说明见 [`mailmate-telemetry/README.md`](mailmate-telemetry/README.md)。
+- 去标识使用统计和 Groq 错误诊断通过 Cloudflare Worker + D1 服务实现，扩展默认开启，可在面板中关闭；不会发送邮件正文、主题、发件人或 API Key。后端部署说明见 [`mailmate-telemetry/README.md`](mailmate-telemetry/README.md)。
 
 **下载：** [Chrome / Edge 扩展安装包](https://github.com/Shengheshan/Mailmate/raw/refs/heads/mailmate-outlook-mvp/mailmate-outlook-mvp/Mailmate-Outlook-Extension.zip)。解压后，在浏览器扩展管理页开启“开发者模式”，加载直接包含 `manifest.json` 的文件夹。
 
