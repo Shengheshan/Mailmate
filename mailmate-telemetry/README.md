@@ -1,6 +1,6 @@
 # Mailmate 遥测服务（Cloudflare Worker + D1）
 
-此服务接收 Mailmate 扩展的去标识使用计数和技术诊断，不接收邮件正文、主题、发件人、邮件 ID、API Key 或模型成功生成的摘要/行动原文。扩展默认开启遥测；用户可在面板中取消勾选。当前扩展配置中的服务地址为空，因此部署并配置地址前不会发送数据。
+此服务接收 Mailmate 扩展的去标识使用计数和技术诊断，不接收邮件正文、主题、发件人、邮件 ID、API Key 或模型成功生成的摘要/行动原文。扩展默认开启遥测；用户可在面板中取消勾选。当前扩展已连接到 `https://mailmate-telemetry.mailmate-telemetry-261117.workers.dev/v1/events`。
 
 ## 收集内容
 
@@ -55,10 +55,10 @@
    npx wrangler@latest deploy
    ```
 
-Wrangler 会输出 Worker URL。将 URL 发给 Mailmate 维护者后，由维护者把 `/v1/events` 地址和精确的 Worker 域名权限写入扩展，并重新生成安装包；无需用户自行修改扩展源码。
+Wrangler 会输出 Worker URL。当前公开扩展包已经配置了上述 Mailmate Worker。若要改用你自己的 Worker，请将 `/v1/events` 地址写入 `mailmate-outlook-mvp/telemetry-config.js`，并把对应域名加入 `mailmate-outlook-mvp/manifest.json` 的 `host_permissions`，然后重新生成安装包；普通用户无需修改源码。
 
 ## 查看指标和错误日志
 
-部署后打开 `https://<Worker URL>/admin`，输入部署时设置的 `ADMIN_TOKEN`。页面会显示日活/周活/月活安装实例、分析次数、任务勾选率、Groq 错误分组、客户端错误类别及模型 Token 用量。管理员口令不会保存在页面。
+当前数据看板入口：[打开 Mailmate 使用数据看板](https://mailmate-telemetry.mailmate-telemetry-261117.workers.dev/admin)。输入部署时设置的 `ADMIN_TOKEN` 后，可查看近 24 小时 / 7 天 / 30 天匿名活跃安装、分析次数、行动勾选率、Groq 错误分组、客户端错误类别和模型 Token 用量。管理员口令只保留在页面内存中，不会写入浏览器存储。
 
 `/v1/admin/summary` 受管理员口令保护。扩展写入事件的 `/v1/events` 不需要嵌入共享密钥，因此任何人都可能伪造匿名统计；这些数据适合判断趋势，不适合作为计费或审计依据。

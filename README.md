@@ -48,7 +48,7 @@ python evaluate_results.py
 - 全部处理完成或用户主动停止后，在页面右下角展示列表；若读取或模型请求连续失败，会显示中断说明和原因，不会提前进入汇总页。
 - 每封邮件同时生成中文和英文摘要及行动内容，可即时切换语言；缓存命中时跳过重复模型调用。
 - 扩展目录、安装步骤和隐私说明见 [`mailmate-outlook-mvp/README.md`](mailmate-outlook-mvp/README.md)。
-- 去标识使用统计和 Groq 错误诊断通过 Cloudflare Worker + D1 服务实现，扩展默认开启，可在面板中关闭；不会发送邮件正文、主题、发件人或 API Key。后端部署说明见 [`mailmate-telemetry/README.md`](mailmate-telemetry/README.md)。
+- 去标识使用统计和 Groq 错误诊断通过 Cloudflare Worker + D1 服务实现，扩展默认开启，可在面板中关闭；不会发送邮件正文、主题、发件人或 API Key。[打开使用数据看板](https://mailmate-telemetry.mailmate-telemetry-261117.workers.dev/admin)；后端部署说明见 [`mailmate-telemetry/README.md`](mailmate-telemetry/README.md)。
 
 **下载：** [Chrome / Edge 扩展安装包](https://github.com/Shengheshan/Mailmate/raw/refs/heads/mailmate-outlook-mvp/mailmate-outlook-mvp/Mailmate-Outlook-Extension.zip)。解压后，在浏览器扩展管理页开启“开发者模式”，加载直接包含 `manifest.json` 的文件夹。
 
