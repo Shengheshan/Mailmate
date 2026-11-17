@@ -3,6 +3,7 @@
   const CACHE_KEY = "mailmate-analysis-cache-v1";
   const LANGUAGE_KEY = "mailmate-language-v1";
   const API_KEY_KEY = "mailmate-groq-api-key-v1";
+  const READ_STATE_CONFIRMED_KEY = "mailmate-unread-protection-confirmed-v1";
   const TELEMETRY_CONSENT_KEY = "mailmate-telemetry-enabled-v1";
   const TELEMETRY_ENDPOINT = String(globalThis.MAILMATE_TELEMETRY_ENDPOINT || "");
   const MAX_BODY_CHARS = 16000;
@@ -47,14 +48,15 @@
       intro: "选择语言并输入 Groq API Key。点一次开始后，扩展会自动读取当前文件夹近两周的邮件；请保持 Outlook 按最新邮件优先排序。",
       key: "Groq API Key（保存在本浏览器的插件本地存储中）",
       consent: "我同意将近两周邮件的正文发送到 Groq（美国）进行分析。",
-      guideEyebrow: "开始分析前必须完成",
-      guideTitle: "先关闭 Outlook 自动标记为已读",
-      guideIntro: "Mailmate 会逐封打开邮件读取正文。Outlook 若自动标记为已读，可能改变原本未读邮件的状态。",
-      guideSteps: ["点击“稍后去 Outlook 设置”，在 Outlook 右上角打开设置。", "进入“邮件 → 邮件处理 → 标记为已读”。", "选择“不要自动标记为已读”并保存，然后返回 Mailmate。"],
-      guideNote: "插件无法直接读取学校 Outlook 的这项设置；每次开始分析前都需要你完成并确认。",
-      guideConfirm: "我已选择并保存“不要自动标记为已读”。",
-      guideLater: "稍后去 Outlook 设置",
-      guideStart: "确认并开始分析",
+      guideEyebrow: "首次使用设置",
+      guideTitles: ["打开 Outlook 设置", "选择邮件", "打开邮件处理", "关闭自动标记为已读", "确认设置并开始"],
+      guideInstructions: ["点击 Outlook 页面右上角齿轮。红框会标出位置。", "在设置侧栏中点击“邮件”。", "在邮件设置列表中点击“邮件处理”。", "选择“不自动将邮件标记为已读”。请确认该选项已选中。", "请确认上方选项已选中。完成后点击按钮，Mailmate 会记住这次设置确认。"],
+      guideNote: "分析时 Outlook 可能逐封打开邮件。此指引只需完成一次；插件无法读取或代替你更改 Outlook 的此项设置。",
+      guideStepLabel: (step, total) => `步骤 ${step} / ${total}`,
+      guideCancel: "取消",
+      guideBack: "上一步",
+      guideComplete: "我已完成设置，开始分析",
+      guideSaveError: "无法保存设置确认，请检查浏览器扩展存储权限后重试。",
       links: "同时把正文中的链接地址发送给模型（默认关闭；链接可能含个人专属信息）",
       cache: "将结构化结果、邮件正文和完成状态保存在本浏览器，供下次跳过已分析邮件并查看原文（不会发送到遥测服务；不保存 API Key）",
       telemetry: "分享给 Mailmate（Cloudflare）的使用统计与技术诊断（使用随机安装标识，含 Groq 错误码/消息、请求 ID、模型及 Token 用量；不含邮件正文、主题、发件人、API Key 或成功生成的摘要/行动）",
@@ -172,7 +174,7 @@
       retrying: (s) => "Groq 暂时限流，" + s + " 秒后重试…",
       errPrefix: "分析遇到问题：",
       authError: "Groq 拒绝了请求。请检查 API Key、模型权限和账户设置。",
-      unreadNote: "开始前会先要求确认 Outlook 已保存“不要自动标记为已读”。",
+      unreadNote: "首次分析前会引导你关闭 Outlook 自动标记为已读；确认一次后会记住。",
       keyStorageNote: "API Key 只保存在此浏览器的插件本地存储中，不会发送给 Mailmate，也不会进入遥测。清空此输入框即可删除已保存的 Key。"
     },
     en: {
@@ -184,14 +186,15 @@
       intro: "Choose a language and enter your Groq API key. Click start once to scan the current folder's last two weeks; keep Outlook sorted newest first.",
       key: "Groq API key (saved in this browser's local extension storage)",
       consent: "I agree to send the email bodies in this range to Groq (US) for analysis.",
-      guideEyebrow: "Required before analysis",
-      guideTitle: "Turn off Outlook automatic mark-as-read",
-      guideIntro: "Mailmate opens emails one by one to read their contents. Outlook may otherwise change unread emails to read.",
-      guideSteps: ["Choose “Go to Outlook settings” and open Settings from Outlook's top-right corner.", "Go to Mail → Message handling → Mark as read.", "Choose “Don't automatically mark as read”, save, then return to Mailmate."],
-      guideNote: "The extension cannot inspect this school Outlook setting. You must complete and confirm it before each analysis run.",
-      guideConfirm: "I selected and saved “Don't automatically mark as read”.",
-      guideLater: "Go to Outlook settings",
-      guideStart: "Confirm and start analysis",
+      guideEyebrow: "First-use setup",
+      guideTitles: ["Open Outlook settings", "Choose Mail", "Open Mail handling", "Turn off automatic mark-as-read", "Confirm and start"],
+      guideInstructions: ["Click the gear in the top-right corner of Outlook. The red frame marks it.", "In the settings sidebar, select Mail.", "In the Mail settings list, select Message handling.", "Select “Don't automatically mark email as read” and make sure it is selected.", "Confirm the option above is selected. Click below when done; Mailmate will remember this confirmation."],
+      guideNote: "Outlook may open messages one by one during analysis. This guide is required once; the extension cannot inspect or change this Outlook setting for you.",
+      guideStepLabel: (step, total) => `Step ${step} / ${total}`,
+      guideCancel: "Cancel",
+      guideBack: "Back",
+      guideComplete: "I finished setup; start analysis",
+      guideSaveError: "Could not save the setting confirmation. Check extension storage access and try again.",
       links: "Also send visible link addresses to the model (off by default; links can be personal)",
       cache: "Save structured results, email bodies, and completion flags in this browser so analyzed emails can be skipped and originals previewed later (not sent to telemetry; API keys are not saved)",
       telemetry: "Share usage metrics and technical diagnostics with Mailmate (Cloudflare), using a random installation ID (Groq error code/message, request ID, model and token usage; no email text, subject, sender, API key or successful summaries/actions)",
@@ -309,7 +312,7 @@
       retrying: (s) => "Groq is temporarily rate-limiting requests; retrying in " + s + " seconds…",
       errPrefix: "Analysis error: ",
       authError: "Groq rejected the request. Check the API key, model access, and account settings.",
-      unreadNote: "Before starting, you must confirm Outlook saved “Don't automatically mark as read”.",
+      unreadNote: "The first analysis guides you through turning off Outlook automatic mark-as-read; this confirmation is remembered.",
       keyStorageNote: "The API key is stored only in this browser's local extension storage. It is not sent to Mailmate or telemetry. Clear this field to delete the saved key."
     }
   };
@@ -335,7 +338,7 @@
     "button.primary,button.secondary{border:0;border-radius:8px;padding:9px 11px;font:650 12px system-ui,sans-serif;cursor:pointer}",
     "button.primary{flex:1;color:#fff;background:#2457d6}",
     "button.secondary{color:#173b76;background:#e3ebf8}",
-    "button:disabled{opacity:.55;cursor:wait}",
+    "button:disabled{opacity:1;color:#8992a1;background:#e8ebf1;cursor:default;box-shadow:none}",
     ".status{min-height:18px;margin:9px 0 0;color:#536176;font-size:12px}",
     ".status.error{color:#a32828}.status.ok{color:#116149}",
     ".stats{margin:8px 0 0;color:#536176;font-size:12px}",
@@ -411,7 +414,7 @@
     ".results-footer{min-height:33px;display:flex;align-items:center;justify-content:space-between;gap:12px;color:#929cab;font-size:9px}",
     ".source-preview{position:fixed;z-index:30;width:min(430px,calc(100vw - 24px));max-height:min(520px,calc(100vh - 24px));overflow:auto;padding:14px;border:1px solid #e4e8f0;border-radius:12px;color:#354154;background:#fff;box-shadow:0 16px 46px #25345430;font:11px/1.6 system-ui,sans-serif}.source-preview[hidden]{display:none}.preview-title{color:#253248;font-size:12px;font-weight:700}.preview-meta,.preview-note{margin-top:4px;color:#8d97a6;font-size:9px}.preview-section-title{margin-top:11px;color:#59677d;font-size:10px;font-weight:750}.preview-summary{margin-top:5px;padding:9px;border-radius:7px;background:#f5f7fc;color:#26344b;font-size:11px;white-space:pre-wrap;overflow-wrap:anywhere}.preview-body{max-height:230px;overflow:auto;margin-top:5px;padding:10px;border:1px solid #e9ecf2;border-radius:7px;background:#fcfcfd;white-space:pre-wrap;overflow-wrap:anywhere}.preview-body mark{background:#fff0bd;color:#725016}.issue-list{display:grid;gap:9px}.issue-item{padding:10px;border:1px solid #e8ebf1;border-radius:8px;background:#fff}.issue-heading{display:flex;align-items:flex-start;gap:7px}.issue-kind{flex:0 0 auto;padding:2px 6px;border-radius:99px;background:#fff4db;color:#845d16;font-size:9px;font-weight:700}.issue-kind.failed{background:#ffefed;color:#a54033}.issue-subject{color:#2e3b50;font-size:11px;font-weight:700;overflow-wrap:anywhere}.issue-meta{margin:4px 0 0;color:#8c97a8;font-size:9px}.issue-reason{margin:6px 0 0;color:#566377;font-size:10px;overflow-wrap:anywhere}",
     ".modal-layer{position:fixed;z-index:40;inset:0;display:grid;place-items:center;padding:24px;background:#15213b66}.modal-layer[hidden]{display:none}.message-modal{width:min(780px,calc(100vw - 32px));max-height:min(80vh,760px);display:flex;flex-direction:column;overflow:hidden;border:1px solid #e5e8f0;border-radius:14px;background:#fff;box-shadow:0 24px 70px #111b33a0}.modal-header{display:flex;justify-content:space-between;gap:12px;padding:16px 18px;border-bottom:1px solid #edf0f5}.modal-title{font-size:14px;font-weight:700}.modal-meta{margin-top:4px;color:#8490a0;font-size:10px}.modal-body{overflow:auto;padding:18px;color:#354154;font-size:12px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}.modal-close{border:0;background:transparent;font-size:22px;cursor:pointer}.modal-footer{padding:10px 18px;border-top:1px solid #edf0f5;color:#929cab;font-size:10px}",
-    ".unread-guide-layer{position:fixed;z-index:2147483647;inset:0;display:grid;place-items:center;padding:20px;background:#15213bb8;font:14px/1.5 system-ui,sans-serif}.unread-guide-layer[hidden]{display:none!important}.unread-guide{width:min(520px,calc(100vw - 32px));max-height:min(90vh,760px);overflow:auto;padding:25px;border:1px solid #e2e7f0;border-radius:16px;background:#fff;box-shadow:0 24px 80px #07152b66}.guide-eyebrow{margin:0;color:#5769d9;font-size:11px;font-weight:800;letter-spacing:.04em}.guide-title{margin:7px 0 0;color:#243149;font-size:19px;line-height:1.3}.guide-intro{margin:10px 0 0;color:#637086;font-size:12px}.guide-steps{display:grid;gap:9px;margin:18px 0;padding:0;list-style:none;counter-reset:guide-step}.guide-steps li{position:relative;padding:10px 11px 10px 39px;border-radius:9px;background:#f5f7fb;color:#35445b;font-size:12px}.guide-steps li:before{counter-increment:guide-step;content:counter(guide-step);position:absolute;left:11px;top:9px;width:19px;height:19px;display:grid;place-items:center;border-radius:50%;color:#4058c9;background:#e5eaff;font-size:10px;font-weight:800}.guide-note{padding:9px 11px;border-left:3px solid #e1a839;border-radius:5px;background:#fff8e7;color:#73571e;font-size:11px}.guide-confirm{margin:16px 0 12px!important;font-weight:600!important}.guide-confirm input{accent-color:#4e62d8}.guide-actions{display:flex;gap:9px}.guide-actions .secondary,.guide-actions .primary{min-height:40px}.guide-actions .secondary{flex:0 0 auto}",
+    ".unread-guide-layer{position:fixed;z-index:2147483647;inset:0;font:14px/1.5 system-ui,sans-serif;pointer-events:none}.unread-guide-layer[hidden]{display:none!important}.guide-shield{position:fixed;z-index:0;background:#0d172c99;pointer-events:auto;cursor:default}.guide-live-ring{position:fixed;z-index:1;border:3px solid #f02f34;border-radius:7px;box-shadow:0 0 0 5px #fff9,0 0 24px 8px #ff263b99;pointer-events:none;animation:mm-guide-pulse 1.05s ease-in-out infinite}.guide-live-ring[hidden]{display:none}.unread-guide{position:fixed;z-index:2;right:24px;bottom:22px;width:min(510px,calc(100vw - 32px));max-height:min(88vh,760px);overflow:auto;padding:19px;border:1px solid #e2e7f0;border-radius:16px;background:#fff;box-shadow:0 24px 80px #07152b66;pointer-events:auto}.guide-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}.guide-eyebrow{margin:0;color:#5769d9;font-size:11px;font-weight:800;letter-spacing:.04em}.guide-counter{color:#8691a3;font-size:10px;font-weight:650;white-space:nowrap}.guide-title{margin:7px 0 0;color:#243149;font-size:19px;line-height:1.3}.guide-intro{min-height:36px;margin:8px 0 12px;color:#637086;font-size:12px}.guide-image-stage{height:clamp(135px,25vh,210px);display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid #e7ebf2;border-radius:10px;background:#f6f8fc}.guide-image-wrap{position:relative;display:flex;max-width:100%;max-height:100%;align-items:center;justify-content:center}.guide-image{display:block;max-width:100%;max-height:100%;object-fit:contain}.guide-preview-highlight{position:absolute;border:3px solid #ed252d;border-radius:4px;box-shadow:0 0 0 3px #fff9,0 0 19px 6px #ff263b99;animation:mm-guide-pulse 1.05s ease-in-out infinite;pointer-events:none}.guide-image-stage[data-kind=gear] .guide-preview-highlight{left:92.8%;top:0;width:5.2%;height:45%}.guide-image-stage[data-kind=mail] .guide-preview-highlight{left:1%;top:13.5%;width:19%;height:5.5%}.guide-image-stage[data-kind=handling] .guide-preview-highlight{left:4.5%;top:42%;width:23%;height:8.5%}.guide-image-stage[data-kind=read-state] .guide-preview-highlight{left:22%;top:16.5%;width:35%;height:17.8%}.guide-note{margin-top:12px;padding:9px 11px;border-left:3px solid #e1a839;border-radius:5px;background:#fff8e7;color:#73571e;font-size:11px}.guide-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}.guide-actions button{min-height:40px}.guide-actions .guide-start{flex:0 1 auto}.guide-actions button:disabled,.guide-actions .primary:disabled{color:#8992a1;background:#e8ebf1;cursor:default;opacity:1}@keyframes mm-guide-pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.045);opacity:.72}}@media(prefers-reduced-motion:reduce){.guide-live-ring,.guide-preview-highlight{animation:none}}@media(max-width:600px){.unread-guide{right:8px;bottom:8px;width:calc(100vw - 16px);padding:15px}.guide-image-stage{height:150px}.guide-title{font-size:17px}}",
     "@media(max-width:720px){.panel.show-results{right:8px;bottom:8px;width:calc(100vw - 16px);height:calc(100vh - 16px)}.panel .card-header{gap:7px;padding:10px}.brand-lockup{min-width:0}.header-summary{display:none}.language-control span{display:none}.content{padding:0 9px 8px}.toolbar{gap:6px}.sort-note{display:none}.search-box{width:100%;max-width:none}.results-table{min-width:1060px}}"
   ].join("\n");
 
@@ -462,7 +465,7 @@
     '  <div class="modal-layer" hidden><section class="message-modal" role="dialog" aria-modal="true"><header class="modal-header"><div><div class="modal-title"></div><div class="modal-meta"></div></div><button class="modal-close" type="button" aria-label="Close">×</button></header><div class="modal-body"></div><footer class="modal-footer"></footer></section></div>',
     ' </div>',
     '</section>',
-    '<div class="unread-guide-layer" hidden><section class="unread-guide" role="dialog" aria-modal="true" aria-labelledby="unread-guide-title"><p class="guide-eyebrow"></p><h2 class="guide-title" id="unread-guide-title"></h2><p class="guide-intro"></p><ol class="guide-steps"><li></li><li></li><li></li></ol><p class="guide-note"></p><label class="check guide-confirm"><input type="checkbox" class="guide-confirm-input"><span class="guide-confirm-text"></span></label><div class="guide-actions"><button class="secondary guide-later" type="button"></button><button class="primary guide-start" type="button" disabled></button></div></section></div>'
+    '<div class="unread-guide-layer" hidden><div class="guide-shield guide-shield-top"></div><div class="guide-shield guide-shield-left"></div><div class="guide-shield guide-shield-right"></div><div class="guide-shield guide-shield-bottom"></div><div class="guide-live-ring" hidden aria-hidden="true"></div><section class="unread-guide" role="dialog" aria-modal="true" aria-labelledby="unread-guide-title"><div class="guide-heading"><p class="guide-eyebrow"></p><span class="guide-counter"></span></div><h2 class="guide-title" id="unread-guide-title"></h2><p class="guide-intro"></p><div class="guide-image-stage"><div class="guide-image-wrap"><img class="guide-image" alt=""><span class="guide-preview-highlight" aria-hidden="true"></span></div></div><p class="guide-note"></p><div class="guide-actions"><button class="secondary guide-cancel" type="button"></button><button class="secondary guide-back" type="button" disabled></button><button class="primary guide-start" type="button" disabled></button></div></section></div>'
   ].join("");
   shadow.append(style, root);
 
@@ -482,8 +485,15 @@
   const keyInput = $(".api-key");
   const consentInput = $(".consent");
   const unreadGuideLayer = $(".unread-guide-layer");
-  const unreadGuideConfirm = $(".guide-confirm-input");
   const unreadGuideStart = $(".guide-start");
+  const unreadGuideBack = $(".guide-back");
+  const unreadGuideRing = $(".guide-live-ring");
+  const unreadGuideShields = {
+    top: $(".guide-shield-top"),
+    left: $(".guide-shield-left"),
+    right: $(".guide-shield-right"),
+    bottom: $(".guide-shield-bottom")
+  };
   const linksInput = $(".send-links");
   const cacheInput = $(".cache-enabled");
   const telemetryInput = $(".telemetry-enabled");
@@ -519,6 +529,13 @@
   let preservePartialResults = false;
   let apiKeySaveTimer = 0;
   let telemetryCheckResult = null;
+  let unreadGuideStage = -1;
+  let unreadGuideAdvanceTimer = 0;
+
+  const guideImageUrls = {
+    gear: chrome.runtime.getURL("assets/outlook-settings-gear.png"),
+    mail: chrome.runtime.getURL("assets/outlook-mail-handling.png")
+  };
 
   function makeText(tag, className, value) {
     const element = document.createElement(tag);
@@ -542,13 +559,9 @@
     $(".key-storage-note").textContent = t.keyStorageNote;
     $(".consent-text").textContent = t.consent;
     $(".guide-eyebrow").textContent = t.guideEyebrow;
-    $(".guide-title").textContent = t.guideTitle;
-    $(".guide-intro").textContent = t.guideIntro;
-    root.querySelectorAll(".guide-steps li").forEach((step, index) => { step.textContent = t.guideSteps[index] || ""; });
     $(".guide-note").textContent = t.guideNote;
-    $(".guide-confirm-text").textContent = t.guideConfirm;
-    $(".guide-later").textContent = t.guideLater;
-    unreadGuideStart.textContent = t.guideStart;
+    $(".guide-cancel").textContent = t.guideCancel;
+    unreadGuideBack.textContent = t.guideBack;
     $(".links-text").textContent = t.links;
     $(".cache-text").textContent = t.cache;
     $(".telemetry-text").textContent = t.telemetry;
@@ -562,7 +575,7 @@
     stopButton.textContent = t.stop;
     clearButton.textContent = t.clear;
     $(".unread-note").textContent = t.unreadNote;
-    unreadGuideStart.disabled = !unreadGuideConfirm.checked;
+    if (unreadGuideStage >= 0) renderUnreadGuideStage();
     searchInput.placeholder = t.search;
     const headings = root.querySelectorAll(".results-table thead th");
     t.columns.forEach((label, index) => { headings[index].textContent = label; });
@@ -581,10 +594,181 @@
   }
 
   function showUnreadGuide() {
-    unreadGuideConfirm.checked = false;
-    unreadGuideStart.disabled = true;
     unreadGuideLayer.hidden = false;
-    unreadGuideConfirm.focus();
+    document.addEventListener("click", handleUnreadGuidePageClick, true);
+    document.addEventListener("keydown", blockUnreadGuideBackgroundKeys, true);
+    window.addEventListener("resize", updateUnreadGuideFocus, { passive: true });
+    root.addEventListener("keydown", trapUnreadGuideTab, true);
+    setUnreadGuideStage(0);
+    $(".guide-cancel").focus();
+  }
+
+  function closeUnreadGuide() {
+    window.clearTimeout(unreadGuideAdvanceTimer);
+    document.removeEventListener("click", handleUnreadGuidePageClick, true);
+    document.removeEventListener("keydown", blockUnreadGuideBackgroundKeys, true);
+    window.removeEventListener("resize", updateUnreadGuideFocus);
+    root.removeEventListener("keydown", trapUnreadGuideTab, true);
+    unreadGuideLayer.hidden = true;
+    unreadGuideStage = -1;
+  }
+
+  function setUnreadGuideStage(stage) {
+    unreadGuideStage = Math.max(0, Math.min(4, stage));
+    renderUnreadGuideStage();
+    updateUnreadGuideFocus();
+  }
+
+  function renderUnreadGuideStage() {
+    if (unreadGuideStage < 0) return;
+    const t = strings[language];
+    const titles = t.guideTitles;
+    const instructions = t.guideInstructions;
+    $(".guide-eyebrow").textContent = t.guideEyebrow;
+    $(".guide-counter").textContent = t.guideStepLabel(unreadGuideStage + 1, 5);
+    $(".guide-title").textContent = titles[unreadGuideStage];
+    $(".guide-intro").textContent = instructions[unreadGuideStage];
+    $(".guide-note").textContent = t.guideNote;
+    unreadGuideBack.disabled = unreadGuideStage === 0;
+    unreadGuideStart.disabled = unreadGuideStage !== 4;
+    unreadGuideStart.textContent = t.guideComplete;
+    const stage = $(".guide-image-stage");
+    const image = $(".guide-image");
+    if (unreadGuideStage === 0) {
+      stage.dataset.kind = "gear";
+      image.src = guideImageUrls.gear;
+      image.alt = language === "zh" ? "Outlook 右上角设置齿轮，红框闪烁提示位置" : "Outlook settings gear in the top-right corner, highlighted in red";
+    } else {
+      stage.dataset.kind = unreadGuideStage === 1 ? "mail" : unreadGuideStage === 2 ? "handling" : "read-state";
+      image.src = guideImageUrls.mail;
+      image.alt = language === "zh" ? "Outlook 邮件处理设置路径，红框闪烁提示位置" : "Outlook Mail handling settings path, highlighted in red";
+    }
+  }
+
+  function unreadGuideCandidateText(element) {
+    const labels = element.labels ? [...element.labels].map((label) => label.textContent || "").join(" ") : "";
+    return [element.getAttribute("aria-label"), element.getAttribute("title"), element.getAttribute("data-testid"), labels, element.textContent]
+      .filter(Boolean).join(" ").replace(/\s+/g, " ").trim();
+  }
+
+  function isPageElementVisible(element) {
+    if (!(element instanceof Element) || element.closest(`#${HOST_ID}`)) return false;
+    const rect = element.getBoundingClientRect();
+    if (rect.width < 1 || rect.height < 1 || rect.bottom < 0 || rect.right < 0 || rect.top > innerHeight || rect.left > innerWidth) return false;
+    const style = getComputedStyle(element);
+    return style.display !== "none" && style.visibility !== "hidden" && Number(style.opacity) !== 0;
+  }
+
+  function guideClickableElement(element) {
+    if (element.matches('input[type="radio"]')) return element.labels?.[0] || element.parentElement || element;
+    return element.closest('button,[role="button"],[role="tab"],[role="treeitem"],[role="radio"],a,label') || element;
+  }
+
+  function findUnreadGuideTarget(stage) {
+    const selectors = 'button,[role="button"],[role="tab"],[role="treeitem"],[role="radio"],label,input[type="radio"],a,[aria-label],[title]';
+    const candidates = [...document.querySelectorAll(selectors)].filter(isPageElementVisible);
+    let matcher;
+    if (stage === 0) {
+      matcher = (element, text) => /settings|设置/i.test(text) && element.getBoundingClientRect().top < 160 && element.getBoundingClientRect().left > innerWidth * 0.62;
+    } else if (stage === 1) {
+      matcher = (element, text) => /^(邮件|mail)$/i.test(text) && element.getBoundingClientRect().left > innerWidth * 0.12 && element.getBoundingClientRect().left < innerWidth * 0.68;
+    } else if (stage === 2) {
+      matcher = (element, text) => /^(邮件处理|message handling|mail handling)$/i.test(text) && element.getBoundingClientRect().left > innerWidth * 0.12 && element.getBoundingClientRect().left < innerWidth * 0.68;
+    } else if (stage === 3) {
+      matcher = (_element, text) => /(不自动|不要自动|don't automatically|do not automatically|never automatically).*?(邮件|email|message)?.*?标记为已读|((don't|do not|never) automatically).*?mark.*?read/i.test(text);
+    } else return null;
+    const matches = candidates.filter((element) => matcher(element, unreadGuideCandidateText(element)));
+    matches.sort((left, right) => {
+      const a = left.getBoundingClientRect();
+      const b = right.getBoundingClientRect();
+      return (a.width * a.height) - (b.width * b.height);
+    });
+    const element = matches[0];
+    if (!element) return null;
+    const clickable = guideClickableElement(element);
+    return isPageElementVisible(clickable) ? clickable : element;
+  }
+
+  function unreadGuideFallbackRect(stage) {
+    const w = innerWidth;
+    const h = innerHeight;
+    const ratios = [
+      [0.955, 0.015, 0.04, 0.075],
+      [0.205, 0.15, 0.115, 0.055],
+      [0.30, 0.405, 0.14, 0.085],
+      [0.395, 0.18, 0.205, 0.165]
+    ][stage];
+    if (!ratios) return null;
+    return { left: w * ratios[0], top: h * ratios[1], width: w * ratios[2], height: h * ratios[3] };
+  }
+
+  function setGuideShield(element, left, top, width, height) {
+    element.style.left = `${Math.max(0, left)}px`;
+    element.style.top = `${Math.max(0, top)}px`;
+    element.style.width = `${Math.max(0, width)}px`;
+    element.style.height = `${Math.max(0, height)}px`;
+  }
+
+  function updateUnreadGuideFocus() {
+    if (unreadGuideLayer.hidden) return;
+    const target = unreadGuideStage < 4 ? findUnreadGuideTarget(unreadGuideStage) : null;
+    const rect = target?.getBoundingClientRect() || unreadGuideFallbackRect(unreadGuideStage);
+    const viewportWidth = innerWidth;
+    const viewportHeight = innerHeight;
+    if (!rect) {
+      setGuideShield(unreadGuideShields.top, 0, 0, viewportWidth, viewportHeight);
+      setGuideShield(unreadGuideShields.left, 0, 0, 0, 0);
+      setGuideShield(unreadGuideShields.right, 0, 0, 0, 0);
+      setGuideShield(unreadGuideShields.bottom, 0, 0, 0, 0);
+      unreadGuideRing.hidden = true;
+      return;
+    }
+    const padding = 7;
+    const left = Math.max(0, rect.left - padding);
+    const top = Math.max(0, rect.top - padding);
+    const right = Math.min(viewportWidth, rect.right + padding);
+    const bottom = Math.min(viewportHeight, rect.bottom + padding);
+    setGuideShield(unreadGuideShields.top, 0, 0, viewportWidth, top);
+    setGuideShield(unreadGuideShields.left, 0, top, left, bottom - top);
+    setGuideShield(unreadGuideShields.right, right, top, viewportWidth - right, bottom - top);
+    setGuideShield(unreadGuideShields.bottom, 0, bottom, viewportWidth, viewportHeight - bottom);
+    unreadGuideRing.hidden = false;
+    unreadGuideRing.style.left = `${left}px`;
+    unreadGuideRing.style.top = `${top}px`;
+    unreadGuideRing.style.width = `${right - left}px`;
+    unreadGuideRing.style.height = `${bottom - top}px`;
+  }
+
+  function handleUnreadGuidePageClick(event) {
+    if (unreadGuideLayer.hidden || unreadGuideStage >= 4 || event.composedPath().includes(host)) return;
+    const target = findUnreadGuideTarget(unreadGuideStage);
+    const rect = target?.getBoundingClientRect() || unreadGuideFallbackRect(unreadGuideStage);
+    if (!rect) return;
+    const padding = 9;
+    if (event.clientX < rect.left - padding || event.clientX > rect.right + padding || event.clientY < rect.top - padding || event.clientY > rect.bottom + padding) return;
+    const stage = unreadGuideStage;
+    window.clearTimeout(unreadGuideAdvanceTimer);
+    unreadGuideAdvanceTimer = window.setTimeout(() => {
+      if (unreadGuideStage === stage) setUnreadGuideStage(stage + 1);
+    }, stage === 0 ? 650 : 250);
+  }
+
+  function blockUnreadGuideBackgroundKeys(event) {
+    if (unreadGuideLayer.hidden || event.composedPath().includes(host)) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+  }
+
+  function trapUnreadGuideTab(event) {
+    if (unreadGuideLayer.hidden || event.key !== "Tab") return;
+    const controls = [...unreadGuideLayer.querySelectorAll("button:not(:disabled)")];
+    if (!controls.length) return;
+    const currentIndex = controls.indexOf(event.target);
+    const nextIndex = event.shiftKey
+      ? (currentIndex <= 0 ? controls.length - 1 : currentIndex - 1)
+      : (currentIndex < 0 || currentIndex === controls.length - 1 ? 0 : currentIndex + 1);
+    event.preventDefault();
+    controls[nextIndex].focus();
   }
 
   function persistApiKeySoon() {
@@ -1785,7 +1969,12 @@
     if (apiKey.length < 20) return setStatus(t.needKey, "error");
     try { await chrome.storage.local.set({ [API_KEY_KEY]: apiKey }); }
     catch { /* Saving is best-effort; do not block an otherwise valid analysis. */ }
-    if (!unreadConfirmed) return showUnreadGuide();
+    if (!unreadConfirmed) {
+      let readState = {};
+      try { readState = await chrome.storage.local.get(READ_STATE_CONFIRMED_KEY); }
+      catch { /* If local storage cannot be read, show the required guide again. */ }
+      if (readState[READ_STATE_CONFIRMED_KEY] !== true) return showUnreadGuide();
+    }
 
     const selector = chooseRowSelector();
     if (!selector) return setStatus(t.noList, "error");
@@ -2167,14 +2356,18 @@
   });
   keyInput.addEventListener("input", persistApiKeySoon);
   keyInput.addEventListener("change", () => { void persistApiKeyNow(); });
-  unreadGuideConfirm.addEventListener("change", () => {
-    unreadGuideStart.disabled = !unreadGuideConfirm.checked;
+  $(".guide-cancel").addEventListener("click", closeUnreadGuide);
+  unreadGuideBack.addEventListener("click", () => {
+    if (unreadGuideStage > 0) setUnreadGuideStage(unreadGuideStage - 1);
   });
-  $(".guide-later").addEventListener("click", () => { unreadGuideLayer.hidden = true; });
   unreadGuideStart.addEventListener("click", () => {
-    if (!unreadGuideConfirm.checked) return;
-    unreadGuideLayer.hidden = true;
-    void runBatch({ unreadConfirmed: true });
+    if (unreadGuideStage !== 4) return;
+    chrome.storage.local.set({ [READ_STATE_CONFIRMED_KEY]: true }).then(() => {
+      closeUnreadGuide();
+      void runBatch({ unreadConfirmed: true });
+    }).catch(() => {
+      $(".guide-note").textContent = strings[language].guideSaveError;
+    });
   });
   $(".modal-close").addEventListener("click", () => { $(".modal-layer").hidden = true; });
   $(".modal-layer").addEventListener("click", (event) => {

@@ -42,7 +42,7 @@ python evaluate_results.py
 
 首次使用需要准备自己的 Groq API Key：登录 [Groq Console](https://console.groq.com/)，进入 [API Keys](https://console.groq.com/keys) 创建密钥，然后在 Outlook 页面打开 Mailmate 并粘贴到密钥输入框。密钥会自动保存在当前浏览器的插件本地存储中，刷新后仍可使用；不会发送给 Mailmate 遥测，也不会进入邮件缓存。该存储不是密码保险箱，请像密码一样保管，不要发给他人或提交到 GitHub；清空输入框即可删除。Groq 模型与免费额度可能调整，当前账户的可用模型和限额请查看 [Groq 限额说明](https://console.groq.com/docs/rate-limits)。详细操作见扩展 README。
 
-这条工作线是独立的 Chrome / Edge 扩展，读取用户正常登录后 Outlook 网页中显示的邮件，并通过 **Groq 在线 API** 分析；不使用 Ollama，也不运行上面的 180 封离线评测。
+这条工作线是独立的 Chrome / Edge 扩展，读取用户正常登录后 Outlook 网页中显示的邮件，并通过 **Groq 在线 API** 分析；不使用 Ollama，也不运行上面的 180 封离线评测。首次分析前，扩展会用全屏遮罩和闪烁红框引导用户关闭 Outlook 自动标记已读；确认一次后会在本地记住。
 
 - 用户点击一次“开始分析”，扩展先快速统计当前 Outlook 文件夹近两周邮件数量，再逐封分析；统计阶段不打开邮件、不调用 AI，分析阶段显示处理序号、完成百分比和 AI 剩余时间估算。
 - 全部处理完成或用户主动停止后，在页面右下角展示列表；若读取或模型请求连续失败，会显示中断说明和原因，不会提前进入汇总页。
