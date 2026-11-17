@@ -50,6 +50,21 @@
       telemetryUnavailable: "遥测服务尚未配置；当前不会发送统计或日志。",
       processingTitle: "正在总结中",
       processingNote: "首次同步可能需要较长时间，耗时会随待处理邮件数量变化。请保持此标签页打开，完成后会显示汇总结果。",
+      countingTitle: "正在统计近两周的邮件",
+      countProgress: (checked, found) => `已检查 ${checked} 封，发现 ${found} 封日期在近两周内的邮件`,
+      countEta: "统计完成后会显示日期可识别的邮件总数、分析进度和剩余时间估算。",
+      countCurrent: "正在快速扫描邮件列表，不会打开邮件或调用 AI。",
+      analyzingTitle: "正在分析邮件",
+      analysisReady: "已统计完邮件总数，开始分析。",
+      currentEmail: (current, total) => `当前正在分析第 ${current} / ${total} 封`,
+      progressCount: (done, total, analyzed, reused, failed) => `已处理 ${done} / ${total} 封（新分析 ${analyzed}，缓存复用 ${reused}${failed ? `，失败 ${failed}` : ""}）`,
+      etaCalculating: "正在根据 AI 响应速度估算剩余时间…",
+      etaCached: "剩余邮件均可从缓存读取，无需再次调用 AI。",
+      etaNoEmails: "近两周没有需要分析的邮件。",
+      etaRemaining: (duration) => `预计还需约 ${duration}（按本次已完成 AI 请求的平均耗时估算）`,
+      etaSeconds: (seconds) => `${seconds} 秒`,
+      etaMinutes: (minutes, seconds) => seconds ? `${minutes} 分 ${seconds} 秒` : `${minutes} 分钟`,
+      countIncomplete: "统计结果可能不完整：只计入日期可识别的邮件。",
       start: "开始分析近两周邮件",
       resume: "继续分析近两周邮件",
       stop: "停止",
@@ -137,6 +152,21 @@
       telemetryUnavailable: "Telemetry service is not configured; no metrics or logs are being sent.",
       processingTitle: "Summarizing your emails",
       processingNote: "The first sync may take longer depending on the number of emails to process. Keep this tab open; your summary will appear when processing is finished.",
+      countingTitle: "Counting emails from the last two weeks",
+      countProgress: (checked, found) => `Checked ${checked} emails; found ${found} dated within the last two weeks`,
+      countEta: "The total for emails with readable list dates, analysis progress, and remaining-time estimate will appear after counting.",
+      countCurrent: "Quickly scanning the email list; messages are not opened and no AI is called.",
+      analyzingTitle: "Analyzing emails",
+      analysisReady: "The total is counted. Analysis is starting.",
+      currentEmail: (current, total) => `Analyzing email ${current} of ${total}`,
+      progressCount: (done, total, analyzed, reused, failed) => `Processed ${done} / ${total} (${analyzed} newly analyzed, ${reused} from cache${failed ? `, ${failed} failed` : ""})`,
+      etaCalculating: "Estimating remaining time from AI response speed…",
+      etaCached: "Remaining emails can be loaded from cache without another AI request.",
+      etaNoEmails: "There are no emails to analyze from the last two weeks.",
+      etaRemaining: (duration) => `About ${duration} left, estimated from the average time of completed AI requests`,
+      etaSeconds: (seconds) => `${seconds} sec`,
+      etaMinutes: (minutes, seconds) => seconds ? `${minutes} min ${seconds} sec` : `${minutes} min`,
+      countIncomplete: "The count may be incomplete; only emails with readable list dates are included.",
       start: "Analyze emails from the last two weeks",
       resume: "Continue analysis",
       stop: "Stop",
@@ -252,7 +282,7 @@
     ".processing-indicator{min-height:330px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center}.processing-indicator[hidden]{display:none!important}",
     ".processing-spinner{width:42px;height:42px;border:4px solid #e7ebf5;border-top-color:#566fe8;border-radius:50%;animation:mm-spin .85s linear infinite}",
     ".processing-title{margin-top:17px;color:#26344b;font-size:15px;font-weight:750}.processing-note{max-width:310px;margin:8px 0 20px;color:#7b8799;font-size:12px;line-height:1.6}",
-    ".processing-track{width:min(300px,90%);height:6px;overflow:hidden;border-radius:99px;background:#e8edf7}.processing-track span{display:block;width:34%;height:100%;border-radius:inherit;background:linear-gradient(90deg,#a7b6ff,#4665e7,#a7b6ff);animation:mm-progress 1.6s ease-in-out infinite}",
+    ".processing-progress{width:min(330px,94%);margin-top:24px}.processing-metrics{display:flex;justify-content:space-between;gap:10px;margin-bottom:9px;color:#536176;font-size:12px;text-align:left}.processing-count{overflow-wrap:anywhere}.processing-percent{flex:0 0 auto;color:#26344b;font-weight:750}.processing-track{width:100%;height:9px;overflow:hidden;border-radius:99px;background:#e8edf7}.processing-track span{display:block;width:34%;height:100%;border-radius:inherit;background:linear-gradient(90deg,#a7b6ff,#4665e7,#a7b6ff);animation:mm-progress 1.6s ease-in-out infinite}.processing-track:not(.is-indeterminate) span{width:0%;background:#566fe8;animation:none;transition:width .2s ease}.processing-current{min-height:18px;margin:9px 0 0;color:#566fe8;font-size:12px;font-weight:650;text-align:center}.processing-eta{min-height:18px;margin:5px 0 0;color:#7b8799;font-size:11px;line-height:1.5;text-align:center}",
     ".processing-stop{margin-top:18px}",
     "@keyframes mm-spin{to{transform:rotate(360deg)}}@keyframes mm-progress{0%{transform:translateX(-115%)}100%{transform:translateX(310%)}}",
     ".panel{display:flex;flex-direction:column;height:auto;min-height:0;overflow:hidden}",
@@ -337,7 +367,7 @@
     '  <p class="status" aria-live="polite"></p>',
     '  <p class="foot unread-note"></p>',
     '  </div>',
-    '  <div class="processing-indicator" hidden aria-live="polite"><div class="processing-spinner" aria-hidden="true"></div><div class="processing-title"></div><p class="processing-note"></p><div class="processing-track" aria-hidden="true"><span></span></div><button class="secondary processing-stop" type="button"></button></div>',
+    '  <div class="processing-indicator" hidden aria-live="polite"><div class="processing-spinner" aria-hidden="true"></div><div class="processing-title"></div><p class="processing-note"></p><div class="processing-progress"><div class="processing-metrics"><span class="processing-count"></span><span class="processing-percent"></span></div><div class="processing-track is-indeterminate"><span></span></div><p class="processing-current"></p><p class="processing-eta"></p></div><button class="secondary processing-stop" type="button"></button></div>',
     '  </section>',
     '  <section class="results-view" hidden>',
     '   <p class="result-status" aria-live="polite"></p>',
@@ -378,6 +408,13 @@
   const stopButton = $(".stop");
   const clearButton = $(".clear");
   const statusNode = $(".status");
+  const processingTitleNode = $(".processing-title");
+  const processingCountNode = $(".processing-count");
+  const processingPercentNode = $(".processing-percent");
+  const processingTrackNode = $(".processing-track");
+  const processingFillNode = $(".processing-track span");
+  const processingCurrentNode = $(".processing-current");
+  const processingEtaNode = $(".processing-eta");
   let language = (navigator.language || "en").toLowerCase().startsWith("zh") ? "zh" : "en";
   let running = false;
   let stopRequested = false;
@@ -389,6 +426,7 @@
   let activePreviewTrigger = null;
   let lastRequestAt = 0;
   let tokenWindow = [];
+  let currentProgress = null;
 
   function makeText(tag, className, value) {
     const element = document.createElement(tag);
@@ -418,6 +456,7 @@
     telemetryInput.disabled = running;
     $(".processing-title").textContent = t.processingTitle;
     $(".processing-note").textContent = t.processingNote;
+    if (currentProgress) updateProcessingProgress(currentProgress);
     $(".processing-stop").textContent = t.stop;
     startButton.textContent = hasScanned ? t.resume : t.start;
     stopButton.textContent = t.stop;
@@ -454,6 +493,55 @@
       resultStatusNode.textContent = visibleMessage;
       resultStatusNode.className = "result-status" + (kind && !running ? " " + kind : "");
     }
+  }
+
+  function formatEstimateDuration(milliseconds) {
+    const totalSeconds = Math.max(1, Math.ceil(milliseconds / 1000));
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    return minutes ? strings[language].etaMinutes(minutes, seconds) : strings[language].etaSeconds(seconds);
+  }
+
+  function updateProcessingProgress(progress) {
+    currentProgress = { ...progress };
+    const t = strings[language];
+    if (progress.phase === "counting") {
+      processingTitleNode.textContent = t.countingTitle;
+      processingCountNode.textContent = t.countProgress(progress.checked || 0, progress.found || 0);
+      processingPercentNode.textContent = "";
+      processingTrackNode.classList.add("is-indeterminate");
+      processingTrackNode.removeAttribute("role");
+      processingTrackNode.removeAttribute("aria-valuenow");
+      processingTrackNode.removeAttribute("aria-valuemin");
+      processingTrackNode.removeAttribute("aria-valuemax");
+      processingFillNode.style.width = "";
+      processingCurrentNode.textContent = t.countCurrent;
+      processingEtaNode.textContent = progress.incomplete ? t.countIncomplete : t.countEta;
+      return;
+    }
+
+    const total = Math.max(0, Number(progress.total) || 0);
+    const done = Math.max(0, Math.min(total, Number(progress.done) || 0));
+    const percent = total ? done / total * 100 : 100;
+    processingTitleNode.textContent = t.analyzingTitle;
+    $(".processing-note").textContent = progress.countIncomplete ? t.countIncomplete : t.processingNote;
+    processingCountNode.textContent = t.progressCount(done, total, progress.analyzed || 0, progress.reused || 0, progress.failed || 0);
+    processingPercentNode.textContent = `${percent.toFixed(1)}%`;
+    processingTrackNode.classList.remove("is-indeterminate");
+    processingTrackNode.setAttribute("role", "progressbar");
+    processingTrackNode.setAttribute("aria-valuemin", "0");
+    processingTrackNode.setAttribute("aria-valuemax", "100");
+    processingTrackNode.setAttribute("aria-valuenow", percent.toFixed(1));
+    processingFillNode.style.width = `${percent}%`;
+    processingCurrentNode.textContent = progress.currentPosition && progress.done < total
+      ? t.currentEmail(progress.currentPosition, total)
+      : (progress.done < total ? t.analysisReady : "");
+
+    if (!total) processingEtaNode.textContent = t.etaNoEmails;
+    else if (progress.done >= total) processingEtaNode.textContent = "";
+    else if (!(progress.pendingAi > 0)) processingEtaNode.textContent = t.etaCached;
+    else if (!(progress.averageMs > 0)) processingEtaNode.textContent = t.etaCalculating;
+    else processingEtaNode.textContent = t.etaRemaining(formatEstimateDuration(progress.averageMs * progress.pendingAi));
   }
 
   function clean(value) {
@@ -1297,6 +1385,7 @@
     setBusy(true);
     hasScanned = true;
     stopRequested = false;
+    currentProgress = null;
     showSettingsView();
     panel.classList.remove("is-minimized");
     currentFilter = "all";
@@ -1304,150 +1393,259 @@
     currentRecords = new Map();
     resultRows.replaceChildren();
     renderRecords();
-    setStatus(t.scanning);
     if (cacheInput.checked) await loadCache();
 
     const firstDescriptor = allRows.map(describeRow).find(isSelectedRowDescriptor);
     const initialScrollContainer = findScrollContainer(allRows[0]);
     const originalPosition = scrollPosition(initialScrollContainer);
     const initialSelectedKey = firstDescriptor ? firstDescriptor.key : null;
-    scrollToPosition(initialScrollContainer, 0);
-    await delay(400);
     const cutoff = new Date();
     cutoff.setDate(cutoff.getDate() - 14);
     cutoff.setHours(0, 0, 0, 0);
 
-    const seen = new Set();
     let recentCount = 0;
     let reusedCount = 0;
     let analyzedCount = 0;
     let skippedCount = 0;
     let failedCount = 0;
-    let oldStreak = 0;
-    let unknownStreak = 0;
-    let noProgress = 0;
+    let progressFailedCount = 0;
+    let processedCount = 0;
     let stopForQuota = false;
     let stoppedOnError = false;
-    let exhausted = false;
+    let countIncomplete = false;
+    const candidates = [];
+    const candidateByKey = new Map();
+    const countedKeys = new Set();
+    const apiDurations = [];
+    let checkedCount = 0;
+
+    function remainingAiCalls() {
+      return candidates.reduce((sum, candidate) => {
+        const cached = cacheInput.checked && candidate.cacheHit;
+        return sum + (!candidate.completed && !cached ? 1 : 0);
+      }, 0);
+    }
+
+    function showAnalysisProgress(currentPosition = null) {
+      updateProcessingProgress({
+        phase: "analyzing", done: processedCount, total: candidates.length,
+        analyzed: analyzedCount, reused: reusedCount, failed: progressFailedCount,
+        pendingAi: remainingAiCalls(),
+        averageMs: apiDurations.length ? apiDurations.reduce((sum, duration) => sum + duration, 0) / apiDurations.length : 0,
+        countIncomplete, currentPosition
+      });
+    }
 
     try {
-      while (!stopRequested && !exhausted) {
+      scrollToPosition(initialScrollContainer, 0);
+      await delay(400);
+      updateProcessingProgress({ phase: "counting", checked: 0, found: 0 });
+
+      const countSeen = new Set();
+      let oldStreak = 0;
+      let unknownStreak = 0;
+      let noProgress = 0;
+      let countDone = false;
+      let safetyStopped = false;
+
+      while (!stopRequested && !countDone) {
         const rows = visibleRows(selector).map(describeRow);
-        if (!rows.length) break;
-        const fresh = rows.filter((item) => !seen.has(item.key));
+        if (!rows.length) {
+          countDone = atScrollEnd(initialScrollContainer);
+          if (!countDone) countIncomplete = true;
+          break;
+        }
+        const fresh = rows.filter((item) => !countSeen.has(item.key));
         if (!fresh.length) {
-          if (atScrollEnd(initialScrollContainer)) break;
+          if (atScrollEnd(initialScrollContainer)) {
+            countDone = true;
+            break;
+          }
           const before = scrollPosition(initialScrollContainer);
           scrollDown(initialScrollContainer);
-          await delay(450);
+          await delay(250);
           if (Math.abs(scrollPosition(initialScrollContainer) - before) < 3) {
             noProgress++;
-            if (noProgress >= 3) break;
+            if (noProgress >= 3) {
+              countIncomplete = !atScrollEnd(initialScrollContainer);
+              countDone = true;
+            }
           } else noProgress = 0;
           continue;
         }
         noProgress = 0;
 
         for (const descriptor of fresh) {
-          if (stopRequested || exhausted) break;
-          seen.add(descriptor.key);
+          if (stopRequested || safetyStopped) break;
+          countSeen.add(descriptor.key);
+          checkedCount++;
           let messageDate = descriptor.receivedDate;
-          if (messageDate && messageDate < cutoff) {
-            oldStreak++;
+
+          if (!messageDate) {
             skippedCount++;
-            if (oldStreak >= 3) exhausted = true;
+            unknownStreak++;
+            countIncomplete = true;
+            emitTelemetry("client_error", { failure_stage: "counting", failure_class: "received_date_unreadable", http_status: 0 });
+            if (unknownStreak >= 8) {
+              safetyStopped = true;
+            }
+            updateProcessingProgress({ phase: "counting", checked: checkedCount, found: candidates.length, incomplete: countIncomplete });
             continue;
           }
-          oldStreak = 0;
 
-          let email = null;
-          if (!messageDate) {
-            email = await readOpenedRow(descriptor, selector);
-            if (!email) {
-              failedCount++;
-              unknownStreak++;
-              emitTelemetry("client_error", { failure_stage: "batch", failure_class: "email_body_unreadable", http_status: 0 });
-              setStatus(t.noBody, "error");
-              if (unknownStreak >= 8) {
-                setStatus(t.tooManyUnknown, "error");
-                exhausted = true;
-              }
-              continue;
-            }
-            messageDate = bestRowDate(email, descriptor);
-            if (!messageDate) {
-              unknownStreak++;
-              skippedCount++;
-              emitTelemetry("client_error", { failure_stage: "batch", failure_class: "received_date_unreadable", http_status: 0 });
-              setStatus(t.unknownDate, "error");
-              if (unknownStreak >= 8) {
-                setStatus(t.tooManyUnknown, "error");
-                exhausted = true;
-              }
-              continue;
-            }
-          }
+          unknownStreak = 0;
           if (messageDate < cutoff) {
             oldStreak++;
             skippedCount++;
-            if (oldStreak >= 3) exhausted = true;
-            continue;
+            if (oldStreak >= 3) countDone = true;
+          } else {
+            oldStreak = 0;
+            unknownStreak = 0;
+            if (!countedKeys.has(descriptor.key)) {
+              countedKeys.add(descriptor.key);
+              const cacheKey = await cacheKeyForRow(descriptor, messageDate);
+              const cachedRecord = persistentCache[cacheKey];
+              const candidate = {
+                key: descriptor.key,
+                position: candidates.length + 1,
+                descriptor: { ...descriptor, receivedDate: messageDate },
+                receivedDate: messageDate,
+                cacheKey,
+                preloadedEmail: null,
+                cacheHit: Boolean(cacheInput.checked && typeof cachedRecord?.analysis?.email_summary_en === "string" && typeof cachedRecord?.analysis?.email_summary_zh === "string"),
+                processed: false,
+                completed: false
+              };
+              candidates.push(candidate);
+              candidateByKey.set(candidate.key, candidate);
+            }
           }
-          oldStreak = 0;
-          unknownStreak = 0;
-
-          const cacheKey = await cacheKeyForRow(descriptor, messageDate);
-          recentCount++;
-          if (cacheInput.checked && reuseCachedRecord(cacheKey)) {
-            reusedCount++;
-            setStatus(t.progress(recentCount, recentCount, descriptor.subject), "ok");
-            continue;
-          }
-
-          if (!email) {
-            setStatus(t.opening(descriptor.subject));
-            email = await readOpenedRow(descriptor, selector);
-          }
-          if (!email || !email.body_text || email.body_text.length < 20) {
-            failedCount++;
-            emitTelemetry("client_error", { failure_stage: "batch", failure_class: "email_body_unreadable", http_status: 0 });
-            setStatus(t.noBody, "error");
-            continue;
-          }
-
-          const actualDate = bestRowDate(email, descriptor) || messageDate;
-          if (!actualDate || actualDate < cutoff) {
-            skippedCount++;
-            if (actualDate && actualDate < cutoff) oldStreak++;
-            if (oldStreak >= 3) exhausted = true;
-            continue;
-          }
-
-          let result;
-          try {
-            result = await analyzeOne(email, descriptor, actualDate, cacheKey, apiKey);
-          } catch (error) {
-            if (error?.status !== 413) throw error;
-            failedCount++;
-            setStatus(t.payloadTooLarge, "error");
-            continue;
-          }
-          if (result?.stopped || stopRequested) break;
-          analyzedCount++;
-          setStatus(t.progress(recentCount, recentCount, descriptor.subject), "ok");
-          if (result.record) currentRecords.set(result.record.cache_key, result.record);
-          renderRecords();
+          updateProcessingProgress({ phase: "counting", checked: checkedCount, found: candidates.length, incomplete: countIncomplete });
+          if (countDone) break;
         }
 
-        if (stopRequested || exhausted) break;
-        if (atScrollEnd(initialScrollContainer)) break;
+        if (stopRequested || safetyStopped || countDone) break;
+        if (atScrollEnd(initialScrollContainer)) {
+          countDone = true;
+          break;
+        }
         const before = scrollPosition(initialScrollContainer);
         scrollDown(initialScrollContainer);
-        await delay(450);
+        await delay(250);
         if (Math.abs(scrollPosition(initialScrollContainer) - before) < 3) {
           noProgress++;
-          if (noProgress >= 3) break;
+          if (noProgress >= 3) {
+            countIncomplete = !atScrollEnd(initialScrollContainer);
+            countDone = true;
+          }
         } else noProgress = 0;
+      }
+
+      recentCount = candidates.length;
+      if (!stopRequested) {
+        scrollToPosition(initialScrollContainer, 0);
+        await delay(350);
+        showAnalysisProgress();
+
+        const processedKeys = new Set();
+        let analysisNoProgress = 0;
+        while (processedCount < candidates.length && !stopRequested) {
+          const visible = visibleRows(selector).map(describeRow);
+          const pendingVisible = visible
+            .filter((descriptor) => candidateByKey.has(descriptor.key) && !processedKeys.has(descriptor.key));
+
+          if (pendingVisible.length) {
+            analysisNoProgress = 0;
+            for (const visibleDescriptor of pendingVisible) {
+              if (stopRequested) break;
+              const candidate = candidateByKey.get(visibleDescriptor.key);
+              if (!candidate || processedKeys.has(candidate.key)) continue;
+              const descriptor = candidate.descriptor;
+              candidate.processed = true;
+              processedKeys.add(candidate.key);
+              showAnalysisProgress(candidate.position);
+
+              if (candidate.cacheHit && reuseCachedRecord(candidate.cacheKey)) {
+                reusedCount++;
+                processedCount++;
+                candidate.completed = true;
+                showAnalysisProgress();
+                continue;
+              }
+
+              let email = candidate.preloadedEmail;
+              if (!email) email = await readOpenedRow(descriptor, selector);
+              if (!email || !email.body_text || email.body_text.length < 20) {
+                failedCount++;
+                progressFailedCount++;
+                emitTelemetry("client_error", { failure_stage: "batch", failure_class: "email_body_unreadable", http_status: 0 });
+                processedCount++;
+                candidate.completed = true;
+                showAnalysisProgress();
+                continue;
+              }
+
+              const actualDate = bestRowDate(email, descriptor) || candidate.receivedDate;
+              if (!actualDate || actualDate < cutoff) {
+                skippedCount++;
+                processedCount++;
+                candidate.completed = true;
+                showAnalysisProgress();
+                continue;
+              }
+
+              const requestStartedAt = Date.now();
+              let result;
+              try {
+                result = await analyzeOne(email, descriptor, actualDate, candidate.cacheKey, apiKey);
+              } catch (error) {
+                if (error?.status !== 413) throw error;
+                failedCount++;
+                progressFailedCount++;
+                processedCount++;
+                candidate.completed = true;
+                setStatus(t.payloadTooLarge, "error");
+                showAnalysisProgress();
+                continue;
+              }
+              if (result?.stopped || stopRequested) {
+                candidate.processed = false;
+                processedKeys.delete(candidate.key);
+                break;
+              }
+              apiDurations.push(Math.max(1, Date.now() - requestStartedAt));
+              analyzedCount++;
+              processedCount++;
+              candidate.completed = true;
+              if (result.record) currentRecords.set(result.record.cache_key, result.record);
+              renderRecords();
+              showAnalysisProgress();
+            }
+            continue;
+          }
+
+          if (atScrollEnd(initialScrollContainer)) break;
+          const before = scrollPosition(initialScrollContainer);
+          scrollDown(initialScrollContainer);
+          await delay(450);
+          if (Math.abs(scrollPosition(initialScrollContainer) - before) < 3) {
+            analysisNoProgress++;
+            if (analysisNoProgress >= 3) break;
+          } else analysisNoProgress = 0;
+        }
+
+        if (!stopRequested && processedCount < candidates.length) {
+          for (const candidate of candidates) {
+            if (candidate.processed) continue;
+            candidate.processed = true;
+            candidate.completed = true;
+            processedCount++;
+            failedCount++;
+            progressFailedCount++;
+            emitTelemetry("client_error", { failure_stage: "batch", failure_class: "email_row_not_found", http_status: 0 });
+            showAnalysisProgress();
+          }
+        }
       }
     } catch (error) {
       stoppedOnError = true;
