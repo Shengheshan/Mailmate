@@ -2,6 +2,8 @@
   const HOST_ID = "mailmate-batch-host";
   const CACHE_KEY = "mailmate-analysis-cache-v1";
   const LANGUAGE_KEY = "mailmate-language-v1";
+  const TELEMETRY_CONSENT_KEY = "mailmate-telemetry-enabled-v1";
+  const TELEMETRY_ENDPOINT = String(globalThis.MAILMATE_TELEMETRY_ENDPOINT || "");
   const MAX_BODY_CHARS = 16000;
   const MAX_CACHE_RECORDS = 500;
   const TOKEN_BUDGET_PER_MINUTE = 7300;
@@ -43,6 +45,11 @@
       unread: "我已在 Outlook 设置中选择“不要自动标记为已读”，并确认过设置有效。",
       links: "同时把正文中的链接地址发送给模型（默认关闭；链接可能含个人专属信息）",
       cache: "将结构化结果和完成状态保存在本浏览器，用于下次跳过已分析邮件（不保存邮件正文或 API Key）",
+      telemetry: "分享给 Mailmate（Cloudflare）的使用统计与技术诊断（使用随机安装标识，含 Groq 错误码/消息、请求 ID、模型及 Token 用量；不含邮件正文、主题、发件人、API Key 或成功生成的摘要/行动）",
+      telemetryNote: "默认开启。遥测记录随机安装标识、分析次数、缓存命中、行动项勾选数与技术错误。诊断日志保留 30 天，活跃统计最多保留 90 天；可随时取消勾选。",
+      telemetryUnavailable: "遥测服务尚未配置；当前不会发送统计或日志。",
+      processingTitle: "正在总结中",
+      processingNote: "首次同步可能需要较长时间，耗时会随待处理邮件数量变化。请保持此标签页打开，完成后会显示汇总结果。",
       start: "开始分析近两周邮件",
       resume: "继续分析近两周邮件",
       stop: "停止",
@@ -125,6 +132,11 @@
       unread: "I set Outlook to “Don't automatically mark as read” and verified the setting.",
       links: "Also send visible link addresses to the model (off by default; links can be personal)",
       cache: "Save structured results and completion flags in this browser to skip analyzed emails next time (no email body or API key is saved)",
+      telemetry: "Share usage metrics and technical diagnostics with Mailmate (Cloudflare), using a random installation ID (Groq error code/message, request ID, model and token usage; no email text, subject, sender, API key or successful summaries/actions)",
+      telemetryNote: "Enabled by default. Telemetry includes a random installation ID, analysis counts, cache hits, task checkbox counts and technical errors. Diagnostic logs are kept for 30 days; activity snapshots for up to 90 days. Turn this off any time.",
+      telemetryUnavailable: "Telemetry service is not configured; no metrics or logs are being sent.",
+      processingTitle: "Summarizing your emails",
+      processingNote: "The first sync may take longer depending on the number of emails to process. Keep this tab open; your summary will appear when processing is finished.",
       start: "Analyze emails from the last two weeks",
       resume: "Continue analysis",
       stop: "Stop",
@@ -236,6 +248,13 @@
     "summary{cursor:pointer;color:#36517f;font-size:11px;font-weight:600}",
     "pre{max-height:170px;overflow:auto;margin:7px 0 0;padding:8px;border-radius:6px;background:#f7f9fc;white-space:pre-wrap;overflow-wrap:anywhere;font:11px/1.45 system-ui,sans-serif}",
     ".foot{margin:8px 0 0;color:#6b7788;font-size:10px}",
+    ".setup-view.is-running .intro{display:none}.setup-view.is-running .setup-controls{display:none}",
+    ".processing-indicator{min-height:330px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center}.processing-indicator[hidden]{display:none!important}",
+    ".processing-spinner{width:42px;height:42px;border:4px solid #e7ebf5;border-top-color:#566fe8;border-radius:50%;animation:mm-spin .85s linear infinite}",
+    ".processing-title{margin-top:17px;color:#26344b;font-size:15px;font-weight:750}.processing-note{max-width:310px;margin:8px 0 20px;color:#7b8799;font-size:12px;line-height:1.6}",
+    ".processing-track{width:min(300px,90%);height:6px;overflow:hidden;border-radius:99px;background:#e8edf7}.processing-track span{display:block;width:34%;height:100%;border-radius:inherit;background:linear-gradient(90deg,#a7b6ff,#4665e7,#a7b6ff);animation:mm-progress 1.6s ease-in-out infinite}",
+    ".processing-stop{margin-top:18px}",
+    "@keyframes mm-spin{to{transform:rotate(360deg)}}@keyframes mm-progress{0%{transform:translateX(-115%)}100%{transform:translateX(310%)}}",
     ".panel{display:flex;flex-direction:column;height:auto;min-height:0;overflow:hidden}",
     ".panel.show-results{right:22px;bottom:18px;width:min(1190px,calc(100vw - 32px));height:min(700px,calc(100vh - 36px));max-height:none}",
     ".panel.is-minimized{height:68px;min-height:68px}.panel.is-minimized .content{display:none}",
@@ -306,14 +325,19 @@
     ' <div class="content">',
     '  <section class="setup-view">',
     '  <p class="hint intro"></p>',
+    '  <div class="setup-controls">',
     '  <label class="key-label"></label><input class="api-key" type="password" autocomplete="off" spellcheck="false">',
     '  <label class="check"><input class="consent" type="checkbox"><span class="consent-text"></span></label>',
     '  <label class="check"><input class="unread-confirm" type="checkbox"><span class="unread-text"></span></label>',
     '  <label class="check"><input class="send-links" type="checkbox"><span class="links-text"></span></label>',
     '  <label class="check"><input class="cache-enabled" type="checkbox" checked><span class="cache-text"></span></label>',
+    '  <label class="check"><input class="telemetry-enabled" type="checkbox" checked><span class="telemetry-text"></span></label>',
+    '  <p class="hint telemetry-note"></p>',
     '  <div class="buttons"><button class="primary start" type="button"></button><button class="secondary stop" type="button" disabled></button><button class="secondary clear" type="button"></button></div>',
     '  <p class="status" aria-live="polite"></p>',
     '  <p class="foot unread-note"></p>',
+    '  </div>',
+    '  <div class="processing-indicator" hidden aria-live="polite"><div class="processing-spinner" aria-hidden="true"></div><div class="processing-title"></div><p class="processing-note"></p><div class="processing-track" aria-hidden="true"><span></span></div><button class="secondary processing-stop" type="button"></button></div>',
     '  </section>',
     '  <section class="results-view" hidden>',
     '   <p class="result-status" aria-live="polite"></p>',
@@ -349,6 +373,7 @@
   const unreadInput = $(".unread-confirm");
   const linksInput = $(".send-links");
   const cacheInput = $(".cache-enabled");
+  const telemetryInput = $(".telemetry-enabled");
   const startButton = $(".start");
   const stopButton = $(".stop");
   const clearButton = $(".clear");
@@ -388,6 +413,12 @@
     $(".unread-text").textContent = t.unread;
     $(".links-text").textContent = t.links;
     $(".cache-text").textContent = t.cache;
+    $(".telemetry-text").textContent = t.telemetry;
+    $(".telemetry-note").textContent = TELEMETRY_ENDPOINT ? t.telemetryNote : t.telemetryUnavailable;
+    telemetryInput.disabled = running;
+    $(".processing-title").textContent = t.processingTitle;
+    $(".processing-note").textContent = t.processingNote;
+    $(".processing-stop").textContent = t.stop;
     startButton.textContent = hasScanned ? t.resume : t.start;
     stopButton.textContent = t.stop;
     clearButton.textContent = t.clear;
@@ -416,11 +447,12 @@
   }
 
   function setStatus(message, kind) {
-    statusNode.textContent = message || "";
-    statusNode.className = "status" + (kind ? " " + kind : "");
+    const visibleMessage = running ? "" : (message || "");
+    statusNode.textContent = visibleMessage;
+    statusNode.className = "status" + (kind && !running ? " " + kind : "");
     if (resultStatusNode) {
-      resultStatusNode.textContent = message || "";
-      resultStatusNode.className = "result-status" + (kind ? " " + kind : "");
+      resultStatusNode.textContent = visibleMessage;
+      resultStatusNode.className = "result-status" + (kind && !running ? " " + kind : "");
     }
   }
 
@@ -1064,6 +1096,7 @@
       record.completed = checkbox.checked;
       await saveRecord(record);
       renderRecords();
+      emitTelemetry("task_snapshot", currentTaskSnapshot());
     });
     completedCell.append(checkbox);
 
@@ -1212,6 +1245,9 @@
 
   function setBusy(isBusy) {
     running = isBusy;
+    setupView.classList.toggle("is-running", isBusy);
+    $(".processing-indicator").hidden = !isBusy;
+    statusNode.hidden = isBusy;
     startButton.disabled = isBusy;
     stopButton.disabled = !isBusy;
     languageSelect.disabled = isBusy;
@@ -1220,10 +1256,28 @@
     unreadInput.disabled = isBusy;
     linksInput.disabled = isBusy;
     cacheInput.disabled = isBusy;
+    telemetryInput.disabled = isBusy;
+    $(".processing-stop").disabled = !isBusy;
   }
 
   function delay(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  function emitTelemetry(eventType, details = {}) {
+    if (!TELEMETRY_ENDPOINT) return;
+    try {
+      const pending = chrome.runtime.sendMessage({
+        type: "MAILMATE_TELEMETRY_EVENT",
+        payload: { event_type: eventType, language, ...details }
+      });
+      if (pending?.catch) pending.catch(() => {});
+    } catch { /* Telemetry must never block email analysis. */ }
+  }
+
+  function currentTaskSnapshot() {
+    const tasks = [...currentRecords.values()].filter((record) => record.analysis?.requires_action && record.analysis?.action?.type !== "none");
+    return { action_total: tasks.length, action_completed: tasks.filter((record) => record.completed).length };
   }
 
   async function runBatch() {
@@ -1239,6 +1293,7 @@
     const allRows = visibleRows(selector);
     if (!allRows.length) return setStatus(t.noRows, "error");
 
+    emitTelemetry("analysis_started", {});
     setBusy(true);
     hasScanned = true;
     stopRequested = false;
@@ -1311,6 +1366,7 @@
             if (!email) {
               failedCount++;
               unknownStreak++;
+              emitTelemetry("client_error", { failure_stage: "batch", failure_class: "email_body_unreadable", http_status: 0 });
               setStatus(t.noBody, "error");
               if (unknownStreak >= 8) {
                 setStatus(t.tooManyUnknown, "error");
@@ -1322,6 +1378,7 @@
             if (!messageDate) {
               unknownStreak++;
               skippedCount++;
+              emitTelemetry("client_error", { failure_stage: "batch", failure_class: "received_date_unreadable", http_status: 0 });
               setStatus(t.unknownDate, "error");
               if (unknownStreak >= 8) {
                 setStatus(t.tooManyUnknown, "error");
@@ -1353,6 +1410,7 @@
           }
           if (!email || !email.body_text || email.body_text.length < 20) {
             failedCount++;
+            emitTelemetry("client_error", { failure_stage: "batch", failure_class: "email_body_unreadable", http_status: 0 });
             setStatus(t.noBody, "error");
             continue;
           }
@@ -1413,6 +1471,15 @@
       setBusy(false);
       showResultsView();
       renderRecords();
+      const taskSnapshot = currentTaskSnapshot();
+      emitTelemetry("analysis_finished", {
+        scanned_count: recentCount, analyzed_count: analyzedCount, cache_hit_count: reusedCount,
+        skipped_count: skippedCount, failed_count: failedCount, stopped: Boolean(stopRequested),
+        ...taskSnapshot
+      });
+      if (stoppedOnError && !stopForQuota) {
+        emitTelemetry("client_error", { failure_stage: "batch", failure_class: "batch_processing_error", http_status: 0 });
+      }
       if (stopRequested) setStatus(t.stopped, "ok");
       else if (!stopForQuota && !stoppedOnError) {
         setStatus(t.finished(recentCount, reusedCount, analyzedCount, skippedCount, failedCount), "ok");
@@ -1460,10 +1527,15 @@
   });
   startButton.addEventListener("click", () => { runBatch(); });
   stopButton.addEventListener("click", () => { stopRequested = true; setStatus(strings[language].stopped); });
+  $(".processing-stop").addEventListener("click", () => { stopRequested = true; setStatus(strings[language].stopped); });
   clearButton.addEventListener("click", () => { clearCache(); });
+  telemetryInput.addEventListener("change", () => {
+    chrome.storage.local.set({ [TELEMETRY_CONSENT_KEY]: telemetryInput.checked }).catch(() => {});
+  });
 
-  chrome.storage.local.get(LANGUAGE_KEY).then((value) => {
+  chrome.storage.local.get([LANGUAGE_KEY, TELEMETRY_CONSENT_KEY]).then((value) => {
     if (value && (value[LANGUAGE_KEY] === "zh" || value[LANGUAGE_KEY] === "en")) setLanguage(value[LANGUAGE_KEY]);
+    telemetryInput.checked = value?.[TELEMETRY_CONSENT_KEY] !== false;
   }).catch(() => {});
 
   setLanguage(language);

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Mailmate 邮件助手",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "用户点击开始后，分析当前 Outlook 文件夹近两周邮件并展示摘要。",
   "permissions": ["storage"],
   "host_permissions": ["https://api.groq.com/*"],
@@ -14,7 +14,7 @@
         "https://outlook.office365.com/*",
         "https://outlook.live.com/*"
       ],
-      "js": ["content.js"],
+      "js": ["telemetry-config.js", "content.js"],
       "run_at": "document_idle"
     }
   ],

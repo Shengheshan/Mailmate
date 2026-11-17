@@ -48,6 +48,7 @@ python evaluate_results.py
 - 扫描完成或停止后，在页面右下角展示列表；按重要性和截止日期排序，支持搜索、状态筛选、完成勾选和原文预览。
 - 每封邮件同时生成中文和英文摘要及行动内容，可即时切换语言；缓存命中时跳过重复模型调用。
 - 扩展目录、安装步骤和隐私说明见 [`mailmate-outlook-mvp/README.md`](mailmate-outlook-mvp/README.md)。
+- 去标识使用统计和 Groq 错误诊断通过可选的 Cloudflare Worker + D1 服务实现；当前服务 URL 尚未配置，因此公开扩展包不会发送遥测。后端部署说明见 [`mailmate-telemetry/README.md`](mailmate-telemetry/README.md)。
 
 **下载：** [Chrome / Edge 扩展安装包](https://github.com/Shengheshan/Mailmate/raw/refs/heads/mailmate-outlook-mvp/mailmate-outlook-mvp/Mailmate-Outlook-Extension.zip)。解压后，在浏览器扩展管理页开启“开发者模式”，加载直接包含 `manifest.json` 的文件夹。
 
@@ -62,6 +63,7 @@ python evaluate_results.py
 ```text
 Mailmate/
 ├── mailmate-outlook-mvp/       # Groq 驱动的 Chrome / Edge 扩展 Demo
+├── mailmate-telemetry/          # 可选的 Cloudflare 遥测与错误诊断后端
 ├── mailmate_ai_offline.py      # Ollama 本地离线邮件分析
 ├── time_normalizer.py          # 离线流程日期归一化
 ├── consistency_validator.py    # 离线流程 JSON 校验
