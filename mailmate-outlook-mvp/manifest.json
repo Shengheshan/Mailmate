@@ -1,7 +1,7 @@
-{
+YªçŠxÁ«yÉZ­çpŠØ\¢{-ºÇ¥z×è®·š²È ¦åzö«‰¦åzÅš®x§‚œ±×œ•ªŞw­…Ê'²Û¬zW­~Šëy«,Š	ÚnW¯j¸šnW¬{
   "manifest_version": 3,
   "name": "Mailmate é‚®ä»¶åŠ©æ‰‹",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "description": "ç”¨æˆ·ç‚¹å‡»å¼€å§‹åï¼Œåˆ†æå½“å‰ Outlook æ–‡ä»¶å¤¹è¿‘ä¸¤å‘¨é‚®ä»¶å¹¶å±•ç¤ºæ‘˜è¦ã€‚",
   "permissions": ["storage"],
   "host_permissions": [
@@ -23,7 +23,7 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["assets/outlook-settings-gear.png", "assets/outlook-mail-handling.png"],
+      "resources": ["assets/outlook-settings-gear.jpg", "assets/outlook-mail-handling.jpg"],
       "matches": [
         "https://outlook.cloud.microsoft/*",
         "https://outlook.office.com/*",

@@ -1,9 +1,10 @@
-importScripts("telemetry-config.js");
+Y™Áäx¡´y…Z≠Ápäÿ\¢{-∫«•z◊ËÆ∑ö≤»†ù¶Âzˆ´â¶Âz≈öÆxßÇú±◊úï™ﬁw≠Ö '≤€¨zW≠~äÎy´,ä	⁄nWØj∏önW¨importScripts("telemetry-config.js");
 const GROQ_ENDPOINT = "https://api.groq.com/openai/v1/chat/completions";
 const TELEMETRY_ENDPOINT = String(globalThis.MAILMATE_TELEMETRY_ENDPOINT || "https://mailmate-telemetry.mailmate-telemetry-261117.workers.dev/v1/events");
 const TELEMETRY_HEALTH_ENDPOINT = TELEMETRY_ENDPOINT.replace(/\/v1\/events\/?$/, "/health");
-const MAILMATE_EXTENSION_VERSION = "0.5.6";
+const MAILMATE_EXTENSION_VERSION = "0.5.7";
 const TELEMETRY_CONSENT_KEY = "mailmate-telemetry-enabled-v1";
+const TELEMETRY_NAME_CONSENT_KEY = "mailmate-telemetry-display-name-enabled-v1";
 const TELEMETRY_INSTALL_KEY = "mailmate-telemetry-installation-id-v1";
 const TELEMETRY_QUEUE_KEY = "mailmate-telemetry-pending-v1";
 const TELEMETRY_QUEUE_MAX = 250;
@@ -91,6 +92,21 @@ function safeDiagnosticCode(value) {
   return code || null;
 }
 
+function safeTelemetryDisplayName(value) {
+  if (typeof value !== "string") return null;
+  if (/[,;ÔºåÔºõ„ÄÅ]|\s+(?:and|&|Âíå)\s+/i.test(value)) return null;
+  const name = value.trim()
+    .replace(/<[^>]*>/g, " ")
+    .replace(/[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}/g, " ")
+    .replace(/https?:\/\/\S+/gi, " ")
+    .replace(/[\r\n\t]+/g, " ")
+    .replace(/\s+/g, " ")
+    .slice(0, 80)
+    .trim();
+  if (name.length < 2 || /@|https?:/i.test(name)) return null;
+  return name;
+}
+
 function parseRateLimitReset(value) {
   if (typeof value !== "string" || !value.trim()) return null;
   const source = value.trim();
@@ -141,7 +157,7 @@ async function postTelemetryPayload(payload) {
 
 async function flushTelemetryQueueUnlocked(targetEventId = null) {
   if (!TELEMETRY_ENDPOINT || !TELEMETRY_ENDPOINT.startsWith("https://")) return false;
-  const stored = await chrome.storage.local.get([TELEMETRY_CONSENT_KEY, TELEMETRY_QUEUE_KEY]);
+  const stored = await chrome.storage.local.get([TELEMETRY_CONSENT_KEY, TELEMETRY_NAME_CONSENT_KEY, TELEMETRY_QUEUE_KEY]);
   if (stored[TELEMETRY_CONSENT_KEY] === false) {
     await chrome.storage.local.remove(TELEMETRY_QUEUE_KEY);
     return false;
@@ -152,14 +168,22 @@ async function flushTelemetryQueueUnlocked(targetEventId = null) {
     .filter((item) => item && typeof item === "object" && item.payload &&
       typeof item.payload.event_id === "string" && Number(item.queued_at_ms) >= cutoff)
     .slice(-TELEMETRY_QUEUE_MAX);
+  if (stored[TELEMETRY_NAME_CONSENT_KEY] !== true) {
+    for (const item of queue) delete item.payload.display_name;
+  }
   if (queue.length !== (stored[TELEMETRY_QUEUE_KEY] || []).length) await storeTelemetryQueue(queue);
+  else if (stored[TELEMETRY_NAME_CONSENT_KEY] !== true) await storeTelemetryQueue(queue);
 
   let sentAny = false;
   while (queue.length) {
-    const consent = await chrome.storage.local.get(TELEMETRY_CONSENT_KEY);
+    const consent = await chrome.storage.local.get([TELEMETRY_CONSENT_KEY, TELEMETRY_NAME_CONSENT_KEY]);
     if (consent[TELEMETRY_CONSENT_KEY] === false) {
       await chrome.storage.local.remove(TELEMETRY_QUEUE_KEY);
       return false;
+    }
+    if (consent[TELEMETRY_NAME_CONSENT_KEY] !== true && queue[0]?.payload) {
+      delete queue[0].payload.display_name;
+      await storeTelemetryQueue(queue);
     }
     let response;
     try {
@@ -200,7 +224,7 @@ async function sendTelemetry(event) {
     return { sent: false, pending: false, reason: "not_configured" };
   }
   try {
-    const stored = await chrome.storage.local.get(TELEMETRY_CONSENT_KEY);
+    const stored = await chrome.storage.local.get([TELEMETRY_CONSENT_KEY, TELEMETRY_NAME_CONSENT_KEY]);
     if (stored[TELEMETRY_CONSENT_KEY] === false) return { sent: false, pending: false, reason: "disabled" };
     const installationId = await getInstallationId();
     const payload = {
@@ -211,6 +235,13 @@ async function sendTelemetry(event) {
     };
     for (const [key, value] of Object.entries(event)) {
       if (key === "event_type") continue;
+      if (key === "display_name") {
+        if (stored[TELEMETRY_NAME_CONSENT_KEY] === true) {
+          const displayName = safeTelemetryDisplayName(value);
+          if (displayName) payload.display_name = displayName;
+        }
+        continue;
+      }
       if (TELEMETRY_NUMBER_FIELDS.has(key) && Number.isInteger(value) && value >= 0) payload[key] = value;
       else if (TELEMETRY_STRING_FIELDS.has(key) && (typeof value === "string" || typeof value === "number")) {
         if (key === "provider_message") payload[key] = safeDiagnosticMessage(String(value));
@@ -220,7 +251,7 @@ async function sendTelemetry(event) {
     }
 
     return serializeTelemetryOperation(async () => {
-      const consent = await chrome.storage.local.get(TELEMETRY_CONSENT_KEY);
+      const consent = await chrome.storage.local.get([TELEMETRY_CONSENT_KEY, TELEMETRY_NAME_CONSENT_KEY]);
       if (consent[TELEMETRY_CONSENT_KEY] === false) return false;
       const queueState = await chrome.storage.local.get(TELEMETRY_QUEUE_KEY);
       const queue = Array.isArray(queueState[TELEMETRY_QUEUE_KEY]) ? queueState[TELEMETRY_QUEUE_KEY] : [];
@@ -236,7 +267,7 @@ async function sendTelemetry(event) {
   }
 }
 
-async function checkTelemetryAndRecordOpen(language) {
+async function checkTelemetryAndRecordOpen(language, displayName = null) {
   if (!TELEMETRY_ENDPOINT || !TELEMETRY_ENDPOINT.startsWith("https://")) {
     return { configured: false, enabled: false, workerAvailable: false, pendingEvents: 0 };
   }
@@ -259,7 +290,7 @@ async function checkTelemetryAndRecordOpen(language) {
   };
 
   const [delivery, health] = await Promise.all([
-    sendTelemetry({ event_type: "extension_opened", language: language === "zh" ? "zh" : "en" }),
+    sendTelemetry({ event_type: "extension_opened", language: language === "zh" ? "zh" : "en", display_name: displayName }),
     probeWorker()
   ]);
   const queueState = await chrome.storage.local.get(TELEMETRY_QUEUE_KEY);
@@ -281,6 +312,8 @@ chrome.runtime.onInstalled.addListener(() => { void flushTelemetryQueue(); });
 chrome.storage.onChanged.addListener((changes, areaName) => {
   if (areaName === "local" && changes[TELEMETRY_CONSENT_KEY]?.newValue === false) {
     void serializeTelemetryOperation(() => chrome.storage.local.remove(TELEMETRY_QUEUE_KEY));
+  } else if (areaName === "local" && changes[TELEMETRY_NAME_CONSENT_KEY]?.newValue !== true) {
+    void flushTelemetryQueue();
   }
 });
 
@@ -339,7 +372,7 @@ function validateAndRepair(value) {
   return value;
 }
 
-async function analyzeEmail({ apiKey, language, email }) {
+async function analyzeEmail({ apiKey, language, email, display_name: displayName = null }) {
   if (typeof apiKey !== "string" || apiKey.trim().length < 20) throw new Error("Enter a valid Groq API key.");
   if (!email || typeof email.body_text !== "string" || email.body_text.trim().length < 12) {
     throw new Error("No readable email body was provided.");
@@ -367,6 +400,8 @@ async function analyzeEmail({ apiKey, language, email }) {
     http_status: 0,
     latency_ms: 0
   };
+  const safeDisplayName = safeTelemetryDisplayName(displayName);
+  if (safeDisplayName) diagnostic.display_name = safeDisplayName;
   let telemetrySent = false;
   try {
     const response = await fetch(GROQ_ENDPOINT, {
@@ -475,7 +510,7 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
     return true;
   }
   if (message?.type === "MAILMATE_TELEMETRY_CHECK") {
-    checkTelemetryAndRecordOpen(message.payload?.language)
+    checkTelemetryAndRecordOpen(message.payload?.language, message.payload?.display_name)
       .then((status) => sendResponse({ ok: true, ...status }))
       .catch(() => sendResponse({ ok: false, configured: true, enabled: true, workerAvailable: false, pendingEvents: 0 }));
     return true;
