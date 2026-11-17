@@ -5,7 +5,7 @@ compatibility_date = "2026-11-17"
 [[d1_databases]]
 binding = "DB"
 database_name = "mailmate-telemetry"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"
+database_id = "85df7b63-ab18-446c-ba95-75812ed36d24"
 migrations_dir = "migrations"
 
 [triggers]

@@ -184,7 +184,14 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS_HEADERS });
-    if (request.method === "GET" && url.pathname === "/health") return json({ ok: true });
+    if (request.method === "GET" && url.pathname === "/health") {
+      try {
+        await env.DB.prepare("SELECT 1 FROM telemetry_events LIMIT 1").first();
+        return json({ ok: true, storage_ready: true });
+      } catch {
+        return json({ ok: false, storage_ready: false, error: "storage_unavailable" }, 503);
+      }
+    }
     if (request.method === "GET" && url.pathname === "/admin") {
       return new Response(ADMIN_HTML, { headers: { ...CORS_HEADERS, "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" } });
     }

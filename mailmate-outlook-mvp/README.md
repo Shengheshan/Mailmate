@@ -58,7 +58,7 @@ Groq 的模型访问权限、免费额度和速率限制按账户及模型而异
 
 ## 使用统计与错误诊断
 
-插件面板中的使用统计开关默认开启，可随时取消勾选。扩展已连接 Mailmate 的 Cloudflare Worker + D1 服务。部署步骤见仓库中的 [遥测后端部署说明](https://github.com/Shengheshan/Mailmate/blob/mailmate-outlook-mvp/mailmate-telemetry/README.md)。
+插件面板中的使用统计开关默认开启，可随时取消勾选。扩展已连接 Mailmate 的 Cloudflare Worker + D1 服务；遇到网络或服务端临时错误时，去标识事件会在本机短期排队，并在后续启动或使用插件时重试；关闭遥测会清除待发送队列。部署步骤见仓库中的 [遥测后端部署说明](https://github.com/Shengheshan/Mailmate/blob/mailmate-outlook-mvp/mailmate-telemetry/README.md)。
 
 启用后，Mailmate 会发送随机安装标识（可关联同一安装实例，但不包含真实姓名或邮箱）、日期、分析次数、缓存命中、扫描/跳过/失败计数、行动项总数与勾选完成数，以及 Groq 请求的状态码、错误码/类型、从邮件字段和正文片段中做过脱敏并截短的错误消息、请求 ID、模型、耗时、Token 用量和响应字符数。客户端错误仅发送阶段和类别，不发送堆栈。
 

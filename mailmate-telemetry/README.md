@@ -1,6 +1,6 @@
 # Mailmate 遥测服务（Cloudflare Worker + D1）
 
-此服务接收 Mailmate 扩展的去标识使用计数和技术诊断，不接收邮件正文、主题、发件人、邮件 ID、API Key 或模型成功生成的摘要/行动原文。扩展默认开启遥测；用户可在面板中取消勾选。当前扩展已连接到 `https://mailmate-telemetry.mailmate-telemetry-261117.workers.dev/v1/events`。
+此服务接收 Mailmate 扩展的去标识使用计数和技术诊断，不接收邮件正文、主题、发件人、邮件 ID、API Key 或模型成功生成的摘要/行动原文。扩展默认开启遥测；用户可在面板中取消勾选。当前扩展已连接到 `https://mailmate-telemetry.mailmate-telemetry-261117.workers.dev/v1/events`。网络或服务端临时失败时，扩展会在本机短期排队并在后续使用时重试；用户关闭遥测时，待发送队列会清除。
 
 ## 收集内容
 
