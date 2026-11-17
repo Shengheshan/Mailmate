@@ -1,4 +1,4 @@
-YªçŠxÁ«yÉZ­çpŠØ\¢{-ºÇ¥z×è®·š²È ¦åzö«‰¦åzÅš®x§‚œ±×œ•ªÞw­…Ê'²Û¬zW­~Šëy«,Š	ÚnW¯j¸šnW¬(() => {
+(() => {
   const HOST_ID = "mailmate-batch-host";
   const CACHE_KEY = "mailmate-analysis-cache-v1";
   const LANGUAGE_KEY = "mailmate-language-v1";

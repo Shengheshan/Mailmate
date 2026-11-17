@@ -1,4 +1,4 @@
-Y��x��y�Z��p��\�{-�ǥz�讷��Ƞ���z�����zŚ�x����ל���w���'�۬zW�~��y�,�	�nW�j��nW�# Mailmate 邮件助手
+# Mailmate 邮件助手
 
 Mailmate 是适用于 Chrome 和 Microsoft Edge 的 Outlook 网页扩展。用户在正常登录的 Outlook 邮件文件夹中点击一次“开始分析”，扩展会自动检查当前文件夹近两周的邮件项，并在结束后用右下角的列表卡片展示重要事项。
 
