@@ -959,8 +959,10 @@
     row.click();
     let lastIdentity = "";
     let stableCount = 0;
-    for (let attempt = 0; attempt < 48; attempt++) {
-      await new Promise((resolve) => setTimeout(resolve, 250));
+    // Keep the same 12s safety window while checking more often so Outlook's
+    // message pane can be detected sooner after a row click.
+    for (let attempt = 0; attempt < 100; attempt++) {
+      await new Promise((resolve) => setTimeout(resolve, 120));
       const current = extractCurrentEmail();
       if (!current) continue;
       const identity = emailIdentity(current);
@@ -1391,14 +1393,15 @@
       const estimate = estimateTokens(payloadEmail);
       await waitForProviderCapacity(estimate);
       if (stopRequested) return { stopped: true };
+      const requestStartedAt = Date.now();
+      lastRequestAt = requestStartedAt;
       response = await chrome.runtime.sendMessage({
         type: "MAILMATE_ANALYZE_CURRENT_EMAIL",
         payload: { apiKey, language, email: payloadEmail }
       });
-      lastRequestAt = Date.now();
 
       if (response?.ok) {
-        tokenWindow.push({ at: lastRequestAt, tokens: Number(response.usage?.total_tokens || estimate) });
+        tokenWindow.push({ at: requestStartedAt, tokens: Number(response.usage?.total_tokens || estimate) });
         break;
       }
 
@@ -1666,7 +1669,7 @@
           }
           const before = scrollPosition(initialScrollContainer);
           scrollDown(initialScrollContainer);
-          await delay(250);
+              await delay(200);
           if (Math.abs(scrollPosition(initialScrollContainer) - before) < 3) {
             noProgress++;
             if (noProgress >= 3) {
@@ -1734,7 +1737,7 @@
         }
         const before = scrollPosition(initialScrollContainer);
         scrollDown(initialScrollContainer);
-        await delay(250);
+        await delay(200);
         if (Math.abs(scrollPosition(initialScrollContainer) - before) < 3) {
           noProgress++;
           if (noProgress >= 3) {
@@ -1819,8 +1822,6 @@
           if (result?.stopped || stopRequested) return false;
           apiDurations.push(Math.max(1, Date.now() - requestStartedAt));
           analyzedCount++;
-          if (result.record) currentRecords.set(result.record.cache_key, result.record);
-          renderRecords();
           finishCandidate();
           return true;
         }
@@ -1853,7 +1854,7 @@
             if (atScrollEnd(initialScrollContainer)) break;
             const before = scrollPosition(initialScrollContainer);
             scrollDown(initialScrollContainer);
-            await delay(450);
+            await delay(350);
             if (Math.abs(scrollPosition(initialScrollContainer) - before) < 3) {
               analysisNoProgress++;
               if (analysisNoProgress >= 3) break;

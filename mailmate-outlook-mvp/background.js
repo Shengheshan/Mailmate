@@ -173,7 +173,7 @@ async function sendTelemetry(event) {
       event_id: crypto.randomUUID(),
       installation_id: installationId,
       event_type: event.event_type,
-      app_version: String(globalThis.MAILMATE_EXTENSION_VERSION || "0.5.1")
+      app_version: String(globalThis.MAILMATE_EXTENSION_VERSION || "0.5.2")
     };
     for (const [key, value] of Object.entries(event)) {
       if (key === "event_type") continue;
