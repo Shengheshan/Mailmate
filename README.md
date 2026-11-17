@@ -40,7 +40,7 @@ python evaluate_results.py
 
 ### 获取 Groq API Key
 
-首次使用需要准备自己的 Groq API Key：登录 [Groq Console](https://console.groq.com/)，进入 [API Keys](https://console.groq.com/keys) 创建密钥，然后在 Outlook 页面打开 Mailmate 并粘贴到密钥输入框。密钥只用于当前页面发起模型请求，不会保存到扩展缓存；请像密码一样保管，不要发给他人或提交到 GitHub。Groq 模型与免费额度可能调整，当前账户的可用模型和限额请查看 [Groq 限额说明](https://console.groq.com/docs/rate-limits)。详细操作见扩展 README。
+首次使用需要准备自己的 Groq API Key：登录 [Groq Console](https://console.groq.com/)，进入 [API Keys](https://console.groq.com/keys) 创建密钥，然后在 Outlook 页面打开 Mailmate 并粘贴到密钥输入框。密钥会自动保存在当前浏览器的插件本地存储中，刷新后仍可使用；不会发送给 Mailmate 遥测，也不会进入邮件缓存。该存储不是密码保险箱，请像密码一样保管，不要发给他人或提交到 GitHub；清空输入框即可删除。Groq 模型与免费额度可能调整，当前账户的可用模型和限额请查看 [Groq 限额说明](https://console.groq.com/docs/rate-limits)。详细操作见扩展 README。
 
 这条工作线是独立的 Chrome / Edge 扩展，读取用户正常登录后 Outlook 网页中显示的邮件，并通过 **Groq 在线 API** 分析；不使用 Ollama，也不运行上面的 180 封离线评测。
 
@@ -49,6 +49,8 @@ python evaluate_results.py
 - 每封邮件同时生成中文和英文摘要及行动内容，可即时切换语言；缓存命中时跳过重复模型调用。
 - 扩展目录、安装步骤和隐私说明见 [`mailmate-outlook-mvp/README.md`](mailmate-outlook-mvp/README.md)。
 - 去标识使用统计和 Groq 错误诊断通过 Cloudflare Worker + D1 服务实现，扩展默认开启，可在面板中关闭；不会发送邮件正文、主题、发件人或 API Key。[打开使用数据看板](https://mailmate-telemetry.mailmate-telemetry-261117.workers.dev/admin)；后端部署说明见 [`mailmate-telemetry/README.md`](mailmate-telemetry/README.md)。
+- 每次打开 Mailmate 时都会检查遥测 Worker 连通性并记录匿名打开事件，插件标题栏显示检查状态；看板每 30 秒自动刷新。若 Worker 尚未更新接受该事件，插件会显示服务端拒绝状态。
+- 分析请求已压缩双语提示词并移除模型不需要的元数据；调度按实际 Token 用量和 Groq 实时 Token 限额校准，避免用固定免费额度拖慢更高额度的账户。超长邮件可能保留首尾后压缩并在结果中标明；API 账户限额仍会影响实际耗时。
 
 **下载：** [Chrome / Edge 扩展安装包](https://github.com/Shengheshan/Mailmate/raw/refs/heads/mailmate-outlook-mvp/mailmate-outlook-mvp/Mailmate-Outlook-Extension.zip)。解压后，在浏览器扩展管理页开启“开发者模式”，加载直接包含 `manifest.json` 的文件夹。
 

@@ -2,13 +2,17 @@
   const HOST_ID = "mailmate-batch-host";
   const CACHE_KEY = "mailmate-analysis-cache-v1";
   const LANGUAGE_KEY = "mailmate-language-v1";
+  const API_KEY_KEY = "mailmate-groq-api-key-v1";
   const TELEMETRY_CONSENT_KEY = "mailmate-telemetry-enabled-v1";
   const TELEMETRY_ENDPOINT = String(globalThis.MAILMATE_TELEMETRY_ENDPOINT || "");
   const MAX_BODY_CHARS = 16000;
   const MAX_CACHE_RECORDS = 500;
   const MAX_CACHE_BYTES = 7 * 1024 * 1024;
-  const TOKEN_BUDGET_PER_MINUTE = 7300;
-  const MIN_REQUEST_GAP_MS = 2200;
+  // Current Groq project limit shown to the owner is 8K TPM / 30 RPM.
+  // Keep a 5% token reserve and stay just under the request-per-minute cap.
+  const FALLBACK_TOKEN_BUDGET_PER_MINUTE = 7600;
+  let tokenBudgetPerMinute = FALLBACK_TOKEN_BUDGET_PER_MINUTE;
+  const MIN_REQUEST_GAP_MS = 2050;
   const ROW_SELECTORS = [
     '[role="main"] [role="listbox"] [role="option"]',
     '[role="main"] [role="grid"] [role="row"]',
@@ -41,14 +45,31 @@
       chinese: "简体中文",
       english: "English",
       intro: "选择语言并输入 Groq API Key。点一次开始后，扩展会自动读取当前文件夹近两周的邮件；请保持 Outlook 按最新邮件优先排序。",
-      key: "Groq API Key（只在本次标签页内存中使用）",
+      key: "Groq API Key（保存在本浏览器的插件本地存储中）",
       consent: "我同意将近两周邮件的正文发送到 Groq（美国）进行分析。",
-      unread: "我已在 Outlook 设置中选择“不要自动标记为已读”，并确认过设置有效。",
+      guideEyebrow: "开始分析前必须完成",
+      guideTitle: "先关闭 Outlook 自动标记为已读",
+      guideIntro: "Mailmate 会逐封打开邮件读取正文。Outlook 若自动标记为已读，可能改变原本未读邮件的状态。",
+      guideSteps: ["点击“稍后去 Outlook 设置”，在 Outlook 右上角打开设置。", "进入“邮件 → 邮件处理 → 标记为已读”。", "选择“不要自动标记为已读”并保存，然后返回 Mailmate。"],
+      guideNote: "插件无法直接读取学校 Outlook 的这项设置；每次开始分析前都需要你完成并确认。",
+      guideConfirm: "我已选择并保存“不要自动标记为已读”。",
+      guideLater: "稍后去 Outlook 设置",
+      guideStart: "确认并开始分析",
       links: "同时把正文中的链接地址发送给模型（默认关闭；链接可能含个人专属信息）",
       cache: "将结构化结果、邮件正文和完成状态保存在本浏览器，供下次跳过已分析邮件并查看原文（不会发送到遥测服务；不保存 API Key）",
       telemetry: "分享给 Mailmate（Cloudflare）的使用统计与技术诊断（使用随机安装标识，含 Groq 错误码/消息、请求 ID、模型及 Token 用量；不含邮件正文、主题、发件人、API Key 或成功生成的摘要/行动）",
       telemetryNote: "默认开启。遥测记录随机安装标识、分析次数、缓存命中、行动项勾选数与技术错误。诊断日志保留 30 天，活跃统计最多保留 90 天；可随时取消勾选。",
       telemetryUnavailable: "遥测服务尚未配置；当前不会发送统计或日志。",
+      telemetryChecking: "正在检查使用统计连接…",
+      telemetryConnected: "统计服务已连接；本次打开已记录。",
+      telemetryQueued: (count) => `统计连接暂不可用，${count} 条匿名事件已在本机排队，之后会重试。`,
+      telemetryRejected: (status) => `统计服务拒绝了打开事件（HTTP ${status}）；请更新遥测 Worker 后重新部署。`,
+      telemetryOffline: "统计服务暂不可用；打开事件会在下次使用时重试。",
+      telemetryDisabled: "使用统计已关闭；本次打开不会发送统计事件。",
+      telemetryIndicatorChecking: "统计检查中",
+      telemetryIndicatorConnected: "统计已连接",
+      telemetryIndicatorProblem: "统计待处理",
+      telemetryIndicatorDisabled: "统计已关闭",
       processingTitle: "正在总结中",
       processingNote: "首次同步可能需要较长时间，耗时会随待处理邮件数量变化。请保持此标签页打开，完成后会显示汇总结果。",
       countingTitle: "正在统计近两周的邮件",
@@ -90,7 +111,6 @@
       clear: "清除本地缓存",
       needKey: "请输入有效的 Groq API Key。",
       needConsent: "请先同意将邮件正文发送给 Groq。",
-      needUnread: "请先确认 Outlook 已关闭自动标记已读。",
       noList: "没有识别到当前邮件列表。请打开 Outlook 收件箱或其他邮件文件夹后再试。",
       scanning: "正在检查邮件列表…",
       opening: (subject) => "正在打开邮件：" + subject,
@@ -152,7 +172,8 @@
       retrying: (s) => "Groq 暂时限流，" + s + " 秒后重试…",
       errPrefix: "分析遇到问题：",
       authError: "Groq 拒绝了请求。请检查 API Key、模型权限和账户设置。",
-      unreadNote: "扩展会在 Outlook 页面中逐封打开邮件。它不会主动改变已读状态，但 Outlook 的“自动标记为已读”设置必须关闭。"
+      unreadNote: "开始前会先要求确认 Outlook 已保存“不要自动标记为已读”。",
+      keyStorageNote: "API Key 只保存在此浏览器的插件本地存储中，不会发送给 Mailmate，也不会进入遥测。清空此输入框即可删除已保存的 Key。"
     },
     en: {
       brand: "Mailmate Email Assistant",
@@ -161,14 +182,31 @@
       chinese: "简体中文",
       english: "English",
       intro: "Choose a language and enter your Groq API key. Click start once to scan the current folder's last two weeks; keep Outlook sorted newest first.",
-      key: "Groq API key (kept only in this tab's memory)",
+      key: "Groq API key (saved in this browser's local extension storage)",
       consent: "I agree to send the email bodies in this range to Groq (US) for analysis.",
-      unread: "I set Outlook to “Don't automatically mark as read” and verified the setting.",
+      guideEyebrow: "Required before analysis",
+      guideTitle: "Turn off Outlook automatic mark-as-read",
+      guideIntro: "Mailmate opens emails one by one to read their contents. Outlook may otherwise change unread emails to read.",
+      guideSteps: ["Choose “Go to Outlook settings” and open Settings from Outlook's top-right corner.", "Go to Mail → Message handling → Mark as read.", "Choose “Don't automatically mark as read”, save, then return to Mailmate."],
+      guideNote: "The extension cannot inspect this school Outlook setting. You must complete and confirm it before each analysis run.",
+      guideConfirm: "I selected and saved “Don't automatically mark as read”.",
+      guideLater: "Go to Outlook settings",
+      guideStart: "Confirm and start analysis",
       links: "Also send visible link addresses to the model (off by default; links can be personal)",
       cache: "Save structured results, email bodies, and completion flags in this browser so analyzed emails can be skipped and originals previewed later (not sent to telemetry; API keys are not saved)",
       telemetry: "Share usage metrics and technical diagnostics with Mailmate (Cloudflare), using a random installation ID (Groq error code/message, request ID, model and token usage; no email text, subject, sender, API key or successful summaries/actions)",
       telemetryNote: "Enabled by default. Telemetry includes a random installation ID, analysis counts, cache hits, task checkbox counts and technical errors. Diagnostic logs are kept for 30 days; activity snapshots for up to 90 days. Turn this off any time.",
       telemetryUnavailable: "Telemetry service is not configured; no metrics or logs are being sent.",
+      telemetryChecking: "Checking the usage-statistics connection…",
+      telemetryConnected: "Telemetry is connected; this opening was recorded.",
+      telemetryQueued: (count) => `Telemetry is temporarily unavailable. ${count} anonymous event(s) are queued locally for retry.`,
+      telemetryRejected: (status) => `The telemetry service rejected the open event (HTTP ${status}). Redeploy the updated Worker.`,
+      telemetryOffline: "Telemetry is temporarily unavailable; the open event will be retried later.",
+      telemetryDisabled: "Usage statistics are off; this opening was not sent.",
+      telemetryIndicatorChecking: "Checking stats",
+      telemetryIndicatorConnected: "Stats connected",
+      telemetryIndicatorProblem: "Stats pending",
+      telemetryIndicatorDisabled: "Stats off",
       processingTitle: "Summarizing your emails",
       processingNote: "The first sync may take longer depending on the number of emails to process. Keep this tab open; your summary will appear when processing is finished.",
       countingTitle: "Counting emails from the last two weeks",
@@ -210,7 +248,6 @@
       clear: "Clear local cache",
       needKey: "Enter a valid Groq API key.",
       needConsent: "Consent to send email bodies to Groq first.",
-      needUnread: "Confirm that Outlook automatic marking as read is disabled.",
       noList: "No email list was found. Open an Outlook folder and try again.",
       scanning: "Checking the email list…",
       opening: (subject) => "Opening email: " + subject,
@@ -272,7 +309,8 @@
       retrying: (s) => "Groq is temporarily rate-limiting requests; retrying in " + s + " seconds…",
       errPrefix: "Analysis error: ",
       authError: "Groq rejected the request. Check the API key, model access, and account settings.",
-      unreadNote: "The extension opens each email in Outlook's page. It does not change read state itself, but Outlook's automatic mark-as-read setting must be disabled."
+      unreadNote: "Before starting, you must confirm Outlook saved “Don't automatically mark as read”.",
+      keyStorageNote: "The API key is stored only in this browser's local extension storage. It is not sent to Mailmate or telemetry. Clear this field to delete the saved key."
     }
   };
 
@@ -292,6 +330,7 @@
     "input[type=password],select{width:100%;padding:9px 10px;border:1px solid #ccd5e3;border-radius:8px;background:#fff;color:#17243a;font:13px system-ui,sans-serif}",
     ".check{display:flex;gap:8px;align-items:flex-start;margin:10px 0;font-size:12px;font-weight:400;color:#37465c}",
     ".check input{margin:3px 0 0;flex:0 0 auto}",
+    ".key-storage-note{margin:-2px 0 9px;color:#818b9a;font-size:10px;line-height:1.45}",
     ".buttons{display:flex;gap:8px;margin-top:12px}",
     "button.primary,button.secondary{border:0;border-radius:8px;padding:9px 11px;font:650 12px system-ui,sans-serif;cursor:pointer}",
     "button.primary{flex:1;color:#fff;background:#2457d6}",
@@ -331,6 +370,7 @@
     ".brand-icon{width:36px;height:36px;display:grid;place-items:center;border-radius:11px;color:#fff;background:linear-gradient(145deg,#7387ff,#4f68ed 64%,#4157da);font-weight:800}",
     ".brand-name{font-size:15px;font-weight:800;color:#202b3c}.brand-caption{margin-top:3px;color:#8993a3;font-size:10px}",
     ".header-summary{display:none;flex-wrap:wrap;align-items:center;gap:7px;margin-left:auto}.panel.show-results .header-summary{display:flex}",
+    ".telemetry-indicator{display:none;align-items:center;padding:4px 7px;border:1px solid #e3e8f0;border-radius:999px;color:#6e7d92;background:#f7f8fb;font-size:9px;white-space:nowrap}.telemetry-indicator.is-visible{display:inline-flex}.telemetry-indicator.ok{border-color:#cce8dc;color:#267053;background:#eff9f4}.telemetry-indicator.warn{border-color:#f0dfb7;color:#82621e;background:#fff9e9}.telemetry-indicator.off{border-color:#e3e8f0;color:#8b94a3;background:#f5f6f8}",
     ".summary-stat{padding:6px 8px;border:1px solid #edf0f5;border-radius:8px;color:#738094;background:#fff;font-size:10px;white-space:nowrap}",
     ".summary-stat strong{color:#344154;font-size:11px}",
     ".language-control{display:flex;align-items:center;gap:6px;margin:0;color:#7b8697;font-size:10px;white-space:nowrap}",
@@ -371,6 +411,7 @@
     ".results-footer{min-height:33px;display:flex;align-items:center;justify-content:space-between;gap:12px;color:#929cab;font-size:9px}",
     ".source-preview{position:fixed;z-index:30;width:min(430px,calc(100vw - 24px));max-height:min(520px,calc(100vh - 24px));overflow:auto;padding:14px;border:1px solid #e4e8f0;border-radius:12px;color:#354154;background:#fff;box-shadow:0 16px 46px #25345430;font:11px/1.6 system-ui,sans-serif}.source-preview[hidden]{display:none}.preview-title{color:#253248;font-size:12px;font-weight:700}.preview-meta,.preview-note{margin-top:4px;color:#8d97a6;font-size:9px}.preview-section-title{margin-top:11px;color:#59677d;font-size:10px;font-weight:750}.preview-summary{margin-top:5px;padding:9px;border-radius:7px;background:#f5f7fc;color:#26344b;font-size:11px;white-space:pre-wrap;overflow-wrap:anywhere}.preview-body{max-height:230px;overflow:auto;margin-top:5px;padding:10px;border:1px solid #e9ecf2;border-radius:7px;background:#fcfcfd;white-space:pre-wrap;overflow-wrap:anywhere}.preview-body mark{background:#fff0bd;color:#725016}.issue-list{display:grid;gap:9px}.issue-item{padding:10px;border:1px solid #e8ebf1;border-radius:8px;background:#fff}.issue-heading{display:flex;align-items:flex-start;gap:7px}.issue-kind{flex:0 0 auto;padding:2px 6px;border-radius:99px;background:#fff4db;color:#845d16;font-size:9px;font-weight:700}.issue-kind.failed{background:#ffefed;color:#a54033}.issue-subject{color:#2e3b50;font-size:11px;font-weight:700;overflow-wrap:anywhere}.issue-meta{margin:4px 0 0;color:#8c97a8;font-size:9px}.issue-reason{margin:6px 0 0;color:#566377;font-size:10px;overflow-wrap:anywhere}",
     ".modal-layer{position:fixed;z-index:40;inset:0;display:grid;place-items:center;padding:24px;background:#15213b66}.modal-layer[hidden]{display:none}.message-modal{width:min(780px,calc(100vw - 32px));max-height:min(80vh,760px);display:flex;flex-direction:column;overflow:hidden;border:1px solid #e5e8f0;border-radius:14px;background:#fff;box-shadow:0 24px 70px #111b33a0}.modal-header{display:flex;justify-content:space-between;gap:12px;padding:16px 18px;border-bottom:1px solid #edf0f5}.modal-title{font-size:14px;font-weight:700}.modal-meta{margin-top:4px;color:#8490a0;font-size:10px}.modal-body{overflow:auto;padding:18px;color:#354154;font-size:12px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}.modal-close{border:0;background:transparent;font-size:22px;cursor:pointer}.modal-footer{padding:10px 18px;border-top:1px solid #edf0f5;color:#929cab;font-size:10px}",
+    ".unread-guide-layer{position:fixed;z-index:2147483647;inset:0;display:grid;place-items:center;padding:20px;background:#15213bb8;font:14px/1.5 system-ui,sans-serif}.unread-guide-layer[hidden]{display:none!important}.unread-guide{width:min(520px,calc(100vw - 32px));max-height:min(90vh,760px);overflow:auto;padding:25px;border:1px solid #e2e7f0;border-radius:16px;background:#fff;box-shadow:0 24px 80px #07152b66}.guide-eyebrow{margin:0;color:#5769d9;font-size:11px;font-weight:800;letter-spacing:.04em}.guide-title{margin:7px 0 0;color:#243149;font-size:19px;line-height:1.3}.guide-intro{margin:10px 0 0;color:#637086;font-size:12px}.guide-steps{display:grid;gap:9px;margin:18px 0;padding:0;list-style:none;counter-reset:guide-step}.guide-steps li{position:relative;padding:10px 11px 10px 39px;border-radius:9px;background:#f5f7fb;color:#35445b;font-size:12px}.guide-steps li:before{counter-increment:guide-step;content:counter(guide-step);position:absolute;left:11px;top:9px;width:19px;height:19px;display:grid;place-items:center;border-radius:50%;color:#4058c9;background:#e5eaff;font-size:10px;font-weight:800}.guide-note{padding:9px 11px;border-left:3px solid #e1a839;border-radius:5px;background:#fff8e7;color:#73571e;font-size:11px}.guide-confirm{margin:16px 0 12px!important;font-weight:600!important}.guide-confirm input{accent-color:#4e62d8}.guide-actions{display:flex;gap:9px}.guide-actions .secondary,.guide-actions .primary{min-height:40px}.guide-actions .secondary{flex:0 0 auto}",
     "@media(max-width:720px){.panel.show-results{right:8px;bottom:8px;width:calc(100vw - 16px);height:calc(100vh - 16px)}.panel .card-header{gap:7px;padding:10px}.brand-lockup{min-width:0}.header-summary{display:none}.language-control span{display:none}.content{padding:0 9px 8px}.toolbar{gap:6px}.sort-note{display:none}.search-box{width:100%;max-width:none}.results-table{min-width:1060px}}"
   ].join("\n");
 
@@ -386,7 +427,7 @@
     '<section class="panel" hidden>',
     ' <header class="card-header">',
     '  <div class="brand-lockup"><div class="brand-icon">M</div><div><div class="brand-name"></div><div class="brand-caption"></div></div></div>',
-    '  <div class="header-summary"></div>',
+    '  <div class="header-summary"></div><span class="telemetry-indicator" role="status" aria-live="polite"></span>',
     '  <label class="language-control"><span class="language-label"></span><select class="language"><option value="zh"></option><option value="en"></option></select></label>',
     '  <div class="window-actions"><button class="minimize" type="button" aria-label="Minimize">−</button><button class="close" type="button" aria-label="Close">×</button></div>',
     ' </header>',
@@ -394,9 +435,8 @@
     '  <section class="setup-view">',
     '  <p class="hint intro"></p>',
     '  <div class="setup-controls">',
-    '  <label class="key-label"></label><input class="api-key" type="password" autocomplete="off" spellcheck="false">',
+    '  <label class="key-label"></label><input class="api-key" type="password" autocomplete="off" spellcheck="false"><p class="key-storage-note"></p>',
     '  <label class="check"><input class="consent" type="checkbox"><span class="consent-text"></span></label>',
-    '  <label class="check"><input class="unread-confirm" type="checkbox"><span class="unread-text"></span></label>',
     '  <label class="check"><input class="send-links" type="checkbox"><span class="links-text"></span></label>',
     '  <label class="check"><input class="cache-enabled" type="checkbox" checked><span class="cache-text"></span></label>',
     '  <label class="check"><input class="telemetry-enabled" type="checkbox" checked><span class="telemetry-text"></span></label>',
@@ -421,7 +461,8 @@
     '  <div class="source-preview" role="tooltip" hidden></div>',
     '  <div class="modal-layer" hidden><section class="message-modal" role="dialog" aria-modal="true"><header class="modal-header"><div><div class="modal-title"></div><div class="modal-meta"></div></div><button class="modal-close" type="button" aria-label="Close">×</button></header><div class="modal-body"></div><footer class="modal-footer"></footer></section></div>',
     ' </div>',
-    '</section>'
+    '</section>',
+    '<div class="unread-guide-layer" hidden><section class="unread-guide" role="dialog" aria-modal="true" aria-labelledby="unread-guide-title"><p class="guide-eyebrow"></p><h2 class="guide-title" id="unread-guide-title"></h2><p class="guide-intro"></p><ol class="guide-steps"><li></li><li></li><li></li></ol><p class="guide-note"></p><label class="check guide-confirm"><input type="checkbox" class="guide-confirm-input"><span class="guide-confirm-text"></span></label><div class="guide-actions"><button class="secondary guide-later" type="button"></button><button class="primary guide-start" type="button" disabled></button></div></section></div>'
   ].join("");
   shadow.append(style, root);
 
@@ -440,7 +481,9 @@
   const filterButtons = [...root.querySelectorAll(".filter-button")];
   const keyInput = $(".api-key");
   const consentInput = $(".consent");
-  const unreadInput = $(".unread-confirm");
+  const unreadGuideLayer = $(".unread-guide-layer");
+  const unreadGuideConfirm = $(".guide-confirm-input");
+  const unreadGuideStart = $(".guide-start");
   const linksInput = $(".send-links");
   const cacheInput = $(".cache-enabled");
   const telemetryInput = $(".telemetry-enabled");
@@ -466,10 +509,16 @@
   let activePreviewTrigger = null;
   let lastRequestAt = 0;
   let tokenWindow = [];
+  let providerRemainingTokens = null;
+  let providerTokenResetAt = 0;
+  let promptOverheadEstimate = 500;
+  const promptOverheadSamples = [];
   let currentProgress = null;
   let batchIssues = [];
   let terminalErrorMessage = "";
   let preservePartialResults = false;
+  let apiKeySaveTimer = 0;
+  let telemetryCheckResult = null;
 
   function makeText(tag, className, value) {
     const element = document.createElement(tag);
@@ -490,12 +539,20 @@
     languageSelect.value = language;
     $(".intro").textContent = t.intro;
     $(".key-label").textContent = t.key;
+    $(".key-storage-note").textContent = t.keyStorageNote;
     $(".consent-text").textContent = t.consent;
-    $(".unread-text").textContent = t.unread;
+    $(".guide-eyebrow").textContent = t.guideEyebrow;
+    $(".guide-title").textContent = t.guideTitle;
+    $(".guide-intro").textContent = t.guideIntro;
+    root.querySelectorAll(".guide-steps li").forEach((step, index) => { step.textContent = t.guideSteps[index] || ""; });
+    $(".guide-note").textContent = t.guideNote;
+    $(".guide-confirm-text").textContent = t.guideConfirm;
+    $(".guide-later").textContent = t.guideLater;
+    unreadGuideStart.textContent = t.guideStart;
     $(".links-text").textContent = t.links;
     $(".cache-text").textContent = t.cache;
     $(".telemetry-text").textContent = t.telemetry;
-    $(".telemetry-note").textContent = TELEMETRY_ENDPOINT ? t.telemetryNote : t.telemetryUnavailable;
+    renderTelemetryNote();
     telemetryInput.disabled = running;
     $(".processing-title").textContent = t.processingTitle;
     $(".processing-note").textContent = t.processingNote;
@@ -505,6 +562,7 @@
     stopButton.textContent = t.stop;
     clearButton.textContent = t.clear;
     $(".unread-note").textContent = t.unreadNote;
+    unreadGuideStart.disabled = !unreadGuideConfirm.checked;
     searchInput.placeholder = t.search;
     const headings = root.querySelectorAll(".results-table thead th");
     t.columns.forEach((label, index) => { headings[index].textContent = label; });
@@ -520,6 +578,90 @@
     $(".empty-state span").textContent = t.searchHint;
     $(".modal-close").setAttribute("aria-label", language === "zh" ? "关闭" : "Close");
     renderRecords();
+  }
+
+  function showUnreadGuide() {
+    unreadGuideConfirm.checked = false;
+    unreadGuideStart.disabled = true;
+    unreadGuideLayer.hidden = false;
+    unreadGuideConfirm.focus();
+  }
+
+  function persistApiKeySoon() {
+    window.clearTimeout(apiKeySaveTimer);
+    apiKeySaveTimer = window.setTimeout(() => { void persistApiKeyNow(); }, 350);
+  }
+
+  async function persistApiKeyNow() {
+    window.clearTimeout(apiKeySaveTimer);
+    const apiKey = keyInput.value.trim();
+    try {
+      if (apiKey) await chrome.storage.local.set({ [API_KEY_KEY]: apiKey });
+      else await chrome.storage.local.remove(API_KEY_KEY);
+    } catch { /* Keep the current run usable even when browser storage is unavailable. */ }
+  }
+
+  function renderTelemetryNote() {
+    const t = strings[language];
+    const result = telemetryCheckResult;
+    let note = "";
+    let label = "";
+    let tone = "";
+    if (!result) {
+      note = TELEMETRY_ENDPOINT ? t.telemetryNote : t.telemetryUnavailable;
+    } else if (result.checking) {
+      note = t.telemetryChecking;
+      label = t.telemetryIndicatorChecking;
+      tone = "warn";
+    } else if (!result.configured) {
+      note = t.telemetryUnavailable;
+      label = t.telemetryIndicatorProblem;
+      tone = "warn";
+    } else if (!result.enabled) {
+      note = t.telemetryDisabled;
+      label = t.telemetryIndicatorDisabled;
+      tone = "off";
+    } else if (result.eventRejected) {
+      note = t.telemetryRejected(result.eventStatus || 400);
+      label = t.telemetryIndicatorProblem;
+      tone = "warn";
+    } else if (result.workerAvailable && result.eventSent) {
+      note = t.telemetryConnected;
+      label = t.telemetryIndicatorConnected;
+      tone = "ok";
+    } else if (result.pendingEvents > 0) {
+      note = t.telemetryQueued(result.pendingEvents);
+      label = t.telemetryIndicatorProblem;
+      tone = "warn";
+    } else {
+      note = t.telemetryOffline;
+      label = t.telemetryIndicatorProblem;
+      tone = "warn";
+    }
+    $(".telemetry-note").textContent = note;
+    const indicator = $(".telemetry-indicator");
+    indicator.textContent = label;
+    indicator.title = note;
+    indicator.className = "telemetry-indicator" + (label ? ` is-visible ${tone}` : "");
+  }
+
+  async function checkTelemetryOnOpen() {
+    if (!TELEMETRY_ENDPOINT) {
+      telemetryCheckResult = { configured: false };
+      renderTelemetryNote();
+      return;
+    }
+    telemetryCheckResult = { checking: true };
+    renderTelemetryNote();
+    try {
+      telemetryCheckResult = await chrome.runtime.sendMessage({
+        type: "MAILMATE_TELEMETRY_CHECK",
+        payload: { language }
+      });
+    } catch {
+      telemetryCheckResult = { configured: Boolean(TELEMETRY_ENDPOINT), enabled: true, workerAvailable: false, pendingEvents: 0 };
+    }
+    renderTelemetryNote();
   }
 
   function showSettingsView() {
@@ -980,8 +1122,67 @@
     return null;
   }
 
+  function estimateTextTokens(value) {
+    let cjk = 0;
+    let other = 0;
+    for (const character of String(value || "")) {
+      if (/[\u3400-\u9fff\uf900-\ufaff]/u.test(character)) cjk++;
+      else other++;
+    }
+    return cjk * 1.05 + other / 3.8;
+  }
+
   function estimateTokens(email) {
-    return Math.ceil(email.body_text.length / 3.8) + 900;
+    const metadata = { ...email };
+    delete metadata.body_text;
+    const requestContentEstimate = estimateTextTokens(email.body_text) + estimateTextTokens(JSON.stringify(metadata));
+    return Math.ceil(requestContentEstimate + promptOverheadEstimate + 250);
+  }
+
+  function updateTokenBudget(rateLimits) {
+    const providerLimit = Number(rateLimits?.tokenLimit);
+    if (Number.isFinite(providerLimit) && providerLimit > 0) {
+      // Keep a small reserve for tokenizer variance and account-wide requests from other apps.
+      tokenBudgetPerMinute = Math.max(300, Math.floor(providerLimit * 0.95));
+    }
+    const remaining = rateLimits?.remainingTokens == null ? Number.NaN : Number(rateLimits.remainingTokens);
+    if (Number.isFinite(remaining) && remaining >= 0) providerRemainingTokens = remaining;
+    const resetSeconds = rateLimits?.tokenResetSeconds == null ? Number.NaN : Number(rateLimits.tokenResetSeconds);
+    providerTokenResetAt = Number.isFinite(resetSeconds) && resetSeconds > 0
+      ? Date.now() + resetSeconds * 1000 + 100
+      : 0;
+  }
+
+  function calibrateTokenEstimate(email, usage) {
+    const promptTokens = Number(usage?.prompt_tokens);
+    if (!Number.isFinite(promptTokens) || promptTokens <= 0) return;
+    const metadata = { ...email };
+    delete metadata.body_text;
+    const contentEstimate = estimateTextTokens(email.body_text) + estimateTextTokens(JSON.stringify(metadata));
+    const overhead = promptTokens - contentEstimate;
+    if (overhead < 200 || overhead > 1800) return;
+    promptOverheadSamples.push(overhead);
+    if (promptOverheadSamples.length > 12) promptOverheadSamples.shift();
+    const sorted = [...promptOverheadSamples].sort((a, b) => a - b);
+    const upperQuartile = sorted[Math.min(sorted.length - 1, Math.floor(sorted.length * 0.75))];
+    promptOverheadEstimate = Math.max(350, Math.min(1000, Math.ceil(upperQuartile)));
+  }
+
+  function fitBodyToTokenBudget(email, budget) {
+    if (estimateTokens(email) <= budget) return false;
+    const original = String(email.body_text || "");
+    const characters = Array.from(original);
+    if (characters.length <= 1200) return false;
+    let low = 1200;
+    let high = characters.length - 1;
+    while (low < high) {
+      const middle = Math.ceil((low + high) / 2);
+      email.body_text = clipBodyForRetry(original, middle);
+      if (estimateTokens(email) <= budget) low = middle;
+      else high = middle - 1;
+    }
+    email.body_text = clipBodyForRetry(original, low);
+    return true;
   }
 
   function clipBodyForRetry(value, maxChars) {
@@ -1000,10 +1201,13 @@
       tokenWindow = tokenWindow.filter((item) => now - item.at < 60000);
       const used = tokenWindow.reduce((sum, item) => sum + item.tokens, 0);
       const rpmWait = Math.max(0, MIN_REQUEST_GAP_MS - (now - lastRequestAt));
-      const tpmWait = used + estimate > TOKEN_BUDGET_PER_MINUTE && tokenWindow.length
+      const tpmWait = used + estimate > tokenBudgetPerMinute && tokenWindow.length
         ? Math.max(0, tokenWindow[0].at + 60000 - now + 100)
         : 0;
-      const wait = Math.max(rpmWait, tpmWait);
+      const providerWait = providerRemainingTokens !== null && estimate > providerRemainingTokens && providerTokenResetAt > now
+        ? providerTokenResetAt - now
+        : 0;
+      const wait = Math.max(rpmWait, tpmWait, providerWait);
       if (wait <= 0) return;
       setStatus(strings[language].waiting);
       await new Promise((resolve) => setTimeout(resolve, Math.min(wait, 1000)));
@@ -1375,21 +1579,22 @@
 
   async function analyzeOne(email, descriptor, receivedDate, cacheKey, apiKey) {
     const payloadEmail = {
-      message_id: email.message_id,
       subject: email.subject,
       sender: email.sender,
-      received_at: email.received_at || (receivedDate ? receivedDate.toISOString() : null),
-      timezone: email.timezone,
       body_text: email.body_text,
       links: linksInput.checked
         ? email.links.slice(0, 5).map((link) => ({ label: link.label.slice(0, 180), url: link.url.slice(0, 512) }))
-        : email.links.slice(0, 20).map((link) => ({ label: link.label.slice(0, 180) }))
+        : []
     };
     let response = null;
     let sizeRetries = 0;
     let quotaRetried = false;
     let truncatedForProvider = false;
     while (true) {
+      if (!truncatedForProvider && fitBodyToTokenBudget(payloadEmail, tokenBudgetPerMinute)) {
+        truncatedForProvider = true;
+        setStatus(strings[language].payloadRetry(payloadEmail.body_text.length));
+      }
       const estimate = estimateTokens(payloadEmail);
       await waitForProviderCapacity(estimate);
       if (stopRequested) return { stopped: true };
@@ -1399,8 +1604,10 @@
         type: "MAILMATE_ANALYZE_CURRENT_EMAIL",
         payload: { apiKey, language, email: payloadEmail }
       });
+      updateTokenBudget(response?.rateLimits);
 
       if (response?.ok) {
+        calibrateTokenEstimate(payloadEmail, response.usage);
         tokenWindow.push({ at: requestStartedAt, tokens: Number(response.usage?.total_tokens || estimate) });
         break;
       }
@@ -1479,7 +1686,6 @@
     languageSelect.disabled = isBusy;
     keyInput.disabled = isBusy;
     consentInput.disabled = isBusy;
-    unreadInput.disabled = isBusy;
     linksInput.disabled = isBusy;
     cacheInput.disabled = isBusy;
     telemetryInput.disabled = isBusy;
@@ -1571,13 +1777,15 @@
     return { action_total: tasks.length, action_completed: tasks.filter((record) => record.completed).length };
   }
 
-  async function runBatch() {
+  async function runBatch({ unreadConfirmed = false } = {}) {
     if (running) return;
     const t = strings[language];
     if (!consentInput.checked) return setStatus(t.needConsent, "error");
-    if (!unreadInput.checked) return setStatus(t.needUnread, "error");
     const apiKey = keyInput.value.trim();
     if (apiKey.length < 20) return setStatus(t.needKey, "error");
+    try { await chrome.storage.local.set({ [API_KEY_KEY]: apiKey }); }
+    catch { /* Saving is best-effort; do not block an otherwise valid analysis. */ }
+    if (!unreadConfirmed) return showUnreadGuide();
 
     const selector = chooseRowSelector();
     if (!selector) return setStatus(t.noList, "error");
@@ -1933,7 +2141,11 @@
     return descriptor && isSelectedRow(descriptor.element);
   }
 
-  launcher.addEventListener("click", () => { panel.hidden = !panel.hidden; });
+  launcher.addEventListener("click", () => {
+    const opening = panel.hidden;
+    panel.hidden = !panel.hidden;
+    if (opening) void checkTelemetryOnOpen();
+  });
   $(".close").addEventListener("click", () => { panel.hidden = true; });
   $(".minimize").addEventListener("click", () => { panel.classList.toggle("is-minimized"); });
   $(".settings-open").addEventListener("click", () => {
@@ -1953,6 +2165,17 @@
     setLanguage(languageSelect.value);
     chrome.storage.local.set({ [LANGUAGE_KEY]: language }).catch(() => {});
   });
+  keyInput.addEventListener("input", persistApiKeySoon);
+  keyInput.addEventListener("change", () => { void persistApiKeyNow(); });
+  unreadGuideConfirm.addEventListener("change", () => {
+    unreadGuideStart.disabled = !unreadGuideConfirm.checked;
+  });
+  $(".guide-later").addEventListener("click", () => { unreadGuideLayer.hidden = true; });
+  unreadGuideStart.addEventListener("click", () => {
+    if (!unreadGuideConfirm.checked) return;
+    unreadGuideLayer.hidden = true;
+    void runBatch({ unreadConfirmed: true });
+  });
   $(".modal-close").addEventListener("click", () => { $(".modal-layer").hidden = true; });
   $(".modal-layer").addEventListener("click", (event) => {
     if (event.target === $(".modal-layer")) $(".modal-layer").hidden = true;
@@ -1967,21 +2190,25 @@
   });
   root.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
+      if (!unreadGuideLayer.hidden) return;
       $(".modal-layer").hidden = true;
       $(".source-preview").hidden = true;
     }
   });
-  startButton.addEventListener("click", () => { runBatch(); });
+  startButton.addEventListener("click", () => { void runBatch(); });
   stopButton.addEventListener("click", () => { stopRequested = true; setStatus(strings[language].stopped); });
   $(".processing-stop").addEventListener("click", () => { stopRequested = true; setStatus(strings[language].stopped); });
   clearButton.addEventListener("click", () => { clearCache(); });
   telemetryInput.addEventListener("change", () => {
     chrome.storage.local.set({ [TELEMETRY_CONSENT_KEY]: telemetryInput.checked }).catch(() => {});
+    telemetryCheckResult = telemetryInput.checked ? null : { configured: true, enabled: false };
+    renderTelemetryNote();
   });
 
-  chrome.storage.local.get([LANGUAGE_KEY, TELEMETRY_CONSENT_KEY]).then((value) => {
+  chrome.storage.local.get([LANGUAGE_KEY, TELEMETRY_CONSENT_KEY, API_KEY_KEY]).then((value) => {
     if (value && (value[LANGUAGE_KEY] === "zh" || value[LANGUAGE_KEY] === "en")) setLanguage(value[LANGUAGE_KEY]);
     telemetryInput.checked = value?.[TELEMETRY_CONSENT_KEY] !== false;
+    keyInput.value = typeof value?.[API_KEY_KEY] === "string" ? value[API_KEY_KEY] : "";
   }).catch(() => {});
 
   setLanguage(language);

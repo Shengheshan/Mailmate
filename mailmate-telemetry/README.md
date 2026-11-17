@@ -4,7 +4,7 @@
 
 ## 收集内容
 
-- 活跃情况：随机安装标识（可关联同一扩展安装实例，但不包含真实姓名或邮箱）、收到事件的时间、分析开始及任务勾选活动。
+- 活跃情况：随机安装标识（可关联同一扩展安装实例，但不包含真实姓名或邮箱）、收到事件的时间、Mailmate 打开、分析开始及任务勾选活动。每次展开插件面板会记录一次打开事件，并检查 Worker 与 D1 是否可用。
 - 使用情况：近两周扫描数、新分析数、缓存命中、跳过/失败数、任务行动总数与插件内勾选完成数。
 - Groq 诊断：HTTP 状态、错误码/类型/经过截短和基本脱敏的错误消息、请求 ID、模型名、请求耗时、Token 用量、响应字符数和解析/结构校验失败类别。
 - 客户端问题：有限的错误阶段和错误类别，不采集 JavaScript 堆栈或邮件页面内容。
@@ -57,8 +57,10 @@
 
 Wrangler 会输出 Worker URL。当前公开扩展包已经配置了上述 Mailmate Worker。若要改用你自己的 Worker，请将 `/v1/events` 地址写入 `mailmate-outlook-mvp/telemetry-config.js`，并把对应域名加入 `mailmate-outlook-mvp/manifest.json` 的 `host_permissions`，然后重新生成安装包；普通用户无需修改源码。
 
+更新已有 Worker 时，在此目录运行 `npx wrangler@latest deploy` 即可；本次加入的插件打开事件不需要新的 D1 数据库迁移。Worker 需要先部署，再加载更新后的扩展包，否则服务端会拒绝尚未登记的 `extension_opened` 事件。
+
 ## 查看指标和错误日志
 
-当前数据看板入口：[打开 Mailmate 使用数据看板](https://mailmate-telemetry.mailmate-telemetry-261117.workers.dev/admin)。输入部署时设置的 `ADMIN_TOKEN` 后，可查看近 24 小时 / 7 天 / 30 天匿名活跃安装、分析次数、行动勾选率、Groq 错误分组、客户端错误类别和模型 Token 用量。管理员口令只保留在页面内存中，不会写入浏览器存储。
+当前数据看板入口：[打开 Mailmate 使用数据看板](https://mailmate-telemetry.mailmate-telemetry-261117.workers.dev/admin)。输入部署时设置的 `ADMIN_TOKEN` 后，可查看近 24 小时 / 7 天 / 30 天匿名活跃安装、插件打开次数、分析次数、行动勾选率、Groq 错误分组、客户端错误类别和模型 Token 用量。看板页面打开时每 30 秒自动刷新；管理员口令只保留在页面内存中，不会写入浏览器存储。
 
 `/v1/admin/summary` 受管理员口令保护。扩展写入事件的 `/v1/events` 不需要嵌入共享密钥，因此任何人都可能伪造匿名统计；这些数据适合判断趋势，不适合作为计费或审计依据。
