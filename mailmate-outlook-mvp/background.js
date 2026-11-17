@@ -2,7 +2,7 @@ importScripts("telemetry-config.js");
 const GROQ_ENDPOINT = "https://api.groq.com/openai/v1/chat/completions";
 const TELEMETRY_ENDPOINT = String(globalThis.MAILMATE_TELEMETRY_ENDPOINT || "https://mailmate-telemetry.mailmate-telemetry-261117.workers.dev/v1/events");
 const TELEMETRY_HEALTH_ENDPOINT = TELEMETRY_ENDPOINT.replace(/\/v1\/events\/?$/, "/health");
-const MAILMATE_EXTENSION_VERSION = "0.5.5";
+const MAILMATE_EXTENSION_VERSION = "0.5.6";
 const TELEMETRY_CONSENT_KEY = "mailmate-telemetry-enabled-v1";
 const TELEMETRY_INSTALL_KEY = "mailmate-telemetry-installation-id-v1";
 const TELEMETRY_QUEUE_KEY = "mailmate-telemetry-pending-v1";

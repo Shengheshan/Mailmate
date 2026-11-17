@@ -51,10 +51,11 @@
       guideEyebrow: "首次使用设置",
       guideTitles: ["打开 Outlook 设置", "选择邮件", "打开邮件处理", "关闭自动标记为已读", "确认设置并开始"],
       guideInstructions: ["点击 Outlook 页面右上角齿轮。红框会标出位置。", "在设置侧栏中点击“邮件”。", "在邮件设置列表中点击“邮件处理”。", "选择“不自动将邮件标记为已读”。请确认该选项已选中。", "请确认上方选项已选中。完成后点击按钮，Mailmate 会记住这次设置确认。"],
-      guideNote: "分析时 Outlook 可能逐封打开邮件。此指引只需完成一次；插件无法读取或代替你更改 Outlook 的此项设置。",
+      guideNote: "这是右下角提示卡片，不会遮挡页面或拦截 Outlook 操作。此指引只需完成一次；插件无法读取或代替你更改这项设置。",
       guideStepLabel: (step, total) => `步骤 ${step} / ${total}`,
       guideCancel: "取消",
       guideBack: "上一步",
+      guideNext: "下一步",
       guideComplete: "我已完成设置，开始分析",
       guideSaveError: "无法保存设置确认，请检查浏览器扩展存储权限后重试。",
       links: "同时把正文中的链接地址发送给模型（默认关闭；链接可能含个人专属信息）",
@@ -189,10 +190,11 @@
       guideEyebrow: "First-use setup",
       guideTitles: ["Open Outlook settings", "Choose Mail", "Open Mail handling", "Turn off automatic mark-as-read", "Confirm and start"],
       guideInstructions: ["Click the gear in the top-right corner of Outlook. The red frame marks it.", "In the settings sidebar, select Mail.", "In the Mail settings list, select Message handling.", "Select “Don't automatically mark email as read” and make sure it is selected.", "Confirm the option above is selected. Click below when done; Mailmate will remember this confirmation."],
-      guideNote: "Outlook may open messages one by one during analysis. This guide is required once; the extension cannot inspect or change this Outlook setting for you.",
+      guideNote: "This prompt stays in the bottom-right and does not block Outlook. You only need to complete it once; the extension cannot inspect or change this setting for you.",
       guideStepLabel: (step, total) => `Step ${step} / ${total}`,
       guideCancel: "Cancel",
       guideBack: "Back",
+      guideNext: "Next",
       guideComplete: "I finished setup; start analysis",
       guideSaveError: "Could not save the setting confirmation. Check extension storage access and try again.",
       links: "Also send visible link addresses to the model (off by default; links can be personal)",
@@ -423,7 +425,12 @@
   const shadow = host.attachShadow({ mode: "closed" });
   document.documentElement.append(host);
   const style = document.createElement("style");
-  style.textContent = styles;
+  style.textContent = styles + "\n" + [
+    ".unread-guide-layer{position:fixed;z-index:2147483647;inset:auto 22px 22px auto;display:block;width:min(510px,calc(100vw - 32px));padding:0;background:transparent;pointer-events:none}",
+    ".unread-guide-layer[hidden]{display:none!important}.guide-shield,.guide-live-ring{display:none!important}",
+    ".unread-guide{position:relative;right:auto;bottom:auto;width:100%;max-height:min(88vh,760px);pointer-events:auto}",
+    "@media(max-width:600px){.unread-guide-layer{inset:auto 8px 8px auto;width:calc(100vw - 16px)}.unread-guide{right:auto;bottom:auto;width:100%;padding:15px}}"
+  ].join("\n");
   const root = document.createElement("div");
   root.innerHTML = [
     '<button class="launcher" type="button"></button>',
@@ -465,7 +472,7 @@
     '  <div class="modal-layer" hidden><section class="message-modal" role="dialog" aria-modal="true"><header class="modal-header"><div><div class="modal-title"></div><div class="modal-meta"></div></div><button class="modal-close" type="button" aria-label="Close">×</button></header><div class="modal-body"></div><footer class="modal-footer"></footer></section></div>',
     ' </div>',
     '</section>',
-    '<div class="unread-guide-layer" hidden><div class="guide-shield guide-shield-top"></div><div class="guide-shield guide-shield-left"></div><div class="guide-shield guide-shield-right"></div><div class="guide-shield guide-shield-bottom"></div><div class="guide-live-ring" hidden aria-hidden="true"></div><section class="unread-guide" role="dialog" aria-modal="true" aria-labelledby="unread-guide-title"><div class="guide-heading"><p class="guide-eyebrow"></p><span class="guide-counter"></span></div><h2 class="guide-title" id="unread-guide-title"></h2><p class="guide-intro"></p><div class="guide-image-stage"><div class="guide-image-wrap"><img class="guide-image" alt=""><span class="guide-preview-highlight" aria-hidden="true"></span></div></div><p class="guide-note"></p><div class="guide-actions"><button class="secondary guide-cancel" type="button"></button><button class="secondary guide-back" type="button" disabled></button><button class="primary guide-start" type="button" disabled></button></div></section></div>'
+    '<div class="unread-guide-layer" hidden><section class="unread-guide" role="dialog" aria-labelledby="unread-guide-title"><div class="guide-heading"><p class="guide-eyebrow"></p><span class="guide-counter"></span></div><h2 class="guide-title" id="unread-guide-title"></h2><p class="guide-intro"></p><div class="guide-image-stage"><div class="guide-image-wrap"><img class="guide-image" alt=""><span class="guide-preview-highlight" aria-hidden="true"></span></div></div><p class="guide-note"></p><div class="guide-actions"><button class="secondary guide-cancel" type="button"></button><button class="secondary guide-back" type="button" disabled></button><button class="primary guide-start" type="button"></button></div></section></div>'
   ].join("");
   shadow.append(style, root);
 
@@ -487,13 +494,6 @@
   const unreadGuideLayer = $(".unread-guide-layer");
   const unreadGuideStart = $(".guide-start");
   const unreadGuideBack = $(".guide-back");
-  const unreadGuideRing = $(".guide-live-ring");
-  const unreadGuideShields = {
-    top: $(".guide-shield-top"),
-    left: $(".guide-shield-left"),
-    right: $(".guide-shield-right"),
-    bottom: $(".guide-shield-bottom")
-  };
   const linksInput = $(".send-links");
   const cacheInput = $(".cache-enabled");
   const telemetryInput = $(".telemetry-enabled");
@@ -530,7 +530,6 @@
   let apiKeySaveTimer = 0;
   let telemetryCheckResult = null;
   let unreadGuideStage = -1;
-  let unreadGuideAdvanceTimer = 0;
 
   const guideImageUrls = {
     gear: chrome.runtime.getURL("assets/outlook-settings-gear.png"),
@@ -595,20 +594,11 @@
 
   function showUnreadGuide() {
     unreadGuideLayer.hidden = false;
-    document.addEventListener("click", handleUnreadGuidePageClick, true);
-    document.addEventListener("keydown", blockUnreadGuideBackgroundKeys, true);
-    window.addEventListener("resize", updateUnreadGuideFocus, { passive: true });
-    root.addEventListener("keydown", trapUnreadGuideTab, true);
     setUnreadGuideStage(0);
     $(".guide-cancel").focus();
   }
 
   function closeUnreadGuide() {
-    window.clearTimeout(unreadGuideAdvanceTimer);
-    document.removeEventListener("click", handleUnreadGuidePageClick, true);
-    document.removeEventListener("keydown", blockUnreadGuideBackgroundKeys, true);
-    window.removeEventListener("resize", updateUnreadGuideFocus);
-    root.removeEventListener("keydown", trapUnreadGuideTab, true);
     unreadGuideLayer.hidden = true;
     unreadGuideStage = -1;
   }
@@ -616,7 +606,6 @@
   function setUnreadGuideStage(stage) {
     unreadGuideStage = Math.max(0, Math.min(4, stage));
     renderUnreadGuideStage();
-    updateUnreadGuideFocus();
   }
 
   function renderUnreadGuideStage() {
@@ -630,8 +619,7 @@
     $(".guide-intro").textContent = instructions[unreadGuideStage];
     $(".guide-note").textContent = t.guideNote;
     unreadGuideBack.disabled = unreadGuideStage === 0;
-    unreadGuideStart.disabled = unreadGuideStage !== 4;
-    unreadGuideStart.textContent = t.guideComplete;
+    unreadGuideStart.textContent = unreadGuideStage === 4 ? t.guideComplete : t.guideNext;
     const stage = $(".guide-image-stage");
     const image = $(".guide-image");
     if (unreadGuideStage === 0) {
@@ -643,132 +631,6 @@
       image.src = guideImageUrls.mail;
       image.alt = language === "zh" ? "Outlook 邮件处理设置路径，红框闪烁提示位置" : "Outlook Mail handling settings path, highlighted in red";
     }
-  }
-
-  function unreadGuideCandidateText(element) {
-    const labels = element.labels ? [...element.labels].map((label) => label.textContent || "").join(" ") : "";
-    return [element.getAttribute("aria-label"), element.getAttribute("title"), element.getAttribute("data-testid"), labels, element.textContent]
-      .filter(Boolean).join(" ").replace(/\s+/g, " ").trim();
-  }
-
-  function isPageElementVisible(element) {
-    if (!(element instanceof Element) || element.closest(`#${HOST_ID}`)) return false;
-    const rect = element.getBoundingClientRect();
-    if (rect.width < 1 || rect.height < 1 || rect.bottom < 0 || rect.right < 0 || rect.top > innerHeight || rect.left > innerWidth) return false;
-    const style = getComputedStyle(element);
-    return style.display !== "none" && style.visibility !== "hidden" && Number(style.opacity) !== 0;
-  }
-
-  function guideClickableElement(element) {
-    if (element.matches('input[type="radio"]')) return element.labels?.[0] || element.parentElement || element;
-    return element.closest('button,[role="button"],[role="tab"],[role="treeitem"],[role="radio"],a,label') || element;
-  }
-
-  function findUnreadGuideTarget(stage) {
-    const selectors = 'button,[role="button"],[role="tab"],[role="treeitem"],[role="radio"],label,input[type="radio"],a,[aria-label],[title]';
-    const candidates = [...document.querySelectorAll(selectors)].filter(isPageElementVisible);
-    let matcher;
-    if (stage === 0) {
-      matcher = (element, text) => /settings|设置/i.test(text) && element.getBoundingClientRect().top < 160 && element.getBoundingClientRect().left > innerWidth * 0.62;
-    } else if (stage === 1) {
-      matcher = (element, text) => /^(邮件|mail)$/i.test(text) && element.getBoundingClientRect().left > innerWidth * 0.12 && element.getBoundingClientRect().left < innerWidth * 0.68;
-    } else if (stage === 2) {
-      matcher = (element, text) => /^(邮件处理|message handling|mail handling)$/i.test(text) && element.getBoundingClientRect().left > innerWidth * 0.12 && element.getBoundingClientRect().left < innerWidth * 0.68;
-    } else if (stage === 3) {
-      matcher = (_element, text) => /(不自动|不要自动|don't automatically|do not automatically|never automatically).*?(邮件|email|message)?.*?标记为已读|((don't|do not|never) automatically).*?mark.*?read/i.test(text);
-    } else return null;
-    const matches = candidates.filter((element) => matcher(element, unreadGuideCandidateText(element)));
-    matches.sort((left, right) => {
-      const a = left.getBoundingClientRect();
-      const b = right.getBoundingClientRect();
-      return (a.width * a.height) - (b.width * b.height);
-    });
-    const element = matches[0];
-    if (!element) return null;
-    const clickable = guideClickableElement(element);
-    return isPageElementVisible(clickable) ? clickable : element;
-  }
-
-  function unreadGuideFallbackRect(stage) {
-    const w = innerWidth;
-    const h = innerHeight;
-    const ratios = [
-      [0.955, 0.015, 0.04, 0.075],
-      [0.205, 0.15, 0.115, 0.055],
-      [0.30, 0.405, 0.14, 0.085],
-      [0.395, 0.18, 0.205, 0.165]
-    ][stage];
-    if (!ratios) return null;
-    return { left: w * ratios[0], top: h * ratios[1], width: w * ratios[2], height: h * ratios[3] };
-  }
-
-  function setGuideShield(element, left, top, width, height) {
-    element.style.left = `${Math.max(0, left)}px`;
-    element.style.top = `${Math.max(0, top)}px`;
-    element.style.width = `${Math.max(0, width)}px`;
-    element.style.height = `${Math.max(0, height)}px`;
-  }
-
-  function updateUnreadGuideFocus() {
-    if (unreadGuideLayer.hidden) return;
-    const target = unreadGuideStage < 4 ? findUnreadGuideTarget(unreadGuideStage) : null;
-    const rect = target?.getBoundingClientRect() || unreadGuideFallbackRect(unreadGuideStage);
-    const viewportWidth = innerWidth;
-    const viewportHeight = innerHeight;
-    if (!rect) {
-      setGuideShield(unreadGuideShields.top, 0, 0, viewportWidth, viewportHeight);
-      setGuideShield(unreadGuideShields.left, 0, 0, 0, 0);
-      setGuideShield(unreadGuideShields.right, 0, 0, 0, 0);
-      setGuideShield(unreadGuideShields.bottom, 0, 0, 0, 0);
-      unreadGuideRing.hidden = true;
-      return;
-    }
-    const padding = 7;
-    const left = Math.max(0, rect.left - padding);
-    const top = Math.max(0, rect.top - padding);
-    const right = Math.min(viewportWidth, rect.right + padding);
-    const bottom = Math.min(viewportHeight, rect.bottom + padding);
-    setGuideShield(unreadGuideShields.top, 0, 0, viewportWidth, top);
-    setGuideShield(unreadGuideShields.left, 0, top, left, bottom - top);
-    setGuideShield(unreadGuideShields.right, right, top, viewportWidth - right, bottom - top);
-    setGuideShield(unreadGuideShields.bottom, 0, bottom, viewportWidth, viewportHeight - bottom);
-    unreadGuideRing.hidden = false;
-    unreadGuideRing.style.left = `${left}px`;
-    unreadGuideRing.style.top = `${top}px`;
-    unreadGuideRing.style.width = `${right - left}px`;
-    unreadGuideRing.style.height = `${bottom - top}px`;
-  }
-
-  function handleUnreadGuidePageClick(event) {
-    if (unreadGuideLayer.hidden || unreadGuideStage >= 4 || event.composedPath().includes(host)) return;
-    const target = findUnreadGuideTarget(unreadGuideStage);
-    const rect = target?.getBoundingClientRect() || unreadGuideFallbackRect(unreadGuideStage);
-    if (!rect) return;
-    const padding = 9;
-    if (event.clientX < rect.left - padding || event.clientX > rect.right + padding || event.clientY < rect.top - padding || event.clientY > rect.bottom + padding) return;
-    const stage = unreadGuideStage;
-    window.clearTimeout(unreadGuideAdvanceTimer);
-    unreadGuideAdvanceTimer = window.setTimeout(() => {
-      if (unreadGuideStage === stage) setUnreadGuideStage(stage + 1);
-    }, stage === 0 ? 650 : 250);
-  }
-
-  function blockUnreadGuideBackgroundKeys(event) {
-    if (unreadGuideLayer.hidden || event.composedPath().includes(host)) return;
-    event.preventDefault();
-    event.stopImmediatePropagation();
-  }
-
-  function trapUnreadGuideTab(event) {
-    if (unreadGuideLayer.hidden || event.key !== "Tab") return;
-    const controls = [...unreadGuideLayer.querySelectorAll("button:not(:disabled)")];
-    if (!controls.length) return;
-    const currentIndex = controls.indexOf(event.target);
-    const nextIndex = event.shiftKey
-      ? (currentIndex <= 0 ? controls.length - 1 : currentIndex - 1)
-      : (currentIndex < 0 || currentIndex === controls.length - 1 ? 0 : currentIndex + 1);
-    event.preventDefault();
-    controls[nextIndex].focus();
   }
 
   function persistApiKeySoon() {
@@ -2361,6 +2223,10 @@
     if (unreadGuideStage > 0) setUnreadGuideStage(unreadGuideStage - 1);
   });
   unreadGuideStart.addEventListener("click", () => {
+    if (unreadGuideStage < 4) {
+      setUnreadGuideStage(unreadGuideStage + 1);
+      return;
+    }
     if (unreadGuideStage !== 4) return;
     chrome.storage.local.set({ [READ_STATE_CONFIRMED_KEY]: true }).then(() => {
       closeUnreadGuide();
@@ -2383,7 +2249,10 @@
   });
   root.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
-      if (!unreadGuideLayer.hidden) return;
+      if (!unreadGuideLayer.hidden) {
+        closeUnreadGuide();
+        return;
+      }
       $(".modal-layer").hidden = true;
       $(".source-preview").hidden = true;
     }
